@@ -10,20 +10,17 @@ You can install this package by running the following command in your ST2 Packag
     
     git clone git://github.com/szensk/subllualove.git
 
-Features
-========
-
 Error checking
 --------------
 By default any Lua file will be run through luac -p and the first encountered error is outlined. The error is displayed in the status bar.
 
-To disable this behavior set: 
+To disable this behavior
 
     "live_parser": false 
 	
 in LuaLove > User Settings. 
 
-To change the outline to a more subtle dot or circle in the gutter set:
+To change the outline to a more subtle dot or circle in the gutter
 
     "live_parser_style": "{dot|circle|outline}"
 	
@@ -31,7 +28,7 @@ in LuaLove > User Settings.
 
 Syntax highlighting
 -------------------
-View > Syntax and set the syntax of your open file to "Lua (Love)" to enable highlighting for the Love2D API functions. Alternatively use the Command Palette: Set Syntax: Lua (Love).
+Command Palette: Set Syntax: Lua (Love).
 
 If you create a new pixel effect, and make the argument a multi-line string, then Sublime will use C syntax highlighting for the GLSL content.
 
