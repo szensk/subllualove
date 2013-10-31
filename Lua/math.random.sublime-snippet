@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[math.random(${1:m}, ${2:n})]]></content>
+    <tabTrigger>math.random</tabTrigger>
+    <scope>source.lua</scope>
+    <description>([m [, n]])</description>
+</snippet>

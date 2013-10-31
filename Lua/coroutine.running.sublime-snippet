@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[coroutine.running ()]]></content>
+    <tabTrigger>coroutine.running</tabTrigger>
+    <scope>source.lua</scope>
+    <description>()</description>
+</snippet>

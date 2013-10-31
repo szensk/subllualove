@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[os.difftime(${1:t2}, ${2:t1})]]></content>
+    <tabTrigger>os.difftime</tabTrigger>
+    <scope>source.lua</scope>
+    <description>(t2, t1)</description>
+</snippet>

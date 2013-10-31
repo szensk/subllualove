@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[os.remove(${1:filename})]]></content>
+    <tabTrigger>os.remove</tabTrigger>
+    <scope>source.lua</scope>
+    <description>(filename)</description>
+</snippet>

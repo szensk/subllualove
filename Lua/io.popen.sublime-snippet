@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[io.popen(${1:prog}, ${2:mode})]]></content>
+    <tabTrigger>io.popen</tabTrigger>
+    <scope>source.lua</scope>
+    <description>(prog [, mode])</description>
+</snippet>

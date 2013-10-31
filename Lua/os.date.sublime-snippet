@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[os.date(${1:format}, ${2:time})]]></content>
+    <tabTrigger>os.date</tabTrigger>
+    <scope>source.lua</scope>
+    <description>([format [, time]])</description>
+</snippet>

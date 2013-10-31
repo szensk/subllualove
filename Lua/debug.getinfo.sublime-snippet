@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[debug.getinfo(${1:thread}, ${2:function}, ${3:what})]]></content>
+    <tabTrigger>debug.getinfo</tabTrigger>
+    <scope>source.lua</scope>
+    <description>([thread,] function [, what])</description>
+</snippet>

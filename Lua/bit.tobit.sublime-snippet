@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[bit.tobit(${1:x})]]></content>
+    <tabTrigger>bit.tobit</tabTrigger>
+    <scope>source.lua</scope>
+    <description>(x)</description>
+</snippet>

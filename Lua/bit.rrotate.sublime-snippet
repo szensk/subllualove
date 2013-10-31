@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[bit.ror(${1:x}, ${2:disp})]]></content>
+    <tabTrigger>bit.ror</tabTrigger>
+    <scope>source.lua</scope>
+    <description>(x, disp)</description>
+</snippet>

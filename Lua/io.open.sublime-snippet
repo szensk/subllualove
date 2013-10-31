@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[io.open(${1:filename}, ${2:mode})]]></content>
+    <tabTrigger>io.open</tabTrigger>
+    <scope>source.lua</scope>
+    <description>(filename [, mode])</description>
+</snippet>

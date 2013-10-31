@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[module(${1:name}, ${2:...})]]></content>
+    <tabTrigger>module</tabTrigger>
+    <scope>source.lua</scope>
+    <description>(name [, ...])</description>
+</snippet>

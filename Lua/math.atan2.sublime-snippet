@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[math.atan2(${1:y}, ${2:x})]]></content>
+    <tabTrigger>math.atan2</tabTrigger>
+    <scope>source.lua</scope>
+    <description>(y, x)</description>
+</snippet>

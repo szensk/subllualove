@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[debug.getuservalue(${1:u})]]></content>
+    <tabTrigger>debug.getuservalue</tabTrigger>
+    <scope>source.lua</scope>
+    <description>(u)</description>
+</snippet>

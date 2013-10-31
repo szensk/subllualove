@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[tostring(${1:e})]]></content>
+    <tabTrigger>tostring</tabTrigger>
+    <scope>source.lua</scope>
+    <description>(e)</description>
+</snippet>

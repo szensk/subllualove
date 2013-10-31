@@ -1,0 +1,5 @@
+{
+    "live_parser" : true,
+    "live_parser_style": "outline",
+    "luac_path": "luac"
+}

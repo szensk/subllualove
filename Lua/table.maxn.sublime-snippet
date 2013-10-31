@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[table.maxn(${1:table})]]></content>
+    <tabTrigger>table.maxn</tabTrigger>
+    <scope>source.lua</scope>
+    <description>(table)</description>
+</snippet>

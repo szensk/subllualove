@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[debug.setupvalue(${1:func}, ${2:up}, ${3:value})]]></content>
+    <tabTrigger>debug.setupvalue</tabTrigger>
+    <scope>source.lua</scope>
+    <description>(func, up, value)</description>
+</snippet>

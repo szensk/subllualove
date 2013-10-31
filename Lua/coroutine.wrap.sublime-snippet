@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[coroutine.wrap(${1:f})]]></content>
+    <tabTrigger>coroutine.wrap</tabTrigger>
+    <scope>source.lua</scope>
+    <description>(f)</description>
+</snippet>

@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[string.format(${1:formatstring}, ${2:...})]]></content>
+    <tabTrigger>string.format</tabTrigger>
+    <scope>source.lua</scope>
+    <description>(formatstring, ...)</description>
+</snippet>

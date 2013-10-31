@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[string.reverse(${1:s})]]></content>
+    <tabTrigger>string.reverse</tabTrigger>
+    <scope>source.lua</scope>
+    <description>(s)</description>
+</snippet>

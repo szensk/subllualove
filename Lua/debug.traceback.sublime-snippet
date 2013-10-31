@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[debug.traceback(${1:thread}, ${2:message}, ${3:level})]]></content>
+    <tabTrigger>debug.traceback</tabTrigger>
+    <scope>source.lua</scope>
+    <description>([thread,] [message [, level]])</description>
+</snippet>

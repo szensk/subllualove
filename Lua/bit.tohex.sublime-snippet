@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[bit.tohex(${1:x}, ${2:digits})]]></content>
+    <tabTrigger>bit.tohex</tabTrigger>
+    <scope>source.lua</scope>
+    <description>(x, digits)</description>
+</snippet>

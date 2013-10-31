@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[debug.setuservalue(${1:udata}, ${2:value})]]></content>
+    <tabTrigger>debug.setuservalue</tabTrigger>
+    <scope>source.lua</scope>
+    <description>(udata, value)</description>
+</snippet>

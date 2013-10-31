@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[local ${1:success}, ${2:res} = pcall(${3:func}${4:, ...})]]></content>
+    <tabTrigger>pcall</tabTrigger>
+    <scope>source.lua</scope>
+    <description>pcall(func, ...)</description>
+</snippet>

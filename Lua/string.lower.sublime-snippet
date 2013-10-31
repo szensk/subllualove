@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[string.lower(${1:s})]]></content>
+    <tabTrigger>string.lower</tabTrigger>
+    <scope>source.lua</scope>
+    <description>(s)</description>
+</snippet>

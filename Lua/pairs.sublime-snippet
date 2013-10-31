@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[pairs(${1:t})]]></content>
+    <tabTrigger>pairs</tabTrigger>
+    <scope>source.lua</scope>
+    <description>(t)</description>
+</snippet>

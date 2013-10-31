@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[bit.lshift(${1:x}, ${2:disp})]]></content>
+    <tabTrigger>bit.lshift</tabTrigger>
+    <scope>source.lua</scope>
+    <description>(x, disp)</description>
+</snippet>

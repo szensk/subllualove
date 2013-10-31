@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[os.execute(${1:command})]]></content>
+    <tabTrigger>os.execute</tabTrigger>
+    <scope>source.lua</scope>
+    <description>([command])</description>
+</snippet>

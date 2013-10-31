@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[collectgarbage(${1:opt}, ${2:arg})]]></content>
+    <tabTrigger>collectgarbage</tabTrigger>
+    <scope>source.lua</scope>
+    <description>([opt [, arg]])</description>
+</snippet>

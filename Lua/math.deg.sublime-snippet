@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[math.deg(${1:x})]]></content>
+    <tabTrigger>math.deg</tabTrigger>
+    <scope>source.lua</scope>
+    <description>(x)</description>
+</snippet>

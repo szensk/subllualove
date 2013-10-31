@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[setfenv(${1:f}, ${2:table})]]></content>
+    <tabTrigger>setfenv</tabTrigger>
+    <scope>source.lua</scope>
+    <description>(f, table)</description>
+</snippet>

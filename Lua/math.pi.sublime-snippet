@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[math.pi]]></content>
+    <tabTrigger>math.pi</tabTrigger>
+    <scope>source.lua</scope>
+    <description>math.pi</description>
+</snippet>

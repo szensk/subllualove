@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[local ${1:library} = require("${2:name}")]]></content>
+    <tabTrigger>lreq</tabTrigger>
+    <scope>source.lua</scope>
+    <description>local require(module)</description>
+</snippet>

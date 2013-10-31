@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[debug.getfenv(${1:o})]]></content>
+    <tabTrigger>debug.getfenv</tabTrigger>
+    <scope>source.lua</scope>
+    <description>(o)</description>
+</snippet>

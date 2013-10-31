@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[os.getenv(${1:varname})]]></content>
+    <tabTrigger>os.getenv</tabTrigger>
+    <scope>source.lua</scope>
+    <description>(varname)</description>
+</snippet>

@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[function(${1:...})
+	${0:--todo}
+end]]></content>
+    <tabTrigger>funcl</tabTrigger>
+    <scope>source.lua</scope>
+    <description>anonymous function</description>
+</snippet>

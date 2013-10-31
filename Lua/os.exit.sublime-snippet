@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[os.exit(${1:code})]]></content>
+    <tabTrigger>os.exit</tabTrigger>
+    <scope>source.lua</scope>
+    <description>([code])</description>
+</snippet>

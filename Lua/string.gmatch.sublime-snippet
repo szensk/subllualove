@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[string.gmatch(${1:s}, ${2:pattern})]]></content>
+    <tabTrigger>string.gmatch</tabTrigger>
+    <scope>source.lua</scope>
+    <description>(s, pattern)</description>
+</snippet>
