@@ -1,5 +1,5 @@
 {
-    "name": "Lua Love",
+    "name": "LuaLove",
     "scopeName": "source.lua",
     "fileTypes": [
         "lua"

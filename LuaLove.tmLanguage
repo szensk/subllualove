@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>comment</key>
-	<string>Lua + Love2D</string>
+	<string>LuaLove</string>
 	<key>fileTypes</key>
 	<array>
 		<string>lua</string>
