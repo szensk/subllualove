@@ -10,7 +10,7 @@
     		"shell": true,
     		"windows": {
     			"shell": false,
-    			"cmd": ["$packages/SublimeLove/Windows/love-build.bat"]
+    			"cmd": ["$packages/Lua Love/Windows/love-build.bat"]
     		}
 		},
 		{	"name": "Run",
