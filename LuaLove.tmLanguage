@@ -167,7 +167,7 @@
 		<key>love-pixel-effect</key>
 		<dict>
 			<key>begin</key>
-			<string>(love\.graphics\.newPixelEffect)\(*\s*(?&lt;!--)(\[(=*)\[)</string>
+			<string>(love\.graphics\.newShader)\(*\s*(?&lt;!--)(\[(=*)\[)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
