@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[ @relase ${1:text}]]></content>
+    <tabTrigger>release</tabTrigger>
+    <scope>comment.line.double-dash.lua</scope>
+    <description>ldoc @release text</description>
+</snippet>
