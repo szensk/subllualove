@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[ @function ${1:name}]]></content>
+    <tabTrigger>function</tabTrigger>
+    <scope>comment.line.double-dash.lua</scope>
+    <description>ldoc @function name</description>
+</snippet>

@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[ @classmod ${0:class}]]></content>
+    <tabTrigger>classmod</tabTrigger>
+    <scope>comment.line.double-dash.lua</scope>
+    <description>ldoc @classmod class</description>
+</snippet>

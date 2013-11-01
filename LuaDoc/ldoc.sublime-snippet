@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[--- ${1:desc}
+-- ${1:param}
+-- ${2:return}]]></content>
+    <tabTrigger>---</tabTrigger>
+    <scope>source.lua</scope>
+    <description>ldoc function stub</description>
+</snippet>

@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[ @error ${1:message}]]></content>
+    <tabTrigger>error</tabTrigger>
+    <scope>comment.line.double-dash.lua</scope>
+    <description>ldoc @error message</description>
+</snippet>

@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[ @within ${0:Metamethods}]]></content>
+    <tabTrigger>within</tabTrigger>
+    <scope>comment.line.double-dash.lua</scope>
+    <description>ldoc @withing Metamethods</description>
+</snippet>
