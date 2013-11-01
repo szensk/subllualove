@@ -25,6 +25,8 @@ in LuaLove > User Settings.
 
 Syntax highlighting
 -------------------
+![alt text](http://i.imgur.com/OEESOtU.png "syntax hightlighting")
+
 Command Palette: Set Syntax: Lua (Love).
 
 If you create a new shader, and make the argument a multi-line string, then Sublime will use C syntax highlighting for the GLSL content.

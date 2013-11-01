@@ -18,7 +18,7 @@
                             {
                                 "command": "open_file", "args":
                                 {
-                                    "file": "${packages}/LuaLove/LuaLove.sublime-settings"
+                                    "file": "${packages}/Lua Love/LuaLove.sublime-settings"
                                 },
                                 "caption": "Settings – Default"
                             },
