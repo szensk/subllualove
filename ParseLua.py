@@ -6,6 +6,7 @@ from subprocess import Popen, PIPE
 class ParseLuaCommand(sublime_plugin.EventListener):
 
 	TIMEOUT_MS = 200
+	ST = 3000 if sublime.version() == '' else int(sublime.version())
 
 	def __init__(self):
 		self.pending = 0
@@ -18,7 +19,10 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 		if not filename or not filename.endswith('.lua'):
 			return
 		self.pending = self.pending + 1
-		sublime.set_timeout(lambda: self.parse(view), self.TIMEOUT_MS)
+		if ST < 3000:
+			sublime.set_timeout(lambda: self.parse(view), self.TIMEOUT_MS)
+		else:
+			sublime.set_async_timeout(lambda: self.async_parse(view), self.TIMEOUT_MS)
 
 	def parse(self, view):
 		# Don't bother parsing if there's another parse command pending
@@ -26,7 +30,7 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 		if self.pending > 0:
 			return
 		# Grab the path to luac from the settings
-		luac_path = self.settings.get("luac_path")
+		luac_path = self.settings.get("luac_path", "luac")
 		# Run luac with the parse option
 		p = Popen(luac_path + ' -p -', stdin=PIPE, stderr=PIPE, shell=True)
 		text = view.substr(sublime.Region(0, view.size()))
