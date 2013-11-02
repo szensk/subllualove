@@ -11,7 +11,7 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 	def __init__(self):
 		self.pending = 0
 
-	def on_modified(self, view):
+	def onchange(self, view):
 		self.settings = sublime.load_settings("LuaLove.sublime-settings")
 		if not self.settings.get("live_parser"):
 			return
@@ -19,10 +19,18 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 		if not filename or not filename.endswith('.lua'):
 			return
 		self.pending = self.pending + 1
-		if ST < 3000:
-			sublime.set_timeout(lambda: self.parse(view), self.TIMEOUT_MS)
-		else:
-			sublime.set_async_timeout(lambda: self.async_parse(view), self.TIMEOUT_MS)
+
+	def on_modified(self, view):
+		if self.ST >= 3000:
+			return
+		self.onchange(view)
+		sublime.set_timeout(lambda: self.parse(view), self.TIMEOUT_MS)
+
+	def on_modified_async(self, view):
+		if self.ST < 3000:
+			return
+		self.onchange(view)
+		sublime.set_timeout_async(lambda: self.parse(view), self.TIMEOUT_MS)
 
 	def parse(self, view):
 		# Don't bother parsing if there's another parse command pending
@@ -51,7 +59,7 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 		# view.add_regions('lua', regions, 'invalid', 'DOT', sublime.HIDDEN)
 		style = self.settings.get("live_parser_style")
 		if style == "outline":
-			view.add_regions('lua', regions, 'invalid', sublime.DRAW_OUTLINED | sublime.PERSISTENT)
+			view.add_regions('lua', regions, 'invalid', '', sublime.DRAW_OUTLINED | sublime.PERSISTENT)
 		elif style == "dot":
 			view.add_regions('lua', regions, 'invalid', 'DOT', sublime.HIDDEN)
 		elif style == "circle":
