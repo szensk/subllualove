@@ -58,11 +58,14 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 		pattern = re.compile(r':([0-9]+):')
 		regions = [view.full_line(view.text_point(int(match) - 1, 0)) for match in pattern.findall(errors)]
 		# view.add_regions('lua', regions, 'invalid', 'DOT', sublime.HIDDEN)
+		persistent = 0
+		if self.settings.get("live_parser_persistent", False):
+			persistent = sublime.PERSISTENT
 		style = self.settings.get("live_parser_style")
 		if style == "outline":
-			view.add_regions('lua', regions, 'invalid', '', sublime.DRAW_OUTLINED | sublime.PERSISTENT)
+			view.add_regions('lua', regions, 'invalid', '', sublime.DRAW_OUTLINED | persistent)
 		elif style == "dot":
-			view.add_regions('lua', regions, 'invalid', 'DOT', sublime.HIDDEN)
+			view.add_regions('lua', regions, 'invalid', 'DOT', sublime.HIDDEN | persistent)
 		elif style == "circle":
-			view.add_regions('lua', regions, 'invalid', 'CIRCLE', sublime.HIDDEN)
+			view.add_regions('lua', regions, 'invalid', 'CIRCLE', sublime.HIDDEN | persistent)
 

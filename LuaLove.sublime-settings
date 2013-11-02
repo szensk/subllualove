@@ -1,5 +1,6 @@
 {
     "live_parser" : true,
     "live_parser_style": "outline",
+    "live_parser_persistent": false,
     "luac_path": "luac"
 }

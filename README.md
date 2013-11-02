@@ -18,9 +18,15 @@ By default any Lua file will be run through luac -p and the fir`st encountered e
 
 To disable or change this behavior
 
-    "live_parser": false 
-    "live_parser_style": "{dot|circle|outline}"
-	
+```json
+{
+   	"live_parser": false,
+   	"live_parser_style": "{dot|circle|outline}",
+   	"live_parser_persistent:" false,
+   	"luac_path": "luac"
+}
+```
+
 in LuaLove > User Settings. 
 
 Syntax highlighting
