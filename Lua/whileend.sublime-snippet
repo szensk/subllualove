@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[while ${1:cond} do
+	${0:--do}
+end]]></content>
+    <tabTrigger>while</tabTrigger>
+    <scope>source.lua</scope>
+    <description>while cond</description>
+</snippet>

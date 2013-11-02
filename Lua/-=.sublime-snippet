@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[ ${1:var} = ${1:var} - ${2:1} ]]></content>
+    <tabTrigger>-=</tabTrigger>
+    <scope>source.lua</scope>
+    <description>decrement</description>
+</snippet>

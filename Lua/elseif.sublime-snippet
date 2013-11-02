@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[elseif ${1:cond} then
+    ${2:--do}
+${3:end}]]></content>
+    <tabTrigger>elseif</tabTrigger>
+    <scope>source.lua</scope>
+    <description>elseif cond then</description>
+</snippet>

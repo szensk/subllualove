@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[else
+    ${2:--do}
+${3:end}]]></content>
+    <tabTrigger>else</tabTrigger>
+    <scope>source.lua</scope>
+    <description>else end</description>
+</snippet>

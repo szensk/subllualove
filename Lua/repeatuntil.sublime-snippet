@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[repeat
+	${2:--do}
+until ${1:cond}]]></content>
+    <tabTrigger>repeat</tabTrigger>
+    <scope>source.lua</scope>
+    <description>repeat until cond</description>
+</snippet>
