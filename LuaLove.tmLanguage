@@ -64,6 +64,10 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#lua-variable</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#lua-support</string>
 		</dict>
 		<dict>
@@ -315,6 +319,13 @@
 			</dict>
 			<key>name</key>
 			<string>string.quoted.other.multiline.lua</string>
+		</dict>
+		<key>lua-variable</key>
+		<dict>
+			<key>match</key>
+			<string>([A-Za-z_][A-Za-z0-9_\.]*)</string>
+			<key>name</key>
+			<string>variable.other.lua</string>
 		</dict>
 		<key>string-single</key>
 		<dict>
