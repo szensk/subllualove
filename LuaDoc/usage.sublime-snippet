@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[ @usage ${1:desc}]]></content>
-    <tabTrigger>usage</tabTrigger>
-    <scope>comment.line.double-dash.lua</scope>
-    <description>ldoc @usage (dsec)</description>
-</snippet>

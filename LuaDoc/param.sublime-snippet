@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[ @param ${1:type} ${2:name} ${3:desc}]]></content>
-    <tabTrigger>param</tabTrigger>
-    <scope>comment.line.double-dash.lua</scope>
-    <description>ldoc @param type, name, [desc]</description>
-</snippet>

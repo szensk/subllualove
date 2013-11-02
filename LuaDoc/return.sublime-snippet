@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[ @return ${1:type} ${2:name} ${3:desc}]]></content>
-    <tabTrigger>return</tabTrigger>
-    <scope>comment.line.double-dash.lua</scope>
-    <description>ldoc @return type, name, [desc]</description>
-</snippet>

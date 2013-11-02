@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[ @field ${1:desc}]]></content>
-    <tabTrigger>field</tabTrigger>
-    <scope>comment.line.double-dash.lua</scope>
-    <description>ldoc @field desc</description>
-</snippet>

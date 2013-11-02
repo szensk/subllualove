@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[ @copyright ${1:company}, ${2:2013}]]></content>
-    <tabTrigger>copyright</tabTrigger>
-    <scope>comment.line.double-dash.lua</scope>
-    <description>ldoc @copyright company year</description>
-</snippet>

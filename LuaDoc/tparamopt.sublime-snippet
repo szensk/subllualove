@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[ @tparam[opt=${1:default}] ${2:type} ${3:name} ${4:[desc]}]]></content>
-    <tabTrigger>tparamopt</tabTrigger>
-    <scope>comment.line.double-dash.lua</scope>
-    <description>ldoc @tparam[opt] type, name, [desc]</description>
-</snippet>

@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[ @see ${1:var}]]></content>
-    <tabTrigger>see</tabTrigger>
-    <scope>comment.line.double-dash.lua</scope>
-    <description>ldoc @see var</description>
-</snippet>
