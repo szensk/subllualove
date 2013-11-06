@@ -64,10 +64,6 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#lua-variable</string>
-		</dict>
-		<dict>
-			<key>include</key>
 			<string>#lua-support</string>
 		</dict>
 		<dict>
@@ -85,6 +81,10 @@
 		<dict>
 			<key>include</key>
 			<string>#lua-love</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#lua-variable</string>
 		</dict>
 	</array>
 	<key>repository</key>
@@ -245,7 +245,7 @@
 			<key>match</key>
 			<string>(?&lt;![^.]\.|:)\b(self)\b</string>
 			<key>name</key>
-			<string>variable.language.self.lua</string>
+			<string>constant.language.lua</string>
 		</dict>
 		<key>lua-support</key>
 		<dict>
@@ -320,13 +320,6 @@
 			<key>name</key>
 			<string>string.quoted.other.multiline.lua</string>
 		</dict>
-		<key>lua-variable</key>
-		<dict>
-			<key>match</key>
-			<string>([A-Za-z_][A-Za-z0-9_\.]*)</string>
-			<key>name</key>
-			<string>variable.other.lua</string>
-		</dict>
 		<key>string-single</key>
 		<dict>
 			<key>begin</key>
@@ -360,6 +353,13 @@
 					<string>constant.character.escape.lua</string>
 				</dict>
 			</array>
+		</dict>
+		<key>lua-variable</key>
+		<dict>
+			<key>match</key>
+			<string>([A-Za-z_][A-Za-z0-9_\.]*)</string>
+			<key>name</key>
+			<string>variable.other.lua</string>
 		</dict>
 	</dict>
 	<key>scopeName</key>
