@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[ self.${1:var} = ${1:var} or ${2:1} ]]></content>
+    <tabTrigger>@=</tabTrigger>
+    <scope>source.lua</scope>
+    <description>self.var = var or default</description>
+</snippet>
