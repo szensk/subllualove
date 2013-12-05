@@ -31,7 +31,7 @@ in LuaLove > User Settings.
 
 Syntax highlighting
 -------------------
-![alt text](http://i.imgur.com/OEESOtU.png "syntax hightlighting")
+![alt text](https://i.imgur.com/OEESOtU.png "syntax hightlighting")
 
 Command Palette: Set Syntax: Lua (Love).
 

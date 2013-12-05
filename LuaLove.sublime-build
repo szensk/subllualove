@@ -1,20 +1,11 @@
 {
 	"file_regex": "^(?:(?:\t)|(?:.+: ))(.+):([0-9]+): (.*)$",
-	"selector": "source.lua.love",
+	"selector": "source.lua",
 	"cmd": ["lua", "$file"],
 
 	"variants": [
-		{	"name": "Love: Project",
-			"cmd": ["for depth in {0..5}; do if [ -f main.lua ]; then love .; fi; cd ..; done"],
-   			"selector": "source.lua.love",
-    		"shell": true,
-    		"windows": {
-    			"shell": false,
-    			"cmd": ["$packages/Lua Love/Windows/love-build.bat"]
-    		}
-		},
 		{	"name": "Run",
-			"cmd": ["luajit", "$file"]
+			"cmd": ["lua", "$file"]
 		},
 		{   "name": "ldoc: File",
 			"shell": true,
