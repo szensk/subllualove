@@ -5,8 +5,11 @@
 
 	"variants": [
 		{	"name": "Run",
-			"cmd": ["lua", "$file"]
+			"cmd": ["luajit", "$file"]
 		},
+		{	"name": "Love2D",
+			"cmd": ["love", "$project_path"]
+		}
 		{   "name": "ldoc: File",
 			"shell": true,
 			"cmd": ["ldoc -d $project_path/doc/$file_base_name -f markdown -t $file_base_name $file"]
