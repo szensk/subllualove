@@ -57,8 +57,8 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 		sublime.status_message(errors)
 
 		pattern = re.compile(r':([0-9]+):')
-		if self.ST >= 3000:
-			pattern = re.compile(b':([0-9]+):')
+		#if self.ST >= 3000:
+		#	pattern = re.compile(b':([0-9]+):')
 
 		regions = [view.full_line(view.text_point(int(match) - 1, 0)) for match in pattern.findall(errors)]
 		# view.add_regions('lua', regions, 'invalid', 'DOT', sublime.HIDDEN)
