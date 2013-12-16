@@ -85,6 +85,10 @@
             "trigger": "love.graphics.getColorMask"
         },
         {
+            "contents": "love.math.setRandomSeed($0)",
+            "trigger": "love.math.setRandomSeed"
+        },
+        {
             "contents": "love.window.getDesktopDimensions(${1:display})",
             "trigger": "love.window.getDesktopDimensions"
         },
@@ -93,8 +97,8 @@
             "trigger": "love.mouse.setPosition"
         },
         {
-            "contents": "love.physics.getDistance(${1:fixture1}, ${2:fixture2})",
-            "trigger": "love.physics.getDistance"
+            "contents": "love.filesystem.unmount(${1:archive})",
+            "trigger": "love.filesystem.unmount"
         },
         {
             "contents": "love.system.getProcessorCount($0)",
@@ -111,10 +115,6 @@
         {
             "contents": "love.filesystem.getUserDirectory($0)",
             "trigger": "love.filesystem.getUserDirectory"
-        },
-        {
-            "contents": "love.math.getRandomState($0)",
-            "trigger": "love.math.getRandomState"
         },
         {
             "contents": "love.graphics.getHeight($0)",
@@ -143,6 +143,10 @@
         {
             "contents": "love.graphics.getColor($0)",
             "trigger": "love.graphics.getColor"
+        },
+        {
+            "contents": "love.math.getRandomSeed($0)",
+            "trigger": "love.math.getRandomSeed"
         },
         {
             "contents": "love.physics.newBody(${1:world}, ${2:x}, ${3:y}, ${4:type})",
@@ -453,6 +457,10 @@
             "trigger": "love.audio.setVolume"
         },
         {
+            "contents": "love.physics.getDistance(${1:fixture1}, ${2:fixture2})",
+            "trigger": "love.physics.getDistance"
+        },
+        {
             "contents": "love.graphics.setBlendMode(${1:mode})",
             "trigger": "love.graphics.setBlendMode"
         },
@@ -633,6 +641,10 @@
             "trigger": "love.mouse.isDown"
         },
         {
+            "contents": "love.filesystem.mount($0)",
+            "trigger": "love.filesystem.mount"
+        },
+        {
             "contents": "love.audio.pause($0)",
             "trigger": "love.audio.pause"
         },
@@ -671,10 +683,6 @@
         {
             "contents": "love.graphics.getShader($0)",
             "trigger": "love.graphics.getShader"
-        },
-        {
-            "contents": "love.math.setRandomState($0)",
-            "trigger": "love.math.setRandomState"
         },
         {
             "contents": "love.sound.newDecoder($0)",
@@ -927,11 +935,11 @@
         {
             "contents": "-- @class ${0:class}",
             "trigger": "@class"
-        },    
+        },
         {
             "contents": "-- @author ${1:name}",
             "trigger": "@author"
-        },   
+        },
         {
             "contents": "-- @within Metamethods",
             "trigger": "@within"
@@ -943,11 +951,11 @@
         {
             "contents": "-- @treturn ${1:type} ${2:name} ${3:[desc]}",
             "trigger": "@treturn"
-        },  
+        },
         {
             "contents": "-- @tparam[opt=${1:default}] ${2:type} ${3:name} ${4:[desc]}",
             "trigger": "@tparamopt"
-        },    
+        },
         {
             "contents": "-- @tparam ${1:type} ${2:name} ${3:[desc]}",
             "trigger": "@tparam"
@@ -955,11 +963,11 @@
         {
             "contents": "-- @table ${1:name} ${2:desc}",
             "trigger": "@table"
-        },    
+        },
         {
             "contents": "-- @string[opt=\"${1:default}\"] ${2:name} ${3:desc}",
             "trigger": "@stringopt"
-        }, 
+        },
         {
             "contents": "-- @string ${1:name} ${2:desc}",
             "trigger": "@string"
@@ -967,11 +975,11 @@
         {
             "contents": "-- @see ${1:var}",
             "trigger": "@see"
-        }, 
+        },
         {
             "contents": "-- @return ${1:type} ${2:name} ${3:desc}",
             "trigger": "@return"
-        }, 
+        },
         {
             "contents": "-- @release ${1:text}",
             "trigger": "@release"
@@ -979,7 +987,7 @@
         {
             "contents": "-- @param[opt=${1:default}] ${2:type} ${3:name} ${4:desc}",
             "trigger": "@paramopt"
-        },  
+        },
         {
             "contents": "-- @param ${1:type} ${2:name} ${3:desc}",
             "trigger": "@param"
@@ -987,35 +995,35 @@
         {
             "contents": "-- @name ${1:name}",
             "trigger": "@name"
-        },  
+        },
         {
             "contents": "-- @module ${1:name}",
             "trigger": "@module"
-        },   
+        },
         {
             "contents": "-- @license ${1:name}",
             "trigger": "@license"
-        },   
+        },
         {
             "contents": "-- @int[opt=${1:0}] ${2:name} ${3:desc}",
             "trigger": "@intopt"
-        }, 
+        },
         {
             "contents": "-- @int ${1:name} ${2:desc}",
             "trigger": "@int"
-        },  
+        },
         {
             "contents": "-- @function ${1:name}",
             "trigger": "@function"
-        },             
+        },
         {
             "contents": "-- @field ${1:desc}",
             "trigger": "@field"
-        }, 
+        },
         {
             "contents": "-- @error ${1:message}",
             "trigger": "@error"
-        }               
+        }
     ],
     "scope": "source.lua.love"
 }
