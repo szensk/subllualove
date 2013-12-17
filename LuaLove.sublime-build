@@ -8,6 +8,7 @@
 			"cmd": ["luajit", "$file"]
 		},
 		{	"name": "Love2D",
+			"shell": true,
 			"cmd": ["love", "$project_path"]
 		},
 		{   "name": "ldoc: File",
