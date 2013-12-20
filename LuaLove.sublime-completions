@@ -1,6 +1,10 @@
 {
     "completions": [
         {
+            "contents": "love.graphics.print(${1:text}, ${2:x}, ${3:y}, ${4:r}, ${5:sx}, ${6:sy}, ${7:ox}, ${8:oy}, ${9:kx}, ${10:ky})",
+            "trigger": "love.graphics.print"
+        },
+        {
             "contents": "love.graphics.printf($0)",
             "trigger": "love.graphics.printf"
         },
@@ -771,10 +775,6 @@
         {
             "contents": "love.filesystem.setIdentity($0)",
             "trigger": "love.filesystem.setIdentity"
-        },
-        {
-            "contents": "love.graphics.print(${1:text}, ${2:x}, ${3:y}, ${4:r}, ${5:sx}, ${6:sy}, ${7:ox}, ${8:oy}, ${9:kx}, ${10:ky})",
-            "trigger": "love.graphics.print"
         },
         {
             "contents": "love.event.poll($0)",

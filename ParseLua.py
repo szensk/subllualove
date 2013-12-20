@@ -45,7 +45,6 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 		text = view.substr(sublime.Region(0, view.size()))
 		errors = p.communicate(text.encode('utf-8'))[1]
 		result = p.wait()
-		#luac: stdin:
 		# Clear out any old region markers
 		view.erase_regions('lua')
 		# Nothing to do if it parsed successfully
@@ -57,11 +56,8 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 		sublime.status_message(errors)
 
 		pattern = re.compile(r':([0-9]+):')
-		#if self.ST >= 3000:
-		#	pattern = re.compile(b':([0-9]+):')
-
 		regions = [view.full_line(view.text_point(int(match) - 1, 0)) for match in pattern.findall(errors)]
-		# view.add_regions('lua', regions, 'invalid', 'DOT', sublime.HIDDEN)
+		#persistance of error highlights
 		persistent = 0
 		if self.settings.get("live_parser_persistent", False):
 			persistent = sublime.PERSISTENT
