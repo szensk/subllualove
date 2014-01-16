@@ -22,16 +22,8 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 		return True
 
 	def on_modified(self, view):
-		if self.ST >= 3000:
-			return
 		if self.onchange(view):
 			sublime.set_timeout(lambda: self.parse(view), self.TIMEOUT_MS)
-
-	def on_modified_async(self, view):
-		if self.ST < 3000:
-			return
-		if self.onchange(view):
-			sublime.set_timeout_async(lambda: self.parse(view), self.TIMEOUT_MS)
 
 	def parse(self, view):
 		# Don't bother parsing if there's another parse command pending
