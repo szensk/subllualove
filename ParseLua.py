@@ -22,8 +22,16 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 		return True
 
 	def on_modified(self, view):
+		if self.ST >= 3000:
+			return
 		if self.onchange(view):
 			sublime.set_timeout(lambda: self.parse(view), self.TIMEOUT_MS)
+
+	def on_modified_async(self, view):
+		if self.ST < 3000:
+			return
+		if self.onchange(view):
+			sublime.set_timeout_async(lambda: self.parse(view), self.TIMEOUT_MS)
 
 	def parse(self, view):
 		# Don't bother parsing if there's another parse command pending
@@ -33,17 +41,17 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 		# Grab the path to luac from the settings
 		luac_path = self.settings.get("luac_path", "luac")
 		# Run luac with the parse option
-		p = Popen(luac_path + ' -p -', stdin=PIPE, stderr=PIPE, shell=True)
+		p = Popen(luac_path + ' -p -', bufsize=-1, stdin=PIPE, stderr=PIPE, shell=True)
 		text = view.substr(sublime.Region(0, view.size()))
 		errors = p.communicate(text.encode('utf-8'))[1]
-		result = p.wait()
+		errors = errors.decode("utf-8")
 		# Clear out any old region markers
 		view.erase_regions('lua')
 		# Nothing to do if it parsed successfully
-		if result == 0:
+		if errors == '':
+			sublime.status_message('')
 			return
 		# Add regions and place the error message in the status bar
-		errors = errors.decode("utf-8")
 		errors = errors.replace("luac: stdin:", "Line:")
 		sublime.status_message(errors)
 
