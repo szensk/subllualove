@@ -1,8 +1,32 @@
 import sublime
 import sublime_plugin
 import re
-from subprocess import Popen, PIPE
+import threading, subprocess
 
+#command object with timeout
+class Command(object):
+	def __init__(self, cmd, text):
+		self.cmd = cmd
+		self.text = text
+		self.process = None
+		self.result = None
+
+	def run(self, timeout):
+		def target():
+			self.process = subprocess.Popen(self.cmd, bufsize=-1, stdin=subprocess.PIPE,
+			                                stderr=subprocess.PIPE, shell=True)
+			self.result = self.process.communicate(self.text.encode('utf-8'))[1]
+
+		thread = threading.Thread(target=target)
+		thread.start()
+
+		thread.join(timeout)
+		if thread.is_alive():
+			self.process.terminate()
+			thread.join()
+
+		return self.result
+		
 class ParseLuaCommand(sublime_plugin.EventListener):
 
 	TIMEOUT_MS = 200
@@ -38,19 +62,25 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 		self.pending = self.pending - 1
 		if self.pending > 0:
 			return
+			
 		# Grab the path to luac from the settings
 		luac_path = self.settings.get("luac_path", "luac")
-		# Run luac with the parse option
-		p = Popen(luac_path + ' -p -', bufsize=-1, stdin=PIPE, stderr=PIPE, shell=True)
+		# Run moonc with the parse immediate option
 		text = view.substr(sublime.Region(0, view.size()))
-		errors = p.communicate(text.encode('utf-8'))[1]
-		errors = errors.decode("utf-8")
+		command = Command(luac_path + ' -p -', text)
+		# Attempt to parse and grab output, bail after one second
+		errors = command.run(timeout=1)
+		
 		# Clear out any old region markers
 		view.erase_regions('lua')
+		
 		# Nothing to do if it parsed successfully
-		if errors == '':
+		if errors:
+			errors = errors.decode("utf-8")
+		else:
 			sublime.status_message('')
 			return
+			
 		# Add regions and place the error message in the status bar
 		errors = errors.replace("luac: stdin:", "Line:")
 		sublime.status_message(errors)
