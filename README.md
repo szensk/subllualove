@@ -22,7 +22,7 @@ To disable or change this behavior
 {
    	"live_parser": true,
    	"live_parser_style": "{dot|circle|outline}",
-   	"live_parser_persistent:" false,
+   	"live_parser_persistent": false,
    	"luac_path": "luac"
 }
 ```
