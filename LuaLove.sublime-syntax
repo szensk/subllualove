@@ -1,0 +1,217 @@
+%YAML 1.2
+---
+# http://www.sublimetext.com/docs/3/syntax.html
+
+####### AUTOGENERATE LÖVE PARTS OF API: ########
+# for k,v in pairs(love.handlers) do love[k]=function() end end
+
+# print("# LOVE FUNCTIONS\n")
+
+# io.write("(?<![^.]\\.|:)\\b(love\\.(")
+# local a=0
+# for k,v in pairs(love) do
+#   a=a+1
+#   local ending=a>1 and "|" or ""
+#   if type(v)=="table" then
+#     local b=0
+#     io.write(ending..k.."\\.(")
+#     for k,v in pairs(love[k]) do
+#       b=b+1
+#       local ending=b>1 and "|" or ""
+#       io.write(ending..k)
+#     end
+#     io.write(")|"..k)
+#   else
+#     io.write(ending..k)
+#   end
+# end
+# io.write(")|love)\\b")
+
+# print("\n\n# LOVE METHODS\n")
+
+# local methods={}
+
+# local IGNORE={_PRELOAD=true,_LOADED=true,_loveobjects=true}
+
+# for k,v in pairs(debug.getregistry()) do
+#   if type(v)=="table" and not IGNORE[k] then
+#     for k,v in pairs(v) do
+#       methods[k]=true
+#     end
+#   end
+# end
+
+
+# io.write("(?<![^.]\\.|:)\\b(\\:)(")
+# local a=0
+
+# for k,v in pairs(methods) do
+#   a=a+1
+#   local ending=a>1 and "|" or ""
+#   io.write(ending..k)
+# end
+
+# io.write(")\\b\n")
+
+name: LÖVE 11.3
+file_extensions:
+  - lua
+scope: source.lua.love
+contexts:
+  main:
+    - include: functions
+    - include: numeric-constant
+    - include: string-single
+    - include: string-double
+    - include: love-pixel-effect
+    - include: string-multiline
+    - include: comment-block
+    - include: comment-line
+    - include: control-flow
+    - include: lua-constant
+    - include: lua-self
+    - include: lua-support
+    - include: lua-library
+    - include: lua-logic
+    - include: lua-operator
+    - include: lua-love
+    - include: lua-variable
+    - include: lua-punctuations
+  comment-block:
+    - match: '--\[(=*)\['
+      captures:
+        0: punctuation.definition.comment.lua
+      push:
+        - meta_scope: comment.block.lua
+        - match: '\]\1\]'
+          captures:
+            0: punctuation.definition.comment.lua
+          pop: true
+        - include: comments-special
+  comment-line:
+    - match: '(--)'
+      scope: comment.line.double-dash.lua
+      captures:
+        1: punctuation.definition.comment.lua
+      push:
+        - meta_scope: comment.line.double-dash.lua
+        - match: '\n'
+          pop: true
+        - include: comments-special
+  comments-special:
+    - match: \b(?i:todo|hack|fix(me|it)|readme|note|xxx)\b
+      scope: comment.line.todo.lua
+    - match: '/!\\'
+      scope: comment.line.todo.lua
+    - match: \b((https?|ftps?)://\S*)\b
+      scope: markup.underline.link.lua
+  control-flow:
+    - match: \b(break|do|else|for|if|elseif|return|then|repeat|while|until|end|function|local|goto|in)\b
+      scope: keyword.control.lua
+  functions:
+    - match: '\b(function)\s+([a-zA-Z_.:]+[.:])?([a-zA-Z_]\w*)\s*(\()([^)]*)(\))'
+      scope: meta.function.lua
+      captures:
+        1: keyword.control.lua
+        2: entity.name.function.scope.lua
+        3: entity.name.function.lua
+        4: punctuation.definition.parameters.begin.lua
+        5: variable.parameter.function.lua
+        6: punctuation.definition.parameters.end.lua
+  love-pixel-effect:
+    - match: '(love\.graphics\.newShader)\(*\s*(?<!--)(\[(=*)\[)'
+      comment: C syntax highlighting for GLSL on newPixelEffect
+      captures:
+        1: support.function.library.lua.love
+        2: string.quoted.other.multiline.lua
+      push:
+        - match: '(\]\])\)*'
+          captures:
+            1: string.quoted.other.multiline.lua
+          pop: true
+        # Uncomment next line, if you are using GLSL syntax highlightning plugin
+        #- include: scope:source.glsl
+        - include: scope:source.c
+  lua-constant:
+    - match: '(?<![^.]\.|:)\b(false|nil|true|_G|_VERSION|math\.(pi|huge)|io\.(std(in|out|err))|utf8\.charpattern|socket\.(_DEBUG|_VERSION)|[_\p{Lu}][_\p{Lu}0-9]*)\b|(?<![.])\.{3}(?!\.)'
+      scope: constant.language.lua
+  lua-library:
+    - match: '(?<![^.]\.|:)\b(coroutine\.(create|resume|running|status|wrap|yield)|string\.(byte|char|dump|find|format|gmatch|gsub|len|lower|match|rep|reverse|sub|upper)|table\.(concat|insert|maxn|remove|sort)|math\.(abs|acos|asin|atan2?|ceil|cosh?|deg|exp|floor|fmod|frexp|ldexp|log|log10|max|min|modf|pow|rad|random|randomseed|sinh?|sqrt|tanh?)|io\.(close|flush|input|lines|open|output|popen|read|tmpfile|type|write)|os\.(clock|date|difftime|execute|exit|getenv|remove|rename|setlocale|time|tmpname)|package\.(cpath|loaded|loadlib|path|preload|seeall)|jit\.(flush|on|off|version|version_num|os|arch|status)|bit\.(tobit|tohex|bnot|band|bor|bxor|lshift|rshift|arshift|rol|ror|bswap)|debug\.(debug|[gs]etfenv|[gs]ethook|getinfo|[gs]etlocal|[gs]etmetatable|getregistry|[gs]etupvalue|traceback)|ffi\.(cdef|cast|new|C|load|typeof|metatype|gc|sizeof|alignof|offsetof|istype|errno|string|copy|fill|abi|os|arch)|utf8\.(char|codes|codepoint|len|offset)|dns\.(toip|tohostname|gethostname)|ftp\.(get|put)|http\.request|ltn12\.(filter\.(chain|cycle)|pump\.(all|step)|sink\.(chain|error|file|null|simplify|table)|source\.(cat|chain|empty|error|file|simplify|string))|mime\.(normalize|(de|en)code|stuff|wrap|(un)?b64|dot|eol|(un)?qp|wrp|qpwrp)|smtp\.(message|send)|socket\.(dns|gettime|(new)?try|protect|select|sink|skip|sleep|source|tcp|udp|bind)|url\.(absolute|build(_path)?|(un)?escape|parse(_path)?))\b'
+      scope: support.function.library.lua
+  lua-logic:
+    - match: \b(and|or|not)\b
+      scope: keyword.operator.lua
+  lua-love:
+    # Enter deprecated functions here, will override autogenerated list of functions
+    - match: '(?<![^.]\.|:)\b(love\.(graphics\.getPixelScale|mouse\.hasCursor|errhand|audio\.getSourceCount|filesystem\.(exists|is(File|Directory|Symlink)|get(Size|LastModified))|math\.((de)?compress)))\b'
+      scope: invalid.deprecated.lua.love
+    - match: '(?<![^.]\.|:)\b(\:)(setAreaSpread|getChannels|hasLimitsEnabled)\b'
+      captures:
+        1: punctuation.accessor.lua
+        2: invalid.deprecated.lua.love
+    - match: '(?<![^.]\.|:)\b(\:)(accept|bind|close|connect|[gs]etstats|shutdown|[gs]etpeername|[gs]etsockname|receive(from)?|send(to)?|setoption|settimeout)\b'
+      captures:
+        1: punctuation.accessor.lua
+        2: support.function.library.lua.love
+    # AUTOGENERATED (LOVE METHODS)
+    - match: '(?<![^.]\.|:)\b(\:)(setLength|getCategory|getNextVertex|getFFIPointer|setPitch|setVertexMap|getPitch|getVertexMap|setSizes|flush|demand|getWorldVector|getWorld|setBuffer|getFormat|getFrequency|translate|getBuffer|setCorrectionFactor|setSample|applyLinearImpulse|getError|getBitDepth|setVibration|getReferenceAngle|getTangentSpeed|setLowerLimit|setTexture|getMipmapFilter|getButtonCount|getSize|getWidth|getDirection|applyForce|setSizeVariation|__index|getEmissionRate|setSource|clone|getDPIScale|destroy|getPoints|setPosition|getWorldPoints|getContacts|getSizeVariation|isDestroyed|setRotation|_mapPixelUnsafe|setDrawMode|getRotation|setLinearDamping|setParticleLifetime|resetRestitution|getDepth|getShape|getSegment|setEmitterLifetime|getRadialAcceleration|getFixtures|tell|moveTo|getLocalPoint|stop|getGlyphString|getDrawRange|getVertexCount|setVertices|play|getEmitterLifetime|getMaxMotorForce|setMaxTorque|isSensor|getAngularVelocity|getSpinVariation|setLimits|__tostring|getUserData|getTarget|isGamepad|getInsertMode|getChildEdge|getActiveEffects|isEOF|getBody|getPositions|setEmissionArea|setDirection|setQuads|setFont|getLayerCount|setf|addf|setAirAbsorption|setCone|getLinearVelocityFromLocalPoint|isPlaying|getSizes|getVelocity|getAngularDamping|getDrawMode|setLineHeight|getWrap|setSpinVariation|setDepthSampleMode|setTransformation|getAttenuationDistances|isAttributeEnabled|setMotorSpeed|getRolloff|getCollideConnected|getFont|isReadable|getLineHeight|setColors|getAirAbsorption|getDepthSampleMode|getLengthA|setInertia|detachAttribute|setLooping|setSleepingAllowed|getEffect|getFreeBufferCount|isCompressed|inverse|getOffset|isConnected|getVolume|decode|release|hasLimitsEnabled|setVertexAttribute|setSpread|getJoints|setFallbacks|getControlPointCount|setVolumeLimits|setPixel|getHat|setVolume|setCallbacks|getDegree|getString|setGravityScale|getMipmapMode|isRelative|getTextureDimensions|rayCast|setVelocity|sendColor|replacePixels|encode|queue|getLinearDamping|getHatCount|setLinearOffset|setvbuf|getPixel|getAxes|translateOrigin|rotate|getGamepadAxis|getSpringFrequency|getAxisCount|getLinearVelocity|setState|getChildren|getFilename|getConnectedIndex|isGamepadDown|setFixedRotation|setUserData|getAnchors|getGamepadMapping|transformPoint|getSample|getGamepadMappingString|isVibrationSupported|getMode|typeOf|getGUID|getPoint|getVibration|getData|getID|getState|getGlyphData|getBearing|isRunning|setSpringDampingRatio|setSpringFrequency|setControlPoint|setSync|getName|newImageData|isRecording|setPreviousVertex|getReactionTorque|evaluate|getMask|send|getSpringDampingRatio|setEnabled|getType|setBullet|getLengthB|setCategory|resetFriction|_performAtomic|getContactFilter|inverseTransformPoint|setGroupIndex|setMask|setContactFilter|getAxis|emit|setSeed|getQuads|getLimits|getPixelWidth|getReactionForce|setSensor|setFilterData|push|setEffect|getFixtureList|hasRead|getHeight|removeControlPoint|getContactList|performAtomic|_random|setLimitsEnabled|getCount|peek|pop|setMaxMotorForce|setNextVertex|validate|getDeviceInfo|setPoint|computeAABB|setRatio|getMotorTorque|getChildCount|isMotorEnabled|testPoint|isSleepingAllowed|getRadius|isFormatLinear|getPreviousVertex|getMotorForce|getBoundingBox|hasUniform|getCorrectionFactor|setTarget|type|getY|setDensity|getTangentialAcceleration|getRatio|add|getTextureType|setAngularOffset|getBodies|getAreaSpread|apply|__mul|isDown|getGroundAnchors|setFrequency|setMaxLength|getAngularOffset|getLinearOffset|renderTo|getMaxTorque|getGlyphCount|getTransform|getMipmapCount|getLength|getAscent|setVertex|isStopped|mapPixel|getAdvance|getVertex|hasGlyphs|getDescent|getPosition|setRelativeRotation|addLayer|getGlyph|set|getLocalVector|isLocked|queryBoundingBox|getSource|setColor|getColor|getChannelCount|setOffset|setAngularVelocity|setAngularDamping|insertControlPoint|setMaxMotorTorque|setRestitution|getGravityScale|getDensity|setRolloff|getMatrix|getJointTranslation|getGroupIndex|pause|setAngle|getFriction|getDimensions|getNormal|setMassData|getStream|rewind|setLayer|getMSAA|getVolumeLimits|getMaxForce|getLayer|getJointList|setRadius|_setSource|setAttributeEnabled|supply|isBullet|setViewport|isLooping|setAreaSpread|getX|wait|getInertia|getMaxMotorTorque|getUpperLimit|setInsertMode|isAffine2DTransform|attachAttribute|shear|getBodyCount|computeMass|getJointAngle|getWarnings|setUpperLimit|paste|isEnabled|setRelative|__eq|areLimitsEnabled|getMaxLength|setDampingRatio|getDerivative|__gc|scale|getDampingRatio|setTangentialAcceleration|setEmissionRate|getFilterData|randomNormal|getSeed|getBodyList|applyAngularImpulse|getSpin|getBaseline|renderSegment|setMaxForce|open|getSpread|getContactCount|reset|setRadialAcceleration|getLinearAcceleration|getColors|setBufferSize|isPaused|setMass|close|isActive|setDrawRange|getDuration|getMass|getControlPoint|clear|setSpeed|getPixelHeight|hasRelativeRotation|render|setX|read|getPixelDimensions|setType|setWrap|isTouching|getCallbacks|getTexture|setTransform|isOpen|getSampleCount|update|setGravity|setFilter|getLocalCenter|setFriction|getSpeed|applyTorque|setMotorEnabled|isFixedRotation|setLinearVelocity|getFilter|setAwake|resetMassData|getVertexAttribute|random|lines|setActive|setMatrix|write|start|setLinearAcceleration|getGravity|setY|getJointSpeed|getVertexFormat|getWorldCenter|seek|generateMipmaps|getEmissionArea|getMotorSpeed|setSpin|getExtension|setAttenuationDistances|getAngle|getLinearVelocityFromWorldPoint|getViewport|getSampleRate|isAwake|setTangentSpeed|getRestitution|getParticleLifetime|getCone|getBufferSize|getLowerLimit|getMassData|setMipmapFilter|getPointer|getWorldPoint|getJointCount|getChannels)\b'
+      captures:
+        1: punctuation.accessor.lua
+        2: support.function.library.lua.love
+    # AUTOGENERATED (LOVE FUNCTIONS)
+    - match: '(?<![^.]\.|:)\b(love\.(_version_codename|touchpressed|_os|_modules\.(font|mouse|image|system|audio|touch|physics|joystick|math|timer|graphics|filesystem|keyboard|data|event|window|thread|video|sound)|_modules|_version|joystickpressed|_setGammaCorrect|mousereleased|event\.(clear|pump|poll|push|wait|poll_i|quit)|event|_version_compat\.(1|2|3|4)|_version_compat|_setAudioMixWithSystem|conf|textinput|resize|gamepadpressed|touch\.(getPressure|getTouches|getPosition)|touch|joystickreleased|visible|gamepadaxis|timer\.(step|getDelta|getTime|getAverageDelta|sleep|getFPS)|timer|data\.(newByteData|encode|hash|compress|getPackedSize|decode|unpack|newDataView|decompress|pack)|data|handlers\.(gamepadreleased|focus|displayrotated|touchpressed|lowmemory|quit|textinput|wheelmoved|resize|directorydropped|touchreleased|joystickhat|joystickaxis|joystickpressed|threaderror|gamepadpressed|visible|joystickreleased|joystickremoved|gamepadaxis|textedited|mousefocus|filedropped|mousepressed|keyreleased|touchmoved|mousemoved|joystickadded|mousereleased|keypressed)|handlers|sound\.(newSoundData|newDecoder)|sound|keyboard\.(setTextInput|hasTextInput|getScancodeFromKey|hasScreenKeyboard|setKeyRepeat|getKeyFromScancode|isDown|hasKeyRepeat|isScancodeDown)|keyboard|gamepadreleased|createhandlers|getVersion|quit|wheelmoved|system\.(hasBackgroundMusic|setClipboardText|vibrate|openURL|getPowerInfo|getClipboardText|getOS|getProcessorCount)|system|audio\.(stop|setVelocity|getSourceCount|getActiveEffects|getActiveSourceCount|setVolume|getDopplerScale|setMixWithSystem|play|setOrientation|isEffectsSupported|getMaxSourceEffects|getMaxSceneEffects|getEffect|newSource|pause|setDistanceModel|getRecordingDevices|getVelocity|newQueueableSource|getDistanceModel|getOrientation|setPosition|setEffect|getPosition|getVolume|setDopplerScale)|audio|init|joystickaxis|threaderror|arg\.(parseOption|optionIndices|options|parseOptions|parseGameArguments|getLow)|arg|setDeprecationOutput|_deprecation|_openConsole|filedropped|touchreleased|_version_minor|joystickadded|joystickhat|mousemoved|touchmoved|_exe|displayrotated|_requestRecordingPermission|keyreleased|mousepressed|_version_major|textedited|joystickremoved|mouse\.(setX|getSystemCursor|isGrabbed|isVisible|newCursor|setVisible|getRelativeMode|setGrabbed|setCursor|getPosition|getCursor|isCursorSupported|setY|setPosition|getX|getY|isDown|setRelativeMode)|mouse|image\.(newCubeFaces|isCompressed|newImageData|newCompressedData)|image|isVersionCompatible|errhand|boot|lowmemory|focus|_version_revision|path\.(getFull|endslash|abs|normalslashes|leaf)|path|hasDeprecationOutput|mousefocus|joystick\.(saveGamepadMappings|setGamepadMapping|loadGamepadMappings|getJoystickCount|getGamepadMappingString|getJoysticks)|joystick|filesystem\.(unmount|write|setIdentity|setCRequirePath|_setAndroidSaveExternal|getExecutablePath|getCRequirePath|init|newFileData|isSymlink|append|getUserDirectory|createDirectory|getInfo|areSymlinksEnabled|exists|newFile|getSaveDirectory|mount|getRequirePath|getWorkingDirectory|getSize|setRequirePath|isFused|getDirectoryItems|setSource|getLastModified|isFile|isDirectory|getIdentity|setFused|getAppdataDirectory|lines|load|remove|getSource|getRealDirectory|read|setSymlinksEnabled|getSourceBaseDirectory)|filesystem|math\.(randomNormal|colorToBytes|isConvex|setRandomState|compress|triangulate|newTransform|noise|getRandomSeed|newRandomGenerator|setRandomSeed|linearToGamma|colorFromBytes|gammaToLinear|getRandomState|random|_getRandomGenerator|decompress|newBezierCurve)|math|graphics\.(getTextureTypes|setDefaultMipmapFilter|getStats|newParticleSystem|setFont|newQuad|getDefaultFilter|inverseTransformPoint|getStackDepth|setDefaultFilter|shear|translate|print|newShader|getPixelWidth|getBlendMode|newMesh|getMeshCullMode|present|drawLayer|newVolumeImage|scale|getLineStyle|setBlendMode|getImageFormats|getLineJoin|draw|getFont|setMeshCullMode|getDepthMode|setStencilTest|getFrontFaceWinding|getDPIScale|getCanvasFormats|discard|_shaderCodeToGLSL|newVideo|newImageFont|origin|push|newArrayImage|clear|getHeight|setFrontFaceWinding|reset|newSpriteBatch|newImage|rectangle|isCreated|stencil|getShader|setNewFont|pop|flushBatch|getScissor|polygon|arc|ellipse|circle|_newVideo|newCubeImage|setColor|line|points|setBackgroundColor|setColorMask|setLineStyle|getStencilTest|_transformGLSLErrorMessages|getRendererInfo|isActive|rotate|intersectScissor|setScissor|printf|getPixelHeight|getDimensions|replaceTransform|captureScreenshot|getWidth|isGammaCorrect|setPointSize|getPixelDimensions|drawInstanced|getColorMask|transformPoint|setLineWidth|newCanvas|setDepthMode|getColor|validateShader|getDefaultMipmapFilter|getSystemLimits|applyTransform|setShader|setLineJoin|newFont|setCanvas|getLineWidth|newText|getPointSize|getBackgroundColor|setWireframe|isWireframe|_setDefaultShaderCode|getCanvas|getSupported)|graphics|directorydropped|font\.(newImageRasterizer|newGlyphData|newTrueTypeRasterizer|newBMFontRasterizer|newRasterizer)|font|run|window\.(fromPixels|toPixels|getDisplayName|isOpen|getVSync|getTitle|minimize|updateMode|isDisplaySleepEnabled|getNativeDPIScale|isMaximized|restore|setFullscreen|getDisplayOrientation|requestAttention|isVisible|getFullscreen|getDisplayCount|isMinimized|setMode|setTitle|setDisplaySleepEnabled|getMode|getSafeArea|setIcon|getFullscreenModes|getDPIScale|hasMouseFocus|getPosition|close|setVSync|getIcon|setPosition|showMessageBox|getDesktopDimensions|maximize|hasFocus)|window|physics\.(newMouseJoint|newPulleyJoint|newFixture|setMeter|getMeter|newWheelJoint|newRectangleShape|newFrictionJoint|getDistance|newMotorJoint|newRopeJoint|newBody|newRevoluteJoint|newEdgeShape|newWorld|newPrismaticJoint|newPolygonShape|newWeldJoint|newGearJoint|newDistanceJoint|newCircleShape|newChainShape)|physics|thread\.(getChannel|newThread|newChannel)|thread|video\.(newVideoStream)|video|keypressed)|love)\b'
+      scope: support.function.library.lua.love
+  lua-operator:
+    - match: '\+|-|%|#|\*|\/|\^|==?|~=|<=?|>=?|(?<!\.)\.{2}(?!\.)'
+      scope: keyword.operator.lua
+  lua-self:
+    - match: '(?<![^.]\.|:)\b(self)\b'
+      scope: constant.language.lua
+  lua-support:
+    - match: '(?<![^.]\.|:)\b(assert|collectgarbage|dofile|error|getfenv|getmetatable|ipairs|loadfile|loadstring|module|next|pairs|pcall|print|rawequal|rawget|rawset|require|select|setfenv|setmetatable|tonumber|tostring|type|unpack|xpcall)\b'
+      scope: support.function.lua
+  lua-variable:
+    - match: '([A-Za-z_][A-Za-z0-9_]*)(?=\s*(?:\(|"|''|\[=*\[|\{))'
+      scope: variable.function.lua
+    - match: '([A-Za-z_][A-Za-z0-9_]*)'
+      scope: variable.other.lua
+  lua-punctuations:
+    - match: '[.:,;]'
+      scope: punctuation.accessor.lua
+  numeric-constant:
+    - match: '(?<![\d.])\s0x[a-fA-F\d]+|\b\d+(\.\d+)?([eE]-?\d+)?|\.\d+([eE]-?\d+)?'
+      scope: constant.numeric.lua
+  string-double:
+    - match: '"'
+      captures:
+        0: punctuation.definition.string.begin.lua
+      push:
+        - meta_scope: string.quoted.double.lua
+        - match: '"'
+          captures:
+            0: punctuation.definition.string.end.lua
+          pop: true
+        - match: '\\(a|b|f|n|r|t|v|"|''|[0-9]{3})|\\\\'
+          scope: constant.character.escape.lua
+  string-multiline:
+    - match: '(?<!--)\[(=*)\['
+      captures:
+        0: punctuation.definition.string.begin.lua
+      push:
+        - meta_scope: string.quoted.other.multiline.lua
+        - match: '\]\1\]'
+          captures:
+            0: punctuation.definition.string.end.lua
+          pop: true
+  string-single:
+    - match: "'"
+      captures:
+        0: punctuation.definition.string.begin.lua
+      push:
+        - meta_scope: string.quoted.single.lua
+        - match: "'"
+          captures:
+            0: punctuation.definition.string.end.lua
+          pop: true
+        - match: \\.
+          scope: constant.character.escape.lua
