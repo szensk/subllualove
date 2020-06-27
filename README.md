@@ -31,11 +31,11 @@ in Lua Love > User Settings.
 
 Syntax highlighting
 -------------------
-![alt text](https://i.imgur.com/OEESOtU.png "syntax hightlighting")
+![Syntax hightlighting example](https://i.imgur.com/OEESOtU.png "syntax hightlighting")
 
 Command Palette: Set Syntax: Lua (Love).
 
-If you create a new shader, and make the argument a multi-line string, then Sublime will use C syntax highlighting for the GLSL within.
+If you create a new shader, and make the argument a multi-line string, then Sublime will use C syntax highlighting for the GLSL within. Or if you have GLSL syntax plugin, you can use it for hightlighting, but you must install it manually and edit file `LuaLove.sublime-syntax`: at line about 136 replace `source.c` with `source.glsl`
 
 Snippets
 --------
