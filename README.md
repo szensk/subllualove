@@ -33,7 +33,7 @@ in Preferences > Package Settings > Lua Love > Settings - User.
 
 Command Palette: Set Syntax: LÖVE 11.3.
 
-If you create a new shader, and make the argument a multi-line string, then Sublime will use C syntax highlighting for the GLSL within. Or if you have GLSL syntax plugin, you can use it for hightlighting, but you must install it manually and edit file `LuaLove.sublime-syntax`: at line about 136 replace `source.c` with `source.glsl`
+If you want better GLSL syntax highlighting (as normally it is just C syntax highlighting), install GLSL syntax plugin
 
 ## Snippets
 

@@ -140,9 +140,9 @@ contexts:
           captures:
             1: string.quoted.other.multiline.lua
           pop: true
-        # Uncomment next line, if you are using GLSL syntax highlightning plugin
+        # Fallback to C if no GLSL syntax installed
         - include: scope:source.glsl
-        #- include: scope:source.c
+        - include: scope:source.c
   lua-constant:
     - match: '(?<![^.]\.|:)\b(false|nil|true|_G|_VERSION|math\.(pi|huge)|io\.(std(in|out|err))|utf8\.charpattern|socket\.(headers\.canonic|_(DEBUG|VERSION|SETSIZE)))\b|(?<![.])\.{3}(?!\.)'
       scope: constant.language.lua
