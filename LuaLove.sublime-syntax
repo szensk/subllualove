@@ -59,6 +59,7 @@
 name: LÖVE 11.3
 file_extensions:
   - lua
+first_line_match: "#!/usr/(bin/env |(local/)?bin/)lua(jit)?"
 scope: source.lua.love
 contexts:
   main:
@@ -103,8 +104,14 @@ contexts:
         - include: comments-special
   # TODO, FIXME, ... highlighting. If supported by color scheme (based on https://github.com/sublimehq/Packages/blob/master/C%23/C%23.sublime-syntax#L80)
   comments-special:
-    - match: \b(?i:todo|hack|fix(me|it)|readme|note|xxx)\b
+    - match: \b(?i:readme|note)\b
+      scope: comment.line.note.lua
+    - match: \b(?i:todo|hack|fix(me|it)|important)(?i:s)?\b
       scope: comment.line.todo.lua
+    - match: \b(?i:done)\b
+      scope: comment.line.done.lua
+    - match: \b(?i:work)\b
+      scope: comment.line.work.lua
     - match: '/!\\'
       scope: comment.line.todo.lua
     - match: \b((https?|ftps?)://\S*)\b
@@ -134,13 +141,13 @@ contexts:
             1: string.quoted.other.multiline.lua
           pop: true
         # Uncomment next line, if you are using GLSL syntax highlightning plugin
-        #- include: scope:source.glsl
-        - include: scope:source.c
+        - include: scope:source.glsl
+        #- include: scope:source.c
   lua-constant:
-    - match: '(?<![^.]\.|:)\b(false|nil|true|_G|_VERSION|math\.(pi|huge)|io\.(std(in|out|err))|utf8\.charpattern|socket\.(_DEBUG|_VERSION)|[_\p{Lu}][_\p{Lu}0-9]*)\b|(?<![.])\.{3}(?!\.)'
+    - match: '(?<![^.]\.|:)\b(false|nil|true|_G|_VERSION|math\.(pi|huge)|io\.(std(in|out|err))|utf8\.charpattern|socket\.(headers\.canonic|_(DEBUG|VERSION|SETSIZE)))\b|(?<![.])\.{3}(?!\.)'
       scope: constant.language.lua
   lua-library:
-    - match: '(?<![^.]\.|:)\b(coroutine\.(create|resume|running|status|wrap|yield)|string\.(byte|char|dump|find|format|gmatch|gsub|len|lower|match|rep|reverse|sub|upper)|table\.(concat|insert|maxn|remove|sort)|math\.(abs|acos|asin|atan2?|ceil|cosh?|deg|exp|floor|fmod|frexp|ldexp|log|log10|max|min|modf|pow|rad|random|randomseed|sinh?|sqrt|tanh?)|io\.(close|flush|input|lines|open|output|popen|read|tmpfile|type|write)|os\.(clock|date|difftime|execute|exit|getenv|remove|rename|setlocale|time|tmpname)|package\.(cpath|loaded|loadlib|path|preload|seeall)|jit\.(flush|on|off|version|version_num|os|arch|status)|bit\.(tobit|tohex|bnot|band|bor|bxor|lshift|rshift|arshift|rol|ror|bswap)|debug\.(debug|[gs]etfenv|[gs]ethook|getinfo|[gs]etlocal|[gs]etmetatable|getregistry|[gs]etupvalue|traceback)|ffi\.(cdef|cast|new|C|load|typeof|metatype|gc|sizeof|alignof|offsetof|istype|errno|string|copy|fill|abi|os|arch)|utf8\.(char|codes|codepoint|len|offset)|dns\.(toip|tohostname|gethostname)|ftp\.(get|put)|http\.request|ltn12\.(filter\.(chain|cycle)|pump\.(all|step)|sink\.(chain|error|file|null|simplify|table)|source\.(cat|chain|empty|error|file|simplify|string))|mime\.(normalize|(de|en)code|stuff|wrap|(un)?b64|dot|eol|(un)?qp|wrp|qpwrp)|smtp\.(message|send)|socket\.(dns|gettime|(new)?try|protect|select|sink|skip|sleep|source|tcp|udp|bind)|url\.(absolute|build(_path)?|(un)?escape|parse(_path)?))\b'
+    - match: '(?<![^.]\.|:)\b(coroutine\.(create|resume|running|status|wrap|yield)|string\.(byte|char|dump|find|format|gmatch|gsub|len|lower|match|rep|reverse|sub|upper)|table\.(concat|insert|maxn|remove|sort)|math\.(abs|acos|asin|atan2?|ceil|cosh?|deg|exp|floor|fmod|frexp|ldexp|log|log10|max|min|modf|pow|rad|random|randomseed|sinh?|sqrt|tanh?)|io\.(close|flush|input|lines|open|output|popen|read|tmpfile|type|write)|os\.(clock|date|difftime|execute|exit|getenv|remove|rename|setlocale|time|tmpname)|package\.(cpath|loaded|loadlib|path|preload|seeall)|jit\.(flush|on|off|version|version_num|os|arch|status)|bit\.(tobit|tohex|bnot|band|bor|bxor|lshift|rshift|arshift|rol|ror|bswap)|debug\.(debug|[gs]etfenv|[gs]ethook|getinfo|[gs]etlocal|[gs]etmetatable|getregistry|[gs]etupvalue|traceback)|ffi\.(cdef|cast|new|C|load|typeof|metatype|gc|sizeof|alignof|offsetof|istype|errno|string|copy|fill|abi|os|arch)|utf8\.(char|codes|codepoint|len|offset)|dns\.(toip|(to|get)hostname|getaddrinfo)|ftp\.(get|put|command)|http\.request|ltn12\.(filter\.(chain|cycle)|pump\.(all|step)|sink\.(chain|error|file|null|simplify|table)|source\.(cat|chain|empty|error|file|simplify|string))|mime\.(normalize|(de|en)code|stuff|wrap|(un)?b64|dot|eol|(un)?qp|wrp|qpwrp)|smtp\.(message|send)|socket\.(bind|dns|gettime|(new)?try|protect|select|sink|skip|sleep|source|(tcp|udp|connect)[46]?)|url\.(absolute|build(_path)?|(un)?escape|parse(_path)?))\b'
       scope: support.function.library.lua
   lua-logic:
     - match: \b(and|or|not)\b
@@ -153,8 +160,9 @@ contexts:
       captures:
         1: punctuation.accessor.lua
         2: invalid.deprecated.lua.love
-    # LuaSocket methods
-    - match: '(?<![^.]\.|:)\b(\:)(accept|bind|close|connect|[gs]etstats|shutdown|[gs]etpeername|[gs]etsockname|receive(from)?|send(to)?|setoption|settimeout)\b'
+    # LuaSocket methods and Lua string methods
+    # Maybe (?<![^.]\.|:)\b(\:) instead of (?<![^.]\.|:)(\:) ?
+    - match: '(?<![^.]\.|:)(\:)(len|rep|g?sub|byte|find|dump|find|lower|g?match|upper|format|reverse|accept|bind|close|connect|[gs]etstats|shutdown|[gs]etpeername|[gs]etsockname|receive(from)?|send(to)?|[gs]etoption|settimeout|listen|[gs]etfd|dirty)\b'
       captures:
         1: punctuation.accessor.lua
         2: support.function.library.lua.love
@@ -178,13 +186,19 @@ contexts:
   lua-variable:
     - match: '([A-Za-z_][A-Za-z0-9_]*)(?=\s*(?:\(|"|''|\[=*\[|\{))'
       scope: variable.function.lua
+    - match: '([_\p{Lu}][_\p{Lu}0-9]*)\b'
+      scope: constant.language.lua
     - match: '([A-Za-z_][A-Za-z0-9_]*)'
       scope: variable.other.lua
   lua-punctuations:
     - match: '[.:,;]'
       scope: punctuation.accessor.lua
   numeric-constant:
-    - match: '(?<![\d.])\s0x[a-fA-F\d]+|\b\d+(\.\d+)?([eE]-?\d+)?|\.\d+([eE]-?\d+)?'
+    - match: '(?<![\d.])(0x)([a-fA-F\d]+)'
+      captures: 
+        1: punctuation.definition.numeric.hexadecimal.lua
+        2: constant.numeric.hexadecimal.lua
+    - match: '\b\d+(\.\d+)?([eE]-?\d+)?|\.\d+([eE]-?\d+)?'
       scope: constant.numeric.lua
   string-double:
     - match: '"'
@@ -196,7 +210,7 @@ contexts:
           captures:
             0: punctuation.definition.string.end.lua
           pop: true
-        - match: '\\(a|b|f|n|r|t|v|"|''|[0-9]{3})|\\\\'
+        - match: '\\(a|b|f|n|r|t|v|"|''|[0-9]{3}|0)|\\\\'
           scope: constant.character.escape.lua
   string-multiline:
     - match: '(?<!--)\[(=*)\['
@@ -218,5 +232,5 @@ contexts:
           captures:
             0: punctuation.definition.string.end.lua
           pop: true
-        - match: \\.
+        - match: '\\(a|b|f|n|r|t|v|"|''|[0-9]{3}|0)|\\\\'
           scope: constant.character.escape.lua

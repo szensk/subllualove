@@ -25,7 +25,7 @@ To disable or change this behavior
 }
 ```
 
-in Preferences > Package Settings > Lua Love > Settings - User.
+in Preferences > Package Settings > Lua Love > Settings - User.
 
 ## Syntax highlighting
 

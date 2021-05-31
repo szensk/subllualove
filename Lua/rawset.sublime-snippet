@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[rawset(${1:table}, ${2:index}, ${3:value})]]></content>
-    <tabTrigger>rawset</tabTrigger>
-    <scope>source.lua</scope>
-    <description>(table, index, value)</description>
-</snippet>

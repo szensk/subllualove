@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[io.input(${1:file})]]></content>
-    <tabTrigger>io.input</tabTrigger>
-    <scope>source.lua</scope>
-    <description>([file])</description>
-</snippet>

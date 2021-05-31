@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[load(${1:func}, ${2:chunkname})]]></content>
-    <tabTrigger>load</tabTrigger>
-    <scope>source.lua</scope>
-    <description>(func [, chunkname])</description>
-</snippet>

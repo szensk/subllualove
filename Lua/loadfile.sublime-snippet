@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[loadfile(${1:filename})]]></content>
-    <tabTrigger>loadfile</tabTrigger>
-    <scope>source.lua</scope>
-    <description>([filename])</description>
-</snippet>

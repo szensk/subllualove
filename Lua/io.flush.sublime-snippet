@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[io.flush ()]]></content>
-    <tabTrigger>io.flush</tabTrigger>
-    <scope>source.lua</scope>
-    <description>()</description>
-</snippet>

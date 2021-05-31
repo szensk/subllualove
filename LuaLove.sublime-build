@@ -9,10 +9,10 @@
 		},
 		{	"name": "Love2D",
 			"shell": true,
-			"cmd": ["love", "${project_path:${folder:${file_path}}}"],
-			"osx":
+			"cmd": ["love '${project_path:${folder:${file_path}}}'"],
+			"windows":
 			{
-				"cmd": ["love ${project_path:${folder:${file_path}}}"]
+				"cmd": ["love", "${project_path:${folder:${file_path}}}"]
 			}
 		},
 		{   "name": "ldoc: File",

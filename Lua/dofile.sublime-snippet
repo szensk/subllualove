@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[dofile(${1:filename})]]></content>
-    <tabTrigger>dofile</tabTrigger>
-    <scope>source.lua</scope>
-    <description>([filename])</description>
-</snippet>

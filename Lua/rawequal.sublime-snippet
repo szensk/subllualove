@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[rawequal(${1:v1}, ${2:v2})]]></content>
-    <tabTrigger>rawequal</tabTrigger>
-    <scope>source.lua</scope>
-    <description>(v1, v2)</description>
-</snippet>
