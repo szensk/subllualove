@@ -1,10 +1,8 @@
-Description
-===========
+# Description
 
-LuaLove is a package for [Sublime Text 2/3](http://www.sublimetext.com) with support for the Love2D API. It is based on [SublimeLove](https://github.com/minism/SublimeLove), [LuaSublime](https://github.com/rorydriscoll/LuaSublime), and [lua_snippet](https://github.com/yinqiang/lua_snippet).
+LuaLove is a package for [Sublime Text 2/3/4](http://www.sublimetext.com) with support for the Löve2D API. It is based on [SublimeLove](https://github.com/minism/SublimeLove), [LuaSublime](https://github.com/rorydriscoll/LuaSublime), and [lua_snippet](https://github.com/yinqiang/lua_snippet).
 
-Installation
-============
+## Installation
 
 You can install this package through [Package Control](https://sublime.wbond.net/installation), simply use Command Palette: Package Control Install Package -> Lua Love.
 
@@ -12,8 +10,8 @@ Alternatively, you can install this package by running the following command in 
 
     git clone git://github.com/szensk/subllualove.git
 
-Error checking
---------------
+## Error checking
+
 By default any Lua file will be run through luac -p and the first encountered error is outlined. The error is displayed in the status bar.
 
 To disable or change this behavior
@@ -27,28 +25,28 @@ To disable or change this behavior
 }
 ```
 
-in Lua Love > User Settings.
+in Preferences > Package Settings > Lua Love > Settings - User.
 
-Syntax highlighting
--------------------
-![Syntax hightlighting example](https://i.imgur.com/OEESOtU.png "syntax hightlighting")
+## Syntax highlighting
 
-Command Palette: Set Syntax: Lua (Love).
+![Syntax hightlighting example](https://i.imgur.com/qZXbrDu.png "syntax hightlighting, auto completion and error checking")
+
+Command Palette: Set Syntax: LÖVE 11.3.
 
 If you create a new shader, and make the argument a multi-line string, then Sublime will use C syntax highlighting for the GLSL within. Or if you have GLSL syntax plugin, you can use it for hightlighting, but you must install it manually and edit file `LuaLove.sublime-syntax`: at line about 136 replace `source.c` with `source.glsl`
 
-Snippets
---------
+## Snippets
+
 There are snippets for most built-in Lua functions (ex: coroutine.resume), some LuaJIT functions (ex: bit.bor), and LuaDoc tags are available in comments. For example. "@param" expands to "-- @param type name desc".
 
-Auto completion
----------------
-Pressing Ctrl+Space in an open Lua file will show the autocompletions for the Love2D API as well as Lua function snippets.
+## Auto completion
 
-Those Love2D functions which are not overloaded (only one possible argument combination), will fill in the argument names for you.
+Pressing Ctrl+Space in an open Lua file will show the autocompletions for the Löve2D API as well as Lua function snippets.
 
-Build systems
--------------
+Those Löve2D functions which are not overloaded (only one possible argument combination), will fill in the argument names for you.
+
+## Build systems
+
 Go to Tools > Build System and select "Love".
 
 * Command Palette: "Love2D" will execute Love on the current project path (requires love on your system PATH).
