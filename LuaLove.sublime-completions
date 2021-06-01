@@ -331,13 +331,219 @@
 			"details": "Calls function with arguments in protected mode, executing function <code>f</code> in case of unhandled error (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-xpcall\">Manual</a>)"
 		},
 
-		// Coroutine library - TODO
+		// Coroutine library
+
+		{
+			"trigger": "coroutine.create",
+			"annotation": "(f)",
+			"contents": "coroutine.create(${1:f})",
+			"kind": "function",
+			"details": "Creates a new coroutine with body <code>f</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-coroutine.create\">Manual</a>)"
+		},
+		{
+			"trigger": "coroutine.resume",
+			"annotation": "(co [, val1, ...])",
+			"contents": "coroutine.resume(${1:co}, ${2:val1}, ${3:...})",
+			"kind": "function",
+			"details": "Starts / continues the execution of coroutine <code>co</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-coroutine.resume\">Manual</a>)"
+		},
+		{
+			"trigger": "coroutine.running",
+			"annotation": "()",
+			"contents": "coroutine.running ()",
+			"kind": "function",
+			"details": "Returns the running coroutine, or <code>nil</code> when called by the main thread (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-coroutine.running\">Manual</a>)"
+		},
+		{
+			"trigger": "coroutine.status",
+			"annotation": "(co)",
+			"contents": "coroutine.status(${1:co})",
+			"kind": "function",
+			"details": "Returns status of coroutine <code>co</code>: <code>\"running\"</code> / <code>\"suspended\"</code> / <code>\"yield\"</code> / <code>\"normal\"</code> / <code>\"dead\"</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-coroutine.status\">Manual</a>)"
+		},
+		{
+			"trigger": "coroutine.wrap",
+			"annotation": "(f)",
+			"contents": "coroutine.wrap(${1:f})",
+			"kind": "function",
+			"details": "Creates a new coroutine and returns a function that resumes the coroutine each time it is called (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-coroutine.wrap\">Manual</a>)"
+		},
+		{
+			"trigger": "coroutine.yield",
+			"annotation": "(...)",
+			"contents": "coroutine.yield(${1:...})",
+			"kind": "function",
+			"details": "Suspends the execution of the calling coroutine and passes arguments as extra results to <code>coroutine.resume</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-coroutine.yield\">Manual</a>)"
+		},
 
 
-		// Modules library - TODO
+		// Modules library
+
+		{
+			"trigger": "module",
+			"annotation": "(name [, ...])",
+			"contents": "module(${1:name}, ${2:...})",
+			"kind": "function",
+			"details": "Creates a module (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-module\">Manual</a>)"
+		},
+		{
+			"trigger": "require",
+			"annotation": "(name)",
+			"contents": "require(${1:name})",
+			"kind": "function",
+			"details": "Loads given module (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-require\">Manual</a>)"
+		},
+		{
+			"trigger": "package.cpath",
+			"annotation": "package.cpath",
+			"contents": "package.cpath",
+			"kind": "variable",
+			"details": "Path used by <code>require</code> to search for a C loader (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-package.cpath\">Manual</a>)"
+		},
+		{
+			"trigger": "package.loaded",
+			"annotation": "package.loaded",
+			"contents": "package.loaded",
+			"kind": "variable",
+			"details": "A table used by <code>require</code> to control which modules are already loaded (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-package.loaded\">Manual</a>)"
+		},
+		{
+			"trigger": "package.loaders",
+			"annotation": "package.loaders",
+			"contents": "package.loaders",
+			"kind": "variable",
+			"details": "A table used by <code>require</code> to control how to load modules (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-package.loaders\">Manual</a>)"
+		},
+		{
+			"trigger": "package.loadlib",
+			"annotation": "(libname, funcname)",
+			"contents": "package.loadlib(${1:libname}, ${2:funcname})",
+			"kind": "function",
+			"details": "Dynamically link the host program with the C library <code>libname</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-package.loadlib\">Manual</a>)"
+		},
+		{
+			"trigger": "package.path",
+			"annotation": "package.path",
+			"contents": "package.path",
+			"kind": "variable",
+			"details": "Path used by <code>require</code> to search for a Lua loader (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-package.path\">Manual</a>)"
+		},
+		{
+			"trigger": "package.preload",
+			"annotation": "package.preload",
+			"contents": "package.preload",
+			"kind": "variable",
+			"details": "A table to store loaders for specific modules (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-package.preload\">Manual</a>)"
+		},
+		{
+			"trigger": "package.seeall",
+			"annotation": "(module)",
+			"contents": "package.seeall(${1:module})",
+			"kind": "function",
+			"details": "Sets a metatable for <code>module</code> with its <code>__index</code> field referring to the global environment (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-package.seeall\">Manual</a>)"
+		},
 
 
 		// String library - TODO
+
+		{
+			"trigger": "string.byte",
+			"annotation": "(s [, i [, j]])",
+			"contents": "string.byte(${1:s}, ${2:i}, ${3:j})",
+			"kind": "function",
+			"details": "Return the internal numerical codes of the characters from index <code>i</code> to <code>j</code>(<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-string.byte\">Manual</a>)"
+		},
+		{
+			"trigger": "string.char",
+			"annotation": "(...)",
+			"contents": "string.char(${1:...})",
+			"kind": "function",
+			"details": "Returns a string where each character is equal to internal numerical code value of the corresponding argument (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-string.char\">Manual</a>)"
+		},
+		{
+			"trigger": "string.dump",
+			"annotation": "(function)",
+			"contents": "string.dump(${1:function})",
+			"kind": "function",
+			"details": "Returns a string containing binary representation of the given function (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-string.dump\">Manual</a>)"
+		},
+		{
+			"trigger": "string.find",
+			"annotation": "(s, pattern [, init [, plain]])",
+			"contents": "string.find(${1:s}, ${2:pattern}, ${3:init}, ${4:plain})",
+			"kind": "function",
+			"details": "Looks for the first match of <code>pattern</code> in the string <code>s</code> starting from <code>init</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-string.find\">Manual</a>)"
+		},
+		{
+			"trigger": "string.format",
+			"annotation": "(formatstring, ...)",
+			"contents": "string.format(${1:formatstring}, ${2:...})",
+			"kind": "function",
+			"details": "Return a formatted version of string (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-string.format\">Manual</a>)"
+		},
+		{
+			"trigger": "string.gmatch",
+			"annotation": "(s, pattern)",
+			"contents": "string.gmatch(${1:s}, ${2:pattern})",
+			"kind": "function",
+			"details": "Returns an iterator function that returns the next captures from <code>pattern</code> over string <code>s</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-string.gmatch\">Manual</a>)"
+		},
+		{
+			"trigger": "string.gsub",
+			"annotation": "(s, pattern, repl [, n])",
+			"contents": "string.gsub(${1:s}, ${2:pattern}, ${3:repl}, ${4:n})",
+			"kind": "function",
+			"details": "Returns a copy of <code>s</code> where all occurrences of the <code>pattern</code> starting from <code>n</code> are replace by <code>repl</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-string.gsub\">Manual</a>)"
+		},
+		{
+			"trigger": "string.len",
+			"annotation": "(s)",
+			"contents": "string.len(${1:s})",
+			"kind": "function",
+			"details": "Return length of string (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-string.len\">Manual</a>)"
+		},
+		{
+			"trigger": "string.lower",
+			"annotation": "(s)",
+			"contents": "string.lower(${1:s})",
+			"kind": "function",
+			"details": "Returns a copy of <code>s</code> where all letters are lowercase (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-string.lower\">Manual</a>)"
+		},
+		{
+			"trigger": "string.match",
+			"annotation": "(s, pattern [, init])",
+			"contents": "string.match(${1:s}, ${2:pattern}, ${3:init})",
+			"kind": "function",
+			"details": "Returns first match of <code>pattern</code> in string <code>s</code> starting from <code>init</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-string.match\">Manual</a>)"
+		},
+		{
+			"trigger": "string.rep",
+			"annotation": "(s, n)",
+			"contents": "string.rep(${1:s}, ${2:n})",
+			"kind": "function",
+			"details": "Returns <code>s</code> repeated <code>n</code> times (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-string.rep\">Manual</a>)"
+		},
+		{
+			"trigger": "string.reverse",
+			"annotation": "(s)",
+			"contents": "string.reverse(${1:s})",
+			"kind": "function",
+			"details": "Returns reversed string <code>s</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-string.reverse\">Manual</a>)"
+		},
+		{
+			"trigger": "string.sub",
+			"annotation": "(s, i [, j])",
+			"contents": "string.sub(${1:s}, ${2:i}, ${3:j})",
+			"kind": "function",
+			"details": "Returns the substring of <code>s</code> that starts at <code>i</code> and continues until <code>j</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-string.sub\">Manual</a>)"
+		},
+		{
+			"trigger": "string.upper",
+			"annotation": "(s)",
+			"contents": "string.upper(${1:s})",
+			"kind": "function",
+			"details": "Returns a copy of <code>s</code> where all letters are uppercase (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-string.upper\">Manual</a>)"
+		},
 
 
 		// Table library - TODO
@@ -346,7 +552,7 @@
 		// Math library - TODO
 
 
-		// IO library - TODO
+		// IO library
 
 		{
 			"trigger": "io.stdin",

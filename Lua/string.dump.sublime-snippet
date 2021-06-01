@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[string.dump(${1:function})]]></content>
-    <tabTrigger>string.dump</tabTrigger>
-    <scope>source.lua</scope>
-    <description>(function)</description>
-</snippet>

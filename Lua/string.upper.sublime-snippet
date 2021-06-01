@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[string.upper(${1:s})]]></content>
-    <tabTrigger>string.upper</tabTrigger>
-    <scope>source.lua</scope>
-    <description>(s)</description>
-</snippet>

@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[coroutine.create(${1:f})]]></content>
-    <tabTrigger>coroutine.create</tabTrigger>
-    <scope>source.lua</scope>
-    <description>(f)</description>
-</snippet>

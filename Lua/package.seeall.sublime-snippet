@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[package.seeall(${1:module})]]></content>
-    <tabTrigger>package.seeall</tabTrigger>
-    <scope>source.lua</scope>
-    <description>(module)</description>
-</snippet>
