@@ -27,7 +27,7 @@ If you want better GLSL syntax highlighting (as normally it is just C syntax hig
 
 ## Snippets
 
-There are snippets for most built-in Lua functions (ex: coroutine.resume), some LuaJIT functions (ex: bit.bor), and LuaDoc tags are available in comments. For example. "@param" expands to "-- @param type name desc".
+There are snippets for most built-in Lua functions (ex: coroutine.resume), some LuaJIT functions (ex: bit.bor).
 
 ## Auto completion
 
