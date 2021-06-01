@@ -12,16 +12,30 @@ Alternatively, you can install this package by running the following command in 
 
 ## Error checking
 
-By default any Lua file will be run through luac -p and the first encountered error is outlined. The error is displayed in the status bar.
+By default any Lua file will be run through `luac -p` and the first encountered error is outlined. The error is displayed in the status bar and from Sublime Text build 4050 also in right-hand edge of the view (see `live_parser_annotations` in settings bellow.
 
 To disable or change this behavior
 
 ```json
 {
-   	"live_parser": true,
-   	"live_parser_style": "{dot|circle|outline}",
-   	"live_parser_persistent": false,
-   	"luac_path": "luac"
+    // Whatever to enable live parser
+    "live_parser" : true,
+
+    // Live parser style: outline, dot or circle
+    "live_parser_style": "outline",
+
+    // Whatever to show errors messages on right-hand edge of the view in addition to status bar
+    // Available from Sublime Text build 4050 (ignored in older versions)
+    "live_parser_annotations": true,
+
+    // Whatever make live parser persistent
+    "live_parser_persistent": false,
+
+    // Timeout for luac to execute (in ms)
+    "live_parser_timeout": 200,
+
+    // Path to luac executable (keep unchanged if luac is in PATH)
+    "luac_path": "luac"
 }
 ```
 
@@ -29,7 +43,7 @@ in Preferences > Package Settings > Lua Love > Settings - User.
 
 ## Syntax highlighting
 
-![Syntax hightlighting example](https://i.imgur.com/qZXbrDu.png "syntax hightlighting, auto completion and error checking")
+![Syntax hightlighting example](https://i.imgur.com/xT91wN3.png "syntax hightlighting, auto completion and error checking")
 
 Command Palette: Set Syntax: LÖVE 11.3.
 
