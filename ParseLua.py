@@ -41,21 +41,20 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 		if not self.settings.get("live_parser"):
 			return False
 		filename = view.file_name()
-		if not filename or not filename.endswith('.lua'):
+
+		if 'source.lua.love' not in view.syntax().scope and (not filename or not filename.endswith('.lua')):
+			view.erase_regions('lua')
 			return False
+
 		self.pending = self.pending + 1
 		return True
 
 	def on_modified(self, view):
-		if self.ST >= 3000:
-			return
-		if self.onchange(view):
+		if self.ST < 3000 and self.onchange(view):
 			sublime.set_timeout(lambda: self.parse(view), self.TIMEOUT_MS)
 
 	def on_modified_async(self, view):
-		if self.ST < 3000:
-			return
-		if self.onchange(view):
+		if self.ST >= 3000 and self.onchange(view):
 			sublime.set_timeout_async(lambda: self.parse(view), self.TIMEOUT_MS)
 
 	def parse(self, view):
