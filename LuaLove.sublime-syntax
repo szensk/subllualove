@@ -68,6 +68,7 @@ contexts:
     - include: string-single
     - include: string-double
     - include: love-pixel-effect
+    - include: ffi-cdef
     - include: string-multiline
     - include: comment-block
     - include: comment-line
@@ -142,6 +143,18 @@ contexts:
           pop: true
         # Fallback to C if no GLSL syntax installed
         - include: scope:source.glsl
+        - include: scope:source.c
+  ffi-cdef:
+    - match: '(ffi\.cdef)\(*\s*(?<!--)(\[(=*)\[)'
+      comment: C syntax highlighting for C declatarions for types
+      captures:
+        1: support.function.library.lua.love
+        2: string.quoted.other.multiline.lua
+      push:
+        - match: '(\]\])\)*'
+          captures:
+            1: string.quoted.other.multiline.lua
+          pop: true
         - include: scope:source.c
   lua-constant:
     - match: '(?<![^.]\.|:)\b(false|nil|true|_G|_VERSION|math\.(pi|huge)|io\.(std(in|out|err))|utf8\.charpattern|socket\.(headers\.canonic|_(DEBUG|VERSION|SETSIZE)))\b|(?<![.])\.{3}(?!\.)'

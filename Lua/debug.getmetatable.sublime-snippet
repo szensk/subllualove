@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[debug.getmetatable(${1:object})]]></content>
-    <tabTrigger>debug.getmetatable</tabTrigger>
-    <scope>source.lua</scope>
-    <description>(object)</description>
-</snippet>

@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[debug.setfenv(${1:object}, ${2:table})]]></content>
-    <tabTrigger>debug.setfenv</tabTrigger>
-    <scope>source.lua</scope>
-    <description>(object, table)</description>
-</snippet>

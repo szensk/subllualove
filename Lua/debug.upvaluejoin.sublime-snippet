@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[debug.upvaluejoin(${1:f1}, ${2:n1}, ${3:f2}, ${4:n2})]]></content>
-    <tabTrigger>debug.upvaluejoin</tabTrigger>
-    <scope>source.lua</scope>
-    <description>(f1, n1, f2, n2)</description>
-</snippet>

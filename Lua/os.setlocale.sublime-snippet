@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[os.setlocale(${1:locale}, ${2:category})]]></content>
-    <tabTrigger>os.setlocale</tabTrigger>
-    <scope>source.lua</scope>
-    <description>(locale [, category])</description>
-</snippet>

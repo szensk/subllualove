@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[debug.sethook(${1:thread}, ${2:hook}, ${3:mask}, ${4:count})]]></content>
-    <tabTrigger>debug.sethook</tabTrigger>
-    <scope>source.lua</scope>
-    <description>([thread,] hook, mask [, count])</description>
-</snippet>

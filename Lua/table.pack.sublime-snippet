@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[table.pack(${1:...})]]></content>
-    <tabTrigger>table.pack</tabTrigger>
-    <scope>source.lua</scope>
-    <description>(...)</description>
-</snippet>

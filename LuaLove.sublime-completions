@@ -350,7 +350,7 @@
 		{
 			"trigger": "coroutine.running",
 			"annotation": "()",
-			"contents": "coroutine.running ()",
+			"contents": "coroutine.running()",
 			"kind": "function",
 			"details": "Returns the running coroutine, or <code>nil</code> when called by the main thread (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-coroutine.running\">Manual</a>)"
 		},
@@ -444,7 +444,7 @@
 		},
 
 
-		// String library - TODO
+		// String library
 
 		{
 			"trigger": "string.byte",
@@ -545,12 +545,337 @@
 			"details": "Returns a copy of <code>s</code> where all letters are uppercase (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-string.upper\">Manual</a>)"
 		},
 
+		// Methods (experimental)
 
-		// Table library - TODO
+		{
+			"trigger": ":byte",
+			"annotation": "([i [, j]])",
+			"contents": "byte(${1:i}, ${2:j})",
+			"kind": ["function", "m", "Method"],
+			"details": "Return the internal numerical codes of the characters from index <code>i</code> to <code>j</code>(<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-string.byte\">Manual</a>)"
+		},
+		{
+			"trigger": ":find",
+			"annotation": "(pattern [, init [, plain]])",
+			"contents": "find(${1:pattern}, ${2:init}, ${3:plain})",
+			"kind": ["function", "m", "Method"],
+			"details": "Looks for the first match of <code>pattern</code> in the string <code>s</code> starting from <code>init</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-string.find\">Manual</a>)"
+		},
+		{
+			"trigger": ":format",
+			"annotation": "(...)",
+			"contents": "format(${1:...})",
+			"kind": ["function", "m", "Method"],
+			"details": "Return a formatted version of string (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-string.format\">Manual</a>)"
+		},
+		{
+			"trigger": ":gmatch",
+			"annotation": "(pattern)",
+			"contents": "gmatch(${1:pattern})",
+			"kind": ["function", "m", "Method"],
+			"details": "Returns an iterator function that returns the next captures from <code>pattern</code> over string <code>s</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-string.gmatch\">Manual</a>)"
+		},
+		{
+			"trigger": ":gsub",
+			"annotation": "(pattern, repl [, n])",
+			"contents": "gsub(${1:pattern}, ${2:repl}, ${3:n})",
+			"kind": ["function", "m", "Method"],
+			"details": "Returns a copy of <code>s</code> where all occurrences of the <code>pattern</code> starting from <code>n</code> are replace by <code>repl</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-string.gsub\">Manual</a>)"
+		},
+		{
+			"trigger": ":len",
+			"annotation": "()",
+			"contents": "len()",
+			"kind": ["function", "m", "Method"],
+			"details": "Return length of string (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-string.len\">Manual</a>)"
+		},
+		{
+			"trigger": ":lower",
+			"annotation": "()",
+			"contents": "lower()",
+			"kind": ["function", "m", "Method"],
+			"details": "Returns a copy of <code>s</code> where all letters are lowercase (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-string.lower\">Manual</a>)"
+		},
+		{
+			"trigger": ":match",
+			"annotation": "(pattern [, init])",
+			"contents": "match(${1:pattern}, ${2:init})",
+			"kind": ["function", "m", "Method"],
+			"details": "Returns first match of <code>pattern</code> in string <code>s</code> starting from <code>init</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-string.match\">Manual</a>)"
+		},
+		{
+			"trigger": ":rep",
+			"annotation": "(n)",
+			"contents": "rep(${1:n})",
+			"kind": ["function", "m", "Method"],
+			"details": "Returns <code>s</code> repeated <code>n</code> times (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-string.rep\">Manual</a>)"
+		},
+		{
+			"trigger": ":reverse",
+			"annotation": "()",
+			"contents": "reverse()",
+			"kind": ["function", "m", "Method"],
+			"details": "Returns reversed string <code>s</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-string.reverse\">Manual</a>)"
+		},
+		{
+			"trigger": ":sub",
+			"annotation": "(i [, j])",
+			"contents": "sub(${1:i}, ${2:j})",
+			"kind": ["function", "m", "Method"],
+			"details": "Returns the substring of <code>s</code> that starts at <code>i</code> and continues until <code>j</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-string.sub\">Manual</a>)"
+		},
+		{
+			"trigger": ":upper",
+			"annotation": "()",
+			"contents": "upper()",
+			"kind": ["function", "m", "Method"],
+			"details": "Returns a copy of <code>s</code> where all letters are uppercase (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-string.upper\">Manual</a>)"
+		},
 
 
-		// Math library - TODO
+		// Table library
 
+		{
+			"trigger": "table.concat",
+			"annotation": "table.concat",
+			"contents": "table.concat( ${1:tablename}${2:, \", \"}${3:, start_index}${4:, end_index} )",
+			"kind": "function",
+			"details": "Concatenates elements of <code>table</code> from <code>i</code> to <code>j</code> with <code>sep</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-table.concat\">Manual</a>)"
+		},
+		{
+			"trigger": "table.insert",
+			"annotation": "(table, [pos,] value)",
+			"contents": "table.insert(${1:table}, ${2:pos}, ${3:value})",
+			"kind": "function",
+			"details": "Inserts <code>value</code> to <code>table</code> at the end of table or position <code>pos</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-table.insert\">Manual</a>)"
+		},
+		{
+			"trigger": "table.maxn",
+			"annotation": "(table)",
+			"contents": "table.maxn(${1:table})",
+			"kind": "function",
+			"details": "Returns largest positive numerical index of the given <code>table</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-table.maxn\">Manual</a>)"
+		},
+		{
+			"trigger": "table.remove",
+			"annotation": "(table [, pos])",
+			"contents": "table.remove(${1:table}, ${2:pos})",
+			"kind": "function",
+			"details": "Removes last element from <code>table</code> or elements at position <code>pos</code> shifting down other elements to close the space (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-table.remove\">Manual</a>)"
+		},
+		{
+			"trigger": "table.sort",
+			"annotation": "table.sort",
+			"contents": "table.sort( ${1:tablename}${2:, sortfunction} )",
+			"kind": "function",
+			"details": "Sorts <code>table</code> elements in given order with optional function <code>comp</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-table.sort\">Manual</a>)"
+		},
+
+		// Math library
+
+		{
+			"trigger": "math.abs",
+			"annotation": "(x)",
+			"contents": "math.abs(${1:x})",
+			"kind": "function",
+			"details": "Returns the absolute value of <code>x</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-math.abs\">Manual</a>)"
+		},
+		{
+			"trigger": "math.acos",
+			"annotation": "(x)",
+			"contents": "math.acos(${1:x})",
+			"kind": "function",
+			"details": "Returns the arc cosine of <code>x</code> in radians (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-math.acos\">Manual</a>)"
+		},
+		{
+			"trigger": "math.asin",
+			"annotation": "(x)",
+			"contents": "math.asin(${1:x})",
+			"kind": "function",
+			"details": "Returns the arc sine of <code>x</code> in radians (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-math.asin\">Manual</a>)"
+		},
+		{
+			"trigger": "math.atan2",
+			"annotation": "(y, x)",
+			"contents": "math.atan2(${1:y}, ${2:x})",
+			"kind": "function",
+			"details": "Returns the arc tangent of <code>y/x</code> in radians, also handling the case of <code>x</code> being zero (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-math.atan2\">Manual</a>)"
+		},
+		{
+			"trigger": "math.ceil",
+			"annotation": "(x)",
+			"contents": "math.ceil(${1:x})",
+			"kind": "function",
+			"details": "Returns the smallest integer larger than or equal to <code>x</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-math.ceil\">Manual</a>)"
+		},
+		{
+			"trigger": "math.cosh",
+			"annotation": "(x)",
+			"contents": "math.cosh(${1:x})",
+			"kind": "function",
+			"details": "Returns the hyperbolic cosine of <code>x</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-math.cosh\">Manual</a>)"
+		},
+		{
+			"trigger": "math.cos",
+			"annotation": "(x)",
+			"contents": "math.cos(${1:x})",
+			"kind": "function",
+			"details": "Returns the cosine of <code>x</code> assumed to be in radians (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-math.cos\">Manual</a>)"
+		},
+		{
+			"trigger": "math.deg",
+			"annotation": "(x)",
+			"contents": "math.deg(${1:x})",
+			"kind": "function",
+			"details": "Returns the angle <code>x</code> (given in radians) in degrees (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-math.deg\">Manual</a>)"
+		},
+		{
+			"trigger": "math.exp",
+			"annotation": "(x)",
+			"contents": "math.exp(${1:x})",
+			"kind": "function",
+			"details": "Returns the value <code>e^x</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-math.exp\">Manual</a>)"
+		},
+		{
+			"trigger": "math.floor",
+			"annotation": "(x)",
+			"contents": "math.floor(${1:x})",
+			"kind": "function",
+			"details": "Returns the largest integer smaller than or equal to <code>x</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-math.floor\">Manual</a>)"
+		},
+		{
+			"trigger": "math.fmod",
+			"annotation": "(x, y)",
+			"contents": "math.fmod(${1:x}, ${2:y})",
+			"kind": "function",
+			"details": "Returns the remainder of the division of <code>x</code> by <code>y</code> that rounds the quotient towards zero(<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-math.fmod\">Manual</a>)"
+		},
+		{
+			"trigger": "math.frexp",
+			"annotation": "(x)",
+			"contents": "math.frexp(${1:x})",
+			"kind": "function",
+			"details": "Returns <code>m</code> and <code>e</code> such that <code>x = m*2^e</code>, <code>e</code> is an integer and the absolute value of <code>m</code> is in the range [0.5, 1) (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-math.frexp\">Manual</a>)"
+		},
+		{
+			"trigger": "math.huge",
+			"annotation": "math.huge",
+			"contents": "math.huge",
+			"kind": "variable",
+			"details": "The value <code>HUGE_VAL</code>, a value larger than or equal to any other numerical value (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-math.huge\">Manual</a>)"
+		},
+		{
+			"trigger": "math.ldexp",
+			"annotation": "(m, e)",
+			"contents": "math.ldexp(${1:m}, ${2:e})",
+			"kind": "function",
+			"details": "Returns <code>m*2^e</code> (<code>e</code> should be an integer) (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-math.ldexp\">Manual</a>)"
+		},
+		{
+			"trigger": "math.log10",
+			"annotation": "(x)",
+			"contents": "math.log10(${1:x})",
+			"kind": "function",
+			"details": "Returns the base-10 logarithm of <code>x</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-math.log10\">Manual</a>)"
+		},
+		{
+			"trigger": "math.log",
+			"annotation": "(x)",
+			"contents": "math.log(${1:x})",
+			"kind": "function",
+			"details": "Returns the natural logarithm of <code>x</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-math.log\">Manual</a>)"
+		},
+		{
+			"trigger": "math.max",
+			"annotation": "(x, ...)",
+			"contents": "math.max(${1:x}, ${2:...})",
+			"kind": "function",
+			"details": "Returns the maximum value among its arguments (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-math.max\">Manual</a>)"
+		},
+		{
+			"trigger": "math.min",
+			"annotation": "(x, ...)",
+			"contents": "math.min(${1:x}, ${2:...})",
+			"kind": "function",
+			"details": "Returns the minimum value among its arguments (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-math.min\">Manual</a>)"
+		},
+		{
+			"trigger": "math.modf",
+			"annotation": "(x)",
+			"contents": "math.modf(${1:x})",
+			"kind": "function",
+			"details": "Returns two numbers, the integral part of <code>x</code> and the fractional part of <code>x</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-math.modf\">Manual</a>)"
+		},
+		{
+			"trigger": "math.pi",
+			"annotation": "math.pi",
+			"contents": "math.pi",
+			"kind": "variable",
+			"details": "The value of <code>pi</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-math.pi\">Manual</a>)"
+		},
+		{
+			"trigger": "math.pow",
+			"annotation": "(x, y)",
+			"contents": "math.pow(${1:x}, ${2:y})",
+			"kind": "function",
+			"details": "Returns <code>x^y</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-math.pow\">Manual</a>)"
+		},
+		{
+			"trigger": "math.rad",
+			"annotation": "(x)",
+			"contents": "math.rad(${1:x})",
+			"kind": "function",
+			"details": "Returns the angle <code>x</code> (given in degrees) in radians (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-math.rad\">Manual</a>)"
+		},
+		{
+			"trigger": "math.randomseed",
+			"annotation": "(x)",
+			"contents": "math.randomseed(${1:x})",
+			"kind": "function",
+			"details": "Sets <code>x</code> as the \"seed\" for the pseudo-random generator (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-math.randomseed\">Manual</a>)"
+		},
+		{
+			"trigger": "math.random",
+			"annotation": "([m [, n]])",
+			"contents": "math.random(${1:m}, ${2:n})",
+			"kind": "function",
+			"details": "Returns a pseudo-random real number from given range defaulting to [0, 1) (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-math.random\">Manual</a>)"
+		},
+		{
+			"trigger": "math.sinh",
+			"annotation": "(x)",
+			"contents": "math.sinh(${1:x})",
+			"kind": "function",
+			"details": "Returns the hyperbolic sine of <code>x</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-math.sinh\">Manual</a>)"
+		},
+		{
+			"trigger": "math.sin",
+			"annotation": "(x)",
+			"contents": "math.sin(${1:x})",
+			"kind": "function",
+			"details": "Returns the sine of <code>x</code> assumed to be in radians (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-math.sin\">Manual</a>)"
+		},
+		{
+			"trigger": "math.sqrt",
+			"annotation": "(x)",
+			"contents": "math.sqrt(${1:x})",
+			"kind": "function",
+			"details": "Returns the square root of <code>x</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-math.sqrt\">Manual</a>)"
+		},
+		{
+			"trigger": "math.tanh",
+			"annotation": "(x)",
+			"contents": "math.tanh(${1:x})",
+			"kind": "function",
+			"details": "Returns the tangent of <code>x</code> assumed in radians (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-math.tanh\">Manual</a>)"
+		},
+		{
+			"trigger": "math.tan",
+			"annotation": "(x)",
+			"contents": "math.tan(${1:x})",
+			"kind": "function",
+			"details": "Returns the hyperbolic tangent of <code>x</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-math.tan\">Manual</a>)"
+		},
 
 		// IO library
 
@@ -705,11 +1030,332 @@
 			"details": "Writes the value of each of its arguments to the <code>file</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-file:write\">Manual</a>)"
 		},
 
-		// OS library - TODO
+		// OS library
 
+		{
+			"trigger": "os.clock",
+			"annotation": "()",
+			"contents": "os.clock()",
+			"kind": "function",
+			"details": "Returns an approximation of the amount in seconds of CPU time used by the program (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-os.clock\">Manual</a>)"
+		},
+		{
+			"trigger": "os.date",
+			"annotation": "([format [, time]])",
+			"contents": "os.date(${1:format}, ${2:time})",
+			"kind": "function",
+			"details": "Returns a string or a table containing date and time formatted according to the given <code>format</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-os.date\">Manual</a>)"
+		},
+		{
+			"trigger": "os.difftime",
+			"annotation": "(t2, t1)",
+			"contents": "os.difftime(${1:t2}, ${2:t1})",
+			"kind": "function",
+			"details": "Returns the number of seconds from time <code>t1</code> to time <code>t2</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-os.difftime\">Manual</a>)"
+		},
+		{
+			"trigger": "os.execute",
+			"annotation": "([command])",
+			"contents": "os.execute(${1:command})",
+			"kind": "function",
+			"details": "Passes <code>command</code> to be executed by an operating system shell and returns a status code (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-os.execute\">Manual</a>)"
+		},
+		{
+			"trigger": "os.exit",
+			"annotation": "([code])",
+			"contents": "os.exit(${1:code})",
+			"kind": "function",
+			"details": "Exits an program with an optional code (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-os.exit\">Manual</a>)"
+		},
+		{
+			"trigger": "os.getenv",
+			"annotation": "(varname)",
+			"contents": "os.getenv(${1:varname})",
+			"kind": "function",
+			"details": "Returns the value of the process environment variable <code>varname</code> or nil (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-os.getenv\">Manual</a>)"
+		},
+		{
+			"trigger": "os.remove",
+			"annotation": "(filename)",
+			"contents": "os.remove(${1:filename})",
+			"kind": "function",
+			"details": "Deletes the file or empty directory with the given name (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-os.remove\">Manual</a>)"
+		},
+		{
+			"trigger": "os.rename",
+			"annotation": "(oldname, newname)",
+			"contents": "os.rename(${1:oldname}, ${2:newname})",
+			"kind": "function",
+			"details": "Renames file or directory named <code>oldname</code> to <code>newname</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-os.rename\">Manual</a>)"
+		},
+		{
+			"trigger": "os.setlocale",
+			"annotation": "(locale [, category])",
+			"contents": "os.setlocale(${1:locale}, ${2:category})",
+			"kind": "function",
+			"details": "Sets the current locale of the program (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-os.setlocale\">Manual</a>)"
+		},
+		{
+			"trigger": "os.time",
+			"annotation": "([table])",
+			"contents": "os.time(${1:table})",
+			"kind": "function",
+			"details": "Returns the current time or a time representing the date and time specified by the given <code>table</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-os.time\">Manual</a>)"
+		},
+		{
+			"trigger": "os.tmpname",
+			"annotation": "()",
+			"contents": "os.tmpname()",
+			"kind": "function",
+			"details": "Returns a string with a file name that can be used for a temporary file (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-os.tmpname\">Manual</a>)"
+		},
 
-		// Debug library - TODO
+		// Debug library
 
+		{
+			"trigger": "debug.debug",
+			"annotation": "()",
+			"contents": "debug.debug()",
+			"kind": "function",
+			"details": "Enters an interactive mode with the user, running each string that user enters. Write word <code>cont</code> end debug mode (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-debug.debug\">Manual</a>)"
+		},
+		{
+			"trigger": "debug.getfenv",
+			"annotation": "(o)",
+			"contents": "debug.getfenv(${1:o})",
+			"kind": "function",
+			"details": "Returns the environment of object <code>o</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-debug.getfenv\">Manual</a>)"
+		},
+		{
+			"trigger": "debug.gethook",
+			"annotation": "([thread])",
+			"contents": "debug.gethook(${1:thread})",
+			"kind": "function",
+			"details": "Returns the current hook settings of the thread (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-debug.gethook\">Manual</a>)"
+		},
+		{
+			"trigger": "debug.getinfo",
+			"annotation": "([thread,] function [, what])",
+			"contents": "debug.getinfo(${1:thread}, ${2:function}, ${3:what})",
+			"kind": "function",
+			"details": "Returns a table with information about a function (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-debug.getinfo\">Manual</a>)"
+		},
+		{
+			"trigger": "debug.getlocal",
+			"annotation": "([thread,] level, local)",
+			"contents": "debug.getlocal(${1:thread}, ${2:level}, ${3:local})",
+			"kind": "function",
+			"details": "Returns the name and the value of the local variable with index <code>local</code> of the function at level <code>level</code> of the stack (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-debug.getlocal\">Manual</a>)"
+		},
+		{
+			"trigger": "debug.getmetatable",
+			"annotation": "(object)",
+			"contents": "debug.getmetatable(${1:object})",
+			"kind": "function",
+			"details": "Returns the metatable of the given <code>object</code> or nil (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-debug.getmetatable\">Manual</a>)"
+		},
+		{
+			"trigger": "debug.getregistry",
+			"annotation": "()",
+			"contents": "debug.getregistry()",
+			"kind": "function",
+			"details": "Returns the registry table (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-debug.getregistry\">Manual</a>)"
+		},
+		{
+			"trigger": "debug.getupvalue",
+			"annotation": "(func, up)",
+			"contents": "debug.getupvalue(${1:func}, ${2:up})",
+			"kind": "function",
+			"details": "Returns the name and the value of the upvalue with index <code>up</code> of the function <code>func</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-debug.getupvalue\">Manual</a>)"
+		},
+		{
+			"trigger": "debug.setfenv",
+			"annotation": "(object, table)",
+			"contents": "debug.setfenv(${1:object}, ${2:table})",
+			"kind": "function",
+			"details": "Sets the environment of the given <code>object</code> to the given <code>table</code>, returns <code>object</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-debug.setfenv\">Manual</a>)"
+		},
+		{
+			"trigger": "debug.sethook",
+			"annotation": "([thread,] hook, mask [, count])",
+			"contents": "debug.sethook(${1:thread}, ${2:hook}, ${3:mask}, ${4:count})",
+			"kind": "function",
+			"details": "Sets the fiven function as a hook (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-debug.sethook\">Manual</a>)"
+		},
+		{
+			"trigger": "debug.setlocal",
+			"annotation": "([thread,] level, local, value)",
+			"contents": "debug.setlocal(${1:thread}, ${2:level}, ${3:local}, ${4:value})",
+			"kind": "function",
+			"details": "Assigns the <code>value</code> to the local variable with index <code>local</code> of the function at level <code>level</code> of the stack (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-debug.setlocal\">Manual</a>)"
+		},
+		{
+			"trigger": "debug.setmetatable",
+			"annotation": "(object, table)",
+			"contents": "debug.setmetatable(${1:object}, ${2:table})",
+			"kind": "function",
+			"details": "Sets the metatable for the given <code>object</code> to the given <code>table</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-debug.setmetatable\">Manual</a>)"
+		},
+		{
+			"trigger": "debug.setupvalue",
+			"annotation": "(func, up, value)",
+			"contents": "debug.setupvalue(${1:func}, ${2:up}, ${3:value})",
+			"kind": "function",
+			"details": "Assigns the <code>value</code> to the upvalue with index <code>up</code> of the function <code>func</code> (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-debug.setupvalue\">Manual</a>)"
+		},
+		{
+			"trigger": "debug.traceback",
+			"annotation": "([thread,] [message [, level]])",
+			"contents": "debug.traceback(${1:thread}, ${2:message}, ${3:level})",
+			"kind": "function",
+			"details": "Returns a string with a traceback of the call stack (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-debug.traceback\">Manual</a>)"
+		},
+
+		// JIT
+
+		{
+			"trigger": "jit.flush",
+			"annotation": "([func], [recursive])",
+			"contents": "jit.flush(${1:[func]}, ${2:[recursive]})",
+			"kind": "function",
+			"details": "Flushes the whole cache of compiled code or function <code>func</code> when specified (<a href=\"https://luajit.org/ext_jit.html#jit_flush\">Manual</a>)"
+		},
+		{
+			"trigger": "jit.off",
+			"annotation": "([func], [recursive])",
+			"contents": "jit.off(${1:[func]}, ${2:[recursive]})",
+			"kind": "function",
+			"details": "Turns the whole JIT compiler off or only for function <code>func</code> when specified (<a href=\"https://luajit.org/ext_jit.html#jit_onoff\">Manual</a>)"
+		},
+		{
+			"trigger": "jit.on",
+			"annotation": "([func], [recursive])",
+			"contents": "jit.on(${1:[func]}, ${2:[recursive]})",
+			"kind": "function",
+			"details": "Turns the whole JIT compiler on or only for function <code>func</code> when specified (<a href=\"https://luajit.org/ext_jit.html#jit_onoff\">Manual</a>)"
+		},
+		{
+			"trigger": "jit.status",
+			"annotation": "()",
+			"contents": "jit.status()",
+			"kind": "function",
+			"details": "Returns the current status of the JIT compiler (<a href=\"https://luajit.org/ext_jit.html#jit_status\">Manual</a>)"
+		},
+		{
+			"trigger": "jit.version",
+			"annotation": "",
+			"contents": "jit.version",
+			"kind": "variable",
+			"details": "Variable containing the LuaJIT version string (<a href=\"https://luajit.org/ext_jit.html#jit_version\">Manual</a>)"
+		},
+		{
+			"trigger": "jit.version_num",
+			"annotation": "",
+			"contents": "jit.version_num",
+			"kind": "variable",
+			"details": "Variable containing the version number of the LuaJIT core (xx.yy.zz) in form of decimal number xxyyzz (<a href=\"https://luajit.org/ext_jit.html#jit_version_num\">Manual</a>)"
+		},
+		{
+			"trigger": "jit.os",
+			"annotation": "",
+			"contents": "jit.os",
+			"kind": "variable",
+			"details": "Variable containing the target OS name (<a href=\"https://luajit.org/ext_jit.html#jit_os\">Manual</a>)"
+		},
+		{
+			"trigger": "jit.arch",
+			"annotation": "",
+			"contents": "jit.arch",
+			"kind": "variable",
+			"details": "Variable containing the target architecture name (<a href=\"https://luajit.org/ext_jit.html#jit_arch\">Manual</a>)"
+		},
+
+		// Bit library
+
+		{
+			"trigger": "bit.arshift",
+			"annotation": "(x, n)",
+			"contents": "bit.arshift(${1:x}, ${2:n})",
+			"kind": "function",
+			"details": "Returns bitwise arithmetic right shift (<a href=\"https://bitop.luajit.org/api.html#lshift\">Manual</a>)"
+		},
+		{
+			"trigger": "bit.band",
+			"annotation": "(...)",
+			"contents": "bit.band(${1:...})",
+			"kind": "function",
+			"details": "Returns bitwise and (<a href=\"https://bitop.luajit.org/api.html#bor\">Manual</a>)"
+		},
+		{
+			"trigger": "bit.bnot",
+			"annotation": "(x)",
+			"contents": "bit.bnot(${1:x})",
+			"kind": "function",
+			"details": "Returns bitwise not (<a href=\"https://bitop.luajit.org/api.html#bnot\">Manual</a>)"
+		},
+		{
+			"trigger": "bit.bor",
+			"annotation": "(...)",
+			"contents": "bit.bor(${1:...})",
+			"kind": "function",
+			"details": "Returns bitwise or (<a href=\"https://bitop.luajit.org/api.html#bor\">Manual</a>)"
+		},
+		{
+			"trigger": "bit.bswap",
+			"annotation": "(x)",
+			"contents": "bit.bswap(${1:x})",
+			"kind": "function",
+			"details": "Swaps the bytes of its arguemnts and returns it (<a href=\"https://bitop.luajit.org/api.html#bswap\">Manual</a>)"
+		},
+		{
+			"trigger": "bit.bxor",
+			"annotation": "(...)",
+			"contents": "bit.bxor(${1:...})",
+			"kind": "function",
+			"details": "Returns bitwise xor (<a href=\"https://bitop.luajit.org/api.html#bor\">Manual</a>)"
+		},
+		{
+			"trigger": "bit.rol",
+			"annotation": "(x, n)",
+			"contents": "bit.rol(${1:x}, ${2:n})",
+			"kind": "function",
+			"details": "Returns left rotation of <code>x</code> by <code>n</code> bits (<a href=\"https://bitop.luajit.org/api.html#rol\">Manual</a>)"
+		},
+		{
+			"trigger": "bit.lshift",
+			"annotation": "(x, n)",
+			"contents": "bit.lshift(${1:x}, ${2:n})",
+			"kind": "function",
+			"details": "Returns logical left shift (<a href=\"https://bitop.luajit.org/api.html#lshift\">Manual</a>)"
+		},
+		{
+			"trigger": "bit.ror",
+			"annotation": "(x, n)",
+			"contents": "bit.ror(${1:x}, ${2:n})",
+			"kind": "function",
+			"details": "Returns right rotation of <code>x</code> by <code>n</code> bits (<a href=\"https://bitop.luajit.org/api.html#rol\">Manual</a>)"
+		},
+		{
+			"trigger": "bit.rshift",
+			"annotation": "(x, n)",
+			"contents": "bit.rshift(${1:x}, ${2:n})",
+			"kind": "function",
+			"details": "Returns logical right shift (<a href=\"https://bitop.luajit.org/api.html#lshift\">Manual</a>)"
+		},
+		{
+			"trigger": "bit.tobit",
+			"annotation": "(x)",
+			"contents": "bit.tobit(${1:x})",
+			"kind": "function",
+			"details": "Normalizes a number to the numeric range for bit operations and returns it (<a href=\"https://bitop.luajit.org/api.html#tobit\">Manual</a>)"
+		},
+		{
+			"trigger": "bit.tohex",
+			"annotation": "(x, digits)",
+			"contents": "bit.tohex(${1:x}, ${2:digits})",
+			"kind": "function",
+			"details": "Converts <code>x</code> to a hex string with <code>digits</code> digits (<a href=\"https://bitop.luajit.org/api.html#tohex\">Manual</a>)"
+		},
 
 		// Löve functions
 		{

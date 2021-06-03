@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[bit.band(${1:...})]]></content>
-    <tabTrigger>bit.band</tabTrigger>
-    <scope>source.lua</scope>
-    <description>(...)</description>
-</snippet>

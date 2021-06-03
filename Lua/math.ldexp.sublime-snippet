@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[math.ldexp(${1:m}, ${2:e})]]></content>
-    <tabTrigger>math.ldexp</tabTrigger>
-    <scope>source.lua</scope>
-    <description>(m, e)</description>
-</snippet>

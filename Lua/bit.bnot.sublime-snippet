@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[bit.bnot(${1:x})]]></content>
-    <tabTrigger>bit.bnot</tabTrigger>
-    <scope>source.lua</scope>
-    <description>(x)</description>
-</snippet>

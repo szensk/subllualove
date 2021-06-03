@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[debug.getupvalue(${1:func}, ${2:up})]]></content>
-    <tabTrigger>debug.getupvalue</tabTrigger>
-    <scope>source.lua</scope>
-    <description>(func, up)</description>
-</snippet>

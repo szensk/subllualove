@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[jit.off(${1:[func]}, ${2:[recursive]})]]></content>
-    <tabTrigger>jit.off</tabTrigger>
-    <scope>source.lua</scope>
-    <description>([func], [recursive])</description>
-</snippet>

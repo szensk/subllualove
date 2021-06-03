@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[debug.upvalueid(${1:f}, ${2:n})]]></content>
-    <tabTrigger>debug.upvalueid</tabTrigger>
-    <scope>source.lua</scope>
-    <description>(f, n)</description>
-</snippet>

@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[bit.bor(${1:...})]]></content>
-    <tabTrigger>bit.bor</tabTrigger>
-    <scope>source.lua</scope>
-    <description>(...)</description>
-</snippet>

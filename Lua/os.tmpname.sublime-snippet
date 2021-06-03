@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[os.tmpname ()]]></content>
-    <tabTrigger>os.tmpname</tabTrigger>
-    <scope>source.lua</scope>
-    <description>()</description>
-</snippet>

@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[debug.getlocal(${1:thread}, ${2:level}, ${3:local})]]></content>
-    <tabTrigger>debug.getlocal</tabTrigger>
-    <scope>source.lua</scope>
-    <description>([thread,] level, local)</description>
-</snippet>

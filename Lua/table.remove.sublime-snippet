@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[table.remove(${1:table}, ${2:pos})]]></content>
-    <tabTrigger>table.remove</tabTrigger>
-    <scope>source.lua</scope>
-    <description>(table [, pos])</description>
-</snippet>
