@@ -102,14 +102,14 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 			if style == "outline":
 				view.add_regions('lua', regions, 'invalid', '', sublime.DRAW_OUTLINED | persistent, annotations)
 			elif style == "dot":
-				view.add_regions('lua', regions, 'invalid', 'DOT', sublime.HIDDEN | persistent, annotations)
+				view.add_regions('lua', regions, 'invalid', 'dot', sublime.HIDDEN | persistent, annotations)
 			elif style == "circle":
-				view.add_regions('lua', regions, 'invalid', 'CIRCLE', sublime.HIDDEN | persistent, annotations)
+				view.add_regions('lua', regions, 'invalid', 'circle', sublime.HIDDEN | persistent, annotations)
 		else:
 			if style == "outline":
 				view.add_regions('lua', regions, 'invalid', '', sublime.DRAW_OUTLINED | persistent)
 			elif style == "dot":
-				view.add_regions('lua', regions, 'invalid', 'DOT', sublime.HIDDEN | persistent)
+				view.add_regions('lua', regions, 'invalid', 'dot', sublime.HIDDEN | persistent)
 			elif style == "circle":
-				view.add_regions('lua', regions, 'invalid', 'CIRCLE', sublime.HIDDEN | persistent)
+				view.add_regions('lua', regions, 'invalid', 'circle', sublime.HIDDEN | persistent)
 
