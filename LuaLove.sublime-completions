@@ -1215,22 +1215,22 @@
 
 		{
 			"trigger": "jit.flush",
-			"annotation": "([func], [recursive])",
-			"contents": "jit.flush(${1:[func]}, ${2:[recursive]})",
+			"annotation": "([func [, recursive]])",
+			"contents": "jit.flush(${1:func}, ${2:recursive})",
 			"kind": "function",
 			"details": "Flushes the whole cache of compiled code or function <code>func</code> when specified (<a href=\"https://luajit.org/ext_jit.html#jit_flush\">Manual</a>)"
 		},
 		{
 			"trigger": "jit.off",
-			"annotation": "([func], [recursive])",
-			"contents": "jit.off(${1:[func]}, ${2:[recursive]})",
+			"annotation": "([func [, recursive]])",
+			"contents": "jit.off(${1:func}, ${2:recursive})",
 			"kind": "function",
 			"details": "Turns the whole JIT compiler off or only for function <code>func</code> when specified (<a href=\"https://luajit.org/ext_jit.html#jit_onoff\">Manual</a>)"
 		},
 		{
 			"trigger": "jit.on",
-			"annotation": "([func], [recursive])",
-			"contents": "jit.on(${1:[func]}, ${2:[recursive]})",
+			"annotation": "([func [, recursive]])",
+			"contents": "jit.on(${1:func}, ${2:recursive})",
 			"kind": "function",
 			"details": "Turns the whole JIT compiler on or only for function <code>func</code> when specified (<a href=\"https://luajit.org/ext_jit.html#jit_onoff\">Manual</a>)"
 		},
@@ -1269,6 +1269,150 @@
 			"kind": "variable",
 			"details": "Variable containing the target architecture name (<a href=\"https://luajit.org/ext_jit.html#jit_arch\">Manual</a>)"
 		},
+
+		// FFI
+
+		{
+			"trigger": "ffi.cdef",
+			"annotation": "(def)",
+			"contents": "ffi.cdef(${1:def})",
+			"kind": "function",
+			"details": "Adds multiple C declarations for types or external symbols (<a href=\"https://luajit.org/ext_ffi_api.html#ffi_cdef\">Manual</a>)"
+		},
+		{
+			"trigger": "ffi.C",
+			"annotation": "",
+			"contents": "ffi.C",
+			"kind": "variable",
+			"details": "Default C library namespace (<a href=\"https://luajit.org/ext_ffi_api.html#ffi_C\">Manual</a>)"
+		},
+		{
+			"trigger": "ffi.load",
+			"annotation": "(name [, global])",
+			"contents": "ffi.load(${1:name}, ${2:global})",
+			"kind": "function",
+			"details": "Loads the dynamic library given by <code>name</code> and returns a new C library namespace which binds to its symbols (<a href=\"https://luajit.org/ext_ffi_api.html#ffi_load\">Manual</a>)"
+		},
+		{
+			"trigger": "ffi.new",
+			"annotation": "(ct [, nelem] [, init...])",
+			"contents": "ffi.new(${1:ct}, ${2:nelem}, ${3:init})",
+			"kind": "function",
+			"details": "Creates a cdata object for given <code>ct</code> (<a href=\"https://luajit.org/ext_ffi_api.html#ffi_new\">Manual</a>)"
+		},
+		{
+			"trigger": "ffi.typeof",
+			"annotation": "(ct)",
+			"contents": "ffi.typeof(${1:ct})",
+			"kind": "function",
+			"details": "Creates a ctype object for the given <code>ct</code> (<a href=\"https://luajit.org/ext_ffi_api.html#ffi_typeof\">Manual</a>)"
+		},
+		{
+			"trigger": "ffi.cast",
+			"annotation": "(ct, init)",
+			"contents": "ffi.cast(${1:ct}, ${2:init})",
+			"kind": "function",
+			"details": "Creates a scalar cdata object for the given <code>ct</code> initialized with <code>init</code> (<a href=\"https://luajit.org/ext_ffi_api.html#ffi_cast\">Manual</a>)"
+		},
+		{
+			"trigger": "ffi.metatype",
+			"annotation": "(ct, metatable)",
+			"contents": "ffi.metatype(${1:ct}, ${2:metatable})",
+			"kind": "function",
+			"details": "Creates a ctype object for the given <code>ct</code> and associates it with a <code>metatable</code> (<a href=\"https://luajit.org/ext_ffi_api.html#ffi_metatype\">Manual</a>)"
+		},
+		{
+			"trigger": "ffi.gc",
+			"annotation": "(cdata, finalizer)",
+			"contents": "ffi.gc(${1:cdata}, ${2:finalizer})",
+			"kind": "function",
+			"details": "Associates a <code>finalizer</code> with a pointer or aggregate <code>cdata</code> object (<a href=\"https://luajit.org/ext_ffi_api.html#ffi_gc\">Manual</a>)"
+		},
+		{
+			"trigger": "ffi.sizeof",
+			"annotation": "(ct [, nelem])",
+			"contents": "ffi.sizeof(${1:ct}, ${2:nelem})",
+			"kind": "function",
+			"details": "Returns the size of <code>ct</code> in bytes (<a href=\"https://luajit.org/ext_ffi_api.html#ffi_sizeof\">Manual</a>)"
+		},
+		{
+			"trigger": "ffi.alignof",
+			"annotation": "(ct)",
+			"contents": "ffi.alignof(${1:ct})",
+			"kind": "function",
+			"details": "Returns the minimum required alignment for <code>ct</code> in bytes (<a href=\"https://luajit.org/ext_ffi_api.html#ffi_alignof\">Manual</a>)"
+		},
+		{
+			"trigger": "ffi.offsetof",
+			"annotation": "(ct, field)",
+			"contents": "ffi.offsetof(${1:ct}, ${2:field})",
+			"kind": "function",
+			"details": "Returns the offset (in bytes) of <code>field</code> relative to the start of <code>ct</code>, which must be a <code>struct</code> (<a href=\"https://luajit.org/ext_ffi_api.html#ffi_offsetof\">Manual</a>)"
+		},
+		{
+			"trigger": "ffi.istype",
+			"annotation": "(ct, obj)",
+			"contents": "ffi.istype(${1:ct}, ${2:obj})",
+			"kind": "function",
+			"details": "Returns whatever <code>obj</code> has the C type given by <code>ct</code>, which must be a <code>struct</code> (<a href=\"https://luajit.org/ext_ffi_api.html#ffi_istype\">Manual</a>)"
+		},
+		{
+			"trigger": "ffi.errno",
+			"annotation": "([newerr])",
+			"contents": "ffi.errno(${1:newerr})",
+			"kind": "function",
+			"details": "Returns the error number set by the last C function call which indicated an error condition (<a href=\"https://luajit.org/ext_ffi_api.html#ffi_errno\">Manual</a>)"
+		},
+		{
+			"trigger": "ffi.string",
+			"annotation": "(ptr [, len])",
+			"contents": "ffi.string(${1:ptr}, ${2:len})",
+			"kind": "function",
+			"details": "Creates an interned Lua string from the data pointer by <code>ptr</code> (<a href=\"https://luajit.org/ext_ffi_api.html#ffi_string\">Manual</a>)"
+		},
+		{
+			"trigger": "ffi.copy",
+			"annotation": "(dst, src, len)",
+			"contents": "ffi.copy(${1:dst}, ${2:src}, ${3:len})",
+			"kind": "function",
+			"details": "Copies the data pointer to by <code>src</code> to <code>dst</code> with length of <code>len</code> bytes (<a href=\"https://luajit.org/ext_ffi_api.html#ffi_copy\">Manual</a>)"
+		},
+		{
+			"trigger": "ffi.copy",
+			"annotation": "(dst, str)",
+			"contents": "ffi.copy(${1:dst}, ${2:str})",
+			"kind": "function",
+			"details": "Copies the data pointer to by <code>str</code> to <code>dst</code> (<a href=\"https://luajit.org/ext_ffi_api.html#ffi_copy\">Manual</a>)"
+		},
+		{
+			"trigger": "ffi.fill",
+			"annotation": "(dst, len [, c])",
+			"contents": "ffi.fill(${1:dst}, ${2:len}, ${3:c})",
+			"kind": "function",
+			"details": "Fills the data pointed to by <code>dst</code> with <code>len</code> constant bytes, given by <code>c</code> (<a href=\"https://luajit.org/ext_ffi_api.html#ffi_fill\">Manual</a>)"
+		},
+		{
+			"trigger": "ffi.abi",
+			"annotation": "(param)",
+			"contents": "ffi.abi(${1:param})",
+			"kind": "function",
+			"details": "Returns whatever <code>param</code> (a Lua string) applies for the target ABI (<a href=\"https://luajit.org/ext_ffi_api.html#ffi_abi\">Manual</a>)"
+		},
+		{
+			"trigger": "ffi.os",
+			"annotation": "",
+			"contents": "ffi.os",
+			"kind": "variable",
+			"details": "Variable containing the target OS name (<a href=\"https://luajit.org/ext_ffi_api.html#ffi_os\">Manual</a>)"
+		},
+		{
+			"trigger": "ffi.arch",
+			"annotation": "",
+			"contents": "ffi.arch",
+			"kind": "variable",
+			"details": "Variable containing the target architecture name (<a href=\"https://luajit.org/ext_ffi_api.html#ffi_arch\">Manual</a>)"
+		},
+
 
 		// Bit library
 
