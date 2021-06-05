@@ -105,14 +105,8 @@ contexts:
         - include: comments-special
   # TODO, FIXME, ... highlighting. If supported by color scheme (based on https://github.com/sublimehq/Packages/blob/master/C%23/C%23.sublime-syntax#L80)
   comments-special:
-    - match: \b(?i:readme|note)\b
-      scope: comment.line.note.lua
     - match: \b(?i:todo|hack|fix(me|it)|important)(?i:s)?\b
       scope: comment.line.todo.lua
-    - match: \b(?i:done)\b
-      scope: comment.line.done.lua
-    - match: \b(?i:work)\b
-      scope: comment.line.work.lua
     - match: '/!\\'
       scope: comment.line.todo.lua
     - match: \b((https?|ftps?)://\S*)\b
