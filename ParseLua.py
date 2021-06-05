@@ -31,6 +31,8 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 
 	settings = sublime.load_settings("LuaLove.sublime-settings")
 
+	scope_regex = re.compile('^([\S]+)')
+
 	TIMEOUT_MS = settings.get("live_parser_timeout", 200)
 	ST = 3000 if sublime.version() == '' else int(sublime.version())
 
@@ -42,7 +44,7 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 			return False
 		filename = view.file_name()
 
-		if 'source.lua.love' not in view.syntax().scope and (not filename or not filename.endswith('.lua')):
+		if 'source.lua.love' not in self.scope_regex.findall(view.scope_name(view.sel()[-1].b)) and (not filename or not filename.endswith('.lua')):
 			view.erase_regions('lua')
 			return False
 
