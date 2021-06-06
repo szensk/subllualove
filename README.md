@@ -1,8 +1,6 @@
 # LuaLove
 
-## Description
-
-> LuaLove is a package for [Sublime Text 2/3/4](http://www.sublimetext.com) which brings Löve2D API syntax highlighting and more. It is based on [SublimeLove](https://github.com/minism/SublimeLove), [LuaSublime](https://github.com/rorydriscoll/LuaSublime), and [lua_snippet](https://github.com/yinqiang/lua_snippet).
+LuaLove is a package for [Sublime Text 2/3/4](http://www.sublimetext.com) which brings Löve2D API syntax highlighting and more. It is based on [SublimeLove](https://github.com/minism/SublimeLove), [LuaSublime](https://github.com/rorydriscoll/LuaSublime), and [lua_snippet](https://github.com/yinqiang/lua_snippet).
 
 ![Syntax highlighting example](https://i.imgur.com/xT91wN3.png "Syntax highlighting, auto completions and error checking (on Ubuntu)")
 
