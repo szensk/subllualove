@@ -1,6 +1,11 @@
 {
 	"scope": "source.lua.love",
 	"completions": [
+
+		// =====================================
+		// Lua and LuaJIT functions and keywords
+		// =====================================
+
 		// Keywords
 
 		{
@@ -1501,7 +1506,298 @@
 			"details": "Converts <code>x</code> to a hex string with <code>digits</code> digits (<a href=\"https://bitop.luajit.org/api.html#tohex\">Manual</a>)"
 		},
 
-		// Löve functions
+		// ================
+		// Löve2D functions
+		// ================
+
+		// love
+
+		{
+			"trigger": "love.getVersion",
+			"annotation": "()",
+			"contents": "love.getVersion()",
+			"kind": "function",
+			"details": "Gets the current running version of LÖVE (<a href=\"https://love2d.org/wiki/love.getVersion\">Manual</a>)"
+		},
+		{
+			"trigger": "love.hasDeprecationOutput",
+			"annotation": "()",
+			"contents": "love.hasDeprecationOutput()",
+			"kind": "function",
+			"details": "Gets whether LÖVE displays warnings when using deprecated functionality (<a href=\"https://love2d.org/wiki/love.hasDeprecationOutput\">Manual</a>)"
+		},
+		{
+			"trigger": "love.isVersionCompatible",
+			"annotation": "(version)",
+			"contents": "love.isVersionCompatible(${1:version})",
+			"kind": "function",
+			"details": "Gets whatever the version is compatible with current running version of LÖVE (<a href=\"https://love2d.org/wiki/love.isVersionCompatible\">Manual</a>)"
+		},
+		{
+			"trigger": "love.isVersionCompatible",
+			"annotation": "(major, minor, revision)",
+			"contents": "love.isVersionCompatible(${1:major}, ${2:minor}, ${3:revision})",
+			"kind": "function",
+			"details": "Gets whatever the version is compatible with current running version of LÖVE (<a href=\"https://love2d.org/wiki/love.isVersionCompatible\">Manual</a>)"
+		},
+		{
+			"trigger": "love.setDeprecationOutput",
+			"annotation": "(enable)",
+			"contents": "love.setDeprecationOutput(${1:enable})",
+			"kind": "function",
+			"details": "Sets whether LÖVE displays warnings when using deprecated functionality (<a href=\"https://love2d.org/wiki/love.setDeprecationOutput\">Manual</a>)"
+		},
+
+		// Callbacks
+
+		{
+			"trigger": "love.displayrotated",
+			"annotation": "(index, orientation)",
+			"contents": "love.displayrotated(${1:index}, ${2:orientation})",
+			"kind": ["function", "c", "Callback"],
+			"details": "Called when the device display orientation changed (<a href=\"https://love2d.org/wiki/love.displayrotated\">Manual</a>)"
+		},
+		{
+			"trigger": "love.draw",
+			"annotation": "()",
+			"contents": "love.draw()",
+			"kind": ["function", "c", "Callback"],
+			"details": "Callback function used to draw on the screen every frame (<a href=\"https://love2d.org/wiki/love.draw\">Manual</a>)"
+		},
+		{
+			"trigger": "love.errorhandler",
+			"annotation": "(msg)",
+			"contents": "love.errorhandler(${1:msg})",
+			"kind": ["function", "c", "Callback"],
+			"details": "The error handler, used to display error messages (<a href=\"https://love2d.org/wiki/love.errorhandler\">Manual</a>)"
+		},
+		{
+			"trigger": "love.load",
+			"annotation": "(arg, unfilteredArg)",
+			"contents": "love.load(${1:msg}, ${2:unfilteredArg})",
+			"kind": ["function", "c", "Callback"],
+			"details": "This function is called exactly once at the beginning of the game (<a href=\"https://love2d.org/wiki/love.load\">Manual</a>)"
+		},
+		{
+			"trigger": "love.lowmemory",
+			"annotation": "()",
+			"contents": "love.lowmemory()",
+			"kind": ["function", "c", "Callback"],
+			"details": "Callback function triggered when the system is running out of memory on mobile devices (<a href=\"https://love2d.org/wiki/love.lowmemory\">Manual</a>)"
+		},
+		{
+			"trigger": "love.quit",
+			"annotation": "()",
+			"contents": "love.quit()",
+			"kind": ["function", "c", "Callback"],
+			"details": "Callback function triggered when the game is closed (<a href=\"https://love2d.org/wiki/love.quit\">Manual</a>)"
+		},
+		{
+			"trigger": "love.run",
+			"annotation": "()",
+			"contents": "love.run()",
+			"kind": ["function", "c", "Callback"],
+			"details": "The main function, containing the main loop. A sensible default is used when left out (<a href=\"https://love2d.org/wiki/love.run\">Manual</a>)"
+		},
+		{
+			"trigger": "love.threaderror",
+			"annotation": "(thread, errorstr)",
+			"contents": "love.threaderror(${1:thread}, ${2:errorstr})",
+			"kind": ["function", "c", "Callback"],
+			"details": "Callback function triggered when a Thread encounters an error (<a href=\"https://love2d.org/wiki/love.threaderror\">Manual</a>)"
+		},
+		{
+			"trigger": "love.update",
+			"annotation": "(dt)",
+			"contents": "love.update(${1:dt})",
+			"kind": ["function", "c", "Callback"],
+			"details": "Callback function used to update the state of the game every frame (<a href=\"https://love2d.org/wiki/love.update\">Manual</a>)"
+		},
+		{
+			"trigger": "love.directorydropped",
+			"annotation": "(path)",
+			"contents": "love.directorydropped(${1:path})",
+			"kind": ["function", "c", "Callback"],
+			"details": "Callback function triggered when a directory is dragged and dropped onto the window (<a href=\"https://love2d.org/wiki/love.directorydropped\">Manual</a>)"
+		},
+		{
+			"trigger": "love.filedropped",
+			"annotation": "(file)",
+			"contents": "love.filedropped(${1:file})",
+			"kind": ["function", "c", "Callback"],
+			"details": "Callback function triggered when a file is dragged and dropped onto the window (<a href=\"https://love2d.org/wiki/love.filedropped\">Manual</a>)"
+		},
+		{
+			"trigger": "love.focus",
+			"annotation": "(focus)",
+			"contents": "love.focus(${1:focus})",
+			"kind": ["function", "c", "Callback"],
+			"details": "Callback function triggered when window receives or loses focus (<a href=\"https://love2d.org/wiki/love.focus\">Manual</a>)"
+		},
+		{
+			"trigger": "love.mousefocus",
+			"annotation": "(focus)",
+			"contents": "love.mousefocus(${1:focus})",
+			"kind": ["function", "c", "Callback"],
+			"details": "Callback function triggered when window receives or loses mouse focus (<a href=\"https://love2d.org/wiki/love.mousefocus\">Manual</a>)"
+		},
+		{
+			"trigger": "love.resize",
+			"annotation": "(w, h)",
+			"contents": "love.resize(${1:w}, ${2:h})",
+			"kind": ["function", "c", "Callback"],
+			"details": "Called when the window is resized (<a href=\"https://love2d.org/wiki/love.resize\">Manual</a>)"
+		},
+		{
+			"trigger": "love.visible",
+			"annotation": "(visible)",
+			"contents": "love.visible(${1:visible})",
+			"kind": ["function", "c", "Callback"],
+			"details": "Callback function triggered when window is shown or hidden (<a href=\"https://love2d.org/wiki/love.visible\">Manual</a>)"
+		},
+		{
+			"trigger": "love.keypressed",
+			"annotation": "(key, scancode, isrepeat)",
+			"contents": "love.keypressed(${1:key}, ${2:scancode}, ${3:isrepeat})",
+			"kind": ["function", "c", "Callback"],
+			"details": "Callback function triggered when a key is pressed (<a href=\"https://love2d.org/wiki/love.keypressed\">Manual</a>)"
+		},
+		{
+			"trigger": "love.keyreleased",
+			"annotation": "(key, scancode)",
+			"contents": "love.keyreleased(${1:key}, ${2:scancode})",
+			"kind": ["function", "c", "Callback"],
+			"details": "Callback function triggered when a keyboard key is released (<a href=\"https://love2d.org/wiki/love.keyreleased\">Manual</a>)"
+		},
+		{
+			"trigger": "love.textedited",
+			"annotation": "(text, start, length)",
+			"contents": "love.textedited(${1:text}, ${2:start}, ${3:length})",
+			"kind": ["function", "c", "Callback"],
+			"details": "Called when the candidate text for an IME has changed (<a href=\"https://love2d.org/wiki/love.textedited\">Manual</a>)"
+		},
+		{
+			"trigger": "love.textinput",
+			"annotation": "(text)",
+			"contents": "love.textinput(${1:text})",
+			"kind": ["function", "c", "Callback"],
+			"details": "Called when text has been entered by the user (<a href=\"https://love2d.org/wiki/love.textinput\">Manual</a>)"
+		},
+		{
+			"trigger": "love.mousemoved",
+			"annotation": "(x, y, dx, dy, istouch)",
+			"contents": "love.mousemoved(${1:x}, ${2:y}, ${3:dx}, ${4:dy}, ${5:istouch})",
+			"kind": ["function", "c", "Callback"],
+			"details": "Callback function triggered when the mouse is moved (<a href=\"https://love2d.org/wiki/love.mousemoved\">Manual</a>)"
+		},
+		{
+			"trigger": "love.mousepressed",
+			"annotation": "(x, y, button, istouch, presses)",
+			"contents": "love.mousepressed(${1:x}, ${2:y}, ${3:button}, ${4:istouch}, ${5:presses})",
+			"kind": ["function", "c", "Callback"],
+			"details": "Callback function triggered when a mouse button is pressed (<a href=\"https://love2d.org/wiki/love.mousepressed\">Manual</a>)"
+		},
+		{
+			"trigger": "love.mousereleased",
+			"annotation": "(x, y, button, istouch, presses)",
+			"contents": "love.mousereleased(${1:x}, ${2:y}, ${3:button}, ${4:istouch}, ${5:presses})",
+			"kind": ["function", "c", "Callback"],
+			"details": "Callback function triggered when a mouse button is released (<a href=\"https://love2d.org/wiki/love.mousereleased\">Manual</a>)"
+		},
+		{
+			"trigger": "love.wheelmoved",
+			"annotation": "(x, y)",
+			"contents": "love.wheelmoved(${1:x}, ${2:y})",
+			"kind": ["function", "c", "Callback"],
+			"details": "Callback function triggered when the mouse wheel is moved (<a href=\"https://love2d.org/wiki/love.wheelmoved\">Manual</a>)"
+		},
+		{
+			"trigger": "love.gamepadaxis",
+			"annotation": "(joystick, axis, value)",
+			"contents": "love.gamepadaxis(${1:joystick}, ${2:axis}, ${3:value})",
+			"kind": ["function", "c", "Callback"],
+			"details": "Called when a Joystick's virtual gamepad axis is moved (<a href=\"https://love2d.org/wiki/love.gamepadaxis\">Manual</a>)"
+		},
+		{
+			"trigger": "love.gamepadpressed",
+			"annotation": "(joystick, button)",
+			"contents": "love.gamepadpressed(${1:joystick}, ${2:button})",
+			"kind": ["function", "c", "Callback"],
+			"details": "Called when a Joystick's virtual gamepad button is pressed (<a href=\"https://love2d.org/wiki/love.gamepadpressed\">Manual</a>)"
+		},
+		{
+			"trigger": "love.gamepadreleased",
+			"annotation": "(joystick, button)",
+			"contents": "love.gamepadreleased(${1:joystick}, ${2:button})",
+			"kind": ["function", "c", "Callback"],
+			"details": "Called when a Joystick's virtual gamepad button is released (<a href=\"https://love2d.org/wiki/love.gamepadreleased\">Manual</a>)"
+		},
+		{
+			"trigger": "love.joystickadded",
+			"annotation": "(joystick)",
+			"contents": "love.joystickadded(${1:joystick})",
+			"kind": ["function", "c", "Callback"],
+			"details": "Called when a Joystick is connected (<a href=\"https://love2d.org/wiki/love.joystickadded\">Manual</a>)"
+		},
+		{
+			"trigger": "love.joystickaxis",
+			"annotation": "(joystick, axis, value)",
+			"contents": "love.joystickaxis(${1:joystick}, ${2:axis}, ${3:value})",
+			"kind": ["function", "c", "Callback"],
+			"details": "Called when a joystick axis moves (<a href=\"https://love2d.org/wiki/love.joystickaxis\">Manual</a>)"
+		},
+		{
+			"trigger": "love.joystickhat",
+			"annotation": "(joystick, hat, direction)",
+			"contents": "love.joystickhat(${1:joystick}, ${2:hat}, ${3:direction})",
+			"kind": ["function", "c", "Callback"],
+			"details": "Called when a joystick hat direction changes (<a href=\"https://love2d.org/wiki/love.joystickhat\">Manual</a>)"
+		},
+		{
+			"trigger": "love.joystickpressed",
+			"annotation": "(joystick, button)",
+			"contents": "love.joystickpressed(${1:joystick}, ${2:button})",
+			"kind": ["function", "c", "Callback"],
+			"details": "Called when a joystick button is pressed (<a href=\"https://love2d.org/wiki/love.joystickpressed\">Manual</a>)"
+		},
+		{
+			"trigger": "love.joystickreleased",
+			"annotation": "(joystick, button)",
+			"contents": "love.joystickreleased(${1:joystick}, ${2:button})",
+			"kind": ["function", "c", "Callback"],
+			"details": "Called when a joystick button is released (<a href=\"https://love2d.org/wiki/love.joystickreleased\">Manual</a>)"
+		},
+		{
+			"trigger": "love.joystickremoved",
+			"annotation": "(joystick)",
+			"contents": "love.joystickremoved(${1:joystick})",
+			"kind": ["function", "c", "Callback"],
+			"details": "Called when a Joystick is disconnected (<a href=\"https://love2d.org/wiki/love.joystickremoved\">Manual</a>)"
+		},
+		{
+			"trigger": "love.touchmoved",
+			"annotation": "(id, x, y, dx, dy, pressure)",
+			"contents": "love.touchmoved(${1:id}, ${2:x}, ${3:y}, ${4:dx}, ${5:dy}, ${6:pressure})",
+			"kind": ["function", "c", "Callback"],
+			"details": "Callback function triggered when a touch press moves inside the touch screen (<a href=\"https://love2d.org/wiki/love.touchmoved\">Manual</a>)"
+		},
+		{
+			"trigger": "love.touchpressed",
+			"annotation": "(id, x, y, dx, dy, pressure)",
+			"contents": "love.touchpressed(${1:id}, ${2:x}, ${3:y}, ${4:dx}, ${5:dy}, ${6:pressure})",
+			"kind": ["function", "c", "Callback"],
+			"details": "Callback function triggered when the touch screen is touched (<a href=\"https://love2d.org/wiki/love.touchpressed\">Manual</a>)"
+		},
+		{
+			"trigger": "love.touchreleased",
+			"annotation": "(id, x, y, dx, dy, pressure)",
+			"contents": "love.touchreleased(${1:id}, ${2:x}, ${3:y}, ${4:dx}, ${5:dy}, ${6:pressure})",
+			"kind": ["function", "c", "Callback"],
+			"details": "Callback function triggered when the touch screen stops being touched (<a href=\"https://love2d.org/wiki/love.touchreleased\">Manual</a>)"
+		},
+
+		// love.audio
+
 		{
 			"trigger": "love.audio.getDistanceModel",
 			"contents": "${1:model} = love.audio.getDistanceModel()",
