@@ -1,5 +1,5 @@
 {
-	"scope": "source.lua.love",
+	"scope": "source.lua.love - comment.block.documentation",
 	"completions": [
 
 		// =====================================

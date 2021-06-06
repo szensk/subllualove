@@ -126,7 +126,7 @@ contexts:
           pop: true
         - include: comments-special
   comment-ldoc:
-    - match: '@((sub)?module|classmod|script|author|copyright|license|release|l?function|param|return|raise|local|see|usage|table|field|section|type|within|fixme|todo|warning)'
+    - match: '\W@[\w\n]*'
       scope: entity.other.attribute-name.documentation.lua
   # TODO, FIXME, ... highlighting. If supported by color scheme (based on https://github.com/sublimehq/Packages/blob/master/C%23/C%23.sublime-syntax#L80)
   comments-special:

@@ -3,6 +3,6 @@
 	${0:print(k,v)}
 end]]></content>
     <tabTrigger>forp</tabTrigger>
-    <scope>source.lua</scope>
+    <scope>source.lua.love - comment.block.documentation.lua</scope>
     <description>for k,v in pairs()</description>
 </snippet>

@@ -1,0 +1,180 @@
+{
+	"scope": "source.lua.love & comment.block.documentation & entity.other.attribute-name.documentation.lua",
+	"completions": [
+		{
+			"trigger": "@module",
+			"annotation": "@module <name>",
+			"contents": "module ${1:name}",
+			"kind": "keyword",
+			"details": "Module name"
+		},
+		{
+			"trigger": "@classmod",
+			"annotation": "@classmod <name>",
+			"contents": "classmod ${1:name}",
+			"kind": "keyword",
+			"details": "Class name"
+		},
+		{
+			"trigger": "@submodule",
+			"annotation": "@submodule <module_name>",
+			"contents": "submodule ${1:module_name}",
+			"kind": "keyword",
+			"details": "Submodule name"
+		},
+		{
+			"trigger": "@script",
+			"annotation": "@script <name>",
+			"contents": "script ${1:name}",
+			"kind": "keyword",
+			"details": "Script name"
+		},
+		{
+			"trigger": "@author",
+			"annotation": "@author <author>",
+			"contents": "author ${1:author}",
+			"kind": "keyword",
+			"details": "An author of the module or file"
+		},
+		{
+			"trigger": "@copyright",
+			"annotation": "@copyright <text>",
+			"contents": "copyright ${1:text}",
+			"kind": "keyword",
+			"details": "The copyright notice of the module or file"
+		},
+		{
+			"trigger": "@release",
+			"annotation": "@release <text>",
+			"contents": "release ${1:text}",
+			"kind": "keyword",
+			"details": "String describing the module or file release"
+		},
+		{
+			"trigger": "@license",
+			"annotation": "@license <text>",
+			"contents": "license ${1:text}",
+			"kind": "keyword",
+			"details": "Tag describing license"
+		},
+		{
+			"trigger": "@function",
+			"annotation": "@function <name>",
+			"contents": "function ${1:<name>}",
+			"kind": "keyword",
+			"details": "Describes functions inside module"
+		},
+		{
+			"trigger": "@lfunction",
+			"annotation": "@lfunction <name>",
+			"contents": "lfunction ${1:name}",
+			"kind": "keyword",
+			"details": "Describes local functions inside module"
+		},
+		{
+			"trigger": "@param",
+			"annotation": "@param <name> <description>",
+			"contents": "param ${1:name} ${2:description}",
+			"kind": "keyword",
+			"details": "Describes function parameters"
+		},
+		{
+			"trigger": "@return",
+			"annotation": "@return <description>",
+			"contents": "return ${1:description}",
+			"kind": "keyword",
+			"details": "Describes function return values"
+		},
+		{
+			"trigger": "@raise",
+			"annotation": "@raise <description>",
+			"contents": "raise ${1:description}",
+			"kind": "keyword",
+			"details": "Describes thrown error by functions"
+		},
+		{
+			"trigger": "@local",
+			"annotation": "@local",
+			"contents": "local",
+			"kind": "keyword",
+			"details": "Marks function as local and not being exported"
+		},
+		{
+			"trigger": "@see",
+			"annotation": "@see <what>",
+			"contents": "see ${1:what}",
+			"kind": "keyword",
+			"details": "References other documented items"
+		},
+		{
+			"trigger": "@see",
+			"annotation": "@see <what>",
+			"contents": "see ${1:what}",
+			"kind": "keyword",
+			"details": "References other documented items"
+		},
+		{
+			"trigger": "@usage",
+			"annotation": "@usage <usage_example>",
+			"contents": "usage ${1:usage_example}",
+			"kind": "keyword",
+			"details": "Provides examples of usage"
+		},
+		{
+			"trigger": "@table",
+			"annotation": "@table <name>",
+			"contents": "see ${1:name}",
+			"kind": "keyword",
+			"details": "Describes Lua table"
+		},
+		{
+			"trigger": "@field",
+			"annotation": "@field <name> <description>",
+			"contents": "field ${1:name} ${2:description}",
+			"kind": "keyword",
+			"details": "Describes a table field"
+		},
+		{
+			"trigger": "@section",
+			"annotation": "@section <name>",
+			"contents": "section ${1:name}",
+			"kind": "keyword",
+			"details": "Starts a named section for grouping functions or table together"
+		},
+		{
+			"trigger": "@type",
+			"annotation": "@type <name>",
+			"contents": "type ${1:name}",
+			"kind": "keyword",
+			"details": "Section describing a class"
+		},
+		{
+			"trigger": "@within",
+			"annotation": "@within <section>",
+			"contents": "within ${1:section}",
+			"kind": "keyword",
+			"details": "Puts the function or table into an implicit section"
+		},
+		{
+			"trigger": "@fixme",
+			"annotation": "@fixme",
+			"contents": "fixme",
+			"kind": "keyword",
+			"details": "Fixme annotation"
+		},
+		{
+			"trigger": "@todo",
+			"annotation": "@todo",
+			"contents": "todo",
+			"kind": "keyword",
+			"details": "Todo annotation"
+		},
+		{
+			"trigger": "@warning",
+			"annotation": "@warning",
+			"contents": "warning",
+			"kind": "keyword",
+			"details": "Warning annotation"
+		},
+	]
+}

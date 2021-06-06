@@ -3,6 +3,6 @@
 	${0:--todo}
 end]]></content>
     <tabTrigger>funcl</tabTrigger>
-    <scope>source.lua</scope>
+    <scope>source.lua.love - comment.block.documentation.lua</scope>
     <description>anonymous function</description>
 </snippet>

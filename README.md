@@ -25,7 +25,7 @@ LuaLove is a package for [Sublime Text 2/3/4](http://www.sublimetext.com) which 
 1. Go to `Packages` directory by `Preferences > Browse Packages...`
 2. Download and extract [.zip](https://github.com/szensk/subllualove/archive/master.zip) or clone git repository by running:
 ```bash
-    git clone git://github.com/szensk/subllualove.git
+git clone git://github.com/szensk/subllualove.git
 ```
 
 ## Settings
@@ -66,9 +66,11 @@ If you are using shaders and wants better GLSL syntax highlighting, install some
 
 There are auto completions for love functions (like `love.graphics.setColor`), all Lua functions and variables (ex: `coroutine.resume`) and LuaJIT function and variables (ex: `ffi.cdef`, `bit.bor`). Lua and LuaJIT functions and variables have metadata - kind and details with link to manual displayed since Sublime Text 4. Metadata for löve, socket and utf8 functions and variables is not yet done (support welcome).
 
-Pressing `Ctrl`+`Space` in an open Lua file or file with LÖVE 11.3 set as syntax will show the auto completions for the Löve2D API as well as Lua function snippets.
+Pressing `Ctrl`+`Space` (`Cmd`+`Space` on Mac) in an open Lua file or file with LÖVE 11.3 set as syntax will show the auto completions for the Löve2D API as well as Lua function snippets.
 
 Those Löve2D functions which are not overloaded (only one possible argument combination), will fill in the argument names for you.
+
+To enable auto completions for LDoc without pressing `Ctrl`+`Space` (`Cmd`+`Space` on Mac), add `{"selector": "comment.block.documentation.lua"}` to `auto_complete_triggers` in settings.
 
 ## Build systems
 

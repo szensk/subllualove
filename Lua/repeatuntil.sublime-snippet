@@ -3,6 +3,6 @@
 	${2:--do}
 until ${1:cond}]]></content>
     <tabTrigger>repeat</tabTrigger>
-    <scope>source.lua</scope>
+    <scope>source.lua.love - comment.block.documentation.lua</scope>
     <description>repeat until cond</description>
 </snippet>

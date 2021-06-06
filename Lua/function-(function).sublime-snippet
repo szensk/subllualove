@@ -3,6 +3,6 @@
 	${0:-- body}
 end]]></content>
     <tabTrigger>function</tabTrigger>
-    <scope>source.lua</scope>
+    <scope>source.lua.love - comment.block.documentation.lua</scope>
     <description>function</description>
 </snippet>
