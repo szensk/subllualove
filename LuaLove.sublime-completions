@@ -1515,28 +1515,28 @@
 		{
 			"trigger": "love.getVersion",
 			"annotation": "()",
-			"contents": "love.getVersion()",
+			"contents": "${1:major}, ${2:minor}, ${3:revision}, ${4:codename} = love.getVersion()",
 			"kind": "function",
 			"details": "Gets the current running version of LÖVE (<a href=\"https://love2d.org/wiki/love.getVersion\">Manual</a>)"
 		},
 		{
 			"trigger": "love.hasDeprecationOutput",
 			"annotation": "()",
-			"contents": "love.hasDeprecationOutput()",
+			"contents": "${1:enabled} = love.hasDeprecationOutput()",
 			"kind": "function",
 			"details": "Gets whether LÖVE displays warnings when using deprecated functionality (<a href=\"https://love2d.org/wiki/love.hasDeprecationOutput\">Manual</a>)"
 		},
 		{
 			"trigger": "love.isVersionCompatible",
 			"annotation": "(version)",
-			"contents": "love.isVersionCompatible(${1:version})",
+			"contents": "${1:compatible} = love.isVersionCompatible(${2:version})",
 			"kind": "function",
 			"details": "Gets whatever the version is compatible with current running version of LÖVE (<a href=\"https://love2d.org/wiki/love.isVersionCompatible\">Manual</a>)"
 		},
 		{
 			"trigger": "love.isVersionCompatible",
 			"annotation": "(major, minor, revision)",
-			"contents": "love.isVersionCompatible(${1:major}, ${2:minor}, ${3:revision})",
+			"contents": "${1:compatible} = love.isVersionCompatible(${2:major}, ${3:minor}, ${4:revision})",
 			"kind": "function",
 			"details": "Gets whatever the version is compatible with current running version of LÖVE (<a href=\"https://love2d.org/wiki/love.isVersionCompatible\">Manual</a>)"
 		},
@@ -1799,1039 +1799,1651 @@
 		// love.audio
 
 		{
-			"trigger": "love.audio.getDistanceModel",
-			"contents": "${1:model} = love.audio.getDistanceModel()",
-			"kind": "function"
+			"trigger": "love.audio.getActiveEffects",
+			"annotation": "()",
+			"contents": "${1:effects} = love.audio.getActiveEffects()",
+			"kind": "function",
+			"details": "Gets a list of the names of the currently enabled effects (<a href=\"https://love2d.org/wiki/love.audio.getActiveEffects\">Manual</a>)"
 		},
 		{
-			"trigger": "love.audio.getSourceCount",
-			"contents": "${1:numSources} = love.audio.getSourceCount()",
-			"kind": "function"
+			"trigger": "love.audio.getActiveSourceCount",
+			"annotation": "()",
+			"contents": "${1:count} = love.audio.getActiveSourceCount()",
+			"kind": "function",
+			"details": "Gets the current number of simultaneously playing sources (<a href=\"https://love2d.org/wiki/love.audio.getActiveSourceCount\">Manual</a>)"
+		},
+		{
+			"trigger": "love.audio.getDistanceModel",
+			"annotation": "()",
+			"contents": "${1:model} = love.audio.getDistanceModel()",
+			"kind": "function",
+			"details": "Returns the distance attenuation model (<a href=\"https://love2d.org/wiki/love.audio.getDistanceModel\">Manual</a>)"
+		},
+		{
+			"trigger": "love.audio.getDopplerScale",
+			"annotation": "()",
+			"contents": "${1:scale} = love.audio.getDopplerScale()",
+			"kind": "function",
+			"details": "Gets the global scale factor for doppler effects (<a href=\"https://love2d.org/wiki/love.audio.getDopplerScale\">Manual</a>)"
+		},
+		{
+			"trigger": "love.audio.getEffect",
+			"annotation": "(name)",
+			"contents": "${1:settings} = love.audio.getEffect(${2:name})",
+			"kind": "function",
+			"details": "Gets the settings associated with an effect (<a href=\"https://love2d.org/wiki/love.audio.getEffect\">Manual</a>)"
+		},
+		{
+			"trigger": "love.audio.getMaxSceneEffects",
+			"annotation": "()",
+			"contents": "${1:maximum} = love.audio.getMaxSceneEffects()",
+			"kind": "function",
+			"details": "Gets the maximum number of active effects (<a href=\"https://love2d.org/wiki/love.audio.getMaxSceneEffects\">Manual</a>)"
+		},
+		{
+			"trigger": "love.audio.getMaxSourceEffects",
+			"annotation": "()",
+			"contents": "${1:maximum} = love.audio.getMaxSourceEffects()",
+			"kind": "function",
+			"details": "Gets the maximum number of active Effects for each Source (<a href=\"https://love2d.org/wiki/love.audio.getMaxSourceEffects\">Manual</a>)"
 		},
 		{
 			"trigger": "love.audio.getOrientation",
+			"annotation": "()",
 			"contents": "${1:fx}, ${2:fy}, ${3:fz}, ${4:ux}, ${5:uy}, ${6:uz} = love.audio.getOrientation()",
-			"kind": "function"
+			"kind": "function",
+			"details": "Returns the orientation of the listener (<a href=\"https://love2d.org/wiki/love.audio.getOrientation\">Manual</a>)"
 		},
 		{
 			"trigger": "love.audio.getPosition",
+			"annotation": "()",
 			"contents": "${1:x}, ${2:y}, ${3:z} = love.audio.getPosition()",
-			"kind": "function"
+			"kind": "function",
+			"details": "Returns the position of the listener (<a href=\"https://love2d.org/wiki/love.audio.getPosition\">Manual</a>)"
+		},
+		{
+			"trigger": "love.audio.getRecordingDevices",
+			"annotation": "()",
+			"contents": "${1:devices} = love.audio.getRecordingDevices()",
+			"kind": "function",
+			"details": "Gets a list of RecordingDevices on the system (<a href=\"https://love2d.org/wiki/love.audio.getRecordingDevices\">Manual</a>)"
+		},
+		{
+			"trigger": "love.audio.getSourceCount",
+			"annotation": "",
+			"contents": "${1:numSources} = love.audio.getSourceCount()",
+			"kind": "function",
+			"details": "<b>Deprecated</b> Use love.audio.getActiveSourceCount instead (<a href=\"https://love2d.org/wiki/love.audio.getSourceCount\">Manual</a>)"
 		},
 		{
 			"trigger": "love.audio.getVelocity",
+			"annotation": "()",
 			"contents": "${1:x}, ${2:y}, ${3:z} = love.audio.getVelocity()",
-			"kind": "function"
+			"kind": "function",
+			"details": "Returns the velocity of the listener (<a href=\"https://love2d.org/wiki/love.audio.getVelocity\">Manual</a>)"
 		},
 		{
 			"trigger": "love.audio.getVolume",
+			"annotation": "()",
 			"contents": "${1:volume} = love.audio.getVolume()",
-			"kind": "function"
+			"kind": "function",
+			"details": "Returns the master volume (<a href=\"https://love2d.org/wiki/love.audio.getVolume\">Manual</a>)"
+		},
+		{
+			"trigger": "love.audio.isEffectsSupported",
+			"annotation": "()",
+			"contents": "${1:supported} = love.audio.isEffectsSupported()",
+			"kind": "function",
+			"details": "Gets whether Effects are supported in the system (<a href=\"https://love2d.org/wiki/love.audio.isEffectsSupported\">Manual</a>)"
+		},
+		{
+			"trigger": "love.audio.newQueueableSource",
+			"annotation": "(samplerate, bitdepth, channels [, buffercount])",
+			"contents": "${1:source} = love.audio.newQueueableSource(${2:samplerate}, ${3:bitdepth}, ${4:channels}, ${5:buffercount})",
+			"kind": "function",
+			"details": "Creates a new Source usable for real-time generated sound playback with Source:queue (<a href=\"https://love2d.org/wiki/love.audio.newQueueableSource\">Manual</a>)"
 		},
 		{
 			"trigger": "love.audio.newSource",
+			"annotation": "(filename, type)",
 			"contents": "${1:source} = love.audio.newSource(${2:filename}, ${3:type})",
-			"kind": "function"
+			"kind": "function",
+			"details": "Creates a new Source from a filename (<a href=\"https://love2d.org/wiki/love.audio.newSource\">Manual</a>)"
+		},
+		{
+			"trigger": "love.audio.newSource",
+			"annotation": "(file, type)",
+			"contents": "${1:source} = love.audio.newSource(${2:file}, ${3:type})",
+			"kind": "function",
+			"details": "Creates a new Source from a file (<a href=\"https://love2d.org/wiki/love.audio.newSource\">Manual</a>)"
+		},
+		{
+			"trigger": "love.audio.newSource",
+			"annotation": "(decoder, type)",
+			"contents": "${1:source} = love.audio.newSource(${2:decoder}, ${3:type})",
+			"kind": "function",
+			"details": "Creates a new Source from Decoder (<a href=\"https://love2d.org/wiki/love.audio.newSource\">Manual</a>)"
+		},
+		{
+			"trigger": "love.audio.newSource",
+			"annotation": "(data [, type])",
+			"contents": "${1:source} = love.audio.newSource(${2:data}, ${3:type})",
+			"kind": "function",
+			"details": "Creates a new Source from a SoundData (<a href=\"https://love2d.org/wiki/love.audio.newSource\">Manual</a>)"
 		},
 		{
 			"trigger": "love.audio.pause",
-			"contents": "love.audio.pause()",
-			"kind": "function"
+			"annotation": "()",
+			"contents": "${1:pausedSources} = love.audio.pause()",
+			"kind": "function",
+			"details": "Pauses all currently played Sources (<a href=\"https://love2d.org/wiki/love.audio.pause\">Manual</a>)"
+		},
+		{
+			"trigger": "love.audio.pause",
+			"annotation": "(source [, ...])",
+			"contents": "love.audio.pause(${1:source}, {2:...})",
+			"kind": "function",
+			"details": "Pauses specific played Sources (<a href=\"https://love2d.org/wiki/love.audio.pause\">Manual</a>)"
+		},
+		{
+			"trigger": "love.audio.pause",
+			"annotation": "(sources)",
+			"contents": "love.audio.pause(${1:sources})",
+			"kind": "function",
+			"details": "Pauses specific played Sources given in table (<a href=\"https://love2d.org/wiki/love.audio.pause\">Manual</a>)"
 		},
 		{
 			"trigger": "love.audio.play",
+			"annotation": "(source)",
 			"contents": "love.audio.play(${1:source})",
-			"kind": "function"
+			"kind": "function",
+			"details": "Plays specified Sources (<a href=\"https://love2d.org/wiki/love.audio.play\">Manual</a>)"
 		},
 		{
-			"trigger": "love.audio.resume",
-			"contents": "love.audio.resume()",
-			"kind": "function"
+			"trigger": "love.audio.play",
+			"annotation": "(sources)",
+			"contents": "love.audio.play(${1:sources})",
+			"kind": "function",
+			"details": "Plays specific Sources given by table (<a href=\"https://love2d.org/wiki/love.audio.play\">Manual</a>)"
 		},
 		{
-			"trigger": "love.audio.rewind",
-			"contents": "love.audio.rewind()",
-			"kind": "function"
+			"trigger": "love.audio.play",
+			"annotation": "(source [, ...])",
+			"contents": "love.audio.play(${1:source}, ${2:...})",
+			"kind": "function",
+			"details": "Plays specific Sources (<a href=\"https://love2d.org/wiki/love.audio.play\">Manual</a>)"
 		},
 		{
 			"trigger": "love.audio.setDistanceModel",
+			"annotation": "(model)",
 			"contents": "love.audio.setDistanceModel(${1:model})",
-			"kind": "function"
+			"kind": "function",
+			"details": "Sets the distance attenuation model (<a href=\"https://love2d.org/wiki/love.audio.setDistanceModel\">Manual</a>)"
+		},
+		{
+			"trigger": "love.audio.setDopplerScale",
+			"annotation": "(scale)",
+			"contents": "love.audio.setDopplerScale(${1:scale})",
+			"kind": "function",
+			"details": "Sets a global scale factor for doppler effects (<a href=\"https://love2d.org/wiki/love.audio.setDopplerScale\">Manual</a>)"
+		},
+		{
+			"trigger": "love.audio.setEffect",
+			"annotation": "(name, settings)",
+			"contents": "${1:success} = love.audio.setEffect(${2:name}, ${3:settings})",
+			"kind": "function",
+			"details": "Defines an effect that can be applied to a Source (<a href=\"https://love2d.org/wiki/love.audio.setEffect\">Manual</a>)"
+		},
+		{
+			"trigger": "love.audio.setEffect",
+			"annotation": "(name [, enabled])",
+			"contents": "${1:success} = love.audio.setEffect(${2:name}, ${3:enabled})",
+			"kind": "function",
+			"details": "Enables / disables the effect (<a href=\"https://love2d.org/wiki/love.audio.setEffect\">Manual</a>)"
+		},
+		{
+			"trigger": "love.audio.setMixWithSystem",
+			"annotation": "(mix)",
+			"contents": "${1:success} = love.audio.setMixWithSystem(${2:mix})",
+			"kind": "function",
+			"details": "Sets whether the system should mix the audio with the system's audio (<a href=\"https://love2d.org/wiki/love.audio.setMixWithSystem\">Manual</a>)"
 		},
 		{
 			"trigger": "love.audio.setOrientation",
+			"annotation": "(fx, fy, fz, ux, uy, uz)",
 			"contents": "love.audio.setOrientation(${1:fx}, ${2:fy}, ${3:fz}, ${4:ux}, ${5:uy}, ${6:uz})",
-			"kind": "function"
+			"kind": "function",
+			"details": "Sets the orientation of the listener (<a href=\"https://love2d.org/wiki/love.audio.setOrientation\">Manual</a>)"
 		},
 		{
 			"trigger": "love.audio.setPosition",
+			"annotation": "(x, y, z)",
 			"contents": "love.audio.setPosition(${1:x}, ${2:y}, ${3:z})",
-			"kind": "function"
+			"kind": "function",
+			"details": "Sets the position of the listener (<a href=\"https://love2d.org/wiki/love.audio.setPosition\">Manual</a>)"
 		},
 		{
 			"trigger": "love.audio.setVelocity",
+			"annotation": "(x, y, z)",
 			"contents": "love.audio.setVelocity(${1:x}, ${2:y}, ${3:z})",
-			"kind": "function"
+			"kind": "function",
+			"details": "Sets the velocity of the listener (<a href=\"https://love2d.org/wiki/love.audio.setVelocity\">Manual</a>)"
 		},
 		{
 			"trigger": "love.audio.setVolume",
+			"annotation": "(volume)",
 			"contents": "love.audio.setVolume(${1:volume})",
-			"kind": "function"
+			"kind": "function",
+			"details": "Sets the master volume (<a href=\"https://love2d.org/wiki/love.audio.setVolume\">Manual</a>)"
 		},
 		{
 			"trigger": "love.audio.stop",
-			"contents": "love.audio.stop()",
-			"kind": "function"
+			"annotation": "()",
+			"contents": "${1:stoppedSources} = love.audio.stop()",
+			"kind": "function",
+			"details": "Stops all currently played Sources (<a href=\"https://love2d.org/wiki/love.audio.stop\">Manual</a>)"
 		},
 		{
+			"trigger": "love.audio.stop",
+			"annotation": "(source [, ...])",
+			"contents": "love.audio.stop(${1:source}, {2:...})",
+			"kind": "function",
+			"details": "Stops specific played Sources (<a href=\"https://love2d.org/wiki/love.audio.stop\">Manual</a>)"
+		},
+		{
+			"trigger": "love.audio.stop",
+			"annotation": "(sources)",
+			"contents": "love.audio.stop(${1:sources})",
+			"kind": "function",
+			"details": "Stops specific played Sources given in table (<a href=\"https://love2d.org/wiki/love.audio.stop\">Manual</a>)"
+		},
+
+		// love.data
+
+
+
+		// love.event
+
+		{
 			"trigger": "love.event.clear",
+			"annotation": "",
 			"contents": "love.event.clear()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.event.clear\">Manual</a>)"
 		},
 		{
 			"trigger": "love.event.poll",
+			"annotation": "",
 			"contents": "${1:i} = love.event.poll()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.event.poll\">Manual</a>)"
 		},
 		{
 			"trigger": "love.event.pump",
+			"annotation": "",
 			"contents": "love.event.pump()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.event.pump\">Manual</a>)"
 		},
 		{
 			"trigger": "love.event.push",
+			"annotation": "",
 			"contents": "love.event.push(${1:e}, ${2:a}, ${3:b}, ${4:c}, ${5:d})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.event.push\">Manual</a>)"
 		},
 		{
 			"trigger": "love.event.quit",
+			"annotation": "",
 			"contents": "love.event.quit()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.event.quit\">Manual</a>)"
 		},
 		{
 			"trigger": "love.event.wait",
+			"annotation": "",
 			"contents": "${1:e}, ${2:a}, ${3:b}, ${4:c}, ${5:d} = love.event.wait()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.event.wait\">Manual</a>)"
 		},
+
+		// love.filesystem
+
 		{
 			"trigger": "love.filesystem.append",
+			"annotation": "",
 			"contents": "${1:success}, ${2:errormsg} = love.filesystem.append(${3:name}, ${4:data}, ${5:size})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.append\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.createDirectory",
+			"annotation": "",
 			"contents": "${1:ok} = love.filesystem.createDirectory(${2:name})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.createDirectory\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.exists",
+			"annotation": "",
 			"contents": "${1:e} = love.filesystem.exists(${2:filename})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.exists\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.getAppdataDirectory",
+			"annotation": "",
 			"contents": "${1:path} = love.filesystem.getAppdataDirectory()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.getAppdataDirectory\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.getDirectoryItems",
+			"annotation": "",
 			"contents": "${1:items} = love.filesystem.getDirectoryItems(${2:dir})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.getDirectoryItems\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.getIdentity",
+			"annotation": "",
 			"contents": "love.filesystem.getIdentity(${1:name})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.getIdentity\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.getLastModified",
+			"annotation": "",
 			"contents": "${1:modtime}, ${2:errormsg} = love.filesystem.getLastModified(${3:filename})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.getLastModified\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.getSaveDirectory",
+			"annotation": "",
 			"contents": "${1:path} = love.filesystem.getSaveDirectory()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.getSaveDirectory\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.getSize",
+			"annotation": "",
 			"contents": "${1:size}, ${2:errormsg} = love.filesystem.getSize(${3:filename})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.getSize\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.getUserDirectory",
+			"annotation": "",
 			"contents": "${1:path} = love.filesystem.getUserDirectory()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.getUserDirectory\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.getWorkingDirectory",
+			"annotation": "",
 			"contents": "${1:path} = love.filesystem.getWorkingDirectory()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.getWorkingDirectory\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.isDirectory",
+			"annotation": "",
 			"contents": "${1:is_dir} = love.filesystem.isDirectory(${2:path})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.isDirectory\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.isFile",
+			"annotation": "",
 			"contents": "${1:is_file} = love.filesystem.isFile(${2:path})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.isFile\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.isFused",
+			"annotation": "",
 			"contents": "${1:fused} = love.filesystem.isFused()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.isFused\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.lines",
+			"annotation": "",
 			"contents": "${1:iterator} = love.filesystem.lines(${2:name})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.lines\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.load",
+			"annotation": "",
 			"contents": "${1:chunk} = love.filesystem.load(${2:name})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.load\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.newFile",
+			"annotation": "",
 			"contents": "${1:file}, ${2:errorstr} = love.filesystem.newFile(${3:filename}, ${4:mode})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.newFile\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.newFileData",
+			"annotation": "",
 			"contents": "${1:data} = love.filesystem.newFileData(${2:contents}, ${3:name}, ${4:decoder})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.newFileData\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.read",
+			"annotation": "",
 			"contents": "${1:contents}, ${2:size} = love.filesystem.read(${3:name}, ${4:bytes})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.read\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.remove",
+			"annotation": "",
 			"contents": "${1:ok} = love.filesystem.remove(${2:name})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.remove\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.setIdentity",
+			"annotation": "",
 			"contents": "love.filesystem.setIdentity(${1:name}, ${2:searchorder})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.setIdentity\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.write",
+			"annotation": "",
 			"contents": "${1:success} = love.filesystem.write(${2:name}, ${3:data}, ${4:size})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.write\">Manual</a>)"
 		},
+
+		// love.font
+
+
+
+		// love.graphics
+
 		{
 			"trigger": "love.graphics.arc",
+			"annotation": "",
 			"contents": "love.graphics.arc(${1:mode}, ${2:x}, ${3:y}, ${4:radius}, ${5:angle1}, ${6:angle2}, ${7:segments})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.arc\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.circle",
+			"annotation": "",
 			"contents": "love.graphics.circle(${1:mode}, ${2:x}, ${3:y}, ${4:radius}, ${5:segments})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.circle\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.clear",
+			"annotation": "",
 			"contents": "love.graphics.clear()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.clear\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.draw",
+			"annotation": "",
 			"contents": "love.graphics.draw(${1:drawable}, ${2:x}, ${3:y}, ${4:r}, ${5:sx}, ${6:sy}, ${7:ox}, ${8:oy}, ${9:kx}, ${10:ky})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.draw\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getBackgroundColor",
+			"annotation": "",
 			"contents": "${1:r}, ${2:g}, ${3:b}, ${4:a} = love.graphics.getBackgroundColor()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getBackgroundColor\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getBlendMode",
+			"annotation": "",
 			"contents": "${1:mode} = love.graphics.getBlendMode()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getBlendMode\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getCanvas",
+			"annotation": "",
 			"contents": "${1:canvas} = love.graphics.getCanvas()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getCanvas\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getColor",
+			"annotation": "",
 			"contents": "${1:r}, ${2:g}, ${3:b}, ${4:a} = love.graphics.getColor()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getColor\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getColorMask",
+			"annotation": "",
 			"contents": "${1:r}, ${2:g}, ${3:b}, ${4:a} = love.graphics.getColorMask()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getColorMask\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getDefaultFilter",
+			"annotation": "",
 			"contents": "${1:min}, ${2:mag}, ${3:anisotropy} = love.graphics.getDefaultFilter()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getDefaultFilter\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getDimensions",
+			"annotation": "",
 			"contents": "${1:width}, ${2:height} = love.graphics.getDimensions()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getDimensions\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getFSAA",
+			"annotation": "",
 			"contents": "${1:samples} = love.graphics.getFSAA()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getFSAA\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getFont",
+			"annotation": "",
 			"contents": "${1:font} = love.graphics.getFont()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getFont\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getHeight",
+			"annotation": "",
 			"contents": "${1:height} = love.graphics.getHeight()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getHeight\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getLineJoin",
+			"annotation": "",
 			"contents": "${1:join} = love.graphics.getLineJoin()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getLineJoin\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getLineStyle",
+			"annotation": "",
 			"contents": "${1:style} = love.graphics.getLineStyle()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getLineStyle\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getLineWidth",
+			"annotation": "",
 			"contents": "${1:width} = love.graphics.getLineWidth()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getLineWidth\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getFullscreenModes",
+			"annotation": "",
 			"contents": "${1:modes} = love.graphics.getFullscreenModes()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getFullscreenModes\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getShader",
+			"annotation": "",
 			"contents": "${1:shader} = love.graphics.getShader()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getShader\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getSystemLimit",
+			"annotation": "",
 			"contents": "${1:limit} = love.graphics.getSystemLimit(${2:limittype})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getSystemLimit\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getPointSize",
+			"annotation": "",
 			"contents": "${1:size} = love.graphics.getPointSize()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getPointSize\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getPointStyle",
+			"annotation": "",
 			"contents": "${1:style} = love.graphics.getPointStyle()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getPointStyle\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getRendererInfo",
+			"annotation": "",
 			"contents": "${1:name}, ${2:version}, ${3:vendor}, ${4:device} = love.graphics.getRendererInfo()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getRendererInfo\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getScissor",
+			"annotation": "",
 			"contents": "${1:x}, ${2:y}, ${3:width}, ${4:height} = love.graphics.getScissor()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getScissor\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getWidth",
+			"annotation": "",
 			"contents": "${1:width} = love.graphics.getWidth()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getWidth\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.isSupported",
+			"annotation": "",
 			"contents": "${1:isSupported} = love.graphics.isSupported(${2:supportN})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.isSupported\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.isWireframe",
+			"annotation": "",
 			"contents": "${1:wireframe} = love.graphics.isWireframe()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.isWireframe\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.line",
+			"annotation": "",
 			"contents": "love.graphics.line(${1:x1}, ${2:y1}, ${3:x2}, ${4:y2}, ${5:...})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.line\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.newCanvas",
+			"annotation": "",
 			"contents": "${1:canvas} = love.graphics.newCanvas(${2:width}, ${3:height}, ${4:texture_type}, ${5:fsaa})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.newCanvas\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.newFont",
+			"annotation": "",
 			"contents": "${1:font} = love.graphics.newFont(${2:filename}, ${3:size})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.newFont\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.newMesh",
+			"annotation": "",
 			"contents": "${1:mesh} = love.graphics.newMesh(${2:vertices}, ${3:texture}, ${4:mode})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.newMesh\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.newImage",
+			"annotation": "",
 			"contents": "${1:image} = love.graphics.newImage(${2:filename}, ${3:format})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.newImage\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.newImageFont",
+			"annotation": "",
 			"contents": "${1:font} = love.graphics.newImageFont(${2:filename}, ${3:glyphs})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.newImageFont\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.newParticleSystem",
+			"annotation": "",
 			"contents": "${1:system} = love.graphics.newParticleSystem(${2:texture}, ${3:buffer})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.newParticleSystem\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.newShader",
+			"annotation": "",
 			"contents": "${1:shader} = love.graphics.newShader(${2:code})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.newShader\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.newQuad",
+			"annotation": "",
 			"contents": "${1:quad} = love.graphics.newQuad(${2:x}, ${3:y}, ${4:width}, ${5:height}, ${6:sw}, ${7:sh})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.newQuad\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.newScreenshot",
+			"annotation": "",
 			"contents": "${1:screenshot} = love.graphics.newScreenshot()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.newScreenshot\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.newSpriteBatch",
+			"annotation": "",
 			"contents": "${1:spriteBatch} = love.graphics.newSpriteBatch(${2:texture}, ${3:size}, ${4:usage})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.newSpriteBatch\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.origin",
+			"annotation": "",
 			"contents": "love.graphics.origin()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.origin\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.point",
+			"annotation": "",
 			"contents": "love.graphics.point(${1:x}, ${2:y})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.point\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.polygon",
+			"annotation": "",
 			"contents": "love.graphics.polygon(${1:mode}, ${2:...})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.polygon\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.pop",
+			"annotation": "",
 			"contents": "love.graphics.pop()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.pop\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.present",
+			"annotation": "",
 			"contents": "love.graphics.present()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.present\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.print",
+			"annotation": "",
 			"contents": "love.graphics.print(${1:text}, ${2:x}, ${3:y}, ${4:r}, ${5:sx}, ${6:sy}, ${7:ox}, ${8:oy}, ${9:kx}, ${10:ky})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.print\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.printf",
+			"annotation": "",
 			"contents": "love.graphics.printf(${1:text}, ${2:x}, ${3:y}, ${4:limit}, ${5:align}, ${6:r}, ${7:sx}, ${8:sy}, ${9:ox}, ${10:oy}, ${11:kx}, ${12:ky})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.printf\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.push",
+			"annotation": "",
 			"contents": "love.graphics.push()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.push\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.rectangle",
+			"annotation": "",
 			"contents": "love.graphics.rectangle(${1:mode}, ${2:x}, ${3:y}, ${4:width}, ${5:height})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.rectangle\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.reset",
+			"annotation": "",
 			"contents": "love.graphics.reset()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.reset\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.rotate",
+			"annotation": "",
 			"contents": "love.graphics.rotate(${1:angle})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.rotate\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.scale",
+			"annotation": "",
 			"contents": "love.graphics.scale(${1:sx}, ${2:sy})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.scale\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.setBackgroundColor",
+			"annotation": "",
 			"contents": "love.graphics.setBackgroundColor(${1:r}, ${2:g}, ${3:b}, ${4:a})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setBackgroundColor\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.setBlendMode",
+			"annotation": "",
 			"contents": "love.graphics.setBlendMode(${1:mode})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setBlendMode\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.setCanvas",
+			"annotation": "",
 			"contents": "love.graphics.setCanvas()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setCanvas\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.setColor",
+			"annotation": "",
 			"contents": "love.graphics.setColor(${1:red}, ${2:green}, ${3:blue}, ${4:alpha})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setColor\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.setColorMask",
+			"annotation": "",
 			"contents": "love.graphics.setColorMask()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setColorMask\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.setDefaultFilter",
+			"annotation": "",
 			"contents": "love.graphics.setDefaultFilter(${1:min}, ${2:mag}, ${3:anisotropy})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setDefaultFilter\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.setFont",
+			"annotation": "",
 			"contents": "love.graphics.setFont(${1:font})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setFont\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.setInvertedStencil",
+			"annotation": "",
 			"contents": "love.graphics.setInvertedStencil()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setInvertedStencil\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.setLineJoin",
+			"annotation": "",
 			"contents": "love.graphics.setLineJoin(${1:join})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setLineJoin\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.setLineStyle",
+			"annotation": "",
 			"contents": "love.graphics.setLineStyle(${1:style})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setLineStyle\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.setLineWidth",
+			"annotation": "",
 			"contents": "love.graphics.setLineWidth(${1:width})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setLineWidth\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.setNewFont",
+			"annotation": "",
 			"contents": "${1:font} = love.graphics.setNewFont(${2:size})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setNewFont\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.setShader",
+			"annotation": "",
 			"contents": "love.graphics.setShader()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setShader\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.setPointSize",
+			"annotation": "",
 			"contents": "love.graphics.setPointSize(${1:size})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setPointSize\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.setPointStyle",
+			"annotation": "",
 			"contents": "love.graphics.setPointStyle(${1:style})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setPointStyle\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.setScissor",
+			"annotation": "",
 			"contents": "love.graphics.setScissor()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setScissor\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.setWireframe",
+			"annotation": "",
 			"contents": "love.graphics.setWireframe(${1:enable})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setWireframe\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.setStencil",
+			"annotation": "",
 			"contents": "love.graphics.setStencil()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setStencil\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.shear",
+			"annotation": "",
 			"contents": "love.graphics.shear(${1:kx}, ${2:ky})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.shear\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.translate",
+			"annotation": "",
 			"contents": "love.graphics.translate(${1:dx}, ${2:dy})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.translate\">Manual</a>)"
 		},
+
+		// love.image
+
 		{
 			"trigger": "love.image.isCompressed",
+			"annotation": "",
 			"contents": "${1:compressed} = love.image.isCompressed(${2:filename})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.image.isCompressed\">Manual</a>)"
 		},
 		{
 			"trigger": "love.image.newCompressedData",
+			"annotation": "",
 			"contents": "${1:compressedData} = love.image.newCompressedData(${2:filename})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.image.newCompressedData\">Manual</a>)"
 		},
 		{
 			"trigger": "love.image.newImageData",
+			"annotation": "",
 			"contents": "${1:imageData} = love.image.newImageData(${2:width}, ${3:height})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.image.newImageData\">Manual</a>)"
 		},
+
+		// love.joystick
+
 		{
 			"trigger": "love.joystick.setGamepadMapping",
+			"annotation": "",
 			"contents": "${1:success} = love.joystick.setGamepadMapping(${2:guid}, ${3:button}, ${4:inputtype}, ${5:inputindex}, ${6:hatdirection})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.joystick.setGamepadMapping\">Manual</a>)"
 		},
 		{
 			"trigger": "love.joystick.getJoystickCount",
+			"annotation": "",
 			"contents": "${1:joystickcount} = love.joystick.getJoystickCount()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.joystick.getJoystickCount\">Manual</a>)"
 		},
 		{
 			"trigger": "love.joystick.getJoysticks",
+			"annotation": "",
 			"contents": "${1:joysticks} = love.joystick.getJoysticks()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.joystick.getJoysticks\">Manual</a>)"
 		},
+
+		// love.keyboard
+
 		{
 			"trigger": "love.keyboard.hasKeyRepeat",
+			"annotation": "",
 			"contents": "${1:enabled} = love.keyboard.hasKeyRepeat()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.keyboard.hasKeyRepeat\">Manual</a>)"
 		},
 		{
 			"trigger": "love.keyboard.hasTextInput",
+			"annotation": "",
 			"contents": "${1:enabled} = love.keyboard.hasTextInput()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.keyboard.hasTextInput\">Manual</a>)"
 		},
 		{
 			"trigger": "love.keyboard.isDown",
+			"annotation": "",
 			"contents": "${1:down} = love.keyboard.isDown(${2:key})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.keyboard.isDown\">Manual</a>)"
 		},
 		{
 			"trigger": "love.keyboard.setKeyRepeat",
+			"annotation": "",
 			"contents": "love.keyboard.setKeyRepeat(${1:enable})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.keyboard.setKeyRepeat\">Manual</a>)"
 		},
 		{
 			"trigger": "love.keyboard.setTextInput",
+			"annotation": "",
 			"contents": "love.keyboard.setTextInput(${1:enable})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.keyboard.setTextInput\">Manual</a>)"
 		},
+
+		// love.math
+
 		{
 			"trigger": "love.math.gammaToLinear",
+			"annotation": "",
 			"contents": "${1:lr}, ${2:lg}, ${3:lb} = love.math.gammaToLinear(${4:r}, ${5:g}, ${6:b})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.math.gammaToLinear\">Manual</a>)"
 		},
 		{
 			"trigger": "love.math.getRandomSeed",
+			"annotation": "",
 			"contents": "${1:low}, ${2:high} = love.math.getRandomSeed()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.math.getRandomSeed\">Manual</a>)"
 		},
 		{
 			"trigger": "love.math.getRandomState",
+			"annotation": "",
 			"contents": "${1:state} = love.math.getRandomState()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.math.getRandomState\">Manual</a>)"
 		},
 		{
 			"trigger": "love.math.isConvex",
+			"annotation": "",
 			"contents": "${1:convex} = love.math.isConvex(${2:vertices})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.math.isConvex\">Manual</a>)"
 		},
 		{
 			"trigger": "love.math.linearToGamma",
+			"annotation": "",
 			"contents": "${1:cr}, ${2:cg}, ${3:cb} = love.math.linearToGamma(${4:lr}, ${5:lg}, ${6:lb})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.math.linearToGamma\">Manual</a>)"
 		},
 		{
 			"trigger": "love.math.newBezierCurve",
+			"annotation": "",
 			"contents": "${1:curve} = love.math.newBezierCurve(${2:vertices})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.math.newBezierCurve\">Manual</a>)"
 		},
 		{
 			"trigger": "love.math.newRandomGenerator",
+			"annotation": "",
 			"contents": "${1:rng} = love.math.newRandomGenerator()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.math.newRandomGenerator\">Manual</a>)"
 		},
 		{
 			"trigger": "love.math.noise",
+			"annotation": "",
 			"contents": "${1:value} = love.math.noise(${2:x})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.math.noise\">Manual</a>)"
 		},
 		{
 			"trigger": "love.math.random",
+			"annotation": "",
 			"contents": "${1:number} = love.math.random()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.math.random\">Manual</a>)"
 		},
 		{
 			"trigger": "love.math.randomNormal",
+			"annotation": "",
 			"contents": "${1:number} = love.math.randomNormal(${2:stddev}, ${3:mean})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.math.randomNormal\">Manual</a>)"
 		},
 		{
 			"trigger": "love.math.setRandomSeed",
+			"annotation": "",
 			"contents": "love.math.setRandomSeed(${1:seed})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.math.setRandomSeed\">Manual</a>)"
 		},
 		{
 			"trigger": "love.math.setRandomState",
+			"annotation": "",
 			"contents": "love.math.setRandomState(${1:state})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.math.setRandomState\">Manual</a>)"
 		},
 		{
 			"trigger": "love.math.triangulate",
+			"annotation": "",
 			"contents": "${1:triangles} = love.math.triangulate(${2:polygon})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.math.triangulate\">Manual</a>)"
 		},
+
+		// love.mouse
+
 		{
 			"trigger": "love.mouse.getCursor",
+			"annotation": "",
 			"contents": "${1:cursor} = love.mouse.getCursor()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.mouse.getCursor\">Manual</a>)"
 		},
 		{
 			"trigger": "love.mouse.getPosition",
+			"annotation": "",
 			"contents": "${1:x}, ${2:y} = love.mouse.getPosition()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.mouse.getPosition\">Manual</a>)"
 		},
 		{
 			"trigger": "love.mouse.getSystemCursor",
+			"annotation": "",
 			"contents": "${1:cursor} = love.mouse.getSystemCursor(${2:ctype})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.mouse.getSystemCursor\">Manual</a>)"
 		},
 		{
 			"trigger": "love.mouse.getX",
+			"annotation": "",
 			"contents": "${1:x} = love.mouse.getX()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.mouse.getX\">Manual</a>)"
 		},
 		{
 			"trigger": "love.mouse.getY",
+			"annotation": "",
 			"contents": "${1:y} = love.mouse.getY()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.mouse.getY\">Manual</a>)"
 		},
 		{
 			"trigger": "love.mouse.isDown",
+			"annotation": "",
 			"contents": "${1:down} = love.mouse.isDown(${2:button})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.mouse.isDown\">Manual</a>)"
 		},
 		{
 			"trigger": "love.mouse.isGrabbed",
+			"annotation": "",
 			"contents": "${1:grabbed} = love.mouse.isGrabbed()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.mouse.isGrabbed\">Manual</a>)"
 		},
 		{
 			"trigger": "love.mouse.isVisible",
+			"annotation": "",
 			"contents": "${1:visible} = love.mouse.isVisible()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.mouse.isVisible\">Manual</a>)"
 		},
 		{
 			"trigger": "love.mouse.newCursor",
+			"annotation": "",
 			"contents": "${1:cursor} = love.mouse.newCursor(${2:imageData}, ${3:hotx}, ${4:hoty})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.mouse.newCursor\">Manual</a>)"
 		},
 		{
 			"trigger": "love.mouse.setCursor",
+			"annotation": "",
 			"contents": "love.mouse.setCursor()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.mouse.setCursor\">Manual</a>)"
 		},
 		{
 			"trigger": "love.mouse.setGrabbed",
+			"annotation": "",
 			"contents": "love.mouse.setGrabbed(${1:grab})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.mouse.setGrabbed\">Manual</a>)"
 		},
 		{
 			"trigger": "love.mouse.setPosition",
+			"annotation": "",
 			"contents": "love.mouse.setPosition(${1:x}, ${2:y})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.mouse.setPosition\">Manual</a>)"
 		},
 		{
 			"trigger": "love.mouse.setVisible",
+			"annotation": "",
 			"contents": "love.mouse.setVisible(${1:visible})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.mouse.setVisible\">Manual</a>)"
 		},
 		{
 			"trigger": "love.mouse.setX",
+			"annotation": "",
 			"contents": "love.mouse.setX(${1:x})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.mouse.setX\">Manual</a>)"
 		},
 		{
 			"trigger": "love.mouse.setY",
+			"annotation": "",
 			"contents": "love.mouse.setY(${1:y})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.mouse.setY\">Manual</a>)"
 		},
+
+		// love.physics
+
 		{
 			"trigger": "love.physics.getDistance",
+			"annotation": "",
 			"contents": "${1:distance}, ${2:x1}, ${3:y1}, ${4:x2}, ${5:y2} = love.physics.getDistance(${6:fixture1}, ${7:fixture2})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.physics.getDistance\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.getMeter",
+			"annotation": "",
 			"contents": "${1:scale} = love.physics.getMeter()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.physics.getMeter\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newBody",
+			"annotation": "",
 			"contents": "${1:body} = love.physics.newBody(${2:world}, ${3:x}, ${4:y}, ${5:type})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newBody\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newChainShape",
+			"annotation": "",
 			"contents": "${1:shape} = love.physics.newChainShape(${2:loop}, ${3:x1}, ${4:y1}, ${5:x2}, ${6:y2})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newChainShape\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newCircleShape",
+			"annotation": "",
 			"contents": "${1:shape} = love.physics.newCircleShape(${2:body}, ${3:x}, ${4:y}, ${5:radius})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newCircleShape\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newDistanceJoint",
+			"annotation": "",
 			"contents": "${1:joint} = love.physics.newDistanceJoint(${2:body1}, ${3:body2}, ${4:x1}, ${5:y1}, ${6:x2}, ${7:y2}, ${8:collideConnected})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newDistanceJoint\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newEdgeShape",
+			"annotation": "",
 			"contents": "${1:shape} = love.physics.newEdgeShape(${2:x1}, ${3:y1}, ${4:x2}, ${5:y2})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newEdgeShape\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newFixture",
+			"annotation": "",
 			"contents": "${1:fixture} = love.physics.newFixture(${2:body}, ${3:shape}, ${4:density})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newFixture\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newFrictionJoint",
+			"annotation": "",
 			"contents": "${1:joint} = love.physics.newFrictionJoint(${2:body1}, ${3:body2}, ${4:x}, ${5:y}, ${6:collideConnected})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newFrictionJoint\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newGearJoint",
+			"annotation": "",
 			"contents": "${1:joint} = love.physics.newGearJoint(${2:joint1}, ${3:joint2}, ${4:ratio}, ${5:collideConnected})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newGearJoint\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newMouseJoint",
+			"annotation": "",
 			"contents": "${1:joint} = love.physics.newMouseJoint(${2:body}, ${3:x}, ${4:y})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newMouseJoint\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newPolygonShape",
+			"annotation": "",
 			"contents": "${1:shape} = love.physics.newPolygonShape(${2:body}, ${3:...})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newPolygonShape\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newPrismaticJoint",
+			"annotation": "",
 			"contents": "${1:joint} = love.physics.newPrismaticJoint(${2:body1}, ${3:body2}, ${4:x}, ${5:y}, ${6:ax}, ${7:ay}, ${8:collideConnected})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newPrismaticJoint\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newPulleyJoint",
+			"annotation": "",
 			"contents": "${1:joint} = love.physics.newPulleyJoint(${2:body1}, ${3:body2}, ${4:gx1}, ${5:gy1}, ${6:gx2}, ${7:gy2}, ${8:x1}, ${9:y1}, ${10:x2}, ${11:y2}, ${12:ratio}, ${13:collideConnected})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newPulleyJoint\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newRectangleShape",
+			"annotation": "",
 			"contents": "${1:shape} = love.physics.newRectangleShape(${2:body}, ${3:x}, ${4:y}, ${5:width}, ${6:height}, ${7:angle})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newRectangleShape\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newRevoluteJoint",
+			"annotation": "",
 			"contents": "${1:joint} = love.physics.newRevoluteJoint(${2:body1}, ${3:body2}, ${4:x}, ${5:y}, ${6:collideConnected})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newRevoluteJoint\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newRopeJoint",
+			"annotation": "",
 			"contents": "${1:joint} = love.physics.newRopeJoint(${2:body1}, ${3:body2}, ${4:x1}, ${5:y1}, ${6:x2}, ${7:y2}, ${8:maxLength}, ${9:collideConnected})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newRopeJoint\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newWeldJoint",
+			"annotation": "",
 			"contents": "${1:joint} = love.physics.newWeldJoint(${2:body1}, ${3:body2}, ${4:x}, ${5:y}, ${6:collideConnected})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newWeldJoint\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newWheelJoint",
+			"annotation": "",
 			"contents": "${1:joint} = love.physics.newWheelJoint(${2:body1}, ${3:body2}, ${4:x}, ${5:y}, ${6:ax}, ${7:ay}, ${8:collideConnected})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newWheelJoint\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newWorld",
+			"annotation": "",
 			"contents": "${1:world} = love.physics.newWorld(${2:xg}, ${3:yg}, ${4:sleep})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newWorld\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.setMeter",
+			"annotation": "",
 			"contents": "love.physics.setMeter(${1:scale})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.physics.setMeter\">Manual</a>)"
 		},
+
+		// love.sound
+
 		{
 			"trigger": "love.sound.newSoundData",
+			"annotation": "",
 			"contents": "${1:soundData} = love.sound.newSoundData(${2:filename})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.sound.newSoundData\">Manual</a>)"
 		},
+
+		// love.system
+
 		{
 			"trigger": "love.system.getClipboardText",
+			"annotation": "",
 			"contents": "${1:text} = love.system.getClipboardText()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.system.getClipboardText\">Manual</a>)"
 		},
 		{
 			"trigger": "love.system.getOS",
+			"annotation": "",
 			"contents": "${1:os_string} = love.system.getOS()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.system.getOS\">Manual</a>)"
 		},
 		{
 			"trigger": "love.system.getPowerInfo",
+			"annotation": "",
 			"contents": "${1:state}, ${2:percent}, ${3:seconds} = love.system.getPowerInfo()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.system.getPowerInfo\">Manual</a>)"
 		},
 		{
 			"trigger": "love.system.getProcessorCount",
+			"annotation": "",
 			"contents": "${1:cores} = love.system.getProcessorCount()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.system.getProcessorCount\">Manual</a>)"
 		},
 		{
 			"trigger": "love.system.openURL",
+			"annotation": "",
 			"contents": "${1:success} = love.system.openURL(${2:url})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.system.openURL\">Manual</a>)"
 		},
 		{
 			"trigger": "love.system.setClipboardText",
+			"annotation": "",
 			"contents": "love.system.setClipboardText(${1:text})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.system.setClipboardText\">Manual</a>)"
 		},
+
+		// love.thread
+
 		{
 			"trigger": "love.thread.getChannel",
+			"annotation": "",
 			"contents": "${1:channel} = love.thread.getChannel(${2:name})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.thread.getChannel\">Manual</a>)"
 		},
 		{
 			"trigger": "love.thread.newChannel",
+			"annotation": "",
 			"contents": "${1:channel} = love.thread.newChannel()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.thread.newChannel\">Manual</a>)"
 		},
 		{
 			"trigger": "love.thread.newThread",
+			"annotation": "",
 			"contents": "${1:thread} = love.thread.newThread(${2:name}, ${3:filename})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.thread.newThread\">Manual</a>)"
 		},
+
+		// love.timer
+
 		{
 			"trigger": "love.timer.getAverageDelta",
+			"annotation": "",
 			"contents": "${1:delta} = love.timer.getAverageDelta()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.timer.getAverageDelta\">Manual</a>)"
 		},
 		{
 			"trigger": "love.timer.getDelta",
+			"annotation": "",
 			"contents": "${1:dt} = love.timer.getDelta()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.timer.getDelta\">Manual</a>)"
 		},
 		{
 			"trigger": "love.timer.getFPS",
+			"annotation": "",
 			"contents": "${1:fps} = love.timer.getFPS()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.timer.getFPS\">Manual</a>)"
 		},
 		{
 			"trigger": "love.timer.getTime",
+			"annotation": "",
 			"contents": "${1:time} = love.timer.getTime()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.timer.getTime\">Manual</a>)"
 		},
 		{
 			"trigger": "love.timer.sleep",
+			"annotation": "",
 			"contents": "love.timer.sleep(${1:s})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.timer.sleep\">Manual</a>)"
 		},
 		{
 			"trigger": "love.timer.step",
+			"annotation": "",
 			"contents": "love.timer.step()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.timer.step\">Manual</a>)"
 		},
+
+		// love.touch
+
+
+
+		// love.video
+
+
+
+		// love.window
+
 		{
 			"trigger": "love.window.getDimensions",
+			"annotation": "",
 			"contents": "${1:width}, ${2:height} = love.window.getDimensions()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.window.getDimensions\">Manual</a>)"
 		},
 		{
 			"trigger": "love.window.getFullscreen",
+			"annotation": "",
 			"contents": "${1:fullscreen}, ${2:fstype} = love.window.getFullscreen()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.window.getFullscreen\">Manual</a>)"
 		},
 		{
 			"trigger": "love.window.getFullscreenModes",
+			"annotation": "",
 			"contents": "${1:modes} = love.window.getFullscreenModes(${2:display})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.window.getFullscreenModes\">Manual</a>)"
 		},
 		{
 			"trigger": "love.window.getHeight",
+			"annotation": "",
 			"contents": "${1:height} = love.window.getHeight()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.window.getHeight\">Manual</a>)"
 		},
 		{
 			"trigger": "love.window.getIcon",
+			"annotation": "",
 			"contents": "${1:imagedata} = love.window.getIcon()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.window.getIcon\">Manual</a>)"
 		},
 		{
 			"trigger": "love.window.getMode",
+			"annotation": "",
 			"contents": "${1:width}, ${2:height}, ${3:fullscreen}, ${4:vsync}, ${5:fsaa} = love.window.getMode()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.window.getMode\">Manual</a>)"
 		},
 		{
 			"trigger": "love.window.getPixelScale",
+			"annotation": "",
 			"contents": "${1:scale} = love.window.getPixelScale()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.window.getPixelScale\">Manual</a>)"
 		},
 		{
 			"trigger": "love.window.getWidth",
+			"annotation": "",
 			"contents": "${1:width} = love.window.getWidth()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.window.getWidth\">Manual</a>)"
 		},
 		{
 			"trigger": "love.window.hasFocus",
+			"annotation": "",
 			"contents": "${1:focus} = love.window.hasFocus()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.window.hasFocus\">Manual</a>)"
 		},
 		{
 			"trigger": "love.window.hasMouseFocus",
+			"annotation": "",
 			"contents": "${1:focus} = love.window.hasMouseFocus()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.window.hasMouseFocus\">Manual</a>)"
 		},
 		{
 			"trigger": "love.window.isCreated",
+			"annotation": "",
 			"contents": "${1:created} = love.window.isCreated()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.window.isCreated\">Manual</a>)"
 		},
 		{
 			"trigger": "love.window.isVisible",
+			"annotation": "",
 			"contents": "${1:visible} = love.window.isVisible()",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.window.isVisible\">Manual</a>)"
 		},
 		{
 			"trigger": "love.window.setFullscreen",
+			"annotation": "",
 			"contents": "${1:success} = love.window.setFullscreen(${2:fullscreen})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.window.setFullscreen\">Manual</a>)"
 		},
 		{
 			"trigger": "love.window.setIcon",
+			"annotation": "",
 			"contents": "${1:success} = love.window.setIcon(${2:imagedata})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.window.setIcon\">Manual</a>)"
 		},
 		{
 			"trigger": "love.window.setMode",
+			"annotation": "",
 			"contents": "${1:success} = love.window.setMode(${2:width}, ${3:height}, ${4:flags})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.window.setMode\">Manual</a>)"
 		},
 		{
 			"trigger": "love.window.setTitle",
+			"annotation": "",
 			"contents": "love.window.setTitle(${1:title})",
-			"kind": "function"
+			"kind": "function",
+			"details": "(<a href=\"https://love2d.org/wiki/love.window.setTitle\">Manual</a>)"
 		}
 	]
 }
