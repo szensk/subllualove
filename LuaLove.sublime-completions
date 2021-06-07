@@ -1548,6 +1548,30 @@
 			"details": "Sets whether LÖVE displays warnings when using deprecated functionality (<a href=\"https://love2d.org/wiki/love.setDeprecationOutput\">Manual</a>)"
 		},
 
+		// Variables
+
+		{
+			"trigger": "love._version_major",
+			"annotation": "(enable)",
+			"contents": "love._version_major",
+			"kind": "variable",
+			"details": "Major version of currently LÖVE"
+		},
+		{
+			"trigger": "love._version_minor",
+			"annotation": "(enable)",
+			"contents": "love._version_minor",
+			"kind": "variable",
+			"details": "Minor version of currently LÖVE"
+		},
+		{
+			"trigger": "love._version_revision",
+			"annotation": "(enable)",
+			"contents": "love._version_revision",
+			"kind": "variable",
+			"details": "Revision version of currently LÖVE"
+		},
+
 		// Callbacks
 
 		{
