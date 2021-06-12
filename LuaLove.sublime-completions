@@ -2260,157 +2260,283 @@
 
 		{
 			"trigger": "love.filesystem.append",
-			"annotation": "",
+			"annotation": "(name, data, size)",
 			"contents": "${1:success}, ${2:errormsg} = love.filesystem.append(${3:name}, ${4:data}, ${5:size})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.append\">Manual</a>)"
+			"details": "Appends data to an existing file (<a href=\"https://love2d.org/wiki/love.filesystem.append\">Manual</a>)"
+		},
+		{
+			"trigger": "love.filesystem.areSymlinksEnabled",
+			"annotation": "()",
+			"contents": "${1:enabled} = love.filesystem.areSymlinksEnabled()",
+			"kind": "function",
+			"details": "Gets whether love.filesystem follows symbolic links (<a href=\"https://love2d.org/wiki/love.filesystem.areSymlinksEnabled\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.createDirectory",
-			"annotation": "",
-			"contents": "${1:ok} = love.filesystem.createDirectory(${2:name})",
+			"annotation": "(name)",
+			"contents": "${1:success} = love.filesystem.createDirectory(${2:name})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.createDirectory\">Manual</a>)"
+			"details": "Creates a directory (<a href=\"https://love2d.org/wiki/love.filesystem.createDirectory\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.exists",
-			"annotation": "",
+			"annotation": "(filename)",
 			"contents": "${1:e} = love.filesystem.exists(${2:filename})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.exists\">Manual</a>)"
+			"details": "<b>Deprecated</b> Use love.filesystem.getInfo instead (<a href=\"https://love2d.org/wiki/love.filesystem.exists\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.getAppdataDirectory",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:path} = love.filesystem.getAppdataDirectory()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.getAppdataDirectory\">Manual</a>)"
+			"details": "Returns the application data directory (could be the same as getUserDirectory) (<a href=\"https://love2d.org/wiki/love.filesystem.getAppdataDirectory\">Manual</a>)"
+		},
+		{
+			"trigger": "love.filesystem.getCRequirePath",
+			"annotation": "()",
+			"contents": "${1:paths} = love.filesystem.getCRequirePath()",
+			"kind": "function",
+			"details": "Gets the filesystem paths that will be searched for C libraries when require is called (<a href=\"https://love2d.org/wiki/love.filesystem.getCRequirePath\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.getDirectoryItems",
-			"annotation": "",
+			"annotation": "(dir)",
 			"contents": "${1:items} = love.filesystem.getDirectoryItems(${2:dir})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.getDirectoryItems\">Manual</a>)"
+			"details": "Returns all the files and subdirectories in the directory (<a href=\"https://love2d.org/wiki/love.filesystem.getDirectoryItems\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.getIdentity",
-			"annotation": "",
-			"contents": "love.filesystem.getIdentity(${1:name})",
+			"annotation": "()",
+			"contents": "${1:name} = love.filesystem.getIdentity()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.getIdentity\">Manual</a>)"
+			"details": "Gets the write directory name for your game (<a href=\"https://love2d.org/wiki/love.filesystem.getIdentity\">Manual</a>)"
+		},
+		{
+			"trigger": "love.filesystem.getInfo",
+			"annotation": "(path [, filtertype] [, info])",
+			"contents": "${1:info} = love.filesystem.getInfo(${2:path}, ${3:filtertype}, ${4:info})",
+			"kind": "function",
+			"details": "Gets information about the specified file or directory (<a href=\"https://love2d.org/wiki/love.filesystem.getInfo\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.getLastModified",
-			"annotation": "",
+			"annotation": "(filename)",
 			"contents": "${1:modtime}, ${2:errormsg} = love.filesystem.getLastModified(${3:filename})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.getLastModified\">Manual</a>)"
+			"details": "<b>Deprecated</b> Use love.filesystem.getInfo instead (<a href=\"https://love2d.org/wiki/love.filesystem.getLastModified\">Manual</a>)"
+		},
+		{
+			"trigger": "love.filesystem.getRealDirectory",
+			"annotation": "(filepath)",
+			"contents": "${1:realdir} = love.filesystem.getRealDirectory(${2:filepath})",
+			"kind": "function",
+			"details": "Gets the absolute path of the directory containing a filepath (<a href=\"https://love2d.org/wiki/love.filesystem.getRealDirectory\">Manual</a>)"
+		},
+		{
+			"trigger": "love.filesystem.getRequirePath",
+			"annotation": "()",
+			"contents": "${1:paths} = love.filesystem.getRequirePath()",
+			"kind": "function",
+			"details": "Gets the filesystem paths that will be searched when require is called (<a href=\"https://love2d.org/wiki/love.filesystem.getRequirePath\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.getSaveDirectory",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:path} = love.filesystem.getSaveDirectory()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.getSaveDirectory\">Manual</a>)"
+			"details": "Gets the full path to the designated save directory (<a href=\"https://love2d.org/wiki/love.filesystem.getSaveDirectory\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.getSize",
-			"annotation": "",
+			"annotation": "(filename)",
 			"contents": "${1:size}, ${2:errormsg} = love.filesystem.getSize(${3:filename})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.getSize\">Manual</a>)"
+			"details": "<b>Deprecated</b> Use love.filesystem.getInfo instead (<a href=\"https://love2d.org/wiki/love.filesystem.getSize\">Manual</a>)"
+		},
+		{
+			"trigger": "love.filesystem.getSource",
+			"annotation": "()",
+			"contents": "${1:path} = love.filesystem.getSource()",
+			"kind": "function",
+			"details": "Returns the full path to the .love file or directory (<a href=\"https://love2d.org/wiki/love.filesystem.getSource\">Manual</a>)"
+		},
+		{
+			"trigger": "love.filesystem.getSourceBaseDirectory",
+			"annotation": "()",
+			"contents": "${1:path} = love.filesystem.getSourceBaseDirectory()",
+			"kind": "function",
+			"details": "Returns the full path to the directory containing the .love file (<a href=\"https://love2d.org/wiki/love.filesystem.getSourceBaseDirectory\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.getUserDirectory",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:path} = love.filesystem.getUserDirectory()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.getUserDirectory\">Manual</a>)"
+			"details": "Returns the path of the user's directory (<a href=\"https://love2d.org/wiki/love.filesystem.getUserDirectory\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.getWorkingDirectory",
-			"annotation": "",
-			"contents": "${1:path} = love.filesystem.getWorkingDirectory()",
+			"annotation": "()",
+			"contents": "${1:cwd} = love.filesystem.getWorkingDirectory()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.getWorkingDirectory\">Manual</a>)"
+			"details": "Gets the current working directory (<a href=\"https://love2d.org/wiki/love.filesystem.getWorkingDirectory\">Manual</a>)"
+		},
+		{
+			"trigger": "love.filesystem.init",
+			"annotation": "(appname)",
+			"contents": "love.filesystem.init(${1:appname})",
+			"kind": "function",
+			"details": "Initializes love.filesystem, will be called internally, so should not be used explicitly (<a href=\"https://love2d.org/wiki/love.filesystem.init\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.isDirectory",
-			"annotation": "",
+			"annotation": "(path)",
 			"contents": "${1:is_dir} = love.filesystem.isDirectory(${2:path})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.isDirectory\">Manual</a>)"
+			"details": "<b>Deprecated</b> Use love.filesystem.getInfo instead (<a href=\"https://love2d.org/wiki/love.filesystem.isDirectory\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.isFile",
-			"annotation": "",
+			"annotation": "(path)",
 			"contents": "${1:is_file} = love.filesystem.isFile(${2:path})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.isFile\">Manual</a>)"
+			"details": "<b>Deprecated</b> Use love.filesystem.getInfo instead (<a href=\"https://love2d.org/wiki/love.filesystem.isFile\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.isFused",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:fused} = love.filesystem.isFused()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.isFused\">Manual</a>)"
+			"details": "Gets whether the game is in fused mode or not (<a href=\"https://love2d.org/wiki/love.filesystem.isFused\">Manual</a>)"
+		},
+		{
+			"trigger": "love.filesystem.isSymlink",
+			"annotation": "(path)",
+			"contents": "${1:symlink} = love.filesystem.isSymlink(${2:path})",
+			"kind": "function",
+			"details": "<b>Deprecated</b> Use love.filesystem.getInfo instead (<a href=\"https://love2d.org/wiki/love.filesystem.isSymlink\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.lines",
-			"annotation": "",
+			"annotation": "(name)",
 			"contents": "${1:iterator} = love.filesystem.lines(${2:name})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.lines\">Manual</a>)"
+			"details": "Iterate over the lines in a file (<a href=\"https://love2d.org/wiki/love.filesystem.lines\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.load",
-			"annotation": "",
-			"contents": "${1:chunk} = love.filesystem.load(${2:name})",
+			"annotation": "(name)",
+			"contents": "${1:chunk}, ${2:errormsg} = love.filesystem.load(${3:name})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.load\">Manual</a>)"
+			"details": "Loads a Lua file (but does not run it) (<a href=\"https://love2d.org/wiki/love.filesystem.load\">Manual</a>)"
+		},
+		{
+			"trigger": "love.filesystem.mount",
+			"annotation": "(archive, mountpoint [, appendToPath])",
+			"contents": "${1:success} = love.filesystem.mount(${2:archive}, ${3:mountpoint}, ${4:appendToPath})",
+			"kind": "function",
+			"details": "Mounts a zip file or folder in the game's save directory for reading (<a href=\"https://love2d.org/wiki/love.filesystem.mount\">Manual</a>)"
+		},
+		{
+			"trigger": "love.filesystem.mount",
+			"annotation": "(filedata, mountpoint [, appendToPath])",
+			"contents": "${1:success} = love.filesystem.mount(${2:filedata}, ${3:mountpoint}, ${4:appendToPath})",
+			"kind": "function",
+			"details": "Mounts a FileData containing a zipped firectory structure in the game's save directory for reading (<a href=\"https://love2d.org/wiki/love.filesystem.mount\">Manual</a>)"
+		},
+		{
+			"trigger": "love.filesystem.mount",
+			"annotation": "(data, archivename, mountpoint [, appendToPath])",
+			"contents": "${1:success} = love.filesystem.mount(${2:data}, ${3:archivename}, ${4:mountpoint}, ${5:appendToPath})",
+			"kind": "function",
+			"details": "Mounts a FileData containing a zipped firectory structure in the game's save directory for reading (<a href=\"https://love2d.org/wiki/love.filesystem.mount\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.newFile",
-			"annotation": "",
+			"annotation": "(filename [, mode])",
 			"contents": "${1:file}, ${2:errorstr} = love.filesystem.newFile(${3:filename}, ${4:mode})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.newFile\">Manual</a>)"
+			"details": "Creates a new File object (<a href=\"https://love2d.org/wiki/love.filesystem.newFile\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.newFileData",
-			"annotation": "",
-			"contents": "${1:data} = love.filesystem.newFileData(${2:contents}, ${3:name}, ${4:decoder})",
+			"annotation": "(contents, name)",
+			"contents": "${1:data} = love.filesystem.newFileData(${2:contents}, ${3:name})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.newFileData\">Manual</a>)"
+			"details": "Creates a new FileData object from a string in memory (<a href=\"https://love2d.org/wiki/love.filesystem.newFileData\">Manual</a>)"
+		},
+		{
+			"trigger": "love.filesystem.newFileData",
+			"annotation": "(filepath)",
+			"contents": "${1:data}, ${2:err} = love.filesystem.newFileData(${3:filepath})",
+			"kind": "function",
+			"details": "Creates a new FileData from a file on the storage device (<a href=\"https://love2d.org/wiki/love.filesystem.newFileData\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.read",
-			"annotation": "",
-			"contents": "${1:contents}, ${2:size} = love.filesystem.read(${3:name}, ${4:bytes})",
+			"annotation": "([container, ] name, size)",
+			"contents": "${1:contents}, ${2:size} = love.filesystem.read(${3:container}, ${4:name}, ${5:size})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.read\">Manual</a>)"
+			"details": "Read the contents of a file (<a href=\"https://love2d.org/wiki/love.filesystem.read\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.remove",
-			"annotation": "",
-			"contents": "${1:ok} = love.filesystem.remove(${2:name})",
+			"annotation": "(name)",
+			"contents": "${1:success} = love.filesystem.remove(${2:name})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.remove\">Manual</a>)"
+			"details": "Removes a file (or empty directory) (<a href=\"https://love2d.org/wiki/love.filesystem.remove\">Manual</a>)"
+		},
+		{
+			"trigger": "love.filesystem.setCRequirePath",
+			"annotation": "(paths)",
+			"contents": "love.filesystem.setCRequirePath(${1:paths})",
+			"kind": "function",
+			"details": "Sets the filesystem paths that will be searched for C libraries when require is called (<a href=\"https://love2d.org/wiki/love.filesystem.setCRequirePath\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.setIdentity",
-			"annotation": "",
+			"annotation": "(name [, searchorder])",
 			"contents": "love.filesystem.setIdentity(${1:name}, ${2:searchorder})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.setIdentity\">Manual</a>)"
+			"details": "Sets the write directory for your game (<a href=\"https://love2d.org/wiki/love.filesystem.setIdentity\">Manual</a>)"
+		},
+		{
+			"trigger": "love.filesystem.setRequirePath",
+			"annotation": "(paths)",
+			"contents": "love.filesystem.setRequirePath(${1:paths})",
+			"kind": "function",
+			"details": "Sets the filesystem paths that will be searched when require is called (<a href=\"https://love2d.org/wiki/love.filesystem.setRequirePath\">Manual</a>)"
+		},
+		{
+			"trigger": "love.filesystem.setSource",
+			"annotation": "(path)",
+			"contents": "love.filesystem.setSource(${1:path})",
+			"kind": "function",
+			"details": "Sets the source of the game, where the code is present. Used internally (<a href=\"https://love2d.org/wiki/love.filesystem.setSource\">Manual</a>)"
+		},
+		{
+			"trigger": "love.filesystem.setSymlinksEnabled",
+			"annotation": "(enable)",
+			"contents": "love.filesystem.setSymlinksEnabled(${1:enable})",
+			"kind": "function",
+			"details": "Sets whether love.filesystem follows symbolic links (<a href=\"https://love2d.org/wiki/love.filesystem.setSymlinksEnabled\">Manual</a>)"
+		},
+		{
+			"trigger": "love.filesystem.unmount",
+			"annotation": "(archive)",
+			"contents": "${1:success} = love.filesystem.unmount(${2:archive})",
+			"kind": "function",
+			"details": "Unmounts a zip file or folder previously mounted with love.filesystem.mount (<a href=\"https://love2d.org/wiki/love.filesystem.unmount\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.write",
-			"annotation": "",
-			"contents": "${1:success} = love.filesystem.write(${2:name}, ${3:data}, ${4:size})",
+			"annotation": "(name, data, size)",
+			"contents": "${1:success}, ${2:errormsg} = love.filesystem.write(${3:name}, ${4:data}, ${5:size})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.filesystem.write\">Manual</a>)"
+			"details": "Write data to a file (<a href=\"https://love2d.org/wiki/love.filesystem.write\">Manual</a>)"
 		},
 
 		// love.font
