@@ -2084,7 +2084,132 @@
 
 		// love.data
 
-
+		{
+			"trigger": "love.data.compress",
+			"annotation": "(container, format, rawstring [, level])",
+			"contents": "${1:compressedData} = love.data.compress(${2:container}, ${3:format}, ${4:rawstring}, ${5:level})",
+			"kind": "function",
+			"details": "Compresses a string using a specific compression algorithm (<a href=\"https://love2d.org/wiki/love.data.compress\">Manual</a>)"
+		},
+		{
+			"trigger": "love.data.compress",
+			"annotation": "(container, format, data [, level])",
+			"contents": "${1:compressedData} = love.data.compress(${2:container}, ${3:format}, ${4:data}, ${5:level})",
+			"kind": "function",
+			"details": "Compresses a data using a specific compression algorithm (<a href=\"https://love2d.org/wiki/love.data.compress\">Manual</a>)"
+		},
+		{
+			"trigger": "love.data.decode",
+			"annotation": "(container, format, sourceString)",
+			"contents": "${1:decodedData} = love.data.decode(${2:container}, ${3:format}, ${4:sourceString})",
+			"kind": "function",
+			"details": "Decode a string from any of the EncodeFormats to Data or string (<a href=\"https://love2d.org/wiki/love.data.decode\">Manual</a>)"
+		},
+		{
+			"trigger": "love.data.decode",
+			"annotation": "(container, format, sourceData)",
+			"contents": "${1:decodedData} = love.data.decode(${2:container}, ${3:format}, ${4:sourceData})",
+			"kind": "function",
+			"details": "Decode Data from any of the EncodeFormats to Data or string (<a href=\"https://love2d.org/wiki/love.data.decode\">Manual</a>)"
+		},
+		{
+			"trigger": "love.data.decompress",
+			"annotation": "(container, compressedData)",
+			"contents": "${1:decompressedData} = love.data.decompress(${2:container}, ${3:compressedData})",
+			"kind": "function",
+			"details": "Decompresses a CompressedData (<a href=\"https://love2d.org/wiki/love.data.decompress\">Manual</a>)"
+		},
+		{
+			"trigger": "love.data.decompress",
+			"annotation": "(container, format, compressedString)",
+			"contents": "${1:decompressedData} = love.data.decompress(${2:container}, ${3:format}, ${4:compressedString})",
+			"kind": "function",
+			"details": "Decompresses previously compressed string (<a href=\"https://love2d.org/wiki/love.data.decompress\">Manual</a>)"
+		},
+		{
+			"trigger": "love.data.decompress",
+			"annotation": "(container, format, data)",
+			"contents": "${1:decompressedData} = love.data.decompress(${2:container}, ${3:format}, ${4:data})",
+			"kind": "function",
+			"details": "Decompresses previously compressed Data object (<a href=\"https://love2d.org/wiki/love.data.decompress\">Manual</a>)"
+		},
+		{
+			"trigger": "love.data.encode",
+			"annotation": "(container, format, sourceString [, linelength])",
+			"contents": "${1:encodedData} = love.data.encode(${2:container}, ${3:format}, ${4:sourceString}, ${5:linelength})",
+			"kind": "function",
+			"details": "Encode a string to a Data or string in one of the EncodeFormats (<a href=\"https://love2d.org/wiki/love.data.encode\">Manual</a>)"
+		},
+		{
+			"trigger": "love.data.encode",
+			"annotation": "(container, format, sourceData [, linelength])",
+			"contents": "${1:encodedData} = love.data.encode(${2:container}, ${3:format}, ${4:sourceData}, ${5:linelength})",
+			"kind": "function",
+			"details": "Encode Data to a Data or string in one of the EncodeFormats (<a href=\"https://love2d.org/wiki/love.data.encode\">Manual</a>)"
+		},
+		{
+			"trigger": "love.data.getPackedSize",
+			"annotation": "(format)",
+			"contents": "${1:size} = love.data.getPackedSize(${2:format})",
+			"kind": "function",
+			"details": "Gets the size in bytes that a given format used with <code>love.data.pack</code> will use (<a href=\"https://love2d.org/wiki/love.data.getPackedSize\">Manual</a>)"
+		},
+		{
+			"trigger": "love.data.hash",
+			"annotation": "(hashFunction, string)",
+			"contents": "${1:rawdigest} = love.data.hash(${2:hashFunction}, ${3:string})",
+			"kind": "function",
+			"details": "Compute message digest using specific hash algorithm (<a href=\"https://love2d.org/wiki/love.data.hash\">Manual</a>)"
+		},
+		{
+			"trigger": "love.data.hash",
+			"annotation": "(hashFunction, data)",
+			"contents": "${1:rawdigest} = love.data.hash(${2:hashFunction}, ${3:data})",
+			"kind": "function",
+			"details": "Compute message digest using specific hash algorithm (<a href=\"https://love2d.org/wiki/love.data.hash\">Manual</a>)"
+		},
+		{
+			"trigger": "love.data.newByteData",
+			"annotation": "(datastring)",
+			"contents": "${1:bytedata} = love.data.newByteData(${2:datastring})",
+			"kind": "function",
+			"details": "Creates a new Data object containing arbitrary bytes (<a href=\"https://love2d.org/wiki/love.data.newByteData\">Manual</a>)"
+		},
+		{
+			"trigger": "love.data.newByteData",
+			"annotation": "(data [, offset [, size]])",
+			"contents": "${1:bytedata} = love.data.newByteData(${2:data}, ${3:offset}, ${4:size})",
+			"kind": "function",
+			"details": "Creates a new Data object containing arbitrary bytes (<a href=\"https://love2d.org/wiki/love.data.newByteData\">Manual</a>)"
+		},
+		{
+			"trigger": "love.data.newByteData",
+			"annotation": "(size)",
+			"contents": "${1:bytedata} = love.data.newByteData(${2:size})",
+			"kind": "function",
+			"details": "Creates a new Data object containing arbitrary bytes (<a href=\"https://love2d.org/wiki/love.data.newByteData\">Manual</a>)"
+		},
+		{
+			"trigger": "love.data.newDataView",
+			"annotation": "(data, offset, size)",
+			"contents": "${1:view} = love.data.newDataView(${2:data}, ${3:offset}, ${4:size})",
+			"kind": "function",
+			"details": "Creates a new Data referencing a subsection of an existing Data object (<a href=\"https://love2d.org/wiki/love.data.newDataView\">Manual</a>)"
+		},
+		{
+			"trigger": "love.data.pack",
+			"annotation": "(container, format, v1 [, ...])",
+			"contents": "${1:data} = love.data.pack(${2:container}, ${3:format}, ${4:v1}, ${5:...})",
+			"kind": "function",
+			"details": "Packs (serializes) simple Lua values (<a href=\"https://love2d.org/wiki/love.data.pack\">Manual</a>)"
+		},
+		{
+			"trigger": "love.data.unpack",
+			"annotation": "(format, datastring [, pos])",
+			"contents": "${1:v1}, ${2:...}, ${3:index} = love.data.unpack(${2:format}, ${3:datastring}, ${4:pos})",
+			"kind": "function",
+			"details": "Unpacks (deserializes) a byte-string or Data into simple Lua values (<a href=\"https://love2d.org/wiki/love.data.unpack\">Manual</a>)"
+		},
 
 		// love.event
 
