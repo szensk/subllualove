@@ -2215,45 +2215,45 @@
 
 		{
 			"trigger": "love.event.clear",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "love.event.clear()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.event.clear\">Manual</a>)"
+			"details": "Clears the event queue (<a href=\"https://love2d.org/wiki/love.event.clear\">Manual</a>)"
 		},
 		{
 			"trigger": "love.event.poll",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:i} = love.event.poll()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.event.poll\">Manual</a>)"
+			"details": "Returns an iterator for messages in the event queue (<a href=\"https://love2d.org/wiki/love.event.poll\">Manual</a>)"
 		},
 		{
 			"trigger": "love.event.pump",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "love.event.pump()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.event.pump\">Manual</a>)"
+			"details": "Pump events into the event queue (<a href=\"https://love2d.org/wiki/love.event.pump\">Manual</a>)"
 		},
 		{
 			"trigger": "love.event.push",
-			"annotation": "",
-			"contents": "love.event.push(${1:e}, ${2:a}, ${3:b}, ${4:c}, ${5:d})",
+			"annotation": "(event, a, b, c, d [, ...])",
+			"contents": "love.event.push(${1:event}, ${2:a}, ${3:b}, ${4:c}, ${5:d}, ${6:...})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.event.push\">Manual</a>)"
+			"details": "Adds an event to the event queue (<a href=\"https://love2d.org/wiki/love.event.push\">Manual</a>)"
 		},
 		{
 			"trigger": "love.event.quit",
-			"annotation": "",
-			"contents": "love.event.quit()",
+			"annotation": "(exitstatus)",
+			"contents": "love.event.quit(${1:exitstatus})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.event.quit\">Manual</a>)"
+			"details": "Exits or restart (<code>\"restart\"</code>) the LÖVE program (<a href=\"https://love2d.org/wiki/love.event.quit\">Manual</a>)"
 		},
 		{
 			"trigger": "love.event.wait",
-			"annotation": "",
-			"contents": "${1:e}, ${2:a}, ${3:b}, ${4:c}, ${5:d} = love.event.wait()",
+			"annotation": "()",
+			"contents": "${1:event}, ${2:a}, ${3:b}, ${4:c}, ${5:d}, ${6:...} = love.event.wait()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.event.wait\">Manual</a>)"
+			"details": "Waits for event in event queue and returns it (<a href=\"https://love2d.org/wiki/love.event.wait\">Manual</a>)"
 		},
 
 		// love.filesystem
