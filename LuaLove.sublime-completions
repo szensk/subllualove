@@ -2645,7 +2645,7 @@
 		{
 			"trigger": "love.graphics.arc",
 			"annotation": "(mode [, arctype], x, y, radius, angle1, angle2 [, segments])",
-			"contents": "love.graphics.arc(${1:mode}, ${2:'pie'}, ${3:x}, ${4:y}, ${5:radius}, ${6:angle1}, ${7:angle2}, ${8:segments})",
+			"contents": "love.graphics.arc(${1:mode}, ${2:arctype}, ${3:x}, ${4:y}, ${5:radius}, ${6:angle1}, ${7:angle2}, ${8:segments})",
 			"kind": "function",
 			"details": "Draws an arc (<a href=\"https://love2d.org/wiki/love.graphics.arc\">Manual</a>)"
 		},
