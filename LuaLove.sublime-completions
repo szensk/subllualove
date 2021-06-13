@@ -2633,499 +2633,1169 @@
 			"details": "Creates a new TrueType Rasterizer with a custom font (<a href=\"https://love2d.org/wiki/love.font.newTrueTypeRasterizer\">Manual</a>)"
 		},
 
-
-
 		// love.graphics
 
 		{
-			"trigger": "love.graphics.arc",
-			"annotation": "",
-			"contents": "love.graphics.arc(${1:mode}, ${2:x}, ${3:y}, ${4:radius}, ${5:angle1}, ${6:angle2}, ${7:segments})",
+			"trigger": "love.graphics.applyTransform",
+			"annotation": "(transform)",
+			"contents": "love.graphics.applyTransform(${1:transform})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.arc\">Manual</a>)"
+			"details": "Applies the given Transform object to the current coordinate transformation (<a href=\"https://love2d.org/wiki/love.graphics.applyTransform\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.arc",
+			"annotation": "(mode [, arctype], x, y, radius, angle1, angle2 [, segments])",
+			"contents": "love.graphics.arc(${1:mode}, ${2:'pie'}, ${3:x}, ${4:y}, ${5:radius}, ${6:angle1}, ${7:angle2}, ${8:segments})",
+			"kind": "function",
+			"details": "Draws an arc (<a href=\"https://love2d.org/wiki/love.graphics.arc\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.captureScreenshot",
+			"annotation": "(filename)",
+			"contents": "love.graphics.captureScreenshot(${1:filename})",
+			"kind": "function",
+			"details": "Creates a screenshot once the current frame is done and saves it to file (<a href=\"https://love2d.org/wiki/love.graphics.captureScreenshot\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.captureScreenshot",
+			"annotation": "(callback)",
+			"contents": "love.graphics.captureScreenshot(${1:callback})",
+			"kind": "function",
+			"details": "Creates a screenshot once the current frame is done and passes it to callback function (<a href=\"https://love2d.org/wiki/love.graphics.captureScreenshot\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.captureScreenshot",
+			"annotation": "(channel)",
+			"contents": "love.graphics.captureScreenshot(${1:channel})",
+			"kind": "function",
+			"details": "Creates a screenshot once the current frame is done and pushes it to a channel (<a href=\"https://love2d.org/wiki/love.graphics.captureScreenshot\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.circle",
-			"annotation": "",
+			"annotation": "(mode, x, y, radius [, segments)",
 			"contents": "love.graphics.circle(${1:mode}, ${2:x}, ${3:y}, ${4:radius}, ${5:segments})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.circle\">Manual</a>)"
+			"details": "Draws a circle (<a href=\"https://love2d.org/wiki/love.graphics.circle\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.clear",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "love.graphics.clear()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.clear\">Manual</a>)"
+			"details": "Clears the screen (<a href=\"https://love2d.org/wiki/love.graphics.clear\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.clear",
+			"annotation": "(r, g, b [, a [, stencil [, depth]]])",
+			"contents": "love.graphics.clear(${1:r}, ${2:g}, ${3:b}, ${4:a}, ${5:clearstencil}, ${6:cleardepth})",
+			"kind": "function",
+			"details": "Clears the screen or active Canvas (<a href=\"https://love2d.org/wiki/love.graphics.clear\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.clear",
+			"annotation": "(r, g, b [, a [, stencil [, depth]]])",
+			"contents": "love.graphics.clear(${1:r}, ${2:g}, ${3:b}, ${4:a}, ${5:clearstencil}, ${6:cleardepth})",
+			"kind": "function",
+			"details": "Clears the screen or active Canvas to the specified color (<a href=\"https://love2d.org/wiki/love.graphics.clear\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.clear",
+			"annotation": "(color [, ... [, stencil [, depth]]])",
+			"contents": "love.graphics.clear(${1:color}, ${2:...}, ${3:clearstencil}, ${4:cleardepth})",
+			"kind": "function",
+			"details": "Clears multiple active Canvases to different colors (<a href=\"https://love2d.org/wiki/love.graphics.clear\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.clear",
+			"annotation": "(clearcolor [, stencil [, depth]])",
+			"contents": "love.graphics.clear(${1:clearcolor}, ${2:clearstencil}, ${3:cleardepth})",
+			"kind": "function",
+			"details": "Clears the color or stencil or depth buffers (<a href=\"https://love2d.org/wiki/love.graphics.clear\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.discard",
+			"annotation": "([discardcolor [, discardstencil]])",
+			"contents": "love.graphics.discard(${1:discardcolor}, ${2:discardstencil})",
+			"kind": "function",
+			"details": "Discards the contents of the screen or active Canvas (<a href=\"https://love2d.org/wiki/love.graphics.discard\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.discard",
+			"annotation": "(discardcolors [, discardstencil])",
+			"contents": "love.graphics.discard(${1:discardcolors}, ${2:discardstencil})",
+			"kind": "function",
+			"details": "Discards the contents of the screen or active Canvas (<a href=\"https://love2d.org/wiki/love.graphics.discard\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.draw",
-			"annotation": "",
+			"annotation": "(drawable [, x [, y [, r [, sx [, sy [, ox [, oy [, kx [, ky]]]]]]]]])",
 			"contents": "love.graphics.draw(${1:drawable}, ${2:x}, ${3:y}, ${4:r}, ${5:sx}, ${6:sy}, ${7:ox}, ${8:oy}, ${9:kx}, ${10:ky})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.draw\">Manual</a>)"
+			"details": "Draws objects on screen (<a href=\"https://love2d.org/wiki/love.graphics.draw\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.draw",
+			"annotation": "(texture, quad, x, y [, r [, sx [, sy [, ox [, oy [, kx [, ky]]]]]]])",
+			"contents": "love.graphics.draw(${1:texture}, ${2:quad}, ${3:x}, ${4:y}, ${5:r}, ${6:sx}, ${7:sy}, ${8:ox}, ${9:oy}, ${10:kx}, ${11:ky})",
+			"kind": "function",
+			"details": "Draws objects on screen (<a href=\"https://love2d.org/wiki/love.graphics.draw\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.draw",
+			"annotation": "(drawable, transform)",
+			"contents": "love.graphics.draw(${1:drawable}, ${2:transform})",
+			"kind": "function",
+			"details": "Draws objects on screen (<a href=\"https://love2d.org/wiki/love.graphics.draw\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.draw",
+			"annotation": "(drawable, quad, transform)",
+			"contents": "love.graphics.draw(${1:drawable}, ${2:quad}, ${3:transform})",
+			"kind": "function",
+			"details": "Draws objects on screen (<a href=\"https://love2d.org/wiki/love.graphics.draw\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.drawInstanced",
+			"annotation": "(mesh, instancecount [, x [, y [, r [, sx [, sy [, ox [, oy [, kx [, ky]]]]]]]]])",
+			"contents": "love.graphics.drawInstanced(${1:mesh}, ${2:instancecount}, ${3:x}, ${4:y}, ${5:r}, ${6:sx}, ${7:sy}, ${8:ox}, ${9:oy}, ${10:kx}, ${11:ky})",
+			"kind": "function",
+			"details": "Draws many instances of a Mesh with a single draw call, using hardware geometry instancing (<a href=\"https://love2d.org/wiki/love.graphics.drawInstanced\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.drawInstanced",
+			"annotation": "(mesh, instancecount, transform)",
+			"contents": "love.graphics.drawInstanced(${1:mesh}, ${2:instancecount}, ${3:transform})",
+			"kind": "function",
+			"details": "Draws many instances of a Mesh with a single draw call, using hardware geometry instancing (<a href=\"https://love2d.org/wiki/love.graphics.drawInstanced\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.drawLayer",
+			"annotation": "(texture, layerindex [, x [, y [, r [, sx [, sy [, ox [, oy [, kx [, ky]]]]]]]]])",
+			"contents": "love.graphics.drawLayer(${1:texture}, ${2:layerindex}, ${3:x}, ${4:y}, ${5:r}, ${6:sx}, ${7:sy}, ${8:ox}, ${9:oy}, ${10:kx}, ${11:ky})",
+			"kind": "function",
+			"details": "Draws a layer of an Array Texture (<a href=\"https://love2d.org/wiki/love.graphics.drawLayer\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.drawLayer",
+			"annotation": "(texture, layerindex, quad [, x [, y [, r [, sx [, sy [, ox [, oy [, kx [, ky]]]]]]]]])",
+			"contents": "love.graphics.drawLayer(${1:texture}, ${2:layerindex}, ${3:quad}, ${4:x}, ${5:y}, ${6:r}, ${7:sx}, ${8:sy}, ${9:ox}, ${10:oy}, ${11:kx}, ${12:ky})",
+			"kind": "function",
+			"details": "Draws a layer of an Array Texture (<a href=\"https://love2d.org/wiki/love.graphics.drawLayer\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.ellipse",
+			"annotation": "(mode, x, y, radiusx, radiusy [, segments])",
+			"contents": "love.graphics.ellipse(${1:mode}, ${2:x}, ${3:y}, ${4:radiusx}, ${5:radiusy}, ${6:segments})",
+			"kind": "function",
+			"details": "Draws an ellipse (<a href=\"https://love2d.org/wiki/love.graphics.ellipse\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.flushBatch",
+			"annotation": "()",
+			"contents": "love.graphics.flushBatch()",
+			"kind": "function",
+			"details": "Immediately renders any pending automatically batched draws (<a href=\"https://love2d.org/wiki/love.graphics.flushBatch\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getBackgroundColor",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:r}, ${2:g}, ${3:b}, ${4:a} = love.graphics.getBackgroundColor()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getBackgroundColor\">Manual</a>)"
+			"details": "Gets the current background color (<a href=\"https://love2d.org/wiki/love.graphics.getBackgroundColor\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getBlendMode",
-			"annotation": "",
-			"contents": "${1:mode} = love.graphics.getBlendMode()",
+			"annotation": "()",
+			"contents": "${1:mode}, ${2:alphamode} = love.graphics.getBlendMode()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getBlendMode\">Manual</a>)"
+			"details": "Gets the blending mode (<a href=\"https://love2d.org/wiki/love.graphics.getBlendMode\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getCanvas",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:canvas} = love.graphics.getCanvas()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getCanvas\">Manual</a>)"
+			"details": "Returns the current target Canvas (<a href=\"https://love2d.org/wiki/love.graphics.getCanvas\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.getCanvasFormats",
+			"annotation": "([readable])",
+			"contents": "${1:formats} = love.graphics.getCanvasFormats(${2:readable})",
+			"kind": "function",
+			"details": "Gets the available Canvas formats, and whether each is supported (<a href=\"https://love2d.org/wiki/love.graphics.getCanvasFormats\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getColor",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:r}, ${2:g}, ${3:b}, ${4:a} = love.graphics.getColor()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getColor\">Manual</a>)"
+			"details": "Gets the current color (<a href=\"https://love2d.org/wiki/love.graphics.getColor\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getColorMask",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:r}, ${2:g}, ${3:b}, ${4:a} = love.graphics.getColorMask()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getColorMask\">Manual</a>)"
+			"details": "Gets the active color components used when drawing (<a href=\"https://love2d.org/wiki/love.graphics.getColorMask\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.getDPIScale",
+			"annotation": "()",
+			"contents": "${1:scale} = love.graphics.getDPIScale()",
+			"kind": "function",
+			"details": "Gets the DPI scale factor of the window (<a href=\"https://love2d.org/wiki/love.graphics.getDPIScale\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getDefaultFilter",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:min}, ${2:mag}, ${3:anisotropy} = love.graphics.getDefaultFilter()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getDefaultFilter\">Manual</a>)"
+			"details": "Returns the default scaling filters used with Images, Canvases, and Fonts (<a href=\"https://love2d.org/wiki/love.graphics.getDefaultFilter\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.getDepthMode",
+			"annotation": "()",
+			"contents": "${1:comparemode}, ${2:write} = love.graphics.getDepthMode()",
+			"kind": "function",
+			"details": "Gets the current depth test mode and whether writing to the depth buffer is enabled (<a href=\"https://love2d.org/wiki/love.graphics.getDepthMode\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getDimensions",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:width}, ${2:height} = love.graphics.getDimensions()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getDimensions\">Manual</a>)"
-		},
-		{
-			"trigger": "love.graphics.getFSAA",
-			"annotation": "",
-			"contents": "${1:samples} = love.graphics.getFSAA()",
-			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getFSAA\">Manual</a>)"
+			"details": "Gets the width and height of the window (<a href=\"https://love2d.org/wiki/love.graphics.getDimensions\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getFont",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:font} = love.graphics.getFont()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getFont\">Manual</a>)"
+			"details": "Gets the current Font object (<a href=\"https://love2d.org/wiki/love.graphics.getFont\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.getFrontFaceWinding",
+			"annotation": "()",
+			"contents": "${1:winding} = love.graphics.getFrontFaceWinding()",
+			"kind": "function",
+			"details": "Gets whether triangles with clockwise- or counterclockwise-ordered vertices are considered front-facing (<a href=\"https://love2d.org/wiki/love.graphics.getFrontFaceWinding\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getHeight",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:height} = love.graphics.getHeight()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getHeight\">Manual</a>)"
+			"details": "Gets the height in pixels of the window (<a href=\"https://love2d.org/wiki/love.graphics.getHeight\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.getImageFormats",
+			"annotation": "()",
+			"contents": "${1:formats} = love.graphics.getImageFormats()",
+			"kind": "function",
+			"details": "Gets the pixel formats usable for Images, and whether each is supported (<a href=\"https://love2d.org/wiki/love.graphics.getImageFormats\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getLineJoin",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:join} = love.graphics.getLineJoin()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getLineJoin\">Manual</a>)"
+			"details": "Gets the line join style (<a href=\"https://love2d.org/wiki/love.graphics.getLineJoin\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getLineStyle",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:style} = love.graphics.getLineStyle()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getLineStyle\">Manual</a>)"
+			"details": "Gets the line style (<a href=\"https://love2d.org/wiki/love.graphics.getLineStyle\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getLineWidth",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:width} = love.graphics.getLineWidth()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getLineWidth\">Manual</a>)"
+			"details": "Gets the current line width (<a href=\"https://love2d.org/wiki/love.graphics.getLineWidth\">Manual</a>)"
 		},
 		{
-			"trigger": "love.graphics.getFullscreenModes",
-			"annotation": "",
-			"contents": "${1:modes} = love.graphics.getFullscreenModes()",
+			"trigger": "love.graphics.getMeshCullMode",
+			"annotation": "()",
+			"contents": "${1:mode} = love.graphics.getMeshCullMode()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getFullscreenModes\">Manual</a>)"
+			"details": "Gets whether back-facing triangles in a Mesh are culled (<a href=\"https://love2d.org/wiki/love.graphics.getMeshCullMode\">Manual</a>)"
 		},
 		{
-			"trigger": "love.graphics.getShader",
-			"annotation": "",
-			"contents": "${1:shader} = love.graphics.getShader()",
+			"trigger": "love.graphics.getPixelDimensions",
+			"annotation": "()",
+			"contents": "${1:pixelwidth}, ${2:pixelheight} = love.graphics.getPixelDimensions()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getShader\">Manual</a>)"
+			"details": "Gets the width and height in pixels of the window (<a href=\"https://love2d.org/wiki/love.graphics.getPixelDimensions\">Manual</a>)"
 		},
 		{
-			"trigger": "love.graphics.getSystemLimit",
-			"annotation": "",
-			"contents": "${1:limit} = love.graphics.getSystemLimit(${2:limittype})",
+			"trigger": "love.graphics.getPixelHeight",
+			"annotation": "()",
+			"contents": "${1:pixelheight} = love.graphics.getPixelHeight()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getSystemLimit\">Manual</a>)"
+			"details": "Gets the height in pixels of the window (<a href=\"https://love2d.org/wiki/love.graphics.getPixelHeight\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.getPixelWidth",
+			"annotation": "()",
+			"contents": "${1:pixelwidth} = love.graphics.getPixelWidth()",
+			"kind": "function",
+			"details": "Gets the width in pixels of the window (<a href=\"https://love2d.org/wiki/love.graphics.getPixelWidth\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getPointSize",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:size} = love.graphics.getPointSize()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getPointSize\">Manual</a>)"
-		},
-		{
-			"trigger": "love.graphics.getPointStyle",
-			"annotation": "",
-			"contents": "${1:style} = love.graphics.getPointStyle()",
-			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getPointStyle\">Manual</a>)"
+			"details": "Gets the point size (<a href=\"https://love2d.org/wiki/love.graphics.getPointSize\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getRendererInfo",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:name}, ${2:version}, ${3:vendor}, ${4:device} = love.graphics.getRendererInfo()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getRendererInfo\">Manual</a>)"
+			"details": "Gets information about the system's video card and drivers (<a href=\"https://love2d.org/wiki/love.graphics.getRendererInfo\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getScissor",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:x}, ${2:y}, ${3:width}, ${4:height} = love.graphics.getScissor()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getScissor\">Manual</a>)"
+			"details": "Gets the current scissor box (<a href=\"https://love2d.org/wiki/love.graphics.getScissor\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.getShader",
+			"annotation": "()",
+			"contents": "${1:shader} = love.graphics.getShader()",
+			"kind": "function",
+			"details": "Gets the current Shader (<a href=\"https://love2d.org/wiki/love.graphics.getShader\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.getStackDepth",
+			"annotation": "()",
+			"contents": "${1:depth} = love.graphics.getStackDepth()",
+			"kind": "function",
+			"details": "Gets the current depth of the transform / state stack (the number of pushes without corresponding pops) (<a href=\"https://love2d.org/wiki/love.graphics.getStackDepth\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.getStats",
+			"annotation": "([stats])",
+			"contents": "${1:stats} = love.graphics.getStats(${2:stats})",
+			"kind": "function",
+			"details": "Gets performance-related rendering statistics (<a href=\"https://love2d.org/wiki/love.graphics.getStats\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.getStencilTest",
+			"annotation": "()",
+			"contents": "${1:comparemode}, ${2:comparevalue} = love.graphics.getStencilTest()",
+			"kind": "function",
+			"details": "Gets the current stencil test configuration (<a href=\"https://love2d.org/wiki/love.graphics.getStencilTest\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.getSupported",
+			"annotation": "()",
+			"contents": "${1:features} = love.graphics.getSupported()",
+			"kind": "function",
+			"details": "Gets the optional graphics features and whether they're supported (<a href=\"https://love2d.org/wiki/love.graphics.getSupported\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.getSystemLimits",
+			"annotation": "()",
+			"contents": "${1:limits} = love.graphics.getSystemLimits()",
+			"kind": "function",
+			"details": "Gets the system-dependent maximum values for love.graphics features (<a href=\"https://love2d.org/wiki/love.graphics.getSystemLimits\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.getTextureTypes",
+			"annotation": "()",
+			"contents": "${1:texturetypes} = love.graphics.getTextureTypes()",
+			"kind": "function",
+			"details": "Gets the available texture types, and whether each is supported (<a href=\"https://love2d.org/wiki/love.graphics.getTextureTypes\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.getWidth",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:width} = love.graphics.getWidth()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.getWidth\">Manual</a>)"
+			"details": "Gets the width in pixels of the window (<a href=\"https://love2d.org/wiki/love.graphics.getWidth\">Manual</a>)"
 		},
 		{
-			"trigger": "love.graphics.isSupported",
-			"annotation": "",
-			"contents": "${1:isSupported} = love.graphics.isSupported(${2:supportN})",
+			"trigger": "love.graphics.intersectScissor",
+			"annotation": "(x, y, width, height)",
+			"contents": "love.graphics.intersectScissor(${1:x}, ${2:y}, ${3:width}, ${4:height})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.isSupported\">Manual</a>)"
+			"details": "Sets the scissor to the rectangle created by the intersection of the specified rectangle with the existing scissor (<a href=\"https://love2d.org/wiki/love.graphics.intersectScissor\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.inverseTransformPoint",
+			"annotation": "(screenX, screenY)",
+			"contents": "${1:globalX}, ${2:globalY} = love.graphics.inverseTransformPoint(${3:screenX}, ${4:screenY})",
+			"kind": "function",
+			"details": "Converts the given 2D position from screen-space into global coordinates (<a href=\"https://love2d.org/wiki/love.graphics.inverseTransformPoint\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.isActive",
+			"annotation": "()",
+			"contents": "${1:active} = love.graphics.isActive()",
+			"kind": "function",
+			"details": "Gets whether the graphics module is able to be used (<a href=\"https://love2d.org/wiki/love.graphics.isActive\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.isGammaCorrect",
+			"annotation": "()",
+			"contents": "${1:gammacorrect} = love.graphics.isGammaCorrect()",
+			"kind": "function",
+			"details": "Gets whether gamma-correct rendering is enabled (<a href=\"https://love2d.org/wiki/love.graphics.isGammaCorrect\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.isWireframe",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:wireframe} = love.graphics.isWireframe()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.isWireframe\">Manual</a>)"
+			"details": "Gets whether wireframe mode is used when drawing (<a href=\"https://love2d.org/wiki/love.graphics.isWireframe\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.line",
-			"annotation": "",
+			"annotation": "(x1, y1, x2, y2 [, ...])",
 			"contents": "love.graphics.line(${1:x1}, ${2:y1}, ${3:x2}, ${4:y2}, ${5:...})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.line\">Manual</a>)"
+			"details": "Draws lines between points (<a href=\"https://love2d.org/wiki/love.graphics.line\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.line",
+			"annotation": "(points)",
+			"contents": "love.graphics.line(${1:points})",
+			"kind": "function",
+			"details": "Draws lines between points given in table (<a href=\"https://love2d.org/wiki/love.graphics.line\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.newArrayImage",
+			"annotation": "(slices, settings)",
+			"contents": "${1:image} = love.graphics.newArrayImage(${2:slices}, ${3:settings})",
+			"kind": "function",
+			"details": "Creates a new array Image (<a href=\"https://love2d.org/wiki/love.graphics.newArrayImage\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.newCanvas",
-			"annotation": "",
-			"contents": "${1:canvas} = love.graphics.newCanvas(${2:width}, ${3:height}, ${4:texture_type}, ${5:fsaa})",
+			"annotation": "()",
+			"contents": "${1:canvas} = love.graphics.newCanvas()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.newCanvas\">Manual</a>)"
+			"details": "Creates a new Canvas (<a href=\"https://love2d.org/wiki/love.graphics.newCanvas\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.newCanvas",
+			"annotation": "(width, height)",
+			"contents": "${1:canvas} = love.graphics.newCanvas(${2:width}, ${3:height})",
+			"kind": "function",
+			"details": "Creates a new Canvas (<a href=\"https://love2d.org/wiki/love.graphics.newCanvas\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.newCanvas",
+			"annotation": "(width, height, settings)",
+			"contents": "${1:canvas} = love.graphics.newCanvas(${2:width}, ${3:height}, ${4:settings})",
+			"kind": "function",
+			"details": "Creates a new Canvas (<a href=\"https://love2d.org/wiki/love.graphics.newCanvas\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.newCanvas",
+			"annotation": "(width, height, layers, settings)",
+			"contents": "${1:canvas} = love.graphics.newCanvas(${2:width}, ${3:height}, ${4:layers}, ${5:settings})",
+			"kind": "function",
+			"details": "Creates a new Canvas (<a href=\"https://love2d.org/wiki/love.graphics.newCanvas\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.newCubeImage",
+			"annotation": "(filename, settings)",
+			"contents": "${1:image} = love.graphics.newCubeImage(${2:filename}, ${3:settings})",
+			"kind": "function",
+			"details": "Creates a new cubemap Image (<a href=\"https://love2d.org/wiki/love.graphics.newCubeImage\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.newCubeImage",
+			"annotation": "(faces, settings)",
+			"contents": "${1:image} = love.graphics.newCubeImage(${2:faces}, ${3:settings})",
+			"kind": "function",
+			"details": "Creates a new cubemap Image (<a href=\"https://love2d.org/wiki/love.graphics.newCubeImage\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.newFont",
-			"annotation": "",
-			"contents": "${1:font} = love.graphics.newFont(${2:filename}, ${3:size})",
+			"annotation": "(filename)",
+			"contents": "${1:font} = love.graphics.newFont(${2:filename})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.newFont\">Manual</a>)"
+			"details": "Create a new BMFont or TrueType font (<a href=\"https://love2d.org/wiki/love.graphics.newFont\">Manual</a>)"
 		},
 		{
-			"trigger": "love.graphics.newMesh",
-			"annotation": "",
-			"contents": "${1:mesh} = love.graphics.newMesh(${2:vertices}, ${3:texture}, ${4:mode})",
+			"trigger": "love.graphics.newFont",
+			"annotation": "(filename, size [, hinting [, dpiscale]])",
+			"contents": "${1:font} = love.graphics.newFont(${2:filename}, ${3:size}, ${4:hinting}, ${5:dpiscale})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.newMesh\">Manual</a>)"
+			"details": "Create a new TrueType font (<a href=\"https://love2d.org/wiki/love.graphics.newFont\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.newFont",
+			"annotation": "(filename, imagefilename)",
+			"contents": "${1:font} = love.graphics.newFont(${2:filename}, ${3:imagefilename})",
+			"kind": "function",
+			"details": "Create a new BMFont (<a href=\"https://love2d.org/wiki/love.graphics.newFont\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.newFont",
+			"annotation": "([size [, hinting [, dpiscale]]])",
+			"contents": "${1:font} = love.graphics.newFont(${2:size}, ${3:hinting}, ${4:dpiscale})",
+			"kind": "function",
+			"details": "Create a new instance of the default font (Vera Sans) with a custom size (<a href=\"https://love2d.org/wiki/love.graphics.newFont\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.newImage",
-			"annotation": "",
-			"contents": "${1:image} = love.graphics.newImage(${2:filename}, ${3:format})",
+			"annotation": "(filename)",
+			"contents": "${1:image} = love.graphics.newImage(${2:filename})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.newImage\">Manual</a>)"
+			"details": "Creates a new Image (<a href=\"https://love2d.org/wiki/love.graphics.newImage\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.newImage",
+			"annotation": "(imageData)",
+			"contents": "${1:image} = love.graphics.newImage(${2:imageData})",
+			"kind": "function",
+			"details": "Creates a new Image (<a href=\"https://love2d.org/wiki/love.graphics.newImage\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.newImage",
+			"annotation": "(compressedImageData)",
+			"contents": "${1:image} = love.graphics.newImage(${2:compressedImageData})",
+			"kind": "function",
+			"details": "Creates a new Image (<a href=\"https://love2d.org/wiki/love.graphics.newImage\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.newImage",
+			"annotation": "(filename, flags)",
+			"contents": "${1:image} = love.graphics.newImage(${2:filename}, ${3:flags})",
+			"kind": "function",
+			"details": "Creates a new Image (<a href=\"https://love2d.org/wiki/love.graphics.newImage\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.newImageFont",
-			"annotation": "",
-			"contents": "${1:font} = love.graphics.newImageFont(${2:filename}, ${3:glyphs})",
+			"annotation": "(filename, glyphs [, extraspacing])",
+			"contents": "${1:font} = love.graphics.newImageFont(${2:filename}, ${3:glyphs}, ${4:extraspacing})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.newImageFont\">Manual</a>)"
+			"details": "Creates a new Font by loading a specifically formatted image (<a href=\"https://love2d.org/wiki/love.graphics.newImageFont\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.newImageFont",
+			"annotation": "(imagedata, glyphs)",
+			"contents": "${1:font} = love.graphics.newImageFont(${2:imagedata}, ${3:glyphs})",
+			"kind": "function",
+			"details": "Creates a new Font by loading a specifically formatted image (<a href=\"https://love2d.org/wiki/love.graphics.newImageFont\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.newMesh",
+			"annotation": "(vertices, mode, usage)",
+			"contents": "${1:mesh} = love.graphics.newMesh(${2:vertices}, ${3:mode}, ${4:usage})",
+			"kind": "function",
+			"details": "Creates a new standard Mesh with specified vertices (<a href=\"https://love2d.org/wiki/love.graphics.newMesh\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.newMesh",
+			"annotation": "(vertexcount, mode, usage)",
+			"contents": "${1:mesh} = love.graphics.newMesh(${2:vertexcount}, ${3:mode}, ${4:usage})",
+			"kind": "function",
+			"details": "Creates a new standard Mesh with specified number of vertices (<a href=\"https://love2d.org/wiki/love.graphics.newMesh\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.newMesh",
+			"annotation": "(vertexformat, vertices, mode, usage)",
+			"contents": "${1:mesh} = love.graphics.newMesh(${2:vertexformat}, ${3:vertices}, ${4:mode}, ${5:usage})",
+			"kind": "function",
+			"details": "Creates a Mesh with custom vertex attributes and the specified vertex data (<a href=\"https://love2d.org/wiki/love.graphics.newMesh\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.newMesh",
+			"annotation": "(vertexformat, vertexcount, mode, usage)",
+			"contents": "${1:mesh} = love.graphics.newMesh(${2:vertexformat}, ${3:vertexcount}, ${4:mode}, ${5:usage})",
+			"kind": "function",
+			"details": "Creates a Mesh with custom vertex attributes and the specified number of vertices (<a href=\"https://love2d.org/wiki/love.graphics.newMesh\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.newParticleSystem",
-			"annotation": "",
-			"contents": "${1:system} = love.graphics.newParticleSystem(${2:texture}, ${3:buffer})",
+			"annotation": "(image [, buffer])",
+			"contents": "${1:system} = love.graphics.newParticleSystem(${2:image}, ${3:buffer})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.newParticleSystem\">Manual</a>)"
+			"details": "Creates a new ParticleSystem (<a href=\"https://love2d.org/wiki/love.graphics.newParticleSystem\">Manual</a>)"
 		},
 		{
-			"trigger": "love.graphics.newShader",
-			"annotation": "",
-			"contents": "${1:shader} = love.graphics.newShader(${2:code})",
+			"trigger": "love.graphics.newParticleSystem",
+			"annotation": "(texture [, buffer])",
+			"contents": "${1:system} = love.graphics.newParticleSystem(${2:texture}, ${3:buffer})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.newShader\">Manual</a>)"
+			"details": "Creates a new ParticleSystem (<a href=\"https://love2d.org/wiki/love.graphics.newParticleSystem\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.newQuad",
-			"annotation": "",
+			"annotation": "(x, y, width, height, sq, sh)",
 			"contents": "${1:quad} = love.graphics.newQuad(${2:x}, ${3:y}, ${4:width}, ${5:height}, ${6:sw}, ${7:sh})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.newQuad\">Manual</a>)"
+			"details": "Creates a new Quad (<a href=\"https://love2d.org/wiki/love.graphics.newQuad\">Manual</a>)"
 		},
 		{
-			"trigger": "love.graphics.newScreenshot",
-			"annotation": "",
-			"contents": "${1:screenshot} = love.graphics.newScreenshot()",
+			"trigger": "love.graphics.newQuad",
+			"annotation": "(x, y, width, height, texture)",
+			"contents": "${1:quad} = love.graphics.newQuad(${2:x}, ${3:y}, ${4:width}, ${5:height}, ${6:texture})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.newScreenshot\">Manual</a>)"
+			"details": "Creates a new Quad (<a href=\"https://love2d.org/wiki/love.graphics.newQuad\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.newShader",
+			"annotation": "(code)",
+			"contents": "${1:shader} = love.graphics.newShader(${2:code})",
+			"kind": "function",
+			"details": "Creates a new Shader (<a href=\"https://love2d.org/wiki/love.graphics.newShader\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.newShader",
+			"annotation": "(cpixielcode, vertexcode)",
+			"contents": "${1:shader} = love.graphics.newShader(${2:pixelcode}, ${3:vertexcode})",
+			"kind": "function",
+			"details": "Creates a new Shader (<a href=\"https://love2d.org/wiki/love.graphics.newShader\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.newSpriteBatch",
-			"annotation": "",
-			"contents": "${1:spriteBatch} = love.graphics.newSpriteBatch(${2:texture}, ${3:size}, ${4:usage})",
+			"annotation": "(image, maxsprites [, usage])",
+			"contents": "${1:spriteBatch} = love.graphics.newSpriteBatch(${2:image}, ${3:maxsprites}, ${4:usage})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.newSpriteBatch\">Manual</a>)"
+			"details": "Creates a new spriceBatch (<a href=\"https://love2d.org/wiki/love.graphics.newSpriteBatch\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.newSpriteBatch",
+			"annotation": "(texture, maxsprites [, usage])",
+			"contents": "${1:spriteBatch} = love.graphics.newSpriteBatch(${2:texture}, ${3:maxsprites}, ${4:usage})",
+			"kind": "function",
+			"details": "Creates a new spriceBatch (<a href=\"https://love2d.org/wiki/love.graphics.newSpriteBatch\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.newText",
+			"annotation": "(font, textstring)",
+			"contents": "${1:text} = love.graphics.newText(${2:font}, ${3:textstring})",
+			"kind": "function",
+			"details": "Creates a new drawable Text object (<a href=\"https://love2d.org/wiki/love.graphics.newText\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.newText",
+			"annotation": "(font, coloredtext)",
+			"contents": "${1:text} = love.graphics.newText(${2:font}, ${3:coloredtext})",
+			"kind": "function",
+			"details": "Creates a new drawable Text object (<a href=\"https://love2d.org/wiki/love.graphics.newText\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.newVideo",
+			"annotation": "(filename [, settings])",
+			"contents": "${1:video} = love.graphics.newVideo(${2:filename}, ${3:settings})",
+			"kind": "function",
+			"details": "Creates a new Video (<a href=\"https://love2d.org/wiki/love.graphics.newVideo\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.newVideo",
+			"annotation": "(videostream)",
+			"contents": "${1:video} = love.graphics.newVideo(${2:videostream})",
+			"kind": "function",
+			"details": "Creates a new Video (<a href=\"https://love2d.org/wiki/love.graphics.newVideo\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.newVolumeImage",
+			"annotation": "(layers, settings)",
+			"contents": "${1:image} = love.graphics.newVolumeImage(${2:layers}, ${3:settings})",
+			"kind": "function",
+			"details": "Creates a new volume Image (<a href=\"https://love2d.org/wiki/love.graphics.newVolumeImage\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.origin",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "love.graphics.origin()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.origin\">Manual</a>)"
+			"details": "Resets the current coordinate transformation (<a href=\"https://love2d.org/wiki/love.graphics.origin\">Manual</a>)"
 		},
 		{
-			"trigger": "love.graphics.point",
-			"annotation": "",
-			"contents": "love.graphics.point(${1:x}, ${2:y})",
+			"trigger": "love.graphics.points",
+			"annotation": "(x, y [, ...])",
+			"contents": "love.graphics.points(${1:x}, ${2:y}, ${3:...})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.point\">Manual</a>)"
+			"details": "Draws one or more points (<a href=\"https://love2d.org/wiki/love.graphics.points\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.points",
+			"annotation": "(points)",
+			"contents": "love.graphics.points(${1:points})",
+			"kind": "function",
+			"details": "Draws one or more points given by table (<a href=\"https://love2d.org/wiki/love.graphics.points\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.polygon",
-			"annotation": "",
+			"annotation": "(mode, ...)",
 			"contents": "love.graphics.polygon(${1:mode}, ${2:...})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.polygon\">Manual</a>)"
+			"details": "Draws a polygon (<a href=\"https://love2d.org/wiki/love.graphics.polygon\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.polygon",
+			"annotation": "(mode, vertices)",
+			"contents": "love.graphics.polygon(${1:mode}, ${2:vertices})",
+			"kind": "function",
+			"details": "Draws a polygon given by vertices table (<a href=\"https://love2d.org/wiki/love.graphics.polygon\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.pop",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "love.graphics.pop()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.pop\">Manual</a>)"
+			"details": "Pops the current coordinate transformation from the transformation stack (<a href=\"https://love2d.org/wiki/love.graphics.pop\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.present",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "love.graphics.present()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.present\">Manual</a>)"
+			"details": "Displays the results of drawing operations on the screen (<a href=\"https://love2d.org/wiki/love.graphics.present\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.print",
-			"annotation": "",
+			"annotation": "(text [, x [, y [, r [, sx [, sy [, ox [, oy [, kx [, ky]]]]]]]]])",
 			"contents": "love.graphics.print(${1:text}, ${2:x}, ${3:y}, ${4:r}, ${5:sx}, ${6:sy}, ${7:ox}, ${8:oy}, ${9:kx}, ${10:ky})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.print\">Manual</a>)"
+			"details": "Draws text on screen. If no Font is set, one will be created and set (once) if needed (<a href=\"https://love2d.org/wiki/love.graphics.print\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.print",
+			"annotation": "(text, font [, x [, y [, r [, sx [, sy [, ox [, oy [, kx [, ky]]]]]]]]])",
+			"contents": "love.graphics.print(${1:text}, ${2:font}, ${3:x}, ${4:y}, ${5:r}, ${6:sx}, ${7:sy}, ${8:ox}, ${9:oy}, ${10:kx}, ${11:ky})",
+			"kind": "function",
+			"details": "Draws text on screen. If no Font is set, one will be created and set (once) if needed (<a href=\"https://love2d.org/wiki/love.graphics.print\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.print",
+			"annotation": "(coloredtext [, x [, y [, r [, sx [, sy [, ox [, oy [, kx [, ky]]]]]]]]])",
+			"contents": "love.graphics.print(${1:coloredtext}, ${2:x}, ${3:y}, ${4:r}, ${5:sx}, ${6:sy}, ${7:ox}, ${8:oy}, ${9:kx}, ${10:ky})",
+			"kind": "function",
+			"details": "Draws text on screen. If no Font is set, one will be created and set (once) if needed (<a href=\"https://love2d.org/wiki/love.graphics.print\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.print",
+			"annotation": "(coloredtext, font [, x [, y [, r [, sx [, sy [, ox [, oy [, kx [, ky]]]]]]]]])",
+			"contents": "love.graphics.print(${1:coloredtext}, ${2:font}, ${3:x}, ${4:y}, ${5:r}, ${6:sx}, ${7:sy}, ${8:ox}, ${9:oy}, ${10:kx}, ${11:ky})",
+			"kind": "function",
+			"details": "Draws text on screen. If no Font is set, one will be created and set (once) if needed (<a href=\"https://love2d.org/wiki/love.graphics.print\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.print",
+			"annotation": "(text, transform)",
+			"contents": "love.graphics.print(${1:text}, ${2:transform})",
+			"kind": "function",
+			"details": "Draws text on screen. If no Font is set, one will be created and set (once) if needed (<a href=\"https://love2d.org/wiki/love.graphics.print\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.print",
+			"annotation": "(text, font, transform)",
+			"contents": "love.graphics.print(${1:text}, ${2:font}, ${3:transform})",
+			"kind": "function",
+			"details": "Draws text on screen. If no Font is set, one will be created and set (once) if needed (<a href=\"https://love2d.org/wiki/love.graphics.print\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.print",
+			"annotation": "(coloredtext, transform)",
+			"contents": "love.graphics.print(${1:coloredtext}, ${2:transform})",
+			"kind": "function",
+			"details": "Draws text on screen. If no Font is set, one will be created and set (once) if needed (<a href=\"https://love2d.org/wiki/love.graphics.print\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.print",
+			"annotation": "(coloredtext, font, transform)",
+			"contents": "love.graphics.print(${1:coloredtext}, ${2:font}, ${3:transform})",
+			"kind": "function",
+			"details": "Draws text on screen. If no Font is set, one will be created and set (once) if needed (<a href=\"https://love2d.org/wiki/love.graphics.print\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.printf",
-			"annotation": "",
+			"annotation": "(text, x, y, limit [, align [, r [, sx [, sy [, ox [, oy [, kx [, ky]]]]]]]])",
 			"contents": "love.graphics.printf(${1:text}, ${2:x}, ${3:y}, ${4:limit}, ${5:align}, ${6:r}, ${7:sx}, ${8:sy}, ${9:ox}, ${10:oy}, ${11:kx}, ${12:ky})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.printf\">Manual</a>)"
+			"details": "Draws formatted text, with word wrap and alignment (<a href=\"https://love2d.org/wiki/love.graphics.printf\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.printf",
+			"annotation": "(text, x, y, limit [, align [, r [, sx [, sy [, ox [, oy [, kx [, ky]]]]]]]])",
+			"contents": "love.graphics.printf(${1:text}, ${2:font}, ${3:x}, ${4:y}, ${5:limit}, ${6:align}, ${7:r}, ${8:sx}, ${9:sy}, ${10:ox}, ${11:oy}, ${12:kx}, ${13:ky})",
+			"kind": "function",
+			"details": "Draws formatted text, with word wrap and alignment (<a href=\"https://love2d.org/wiki/love.graphics.printf\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.printf",
+			"annotation": "(text, transform, limit [, align])",
+			"contents": "love.graphics.printf(${1:text}, ${2:transform}, ${3:limit}, ${4:align})",
+			"kind": "function",
+			"details": "Draws formatted text, with word wrap and alignment (<a href=\"https://love2d.org/wiki/love.graphics.printf\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.printf",
+			"annotation": "(text, font, transform, limit [, align])",
+			"contents": "love.graphics.printf(${1:text}, ${2:font}, ${3:transform}, ${4:limit}, ${5:align})",
+			"kind": "function",
+			"details": "Draws formatted text, with word wrap and alignment (<a href=\"https://love2d.org/wiki/love.graphics.printf\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.printf",
+			"annotation": "(coloredtext, x, y, limit [, align [, r [, sx [, sy [, ox [, oy [, kx [, ky]]]]]]]])",
+			"contents": "love.graphics.printf(${1:coloredtext}, ${2:x}, ${3:y}, ${4:limit}, ${5:align}, ${6:r}, ${7:sx}, ${8:sy}, ${9:ox}, ${10:oy}, ${11:kx}, ${12:ky})",
+			"kind": "function",
+			"details": "Draws formatted text, with word wrap and alignment (<a href=\"https://love2d.org/wiki/love.graphics.printf\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.printf",
+			"annotation": "(coloredtext, x, y, limit [, align [, r [, sx [, sy [, ox [, oy [, kx [, ky]]]]]]]])",
+			"contents": "love.graphics.printf(${1:coloredtext}, ${2:font}, ${3:x}, ${4:y}, ${5:limit}, ${6:align}, ${7:r}, ${8:sx}, ${9:sy}, ${10:ox}, ${11:oy}, ${12:kx}, ${13:ky})",
+			"kind": "function",
+			"details": "Draws formatted text, with word wrap and alignment (<a href=\"https://love2d.org/wiki/love.graphics.printf\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.printf",
+			"annotation": "(coloredtext, transform, limit [, align])",
+			"contents": "love.graphics.printf(${1:coloredtext}, ${2:transform}, ${3:limit}, ${4:align})",
+			"kind": "function",
+			"details": "Draws formatted text, with word wrap and alignment (<a href=\"https://love2d.org/wiki/love.graphics.printf\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.printf",
+			"annotation": "(coloredtext, font, transform, limit [, align])",
+			"contents": "love.graphics.printf(${1:coloredtext}, ${2:font}, ${3:transform}, ${4:limit}, ${5:align})",
+			"kind": "function",
+			"details": "Draws formatted text, with word wrap and alignment (<a href=\"https://love2d.org/wiki/love.graphics.printf\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.push",
-			"annotation": "",
-			"contents": "love.graphics.push()",
+			"annotation": "([stack])",
+			"contents": "love.graphics.push(${1:stack})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.push\">Manual</a>)"
+			"details": "Copies and pushes the current coordinate transformation to the transformation stack (<a href=\"https://love2d.org/wiki/love.graphics.push\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.rectangle",
-			"annotation": "",
+			"annotation": "(mode, x, y, width, height)",
 			"contents": "love.graphics.rectangle(${1:mode}, ${2:x}, ${3:y}, ${4:width}, ${5:height})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.rectangle\">Manual</a>)"
+			"details": "Draws a rectangle (<a href=\"https://love2d.org/wiki/love.graphics.rectangle\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.rectangle",
+			"annotation": "(mode, x, y, width, height, rx [, ry [, segments]])",
+			"contents": "love.graphics.rectangle(${1:mode}, ${2:x}, ${3:y}, ${4:width}, ${5:height}, ${6:rx}, ${7:ry}, ${8:segments})",
+			"kind": "function",
+			"details": "Draws a rectangle (<a href=\"https://love2d.org/wiki/love.graphics.rectangle\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.replaceTransform",
+			"annotation": "(transform)",
+			"contents": "love.graphics.replaceTransform(${1:transform})",
+			"kind": "function",
+			"details": "Replaces the current coordinate transformation with the given Transform object (<a href=\"https://love2d.org/wiki/love.graphics.replaceTransform\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.reset",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "love.graphics.reset()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.reset\">Manual</a>)"
+			"details": "Resets the current graphics settings (<a href=\"https://love2d.org/wiki/love.graphics.reset\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.rotate",
-			"annotation": "",
+			"annotation": "(angle)",
 			"contents": "love.graphics.rotate(${1:angle})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.rotate\">Manual</a>)"
+			"details": "Rotates the coordinate system in two dimensions (<a href=\"https://love2d.org/wiki/love.graphics.rotate\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.scale",
-			"annotation": "",
+			"annotation": "(sx [, sy])",
 			"contents": "love.graphics.scale(${1:sx}, ${2:sy})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.scale\">Manual</a>)"
+			"details": "Scales the coordinate system in two dimensions (<a href=\"https://love2d.org/wiki/love.graphics.scale\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.setBackgroundColor",
-			"annotation": "",
+			"annotation": "(r, g, b [, a])",
 			"contents": "love.graphics.setBackgroundColor(${1:r}, ${2:g}, ${3:b}, ${4:a})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setBackgroundColor\">Manual</a>)"
+			"details": "Sets the background color (<a href=\"https://love2d.org/wiki/love.graphics.setBackgroundColor\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.setBackgroundColor",
+			"annotation": "(rgba)",
+			"contents": "love.graphics.setBackgroundColor(${1:rgba})",
+			"kind": "function",
+			"details": "Sets the background color given by numerical indexed table (<a href=\"https://love2d.org/wiki/love.graphics.setBackgroundColor\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.setBlendMode",
-			"annotation": "",
-			"contents": "love.graphics.setBlendMode(${1:mode})",
+			"annotation": "(mode [, aplhamode])",
+			"contents": "love.graphics.setBlendMode(${1:mode}, ${2:alphamode})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setBlendMode\">Manual</a>)"
+			"details": "Sets the blending mode (<a href=\"https://love2d.org/wiki/love.graphics.setBlendMode\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.setCanvas",
-			"annotation": "",
+			"annotation": "(canvas, mipmap)",
+			"contents": "love.graphics.setCanvas(${1:canvas}, ${2:mipmap})",
+			"kind": "function",
+			"details": "Captures drawing operations to a Canvas (<a href=\"https://love2d.org/wiki/love.graphics.setCanvas\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.setCanvas",
+			"annotation": "()",
 			"contents": "love.graphics.setCanvas()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setCanvas\">Manual</a>)"
+			"details": "Resets the render target to the screen, i.e. re-enables drawing to the screen (<a href=\"https://love2d.org/wiki/love.graphics.setCanvas\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.setCanvas",
+			"annotation": "(canvas1, canvas2, ...)",
+			"contents": "love.graphics.setCanvas(${1:canvas1}, ${2:canvas2}, ${3:...})",
+			"kind": "function",
+			"details": "Sets the render target to multiple simultaneous 2D Canvases (<a href=\"https://love2d.org/wiki/love.graphics.setCanvas\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.setCanvas",
+			"annotation": "(canvas, slice [, mipmap])",
+			"contents": "love.graphics.setCanvas(${1:canvas}, ${2:slice}, ${3:mipmap})",
+			"kind": "function",
+			"details": "Sets the render target to the specified layer/slice and mipmap level of the given non-2D Canvas (<a href=\"https://love2d.org/wiki/love.graphics.setCanvas\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.setCanvas",
+			"annotation": "(setup)",
+			"contents": "love.graphics.setCanvas(${1:setup})",
+			"kind": "function",
+			"details": "Sets the active render target(s) and active stencil and depth buffers based on the specified setup information (<a href=\"https://love2d.org/wiki/love.graphics.setCanvas\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.setColor",
-			"annotation": "",
-			"contents": "love.graphics.setColor(${1:red}, ${2:green}, ${3:blue}, ${4:alpha})",
+			"annotation": "(r, g, b [, a])",
+			"contents": "love.graphics.setColor(${1:r}, ${2:g}, ${3:b}, ${4:a})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setColor\">Manual</a>)"
+			"details": "Sets the color used for drawing (<a href=\"https://love2d.org/wiki/love.graphics.setColor\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.setColor",
+			"annotation": "(rgba)",
+			"contents": "love.graphics.setColor(${1:rgba})",
+			"kind": "function",
+			"details": "Sets the color used for drawing given by numerical indexed table (<a href=\"https://love2d.org/wiki/love.graphics.setColor\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.setColorMask",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "love.graphics.setColorMask()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setColorMask\">Manual</a>)"
+			"details": "Disables color masking (<a href=\"https://love2d.org/wiki/love.graphics.setColorMask\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.setColorMask",
+			"annotation": "(r, g, b, a)",
+			"contents": "love.graphics.setColorMask(${1:r}, ${2:g}, ${3:b}, ${4:a})",
+			"kind": "function",
+			"details": "Enables color masking for the specified color components (<a href=\"https://love2d.org/wiki/love.graphics.setColorMask\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.setDefaultFilter",
-			"annotation": "",
+			"annotation": "(min, mag [, anisotropy])",
 			"contents": "love.graphics.setDefaultFilter(${1:min}, ${2:mag}, ${3:anisotropy})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setDefaultFilter\">Manual</a>)"
+			"details": "Sets the default scaling filters used with Images, Canvases, and Fonts (<a href=\"https://love2d.org/wiki/love.graphics.setDefaultFilter\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.setDepthMode",
+			"annotation": "(comparemode, write)",
+			"contents": "love.graphics.setDepthMode(${1:comparemode}, ${2:write})",
+			"kind": "function",
+			"details": "Configures depth testing and writing to the depth buffer (<a href=\"https://love2d.org/wiki/love.graphics.setDepthMode\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.setDepthMode",
+			"annotation": "()",
+			"contents": "love.graphics.setDepthMode()",
+			"kind": "function",
+			"details": "Disables depth testing and depth writes (<a href=\"https://love2d.org/wiki/love.graphics.setDepthMode\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.setFont",
-			"annotation": "",
+			"annotation": "(font)",
 			"contents": "love.graphics.setFont(${1:font})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setFont\">Manual</a>)"
+			"details": "Set an already-loaded Font as the current font (<a href=\"https://love2d.org/wiki/love.graphics.setFont\">Manual</a>)"
 		},
 		{
-			"trigger": "love.graphics.setInvertedStencil",
-			"annotation": "",
-			"contents": "love.graphics.setInvertedStencil()",
+			"trigger": "love.graphics.setFrontFaceWinding",
+			"annotation": "(winding)",
+			"contents": "love.graphics.setFrontFaceWinding(${1:winding})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setInvertedStencil\">Manual</a>)"
+			"details": "Sets whether triangles with clockwise- or counterclockwise-ordered vertices are considered front-facing (<a href=\"https://love2d.org/wiki/love.graphics.setFrontFaceWinding\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.setLineJoin",
-			"annotation": "",
+			"annotation": "(join)",
 			"contents": "love.graphics.setLineJoin(${1:join})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setLineJoin\">Manual</a>)"
+			"details": "Sets the line join style (<a href=\"https://love2d.org/wiki/love.graphics.setLineJoin\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.setLineStyle",
-			"annotation": "",
+			"annotation": "(style)",
 			"contents": "love.graphics.setLineStyle(${1:style})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setLineStyle\">Manual</a>)"
+			"details": "Sets the line style (<a href=\"https://love2d.org/wiki/love.graphics.setLineStyle\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.setLineWidth",
-			"annotation": "",
+			"annotation": "(width)",
 			"contents": "love.graphics.setLineWidth(${1:width})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setLineWidth\">Manual</a>)"
+			"details": "Sets the line width (<a href=\"https://love2d.org/wiki/love.graphics.setLineWidth\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.setMeshCullMode",
+			"annotation": "(mode)",
+			"contents": "love.graphics.setMeshCullMode(${1:mode})",
+			"kind": "function",
+			"details": "Sets whether back-facing triangles in a Mesh are culled (<a href=\"https://love2d.org/wiki/love.graphics.setMeshCullMode\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.setNewFont",
-			"annotation": "",
+			"annotation": "([size])",
 			"contents": "${1:font} = love.graphics.setNewFont(${2:size})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setNewFont\">Manual</a>)"
+			"details": "Creates and sets a new Font (<a href=\"https://love2d.org/wiki/love.graphics.setNewFont\">Manual</a>)"
 		},
 		{
-			"trigger": "love.graphics.setShader",
-			"annotation": "",
-			"contents": "love.graphics.setShader()",
+			"trigger": "love.graphics.setNewFont",
+			"annotation": "(filename [, size])",
+			"contents": "${1:font} = love.graphics.setNewFont(${2:filename}, ${3:size})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setShader\">Manual</a>)"
+			"details": "Creates and sets a new Font (<a href=\"https://love2d.org/wiki/love.graphics.setNewFont\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.setNewFont",
+			"annotation": "(file [, size])",
+			"contents": "${1:font} = love.graphics.setNewFont(${2:file}, ${3:size})",
+			"kind": "function",
+			"details": "Creates and sets a new Font (<a href=\"https://love2d.org/wiki/love.graphics.setNewFont\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.setNewFont",
+			"annotation": "(data [, size])",
+			"contents": "${1:font} = love.graphics.setNewFont(${2:data}, ${3:size})",
+			"kind": "function",
+			"details": "Creates and sets a new Font (<a href=\"https://love2d.org/wiki/love.graphics.setNewFont\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.setNewFont",
+			"annotation": "(rasterizer)",
+			"contents": "${1:font} = love.graphics.setNewFont(${2:rasterizer})",
+			"kind": "function",
+			"details": "Creates and sets a new Font (<a href=\"https://love2d.org/wiki/love.graphics.setNewFont\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.setPointSize",
-			"annotation": "",
+			"annotation": "(size)",
 			"contents": "love.graphics.setPointSize(${1:size})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setPointSize\">Manual</a>)"
-		},
-		{
-			"trigger": "love.graphics.setPointStyle",
-			"annotation": "",
-			"contents": "love.graphics.setPointStyle(${1:style})",
-			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setPointStyle\">Manual</a>)"
+			"details": "Sets the point size (<a href=\"https://love2d.org/wiki/love.graphics.setPointSize\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.setScissor",
-			"annotation": "",
+			"annotation": "(x, y, width, height)",
+			"contents": "love.graphics.setScissor(${1:x}, ${2:y}, ${3:width}, ${4:height})",
+			"kind": "function",
+			"details": "Limits the drawing area to a specified rectangle (<a href=\"https://love2d.org/wiki/love.graphics.setScissor\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.setScissor",
+			"annotation": "()",
 			"contents": "love.graphics.setScissor()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setScissor\">Manual</a>)"
+			"details": "Disables scissor (<a href=\"https://love2d.org/wiki/love.graphics.setScissor\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.setShader",
+			"annotation": "(shader)",
+			"contents": "love.graphics.setShader(${1:shader})",
+			"kind": "function",
+			"details": "Routes drawing operations through a shader (<a href=\"https://love2d.org/wiki/love.graphics.setShader\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.setShader",
+			"annotation": "()",
+			"contents": "love.graphics.setShader()",
+			"kind": "function",
+			"details": "Disables shader (<a href=\"https://love2d.org/wiki/love.graphics.setShader\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.setStencilTest",
+			"annotation": "(comparemode, comparevalue)",
+			"contents": "love.graphics.setStencilTest(${1:comparemode}, ${2:comparevalue})",
+			"kind": "function",
+			"details": "Configures stencil testing (<a href=\"https://love2d.org/wiki/love.graphics.setStencilTest\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.setStencilTest",
+			"annotation": "()",
+			"contents": "love.graphics.setStencilTest()",
+			"kind": "function",
+			"details": "Disables stencil testing (<a href=\"https://love2d.org/wiki/love.graphics.setStencilTest\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.setWireframe",
-			"annotation": "",
+			"annotation": "(enable)",
 			"contents": "love.graphics.setWireframe(${1:enable})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setWireframe\">Manual</a>)"
-		},
-		{
-			"trigger": "love.graphics.setStencil",
-			"annotation": "",
-			"contents": "love.graphics.setStencil()",
-			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.setStencil\">Manual</a>)"
+			"details": "Sets whether wireframe lines will be used when drawing (<a href=\"https://love2d.org/wiki/love.graphics.setWireframe\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.shear",
-			"annotation": "",
+			"annotation": "(kx, ky)",
 			"contents": "love.graphics.shear(${1:kx}, ${2:ky})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.shear\">Manual</a>)"
+			"details": "Shears the coordinate system (<a href=\"https://love2d.org/wiki/love.graphics.shear\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.stencil",
+			"annotation": "(stencilfunction [, action [, value [, keepvalues]]])",
+			"contents": "love.graphics.stencil(${1:stencilfunction}, ${2:action}, ${3:value}, ${4:keepvalues})",
+			"kind": "function",
+			"details": "Draws geometry as a stencil (<a href=\"https://love2d.org/wiki/love.graphics.stencil\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.transformPoint",
+			"annotation": "(globalX, globalY)",
+			"contents": "${1:screenX}, ${2:screenY} = love.graphics.transformPoint(${3:globalX}, ${4:globalY})",
+			"kind": "function",
+			"details": "Converts the given 2D position from global coordinates into screen-space (<a href=\"https://love2d.org/wiki/love.graphics.transformPoint\">Manual</a>)"
 		},
 		{
 			"trigger": "love.graphics.translate",
-			"annotation": "",
+			"annotation": "(dx, dy)",
 			"contents": "love.graphics.translate(${1:dx}, ${2:dy})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.graphics.translate\">Manual</a>)"
+			"details": "Translates the coordinate system in two dimensions (<a href=\"https://love2d.org/wiki/love.graphics.translate\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.validateShader",
+			"annotation": "(gles, code)",
+			"contents": "${1:status}, ${2:message} = love.graphics.validateShader(${3:gles}, ${4:code})",
+			"kind": "function",
+			"details": "Validates shader code (<a href=\"https://love2d.org/wiki/love.graphics.validateShader\">Manual</a>)"
+		},
+		{
+			"trigger": "love.graphics.validateShader",
+			"annotation": "(gles, pixelcode, vertexcode)",
+			"contents": "${1:status}, ${2:message} = love.graphics.validateShader(${3:gles}, ${4:pixelcode}, ${5:vertexcode})",
+			"kind": "function",
+			"details": "Validates shader code (<a href=\"https://love2d.org/wiki/love.graphics.validateShader\">Manual</a>)"
 		},
 
 		// love.image
