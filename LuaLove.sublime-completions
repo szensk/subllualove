@@ -2541,6 +2541,98 @@
 
 		// love.font
 
+		{
+			"trigger": "love.font.newBMFontRasterizer",
+			"annotation": "(imageData, glyphs, dpiscale)",
+			"contents": "${1:rasterizer} = love.font.newBMFontRasterizer(${2:imageData}, ${3:glyphs}, ${4:dpiscale})",
+			"kind": "function",
+			"details": "Creates a new BMFont Rasterizer from image data (<a href=\"https://love2d.org/wiki/love.font.newBMFontRasterizer\">Manual</a>)"
+		},
+		{
+			"trigger": "love.font.newBMFontRasterizer",
+			"annotation": "(fileName, glyphs, dpiscale)",
+			"contents": "${1:rasterizer} = love.font.newBMFontRasterizer(${2:fileName}, ${3:glyphs}, ${4:dpiscale})",
+			"kind": "function",
+			"details": "Creates a new BMFont Rasterizer from file name (<a href=\"https://love2d.org/wiki/love.font.newBMFontRasterizer\">Manual</a>)"
+		},
+		{
+			"trigger": "love.font.newGlyphData",
+			"annotation": "(rasterizer, glyph)",
+			"contents": "${1:glyphData} = love.font.newGlyphData(${2:rasterizer}, ${3:glyph})",
+			"kind": "function",
+			"details": "Creates a new GlyphData (<a href=\"https://love2d.org/wiki/love.font.newGlyphData\">Manual</a>)"
+		},
+		{
+			"trigger": "love.font.newImageRasterizer",
+			"annotation": "(imageData, glyphs [, extraSpacing [, dpiscale]])",
+			"contents": "${1:rasterizer} = love.font.newImageRasterizer(${2:rasterizer}, ${3:glyphs}, ${4:extraSpacing}, ${5:dpiscale})",
+			"kind": "function",
+			"details": "Creates a new Image Rasterizer (<a href=\"https://love2d.org/wiki/love.font.newImageRasterizer\">Manual</a>)"
+		},
+		{
+			"trigger": "love.font.newRasterizer",
+			"annotation": "(filename)",
+			"contents": "${1:rasterizer} = love.font.newRasterizer(${2:filename})",
+			"kind": "function",
+			"details": "Creates a new Rasterizer from font file (<a href=\"https://love2d.org/wiki/love.font.newRasterizer\">Manual</a>)"
+		},
+		{
+			"trigger": "love.font.newRasterizer",
+			"annotation": "(data)",
+			"contents": "${1:rasterizer} = love.font.newRasterizer(${2:data})",
+			"kind": "function",
+			"details": "Creates a new Rasterizer from FileData of the font file (<a href=\"https://love2d.org/wiki/love.font.newRasterizer\">Manual</a>)"
+		},
+		{
+			"trigger": "love.font.newRasterizer",
+			"annotation": "([size [, hinting [, dpiscale]]])",
+			"contents": "${1:rasterizer} = love.font.newRasterizer(${2:size}, ${3:hinting}, ${4:dpiscale})",
+			"kind": "function",
+			"details": "Creates a TrueTypeRasterizer with the default font (<a href=\"https://love2d.org/wiki/love.font.newRasterizer\">Manual</a>)"
+		},
+		{
+			"trigger": "love.font.newRasterizer",
+			"annotation": "(fileName, [size [, hinting [, dpiscale]]])",
+			"contents": "${1:rasterizer} = love.font.newRasterizer(${2:fileName}, ${3:size}, ${4:hinting}, ${5:dpiscale})",
+			"kind": "function",
+			"details": "Creates a TrueTypeRasterizer with a custom font (<a href=\"https://love2d.org/wiki/love.font.newRasterizer\">Manual</a>)"
+		},
+		{
+			"trigger": "love.font.newRasterizer",
+			"annotation": "(fileData, [size [, hinting [, dpiscale]]])",
+			"contents": "${1:rasterizer} = love.font.newRasterizer(${2:fileData}, ${3:size}, ${4:hinting}, ${5:dpiscale})",
+			"kind": "function",
+			"details": "Creates a TrueTypeRasterizer with a custom font (<a href=\"https://love2d.org/wiki/love.font.newRasterizer\">Manual</a>)"
+		},
+		{
+			"trigger": "love.font.newRasterizer",
+			"annotation": "(imageData, glyphs [, dpiscale])",
+			"contents": "${1:rasterizer} = love.font.newRasterizer(${2:imageData}, ${3:glyphs}, ${4:dpiscale})",
+			"kind": "function",
+			"details": "Creates a new BMFont Rasterizer (<a href=\"https://love2d.org/wiki/love.font.newRasterizer\">Manual</a>)"
+		},
+		{
+			"trigger": "love.font.newTrueTypeRasterizer",
+			"annotation": "([size [, hinting [, dpiscale]]])",
+			"contents": "${1:rasterizer} = love.font.newTrueTypeRasterizer(${2:size}, ${3:hinting}, ${4:dpiscale})",
+			"kind": "function",
+			"details": "Creates a new TrueType Rasterizer with the default font (<a href=\"https://love2d.org/wiki/love.font.newTrueTypeRasterizer\">Manual</a>)"
+		},
+		{
+			"trigger": "love.font.newTrueTypeRasterizer",
+			"annotation": "(fileName, [size [, hinting [, dpiscale]]])",
+			"contents": "${1:rasterizer} = love.font.newTrueTypeRasterizer(${2:fileName}, ${3:size}, ${4:hinting}, ${5:dpiscale})",
+			"kind": "function",
+			"details": "Creates a new TrueType Rasterizer with a custom font (<a href=\"https://love2d.org/wiki/love.font.newTrueTypeRasterizer\">Manual</a>)"
+		},
+		{
+			"trigger": "love.font.newTrueTypeRasterizer",
+			"annotation": "(fileData, [size [, hinting [, dpiscale]]])",
+			"contents": "${1:rasterizer} = love.font.newTrueTypeRasterizer(${2:fileData}, ${3:size}, ${4:hinting}, ${5:dpiscale})",
+			"kind": "function",
+			"details": "Creates a new TrueType Rasterizer with a custom font (<a href=\"https://love2d.org/wiki/love.font.newTrueTypeRasterizer\">Manual</a>)"
+		},
+
 
 
 		// love.graphics
