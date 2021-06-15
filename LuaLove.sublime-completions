@@ -1216,6 +1216,51 @@
 			"details": "Returns a string with a traceback of the call stack (<a href=\"https://www.lua.org/manual/5.1/manual.html#pdf-debug.traceback\">Manual</a>)"
 		},
 
+		// UTF-8
+
+		{
+			"trigger": "utf8.char",
+			"annotation": "(...)",
+			"contents": "utf8.char(${1:...})",
+			"kind": "function",
+			"details": "Returns a string where each character is equal to UTF-8 byte sequence of the corresponding argument (<a href=\"https://www.lua.org/manual/5.3/manual.html#pdf-utf8.char\">Manual</a>)"
+		},
+		{
+			"trigger": "utf8.charpattern",
+			"annotation": "",
+			"contents": "utf8.charpattern",
+			"kind": "variable",
+			"details": "String containing pattern matching exactly one UTF-8 byte sequence (<a href=\"https://www.lua.org/manual/5.3/manual.html#pdf-utf8.charpattern\">Manual</a>)"
+		},
+		{
+			"trigger": "utf8.codes",
+			"annotation": "(s)",
+			"contents": "utf8.codes(${1:s})",
+			"kind": "function",
+			"details": "Returns an iterator function that returns position (in bytes) and code point of next the character of the string <code>s</code> (<a href=\"https://www.lua.org/manual/5.3/manual.html#pdf-utf8.codes\">Manual</a>)"
+		},
+		{
+			"trigger": "utf8.codepoint",
+			"annotation": "(s [, i [, j]])",
+			"contents": "utf8.codepoint(${1:s}, ${2:i}, ${3:j})",
+			"kind": "function",
+			"details": "Returns the codepoints from all characters in <code>s</code> that start between by position <code>i</code> and <code>j</code> (both included) (<a href=\"https://www.lua.org/manual/5.3/manual.html#pdf-utf8.codepoint\">Manual</a>)"
+		},
+		{
+			"trigger": "utf8.len",
+			"annotation": "(s [, i [, j]])",
+			"contents": "utf8.len(${1:s}, ${2:i}, ${3:j})",
+			"kind": "function",
+			"details": "Returns the number of UTF-8 characters in string <code>s</code> that start between by position <code>i</code> and <code>j</code> (both included) (<a href=\"https://www.lua.org/manual/5.3/manual.html#pdf-utf8.len\">Manual</a>)"
+		},
+		{
+			"trigger": "utf8.offset",
+			"annotation": "(s, n [, i])",
+			"contents": "utf8.offset(${1:s}, ${2:n}, ${3:i})",
+			"kind": "function",
+			"details": "Returns the position (in bytes) where the encoding of the <code>n-th</code> character of <code>s</code> (counting from position <code>i</code>) starts (<a href=\"https://www.lua.org/manual/5.3/manual.html#pdf-utf8.offset\">Manual</a>)"
+		},
+
 		// JIT
 
 		{
