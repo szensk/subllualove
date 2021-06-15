@@ -1552,24 +1552,31 @@
 
 		{
 			"trigger": "love._version_major",
-			"annotation": "(enable)",
+			"annotation": "",
 			"contents": "love._version_major",
 			"kind": "variable",
 			"details": "Major version of currently LÖVE"
 		},
 		{
 			"trigger": "love._version_minor",
-			"annotation": "(enable)",
+			"annotation": "",
 			"contents": "love._version_minor",
 			"kind": "variable",
 			"details": "Minor version of currently LÖVE"
 		},
 		{
 			"trigger": "love._version_revision",
-			"annotation": "(enable)",
+			"annotation": "",
 			"contents": "love._version_revision",
 			"kind": "variable",
 			"details": "Revision version of currently LÖVE"
+		},
+		{
+			"trigger": "love._os",
+			"annotation": "",
+			"contents": "love._os",
+			"kind": "variable",
+			"details": "String containing current operating system"
 		},
 
 		// Callbacks
@@ -4537,45 +4544,59 @@
 
 		{
 			"trigger": "love.system.getClipboardText",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:text} = love.system.getClipboardText()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.system.getClipboardText\">Manual</a>)"
+			"details": "Gets text from the clipboard (<a href=\"https://love2d.org/wiki/love.system.getClipboardText\">Manual</a>)"
 		},
 		{
 			"trigger": "love.system.getOS",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:os_string} = love.system.getOS()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.system.getOS\">Manual</a>)"
+			"details": "Gets the current operating system (<a href=\"https://love2d.org/wiki/love.system.getOS\">Manual</a>)"
 		},
 		{
 			"trigger": "love.system.getPowerInfo",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:state}, ${2:percent}, ${3:seconds} = love.system.getPowerInfo()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.system.getPowerInfo\">Manual</a>)"
+			"details": "Gets information about the system's power supply (<a href=\"https://love2d.org/wiki/love.system.getPowerInfo\">Manual</a>)"
 		},
 		{
 			"trigger": "love.system.getProcessorCount",
-			"annotation": "",
-			"contents": "${1:cores} = love.system.getProcessorCount()",
+			"annotation": "()",
+			"contents": "${1:processorCount} = love.system.getProcessorCount()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.system.getProcessorCount\">Manual</a>)"
+			"details": "Gets the amount of logical processor in the system (<a href=\"https://love2d.org/wiki/love.system.getProcessorCount\">Manual</a>)"
+		},
+		{
+			"trigger": "love.system.hasBackgroundMusic",
+			"annotation": "()",
+			"contents": "${1:backgroundmusic} = love.system.hasBackgroundMusic()",
+			"kind": "function",
+			"details": "Gets whether another application on the system is playing music in the background (<a href=\"https://love2d.org/wiki/love.system.hasBackgroundMusic\">Manual</a>)"
 		},
 		{
 			"trigger": "love.system.openURL",
-			"annotation": "",
+			"annotation": "(url)",
 			"contents": "${1:success} = love.system.openURL(${2:url})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.system.openURL\">Manual</a>)"
+			"details": "Opens a URL with the user's web or file browser (<a href=\"https://love2d.org/wiki/love.system.openURL\">Manual</a>)"
 		},
 		{
 			"trigger": "love.system.setClipboardText",
-			"annotation": "",
+			"annotation": "(text)",
 			"contents": "love.system.setClipboardText(${1:text})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.system.setClipboardText\">Manual</a>)"
+			"details": "Puts text in the clipboard (<a href=\"https://love2d.org/wiki/love.system.setClipboardText\">Manual</a>)"
+		},
+		{
+			"trigger": "love.system.vibrate",
+			"annotation": "(seconds)",
+			"contents": "love.system.vibrate(${1:seconds})",
+			"kind": "function",
+			"details": "Causes the device to vibrate, if possible (<a href=\"https://love2d.org/wiki/love.system.vibrate\">Manual</a>)"
 		},
 
 		// love.thread
