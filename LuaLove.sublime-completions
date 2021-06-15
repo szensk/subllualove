@@ -4603,24 +4603,38 @@
 
 		{
 			"trigger": "love.thread.getChannel",
-			"annotation": "",
+			"annotation": "(name)",
 			"contents": "${1:channel} = love.thread.getChannel(${2:name})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.thread.getChannel\">Manual</a>)"
+			"details": "Creates or retrieves a named thread channel (<a href=\"https://love2d.org/wiki/love.thread.getChannel\">Manual</a>)"
 		},
 		{
 			"trigger": "love.thread.newChannel",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:channel} = love.thread.newChannel()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.thread.newChannel\">Manual</a>)"
+			"details": "Creates a new unnamed thread channel (<a href=\"https://love2d.org/wiki/love.thread.newChannel\">Manual</a>)"
 		},
 		{
 			"trigger": "love.thread.newThread",
-			"annotation": "",
-			"contents": "${1:thread} = love.thread.newThread(${2:name}, ${3:filename})",
+			"annotation": "(filename)",
+			"contents": "${1:thread} = love.thread.newThread(${2:filename})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.thread.newThread\">Manual</a>)"
+			"details": "Creates a new Thread from a filename, containing Lua code (<a href=\"https://love2d.org/wiki/love.thread.newThread\">Manual</a>)"
+		},
+		{
+			"trigger": "love.thread.newThread",
+			"annotation": "(fileData)",
+			"contents": "${1:thread} = love.thread.newThread(${2:fileData})",
+			"kind": "function",
+			"details": "Creates a new Thread from a FileData object containing Lua code (<a href=\"https://love2d.org/wiki/love.thread.newThread\">Manual</a>)"
+		},
+		{
+			"trigger": "love.thread.newThread",
+			"annotation": "(codeString)",
+			"contents": "${1:thread} = love.thread.newThread(${2:codeString})",
+			"kind": "function",
+			"details": "Creates a new Thread from a string containing Lua code (<a href=\"https://love2d.org/wiki/love.thread.newThread\">Manual</a>)"
 		},
 
 		// love.timer
