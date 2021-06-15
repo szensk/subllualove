@@ -4279,150 +4279,213 @@
 
 		{
 			"trigger": "love.physics.getDistance",
-			"annotation": "",
+			"annotation": "(fixture1, fixture2)",
 			"contents": "${1:distance}, ${2:x1}, ${3:y1}, ${4:x2}, ${5:y2} = love.physics.getDistance(${6:fixture1}, ${7:fixture2})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.physics.getDistance\">Manual</a>)"
+			"details": "Returns the two closest points between two fixtures and their distance (<a href=\"https://love2d.org/wiki/love.physics.getDistance\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.getMeter",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:scale} = love.physics.getMeter()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.physics.getMeter\">Manual</a>)"
+			"details": "Returns the meter scale factor (<a href=\"https://love2d.org/wiki/love.physics.getMeter\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newBody",
-			"annotation": "",
+			"annotation": "(world [, x [, y [, type]]])",
 			"contents": "${1:body} = love.physics.newBody(${2:world}, ${3:x}, ${4:y}, ${5:type})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newBody\">Manual</a>)"
+			"details": "Creates a new body (<a href=\"https://love2d.org/wiki/love.physics.newBody\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newChainShape",
-			"annotation": "",
-			"contents": "${1:shape} = love.physics.newChainShape(${2:loop}, ${3:x1}, ${4:y1}, ${5:x2}, ${6:y2})",
+			"annotation": "(loop, x1, y1, x2, y2 [, ...])",
+			"contents": "${1:shape} = love.physics.newChainShape(${2:loop}, ${3:x1}, ${4:y1}, ${5:x2}, ${6:y2}, ${7:...})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newChainShape\">Manual</a>)"
+			"details": "Creates a new ChainShape (<a href=\"https://love2d.org/wiki/love.physics.newChainShape\">Manual</a>)"
+		},
+		{
+			"trigger": "love.physics.newChainShape",
+			"annotation": "(loop, pointTable)",
+			"contents": "${1:shape} = love.physics.newChainShape(${2:loop}, ${3:pointsTable})",
+			"kind": "function",
+			"details": "Creates a new ChainShape (<a href=\"https://love2d.org/wiki/love.physics.newChainShape\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newCircleShape",
-			"annotation": "",
-			"contents": "${1:shape} = love.physics.newCircleShape(${2:body}, ${3:x}, ${4:y}, ${5:radius})",
+			"annotation": "([x [, y]], radius)",
+			"contents": "${1:shape} = love.physics.newCircleShape(${2:x}, ${3:y}, ${4:radius})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newCircleShape\">Manual</a>)"
+			"details": "Creates a new CircleShape (<a href=\"https://love2d.org/wiki/love.physics.newCircleShape\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newDistanceJoint",
-			"annotation": "",
+			"annotation": "(body1, body2, x1, y1, x2, y2 [, collideConnected])",
 			"contents": "${1:joint} = love.physics.newDistanceJoint(${2:body1}, ${3:body2}, ${4:x1}, ${5:y1}, ${6:x2}, ${7:y2}, ${8:collideConnected})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newDistanceJoint\">Manual</a>)"
+			"details": "Creates a DistanceJoint between two bodies(<a href=\"https://love2d.org/wiki/love.physics.newDistanceJoint\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newEdgeShape",
-			"annotation": "",
+			"annotation": "(x1, y1, x2, y2)",
 			"contents": "${1:shape} = love.physics.newEdgeShape(${2:x1}, ${3:y1}, ${4:x2}, ${5:y2})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newEdgeShape\">Manual</a>)"
+			"details": "Creates a new EdgeShape (<a href=\"https://love2d.org/wiki/love.physics.newEdgeShape\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newFixture",
-			"annotation": "",
+			"annotation": "(body, shape [, density])",
 			"contents": "${1:fixture} = love.physics.newFixture(${2:body}, ${3:shape}, ${4:density})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newFixture\">Manual</a>)"
+			"details": "Creates and attaches a fixture (<a href=\"https://love2d.org/wiki/love.physics.newFixture\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newFrictionJoint",
-			"annotation": "",
+			"annotation": "(body1, body2, x, y [, collideConnected])",
 			"contents": "${1:joint} = love.physics.newFrictionJoint(${2:body1}, ${3:body2}, ${4:x}, ${5:y}, ${6:collideConnected})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newFrictionJoint\">Manual</a>)"
+			"details": "A FrictionJoint applies friction to a body (<a href=\"https://love2d.org/wiki/love.physics.newFrictionJoint\">Manual</a>)"
+		},
+		{
+			"trigger": "love.physics.newFrictionJoint",
+			"annotation": "(body1, body2, x1, y1, x2, y2 [, collideConnected])",
+			"contents": "${1:joint} = love.physics.newFrictionJoint(${2:body1}, ${3:body2}, ${4:x1}, ${5:y1}, ${6:x2}, ${7:y2} ${8:collideConnected})",
+			"kind": "function",
+			"details": "A FrictionJoint applies friction to a body (<a href=\"https://love2d.org/wiki/love.physics.newFrictionJoint\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newGearJoint",
-			"annotation": "",
+			"annotation": "(joint1, joint2 [, ratio [, collideConnected]])",
 			"contents": "${1:joint} = love.physics.newGearJoint(${2:joint1}, ${3:joint2}, ${4:ratio}, ${5:collideConnected})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newGearJoint\">Manual</a>)"
+			"details": "Create a GearJoint connecting two Joints (<a href=\"https://love2d.org/wiki/love.physics.newGearJoint\">Manual</a>)"
+		},
+		{
+			"trigger": "love.physics.newMotorJoint",
+			"annotation": "(body1, body2 [, correctionFactor [, collideConnected]])",
+			"contents": "${1:joint} = love.physics.newMotorJoint(${2:body1}, ${3:body2}, ${4:correctionFactor}, ${5:collideConnected})",
+			"kind": "function",
+			"details": "Creates a joint between two bodies which controls the relative motion between them (<a href=\"https://love2d.org/wiki/love.physics.newMotorJoint\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newMouseJoint",
-			"annotation": "",
+			"annotation": "(body, x, y)",
 			"contents": "${1:joint} = love.physics.newMouseJoint(${2:body}, ${3:x}, ${4:y})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newMouseJoint\">Manual</a>)"
+			"details": "Create a joint between a body and the mouse (<a href=\"https://love2d.org/wiki/love.physics.newMouseJoint\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newPolygonShape",
-			"annotation": "",
-			"contents": "${1:shape} = love.physics.newPolygonShape(${2:body}, ${3:...})",
+			"annotation": "(body, vertices)",
+			"contents": "${1:shape} = love.physics.newPolygonShape(${2:body}, ${3:vertices})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newPolygonShape\">Manual</a>)"
+			"details": "Creates a new PolygonShape (<a href=\"https://love2d.org/wiki/love.physics.newPolygonShape\">Manual</a>)"
+		},
+		{
+			"trigger": "love.physics.newPolygonShape",
+			"annotation": "(body, x1, y1, x2, y2, x3, y3, ...)",
+			"contents": "${1:shape} = love.physics.newPolygonShape(${2:body}, ${3:x1}, ${4:y1}, ${5:x2}, ${6:y2}, ${7:x3}, ${8:y3}, ${9:...})",
+			"kind": "function",
+			"details": "Creates a new PolygonShape (<a href=\"https://love2d.org/wiki/love.physics.newPolygonShape\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newPrismaticJoint",
-			"annotation": "",
+			"annotation": "(body1, body2, x, y, ax, ay [, collideConnected])",
 			"contents": "${1:joint} = love.physics.newPrismaticJoint(${2:body1}, ${3:body2}, ${4:x}, ${5:y}, ${6:ax}, ${7:ay}, ${8:collideConnected})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newPrismaticJoint\">Manual</a>)"
+			"details": "Creates a PrismaticJoint between two bodies (<a href=\"https://love2d.org/wiki/love.physics.newPrismaticJoint\">Manual</a>)"
+		},
+		{
+			"trigger": "love.physics.newPrismaticJoint",
+			"annotation": "(body1, body2, x1, y1, x2, y2, ax, ay [, collideConnected [, referenceAngle]])",
+			"contents": "${1:joint} = love.physics.newPrismaticJoint(${2:body1}, ${3:body2}, ${4:x1}, ${5:y1}, ${6:x2}, ${7:y2} ${8:ax}, ${9:ay}, ${10:collideConnected}, ${11:referenceAngle})",
+			"kind": "function",
+			"details": "Creates a PrismaticJoint between two bodies (<a href=\"https://love2d.org/wiki/love.physics.newPrismaticJoint\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newPulleyJoint",
-			"annotation": "",
+			"annotation": "(body1, body2, gx1, gy1, gx2, gy2, x1, y1, x2, y2 [, ratio [, collideConnected]])",
 			"contents": "${1:joint} = love.physics.newPulleyJoint(${2:body1}, ${3:body2}, ${4:gx1}, ${5:gy1}, ${6:gx2}, ${7:gy2}, ${8:x1}, ${9:y1}, ${10:x2}, ${11:y2}, ${12:ratio}, ${13:collideConnected})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newPulleyJoint\">Manual</a>)"
+			"details": "Creates a PulleyJoint to join two bodies to each other and the ground (<a href=\"https://love2d.org/wiki/love.physics.newPulleyJoint\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newRectangleShape",
-			"annotation": "",
-			"contents": "${1:shape} = love.physics.newRectangleShape(${2:body}, ${3:x}, ${4:y}, ${5:width}, ${6:height}, ${7:angle})",
+			"annotation": "(width, height)",
+			"contents": "${1:shape} = love.physics.newRectangleShape(${2:width}, ${3:height})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newRectangleShape\">Manual</a>)"
+			"details": "Shorthand for creating rectangular PolygonShapes (<a href=\"https://love2d.org/wiki/love.physics.newRectangleShape\">Manual</a>)"
+		},
+		{
+			"trigger": "love.physics.newRectangleShape",
+			"annotation": "(x, y, width, height [, angle])",
+			"contents": "${1:shape} = love.physics.newRectangleShape(${2:x}, ${3:y}, ${4:width}, ${5:height}, ${6:angle})",
+			"kind": "function",
+			"details": "Shorthand for creating rectangular PolygonShapes (<a href=\"https://love2d.org/wiki/love.physics.newRectangleShape\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newRevoluteJoint",
-			"annotation": "",
+			"annotation": "(body1, body2, x, y [, collideConnected])",
 			"contents": "${1:joint} = love.physics.newRevoluteJoint(${2:body1}, ${3:body2}, ${4:x}, ${5:y}, ${6:collideConnected})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newRevoluteJoint\">Manual</a>)"
+			"details": "Creates a pivot joint between two bodies (<a href=\"https://love2d.org/wiki/love.physics.newRevoluteJoint\">Manual</a>)"
+		},
+		{
+			"trigger": "love.physics.newRevoluteJoint",
+			"annotation": "(body1, body2, x1, y1, x2, y2 [, collideConnected [, referenceAngle]])",
+			"contents": "${1:joint} = love.physics.newRevoluteJoint(${2:body1}, ${3:body2}, ${4:x1}, ${5:y1}, ${6:x2}, ${7:y2}, ${8:collideConnected}, ${9:referenceAngle})",
+			"kind": "function",
+			"details": "Creates a pivot joint between two bodies (<a href=\"https://love2d.org/wiki/love.physics.newRevoluteJoint\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newRopeJoint",
-			"annotation": "",
+			"annotation": "(body1, body2, x1, y1, x2, y2, maxLength [, collideConnected])",
 			"contents": "${1:joint} = love.physics.newRopeJoint(${2:body1}, ${3:body2}, ${4:x1}, ${5:y1}, ${6:x2}, ${7:y2}, ${8:maxLength}, ${9:collideConnected})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newRopeJoint\">Manual</a>)"
+			"details": "Creates a joint between two bodies that enforces a max distance between them (<a href=\"https://love2d.org/wiki/love.physics.newRopeJoint\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newWeldJoint",
-			"annotation": "",
+			"annotation": "(body1, body2, x, y [, collideConnected])",
 			"contents": "${1:joint} = love.physics.newWeldJoint(${2:body1}, ${3:body2}, ${4:x}, ${5:y}, ${6:collideConnected})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newWeldJoint\">Manual</a>)"
+			"details": "A WeldJoint essentially glues two bodies together (<a href=\"https://love2d.org/wiki/love.physics.newWeldJoint\">Manual</a>)"
+		},
+		{
+			"trigger": "love.physics.newWeldJoint",
+			"annotation": "(body1, body2, x1, y1, x2, y2 [, collideConnected [, referenceAngle]])",
+			"contents": "${1:joint} = love.physics.newWeldJoint(${2:body1}, ${3:body2}, ${4:x1}, ${5:y1}, ${6:x2}, ${7:y2} ${8:collideConnected}, ${9:referenceAngle})",
+			"kind": "function",
+			"details": "A WeldJoint essentially glues two bodies together (<a href=\"https://love2d.org/wiki/love.physics.newWeldJoint\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newWheelJoint",
-			"annotation": "",
+			"annotation": "(body1, body2, x, y, ax, ay [, collideConnected])",
 			"contents": "${1:joint} = love.physics.newWheelJoint(${2:body1}, ${3:body2}, ${4:x}, ${5:y}, ${6:ax}, ${7:ay}, ${8:collideConnected})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newWheelJoint\">Manual</a>)"
+			"details": "Creates a wheel joint (<a href=\"https://love2d.org/wiki/love.physics.newWheelJoint\">Manual</a>)"
+		},
+		{
+			"trigger": "love.physics.newWheelJoint",
+			"annotation": "(body1, body2, x1, y1, x2, y2, ax, ay [, collideConnected])",
+			"contents": "${1:joint} = love.physics.newWheelJoint(${2:body1}, ${3:body2}, ${4:x1}, ${5:y1}, ${6:x2}, ${7:y2} ${8:ax}, ${9:ay}, ${10:collideConnected})",
+			"kind": "function",
+			"details": "Creates a wheel joint (<a href=\"https://love2d.org/wiki/love.physics.newWheelJoint\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.newWorld",
-			"annotation": "",
+			"annotation": "([xg [, yg [, sleep]]])",
 			"contents": "${1:world} = love.physics.newWorld(${2:xg}, ${3:yg}, ${4:sleep})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.physics.newWorld\">Manual</a>)"
+			"details": "Creates a new World (<a href=\"https://love2d.org/wiki/love.physics.newWorld\">Manual</a>)"
 		},
 		{
 			"trigger": "love.physics.setMeter",
-			"annotation": "",
+			"annotation": "(scale)",
 			"contents": "love.physics.setMeter(${1:scale})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.physics.setMeter\">Manual</a>)"
+			"details": "Sets the meter scale factor (<a href=\"https://love2d.org/wiki/love.physics.setMeter\">Manual</a>)"
 		},
 
 		// love.sound
