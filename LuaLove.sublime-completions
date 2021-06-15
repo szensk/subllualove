@@ -3928,7 +3928,7 @@
 		{
 			"trigger": "love.keyboard.setTextInput",
 			"annotation": "(enable [, x, y, w, h])",
-			"contents": "love.keyboard.setTextInput(${1:enable}, ${2:x}, ${3:y}, ${4:width}, ${5:height})",
+			"contents": "love.keyboard.setTextInput(${1:enable}, ${2:x}, ${3:y}, ${4:width}, ${5:height/**/})",
 			"kind": "function",
 			"details": "Enables or disables text input events (<a href=\"https://love2d.org/wiki/love.keyboard.setTextInput\">Manual</a>)"
 		},
@@ -3936,95 +3936,193 @@
 		// love.math
 
 		{
+			"trigger": "love.math.colorFromBytes",
+			"annotation": "(r, g, b [, a])",
+			"contents": "${1:r}, ${2:g}, ${3:b}, ${4:a} = love.math.colorFromBytes(${5:rb}, ${6:gb}, ${7:bb}, ${8:ab})",
+			"kind": "function",
+			"details": "Converts a color from 0..255 to 0..1 range (<a href=\"https://love2d.org/wiki/love.math.colorFromBytes\">Manual</a>)"
+		},
+		{
+			"trigger": "love.math.colorToBytes",
+			"annotation": "(r, g, b [, a])",
+			"contents": "${1:rb}, ${2:gb}, ${3:bb}, ${4:ab} = love.math.colorToBytes(${5:r}, ${6:g}, ${7:b}, ${8:a})",
+			"kind": "function",
+			"details": "Converts a color from 0..1 to 0..255 range (<a href=\"https://love2d.org/wiki/love.math.colorToBytes\">Manual</a>)"
+		},
+		{
 			"trigger": "love.math.gammaToLinear",
-			"annotation": "",
+			"annotation": "(r, g, b)",
 			"contents": "${1:lr}, ${2:lg}, ${3:lb} = love.math.gammaToLinear(${4:r}, ${5:g}, ${6:b})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.math.gammaToLinear\">Manual</a>)"
+			"details": "Converts a color from gamma-space (sRGB) to linear-space (RGB) (<a href=\"https://love2d.org/wiki/love.math.gammaToLinear\">Manual</a>)"
+		},
+		{
+			"trigger": "love.math.gammaToLinear",
+			"annotation": "(colorTable)",
+			"contents": "${1:lr}, ${2:lg}, ${3:lb} = love.math.gammaToLinear(${4:colorTable})",
+			"kind": "function",
+			"details": "Converts a color from gamma-space (sRGB) to linear-space (RGB) (<a href=\"https://love2d.org/wiki/love.math.gammaToLinear\">Manual</a>)"
+		},
+		{
+			"trigger": "love.math.gammaToLinear",
+			"annotation": "(c)",
+			"contents": "${1:lc} = love.math.gammaToLinear(${2:c})",
+			"kind": "function",
+			"details": "Converts a color from gamma-space (sRGB) to linear-space (RGB) (<a href=\"https://love2d.org/wiki/love.math.gammaToLinear\">Manual</a>)"
 		},
 		{
 			"trigger": "love.math.getRandomSeed",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:low}, ${2:high} = love.math.getRandomSeed()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.math.getRandomSeed\">Manual</a>)"
+			"details": "Gets the seed of the random number generator (<a href=\"https://love2d.org/wiki/love.math.getRandomSeed\">Manual</a>)"
 		},
 		{
 			"trigger": "love.math.getRandomState",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:state} = love.math.getRandomState()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.math.getRandomState\">Manual</a>)"
+			"details": "Gets the current state of the random number generator (<a href=\"https://love2d.org/wiki/love.math.getRandomState\">Manual</a>)"
 		},
 		{
 			"trigger": "love.math.isConvex",
-			"annotation": "",
+			"annotation": "(vertices)",
 			"contents": "${1:convex} = love.math.isConvex(${2:vertices})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.math.isConvex\">Manual</a>)"
+			"details": "Checks whether a polygon is convex (<a href=\"https://love2d.org/wiki/love.math.isConvex\">Manual</a>)"
+		},
+		{
+			"trigger": "love.math.isConvex",
+			"annotation": "(x1, y1, x2, y2, x3, y3 [, ...])",
+			"contents": "${1:convex} = love.math.isConvex(${2:x1}, ${3:y1}, ${4:x2}, ${5:y2}, ${6:x3}, ${7:y3}, ${8:...})",
+			"kind": "function",
+			"details": "Checks whether a polygon is convex (<a href=\"https://love2d.org/wiki/love.math.isConvex\">Manual</a>)"
 		},
 		{
 			"trigger": "love.math.linearToGamma",
-			"annotation": "",
+			"annotation": "(lr, lg, lb)",
 			"contents": "${1:cr}, ${2:cg}, ${3:cb} = love.math.linearToGamma(${4:lr}, ${5:lg}, ${6:lb})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.math.linearToGamma\">Manual</a>)"
+			"details": "Converts a color from linear-space (RGB) to gamma-space (sRGB) (<a href=\"https://love2d.org/wiki/love.math.linearToGamma\">Manual</a>)"
+		},
+		{
+			"trigger": "love.math.linearToGamma",
+			"annotation": "(colorTable)",
+			"contents": "${1:cr}, ${2:cg}, ${3:cb} = love.math.linearToGamma(${4:colorTable})",
+			"kind": "function",
+			"details": "Converts a color from linear-space (RGB) to gamma-space (sRGB) (<a href=\"https://love2d.org/wiki/love.math.linearToGamma\">Manual</a>)"
+		},
+		{
+			"trigger": "love.math.linearToGamma",
+			"annotation": "(c)",
+			"contents": "${1:c} = love.math.linearToGamma(${2:lc})",
+			"kind": "function",
+			"details": "Converts a color from linear-space (RGB) to gamma-space (sRGB) (<a href=\"https://love2d.org/wiki/love.math.linearToGamma\">Manual</a>)"
 		},
 		{
 			"trigger": "love.math.newBezierCurve",
-			"annotation": "",
+			"annotation": "(vertices)",
 			"contents": "${1:curve} = love.math.newBezierCurve(${2:vertices})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.math.newBezierCurve\">Manual</a>)"
+			"details": "Creates a new BezierCurve object (<a href=\"https://love2d.org/wiki/love.math.newBezierCurve\">Manual</a>)"
+		},
+		{
+			"trigger": "love.math.newBezierCurve",
+			"annotation": "(x1, y1, x2, y2, x3, y3 [, ...])",
+			"contents": "${1:curve} = love.math.newBezierCurve(${2:x1}, ${3:y1}, ${4:x2}, ${5:y2}, ${6:x3}, ${7:y3}, ${8:...})",
+			"kind": "function",
+			"details": "Creates a new BezierCurve object (<a href=\"https://love2d.org/wiki/love.math.newBezierCurve\">Manual</a>)"
 		},
 		{
 			"trigger": "love.math.newRandomGenerator",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:rng} = love.math.newRandomGenerator()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.math.newRandomGenerator\">Manual</a>)"
+			"details": "Creates a new RandomGenerator object (<a href=\"https://love2d.org/wiki/love.math.newRandomGenerator\">Manual</a>)"
+		},
+		{
+			"trigger": "love.math.newRandomGenerator",
+			"annotation": "(seed)",
+			"contents": "${1:rng} = love.math.newRandomGenerator(${2:seed})",
+			"kind": "function",
+			"details": "Creates a new RandomGenerator object (<a href=\"https://love2d.org/wiki/love.math.newRandomGenerator\">Manual</a>)"
+		},
+		{
+			"trigger": "love.math.newRandomGenerator",
+			"annotation": "(low, high)",
+			"contents": "${1:rng} = love.math.newRandomGenerator(${2:low}, ${3:high})",
+			"kind": "function",
+			"details": "Creates a new RandomGenerator object (<a href=\"https://love2d.org/wiki/love.math.newRandomGenerator\">Manual</a>)"
+		},
+		{
+			"trigger": "love.math.newTransform",
+			"annotation": "()",
+			"contents": "${1:transform} = love.math.newTransform()",
+			"kind": "function",
+			"details": "Creates a new Transform object (<a href=\"https://love2d.org/wiki/love.math.newTransform\">Manual</a>)"
+		},
+		{
+			"trigger": "love.math.newTransform",
+			"annotation": "(x, y [, angle [, sx [, sy [, ox [, oy [, kx [, ky]]]]]]])",
+			"contents": "${1:transform} = love.math.newTransform(${1:x}, ${2:y}, ${3:angle}, ${4:sx}, ${5:sy}, ${6:ox}, ${7:oy}, ${8:kx}, ${9:ky})",
+			"kind": "function",
+			"details": "Creates a new Transform object (<a href=\"https://love2d.org/wiki/love.math.newTransform\">Manual</a>)"
 		},
 		{
 			"trigger": "love.math.noise",
-			"annotation": "",
-			"contents": "${1:value} = love.math.noise(${2:x})",
+			"annotation": "(x [, y [, z [, w]]])",
+			"contents": "${1:value} = love.math.noise(${2:x}, ${3:y}, ${4:z}, ${5:w})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.math.noise\">Manual</a>)"
+			"details": "Generates a Simplex noise value in 1-4 dimensions (<a href=\"https://love2d.org/wiki/love.math.noise\">Manual</a>)"
 		},
 		{
 			"trigger": "love.math.random",
-			"annotation": "",
-			"contents": "${1:number} = love.math.random()",
+			"annotation": "([[min], max])",
+			"contents": "${1:number} = love.math.random(${1:min}, ${2:max})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.math.random\">Manual</a>)"
+			"details": "Get uniformly distributed pseudo-random number (<a href=\"https://love2d.org/wiki/love.math.random\">Manual</a>)"
 		},
 		{
 			"trigger": "love.math.randomNormal",
-			"annotation": "",
+			"annotation": "([stddev [, mean]])",
 			"contents": "${1:number} = love.math.randomNormal(${2:stddev}, ${3:mean})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.math.randomNormal\">Manual</a>)"
+			"details": "Get a normally distributed pseudo random number (<a href=\"https://love2d.org/wiki/love.math.randomNormal\">Manual</a>)"
 		},
 		{
 			"trigger": "love.math.setRandomSeed",
-			"annotation": "",
+			"annotation": "(seed)",
 			"contents": "love.math.setRandomSeed(${1:seed})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.math.setRandomSeed\">Manual</a>)"
+			"details": "Sets the seed of the random number generator (<a href=\"https://love2d.org/wiki/love.math.setRandomSeed\">Manual</a>)"
+		},
+		{
+			"trigger": "love.math.setRandomSeed",
+			"annotation": "(low, high)",
+			"contents": "love.math.setRandomSeed(${1:low}, ${2:high})",
+			"kind": "function",
+			"details": "Sets the seed of the random number generator (<a href=\"https://love2d.org/wiki/love.math.setRandomSeed\">Manual</a>)"
 		},
 		{
 			"trigger": "love.math.setRandomState",
-			"annotation": "",
+			"annotation": "(state)",
 			"contents": "love.math.setRandomState(${1:state})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.math.setRandomState\">Manual</a>)"
+			"details": "Sets the current state of the random number generator (<a href=\"https://love2d.org/wiki/love.math.setRandomState\">Manual</a>)"
 		},
 		{
 			"trigger": "love.math.triangulate",
-			"annotation": "",
+			"annotation": "(polygon)",
 			"contents": "${1:triangles} = love.math.triangulate(${2:polygon})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.math.triangulate\">Manual</a>)"
+			"details": "Decomposes a simple polygon into triangles (<a href=\"https://love2d.org/wiki/love.math.triangulate\">Manual</a>)"
+		},
+		{
+			"trigger": "love.math.triangulate",
+			"annotation": "(x1, y1, x2, y2, x3, y3 [, ...])",
+			"contents": "${1:triangles} = love.math.triangulate(${2:x1}, ${3:y1}, ${4:x2}, ${5:y2}, ${6:x3}, ${7:y3}, ${8:...})",
+			"kind": "function",
+			"details": "Decomposes a simple polygon into triangles (<a href=\"https://love2d.org/wiki/love.math.triangulate\">Manual</a>)"
 		},
 
 		// love.mouse
