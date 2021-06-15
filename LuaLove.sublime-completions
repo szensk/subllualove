@@ -4491,11 +4491,46 @@
 		// love.sound
 
 		{
+			"trigger": "love.sound.newDecoder",
+			"annotation": "(file [, buffer])",
+			"contents": "${1:decoder} = love.sound.newDecoder(${2:file})",
+			"kind": "function",
+			"details": "Attempts to find a decoder for the encoded sound data in the specified file (<a href=\"https://love2d.org/wiki/love.sound.newDecoder\">Manual</a>)"
+		},
+		{
+			"trigger": "love.sound.newDecoder",
+			"annotation": "(filename [, buffer])",
+			"contents": "${1:decoder} = love.sound.newDecoder(${2:filename})",
+			"kind": "function",
+			"details": "Attempts to find a decoder for the encoded sound data in the specified filename (<a href=\"https://love2d.org/wiki/love.sound.newDecoder\">Manual</a>)"
+		},
+		{
 			"trigger": "love.sound.newSoundData",
-			"annotation": "",
+			"annotation": "(file)",
+			"contents": "${1:soundData} = love.sound.newSoundData(${2:file})",
+			"kind": "function",
+			"details": "Creates a new SoundData (<a href=\"https://love2d.org/wiki/love.sound.newSoundData\">Manual</a>)"
+		},
+		{
+			"trigger": "love.sound.newSoundData",
+			"annotation": "(filename)",
 			"contents": "${1:soundData} = love.sound.newSoundData(${2:filename})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.sound.newSoundData\">Manual</a>)"
+			"details": "Creates a new SoundData (<a href=\"https://love2d.org/wiki/love.sound.newSoundData\">Manual</a>)"
+		},
+		{
+			"trigger": "love.sound.newSoundData",
+			"annotation": "(decoder)",
+			"contents": "${1:soundData} = love.sound.newSoundData(${2:decoder})",
+			"kind": "function",
+			"details": "Creates a new SoundData (<a href=\"https://love2d.org/wiki/love.sound.newSoundData\">Manual</a>)"
+		},
+		{
+			"trigger": "love.sound.newSoundData",
+			"annotation": "(samples [, rate [, bits [, channels]]])",
+			"contents": "${1:soundData} = love.sound.newSoundData(${2:samples}, ${3:rate}, ${4:bits}, ${5:channels})",
+			"kind": "function",
+			"details": "Creates a new SoundData (<a href=\"https://love2d.org/wiki/love.sound.newSoundData\">Manual</a>)"
 		},
 
 		// love.system
