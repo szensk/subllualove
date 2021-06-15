@@ -4726,116 +4726,284 @@
 		// love.window
 
 		{
-			"trigger": "love.window.getDimensions",
-			"annotation": "",
-			"contents": "${1:width}, ${2:height} = love.window.getDimensions()",
+			"trigger": "love.window.close",
+			"annotation": "()",
+			"contents": "love.window.close()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.window.getDimensions\">Manual</a>)"
+			"details": "Closes the window (<a href=\"https://love2d.org/wiki/love.window.close\">Manual</a>)"
+		},
+		{
+			"trigger": "love.window.fromPixels",
+			"annotation": "(pixelvalue)",
+			"contents": "${1:value} = love.window.fromPixels(${2:pixelvalue})",
+			"kind": "function",
+			"details": "Converts a number from pixels to density-independent units (<a href=\"https://love2d.org/wiki/love.window.fromPixels\">Manual</a>)"
+		},
+		{
+			"trigger": "love.window.fromPixels",
+			"annotation": "(px, py)",
+			"contents": "${1:x}, ${2:y} = love.window.fromPixels(${3:px}, ${4:py})",
+			"kind": "function",
+			"details": "Converts a number from pixels to density-independent units (<a href=\"https://love2d.org/wiki/love.window.fromPixels\">Manual</a>)"
+		},
+		{
+			"trigger": "love.window.getDPIScale",
+			"annotation": "()",
+			"contents": "${1:scale} = love.window.getDPIScale()",
+			"kind": "function",
+			"details": "Gets the DPI scale factor associated with the window (<a href=\"https://love2d.org/wiki/love.window.getDPIScale\">Manual</a>)"
+		},
+		{
+			"trigger": "love.window.getDesktopDimensions",
+			"annotation": "([display])",
+			"contents": "${1:width}, ${2:height} = love.window.getDesktopDimensions(${3:display})",
+			"kind": "function",
+			"details": "Gets the width and height of the desktop (<a href=\"https://love2d.org/wiki/love.window.getDesktopDimensions\">Manual</a>)"
+		},
+		{
+			"trigger": "love.window.getDisplayCount",
+			"annotation": "()",
+			"contents": "${1:count} = love.window.getDisplayCount()",
+			"kind": "function",
+			"details": "Gets the number of connected monitors (<a href=\"https://love2d.org/wiki/love.window.getDisplayCount\">Manual</a>)"
+		},
+		{
+			"trigger": "love.window.getDisplayName",
+			"annotation": "([display])",
+			"contents": "${1:name} = love.window.getDisplayName(${2:display})",
+			"kind": "function",
+			"details": "Gets the name of a display (<a href=\"https://love2d.org/wiki/love.window.getDisplayName\">Manual</a>)"
+		},
+		{
+			"trigger": "love.window.getDisplayOrientation",
+			"annotation": "([display])",
+			"contents": "${1:orientation} = love.window.getDisplayOrientation(${2:display})",
+			"kind": "function",
+			"details": "Gets current device display orientation (<a href=\"https://love2d.org/wiki/love.window.getDisplayOrientation\">Manual</a>)"
 		},
 		{
 			"trigger": "love.window.getFullscreen",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:fullscreen}, ${2:fstype} = love.window.getFullscreen()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.window.getFullscreen\">Manual</a>)"
+			"details": "Gets whether the window is fullscreen (<a href=\"https://love2d.org/wiki/love.window.getFullscreen\">Manual</a>)"
 		},
 		{
 			"trigger": "love.window.getFullscreenModes",
-			"annotation": "",
+			"annotation": "([display])",
 			"contents": "${1:modes} = love.window.getFullscreenModes(${2:display})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.window.getFullscreenModes\">Manual</a>)"
-		},
-		{
-			"trigger": "love.window.getHeight",
-			"annotation": "",
-			"contents": "${1:height} = love.window.getHeight()",
-			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.window.getHeight\">Manual</a>)"
+			"details": "Gets a list of supported fullscreen modes (<a href=\"https://love2d.org/wiki/love.window.getFullscreenModes\">Manual</a>)"
 		},
 		{
 			"trigger": "love.window.getIcon",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:imagedata} = love.window.getIcon()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.window.getIcon\">Manual</a>)"
+			"details": "Gets the window icon (<a href=\"https://love2d.org/wiki/love.window.getIcon\">Manual</a>)"
 		},
 		{
 			"trigger": "love.window.getMode",
-			"annotation": "",
-			"contents": "${1:width}, ${2:height}, ${3:fullscreen}, ${4:vsync}, ${5:fsaa} = love.window.getMode()",
+			"annotation": "()",
+			"contents": "${1:width}, ${2:height}, ${3:flags} = love.window.getMode()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.window.getMode\">Manual</a>)"
+			"details": "Gets the display mode and properties of the window (<a href=\"https://love2d.org/wiki/love.window.getMode\">Manual</a>)"
 		},
 		{
-			"trigger": "love.window.getPixelScale",
-			"annotation": "",
-			"contents": "${1:scale} = love.window.getPixelScale()",
+			"trigger": "love.window.getPosition",
+			"annotation": "()",
+			"contents": "${1:x}, ${2:y}, ${3:display} = love.window.getPosition()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.window.getPixelScale\">Manual</a>)"
+			"details": "Gets the position of the window on the screen (<a href=\"https://love2d.org/wiki/love.window.getPosition\">Manual</a>)"
 		},
 		{
-			"trigger": "love.window.getWidth",
-			"annotation": "",
-			"contents": "${1:width} = love.window.getWidth()",
+			"trigger": "love.window.getPosition",
+			"annotation": "()",
+			"contents": "${1:x}, ${2:y}, ${3:display} = love.window.getPosition()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.window.getWidth\">Manual</a>)"
+			"details": "Gets the position of the window on the screen (<a href=\"https://love2d.org/wiki/love.window.getPosition\">Manual</a>)"
+		},
+		{
+			"trigger": "love.window.getSafeArea",
+			"annotation": "()",
+			"contents": "${1:x}, ${2:y}, ${3:w}, ${4:h} = love.window.getSafeArea()",
+			"kind": "function",
+			"details": "Gets unobstructed area inside the window (<a href=\"https://love2d.org/wiki/love.window.getSafeArea\">Manual</a>)"
+		},
+		{
+			"trigger": "love.window.getTitle",
+			"annotation": "()",
+			"contents": "${1:title} = love.window.getTitle()",
+			"kind": "function",
+			"details": "Gets the window title (<a href=\"https://love2d.org/wiki/love.window.getTitle\">Manual</a>)"
+		},
+		{
+			"trigger": "love.window.getVSync",
+			"annotation": "()",
+			"contents": "${1:vsync} = love.window.getVSync()",
+			"kind": "function",
+			"details": "Gets current vsync value (<a href=\"https://love2d.org/wiki/love.window.getVSync\">Manual</a>)"
 		},
 		{
 			"trigger": "love.window.hasFocus",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:focus} = love.window.hasFocus()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.window.hasFocus\">Manual</a>)"
+			"details": "Checks if the game window has keyboard focus (<a href=\"https://love2d.org/wiki/love.window.hasFocus\">Manual</a>)"
 		},
 		{
 			"trigger": "love.window.hasMouseFocus",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:focus} = love.window.hasMouseFocus()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.window.hasMouseFocus\">Manual</a>)"
+			"details": "Checks if the game window has mouse focus (<a href=\"https://love2d.org/wiki/love.window.hasMouseFocus\">Manual</a>)"
 		},
 		{
-			"trigger": "love.window.isCreated",
-			"annotation": "",
-			"contents": "${1:created} = love.window.isCreated()",
+			"trigger": "love.window.isDisplaySleepEnabled",
+			"annotation": "()",
+			"contents": "${1:enabled} = love.window.isDisplaySleepEnabled()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.window.isCreated\">Manual</a>)"
+			"details": "Gets whether the display is allowed to sleep while the program is running (<a href=\"https://love2d.org/wiki/love.window.isDisplaySleepEnabled\">Manual</a>)"
+		},
+		{
+			"trigger": "love.window.isMaximized",
+			"annotation": "()",
+			"contents": "${1:maximized} = love.window.isMaximized()",
+			"kind": "function",
+			"details": "Gets whether the Window is currently maximized (<a href=\"https://love2d.org/wiki/love.window.isMaximized\">Manual</a>)"
+		},
+		{
+			"trigger": "love.window.isMinimized",
+			"annotation": "()",
+			"contents": "${1:minimized} = love.window.isMinimized()",
+			"kind": "function",
+			"details": "Gets whether the Window is currently minimized (<a href=\"https://love2d.org/wiki/love.window.isMinimized\">Manual</a>)"
+		},
+		{
+			"trigger": "love.window.isOpen",
+			"annotation": "()",
+			"contents": "${1:open} = love.window.isOpen()",
+			"kind": "function",
+			"details": "Checks if the window is open (<a href=\"https://love2d.org/wiki/love.window.isOpen\">Manual</a>)"
 		},
 		{
 			"trigger": "love.window.isVisible",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:visible} = love.window.isVisible()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.window.isVisible\">Manual</a>)"
+			"details": "Checks if the game window is visible (<a href=\"https://love2d.org/wiki/love.window.isVisible\">Manual</a>)"
+		},
+		{
+			"trigger": "love.window.maximize",
+			"annotation": "()",
+			"contents": "love.window.maximize()",
+			"kind": "function",
+			"details": "Makes the window as large as possible (<a href=\"https://love2d.org/wiki/love.window.maximize\">Manual</a>)"
+		},
+		{
+			"trigger": "love.window.minimize",
+			"annotation": "()",
+			"contents": "love.window.minimize()",
+			"kind": "function",
+			"details": "Minimizes the window to the system's task bar / dock (<a href=\"https://love2d.org/wiki/love.window.minimize\">Manual</a>)"
+		},
+		{
+			"trigger": "love.window.requestAttention",
+			"annotation": "([continuous])",
+			"contents": "love.window.requestAttention(${1:continuous})",
+			"kind": "function",
+			"details": "Causes the window to request the attention of the user if it is not in the foreground (<a href=\"https://love2d.org/wiki/love.window.requestAttention\">Manual</a>)"
+		},
+		{
+			"trigger": "love.window.restore",
+			"annotation": "()",
+			"contents": "love.window.restore()",
+			"kind": "function",
+			"details": "Restores the size and position of the window if it was minimized or maximized (<a href=\"https://love2d.org/wiki/love.window.restore\">Manual</a>)"
+		},
+		{
+			"trigger": "love.window.setDisplaySleepEnabled",
+			"annotation": "(enable)",
+			"contents": "love.window.setDisplaySleepEnabled(${2:enable})",
+			"kind": "function",
+			"details": "Sets whether the display is allowed to sleep while the program is running (<a href=\"https://love2d.org/wiki/love.window.setDisplaySleepEnabled\">Manual</a>)"
 		},
 		{
 			"trigger": "love.window.setFullscreen",
-			"annotation": "",
-			"contents": "${1:success} = love.window.setFullscreen(${2:fullscreen})",
+			"annotation": "(fullscreen [, fstype])",
+			"contents": "${1:success} = love.window.setFullscreen(${2:fullscreen}, ${3:fstype})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.window.setFullscreen\">Manual</a>)"
+			"details": "Enters or exits fullscreen (<a href=\"https://love2d.org/wiki/love.window.setFullscreen\">Manual</a>)"
 		},
 		{
 			"trigger": "love.window.setIcon",
-			"annotation": "",
+			"annotation": "(imagedata)",
 			"contents": "${1:success} = love.window.setIcon(${2:imagedata})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.window.setIcon\">Manual</a>)"
+			"details": "Sets the window icon (<a href=\"https://love2d.org/wiki/love.window.setIcon\">Manual</a>)"
 		},
 		{
 			"trigger": "love.window.setMode",
-			"annotation": "",
+			"annotation": "(width, height, flags)",
 			"contents": "${1:success} = love.window.setMode(${2:width}, ${3:height}, ${4:flags})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.window.setMode\">Manual</a>)"
+			"details": "Sets the display mode and properties of the window (<a href=\"https://love2d.org/wiki/love.window.setMode\">Manual</a>)"
+		},
+		{
+			"trigger": "love.window.setPosition",
+			"annotation": "(x, y [, display])",
+			"contents": "love.window.setPosition(${1:x}, ${2:y}, ${3:display})",
+			"kind": "function",
+			"details": "Sets the position of the window on the screen (<a href=\"https://love2d.org/wiki/love.window.setPosition\">Manual</a>)"
 		},
 		{
 			"trigger": "love.window.setTitle",
-			"annotation": "",
+			"annotation": "(title)",
 			"contents": "love.window.setTitle(${1:title})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.window.setTitle\">Manual</a>)"
+			"details": "Sets the window title (<a href=\"https://love2d.org/wiki/love.window.setTitle\">Manual</a>)"
+		},
+		{
+			"trigger": "love.window.setVSync",
+			"annotation": "(vsync)",
+			"contents": "love.window.setVSync(${1:vsync})",
+			"kind": "function",
+			"details": "Sets vertical synchronization mode (<a href=\"https://love2d.org/wiki/love.window.setVSync\">Manual</a>)"
+		},
+		{
+			"trigger": "love.window.showMessageBox",
+			"annotation": "(title, message [, type [, attachToWindow]])",
+			"contents": "love.window.showMessageBox(${1:title}, ${2:message}, ${3:type}, ${4:attachToWindow})",
+			"kind": "function",
+			"details": "Displays a message box above the love window (<a href=\"https://love2d.org/wiki/love.window.showMessageBox\">Manual</a>)"
+		},
+		{
+			"trigger": "love.window.showMessageBox",
+			"annotation": "(title, message, buttonList, [, type [, attachToWindow]])",
+			"contents": "love.window.showMessageBox(${1:title}, ${2:message}, ${3:buttonList}, ${4:type}, ${5:attachToWindow})",
+			"kind": "function",
+			"details": "Displays a message box above the love window (<a href=\"https://love2d.org/wiki/love.window.showMessageBox\">Manual</a>)"
+		},
+		{
+			"trigger": "love.window.toPixels",
+			"annotation": "(value)",
+			"contents": "${1:pixelvalue} = love.window.toPixels(${2:value})",
+			"kind": "function",
+			"details": "Converts a number from density-independent units to pixels (<a href=\"https://love2d.org/wiki/love.window.toPixels\">Manual</a>)"
+		},
+		{
+			"trigger": "love.window.toPixels",
+			"annotation": "(x, y)",
+			"contents": "${1:px}, ${2:py} = love.window.toPixels(${3:x}, ${4:y})",
+			"kind": "function",
+			"details": "Converts a number from density-independent units to pixels (<a href=\"https://love2d.org/wiki/love.window.toPixels\">Manual</a>)"
+		},
+		{
+			"trigger": "love.window.updateMode",
+			"annotation": "(width, height, settings)",
+			"contents": "${1:success} = love.window.updateMode(${2:width}, ${3:height}, ${4:settings})",
+			"kind": "function",
+			"details": "Sets the display mode and properties of the window, without modifying unspecified properties (<a href=\"https://love2d.org/wiki/love.window.updateMode\">Manual</a>)"
 		}
 	]
 }
