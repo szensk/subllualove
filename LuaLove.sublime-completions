@@ -3860,25 +3860,60 @@
 		// love.joystick
 
 		{
-			"trigger": "love.joystick.setGamepadMapping",
-			"annotation": "",
-			"contents": "${1:success} = love.joystick.setGamepadMapping(${2:guid}, ${3:button}, ${4:inputtype}, ${5:inputindex}, ${6:hatdirection})",
+			"trigger": "love.joystick.getGamepadMappingString",
+			"annotation": "(guid)",
+			"contents": "${1:success} = love.joystick.getGamepadMappingString(${2:guid})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.joystick.setGamepadMapping\">Manual</a>)"
+			"details": "Gets the full gamepad mapping string of the Joysticks which have the given GUID, or nil if the GUID isn't recognized as a gamepad (<a href=\"https://love2d.org/wiki/love.joystick.getGamepadMappingString\">Manual</a>)"
 		},
 		{
 			"trigger": "love.joystick.getJoystickCount",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:joystickcount} = love.joystick.getJoystickCount()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.joystick.getJoystickCount\">Manual</a>)"
+			"details": "Gets the number of connected joysticks (<a href=\"https://love2d.org/wiki/love.joystick.getJoystickCount\">Manual</a>)"
 		},
 		{
 			"trigger": "love.joystick.getJoysticks",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:joysticks} = love.joystick.getJoysticks()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.joystick.getJoysticks\">Manual</a>)"
+			"details": "Gets a list of connected Joysticks (<a href=\"https://love2d.org/wiki/love.joystick.getJoysticks\">Manual</a>)"
+		},
+		{
+			"trigger": "love.joystick.loadGamepadMappings",
+			"annotation": "(filename)",
+			"contents": "love.joystick.loadGamepadMappings(${1:filename})",
+			"kind": "function",
+			"details": "Loads a gamepad mappings file created with love.joystick.saveGamepadMappings (<a href=\"https://love2d.org/wiki/love.joystick.loadGamepadMappings\">Manual</a>)"
+		},
+		{
+			"trigger": "love.joystick.loadGamepadMappings",
+			"annotation": "(string)",
+			"contents": "love.joystick.loadGamepadMappings(${1:string})",
+			"kind": "function",
+			"details": "Loads a gamepad mappings string created with love.joystick.saveGamepadMappings (<a href=\"https://love2d.org/wiki/love.joystick.loadGamepadMappings\">Manual</a>)"
+		},
+		{
+			"trigger": "love.joystick.saveGamepadMappings",
+			"annotation": "([filename])",
+			"contents": "${1:mappings} = love.joystick.saveGamepadMappings(${2:filename})",
+			"kind": "function",
+			"details": "Saves the virtual gamepad mappings of all recently-used Joysticks that are recognized as gamepads (<a href=\"https://love2d.org/wiki/love.joystick.saveGamepadMappings\">Manual</a>)"
+		},
+		{
+			"trigger": "love.joystick.setGamepadMapping",
+			"annotation": "(guid, button, inputtype, inputindex [, hatdirections])",
+			"contents": "${1:success} = love.joystick.setGamepadMapping(${2:guid}, ${3:button}, ${4:inputtype}, ${5:inputindex}, ${6:hatdirection})",
+			"kind": "function",
+			"details": "Binds a virtual gamepad input to a button, axis or hat (<a href=\"https://love2d.org/wiki/love.joystick.setGamepadMapping\">Manual</a>)"
+		},
+		{
+			"trigger": "love.joystick.setGamepadMapping",
+			"annotation": "(guid, axis, inputtype, inputindex [, hatdirections])",
+			"contents": "${1:success} = love.joystick.setGamepadMapping(${2:guid}, ${3:axis}, ${4:inputtype}, ${5:inputindex}, ${6:hatdirection})",
+			"kind": "function",
+			"details": "Binds a virtual gamepad input to a button, axis or hat (<a href=\"https://love2d.org/wiki/love.joystick.setGamepadMapping\">Manual</a>)"
 		},
 
 		// love.keyboard
