@@ -4684,7 +4684,27 @@
 
 		// love.touch
 
-
+		{
+			"trigger": "love.touch.getPosition",
+			"annotation": "(id)",
+			"contents": "${1:x}, ${2:y} = love.touch.getPosition(${3:id})",
+			"kind": "function",
+			"details": "Gets the current position of the specified touch-press (<a href=\"https://love2d.org/wiki/love.touch.getPosition\">Manual</a>)"
+		},
+		{
+			"trigger": "love.touch.getPressure",
+			"annotation": "(id)",
+			"contents": "${1:pressure} = love.touch.getPressure(${3:id})",
+			"kind": "function",
+			"details": "Gets the current pressure of the specified touch-press (<a href=\"https://love2d.org/wiki/love.touch.getPressure\">Manual</a>)"
+		},
+		{
+			"trigger": "love.touch.getTouches",
+			"annotation": "()",
+			"contents": "${1:touches} = love.touch.getTouches()",
+			"kind": "function",
+			"details": "Gets a list of all active touch-presses (<a href=\"https://love2d.org/wiki/love.touch.getTouches\">Manual</a>)"
+		},
 
 		// love.video
 
