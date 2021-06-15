@@ -4641,45 +4641,45 @@
 
 		{
 			"trigger": "love.timer.getAverageDelta",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:delta} = love.timer.getAverageDelta()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.timer.getAverageDelta\">Manual</a>)"
+			"details": "Returns the average delta time over the last second (<a href=\"https://love2d.org/wiki/love.timer.getAverageDelta\">Manual</a>)"
 		},
 		{
 			"trigger": "love.timer.getDelta",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:dt} = love.timer.getDelta()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.timer.getDelta\">Manual</a>)"
+			"details": "Returns the time between the last two frames (<a href=\"https://love2d.org/wiki/love.timer.getDelta\">Manual</a>)"
 		},
 		{
 			"trigger": "love.timer.getFPS",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:fps} = love.timer.getFPS()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.timer.getFPS\">Manual</a>)"
+			"details": "Returns the current frames per second (<a href=\"https://love2d.org/wiki/love.timer.getFPS\">Manual</a>)"
 		},
 		{
 			"trigger": "love.timer.getTime",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:time} = love.timer.getTime()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.timer.getTime\">Manual</a>)"
+			"details": "Returns the amount of time since some time in the past (<a href=\"https://love2d.org/wiki/love.timer.getTime\">Manual</a>)"
 		},
 		{
 			"trigger": "love.timer.sleep",
-			"annotation": "",
+			"annotation": "(s)",
 			"contents": "love.timer.sleep(${1:s})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.timer.sleep\">Manual</a>)"
+			"details": "Pauses the current thread for the specified amount of time (<a href=\"https://love2d.org/wiki/love.timer.sleep\">Manual</a>)"
 		},
 		{
 			"trigger": "love.timer.step",
-			"annotation": "",
-			"contents": "love.timer.step()",
+			"annotation": "()",
+			"contents": "${1:dt} = love.timer.step()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.timer.step\">Manual</a>)"
+			"details": "Measures the time between two frames (<a href=\"https://love2d.org/wiki/love.timer.step\">Manual</a>)"
 		},
 
 		// love.touch
