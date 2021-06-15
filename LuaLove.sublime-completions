@@ -4129,108 +4129,150 @@
 
 		{
 			"trigger": "love.mouse.getCursor",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:cursor} = love.mouse.getCursor()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.mouse.getCursor\">Manual</a>)"
+			"details": "Gets the current Cursor (<a href=\"https://love2d.org/wiki/love.mouse.getCursor\">Manual</a>)"
 		},
 		{
 			"trigger": "love.mouse.getPosition",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:x}, ${2:y} = love.mouse.getPosition()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.mouse.getPosition\">Manual</a>)"
+			"details": "Returns the current position of the mouse (<a href=\"https://love2d.org/wiki/love.mouse.getPosition\">Manual</a>)"
+		},
+		{
+			"trigger": "love.mouse.getRelativeMode",
+			"annotation": "()",
+			"contents": "${1:enabled} = love.mouse.getRelativeMode()",
+			"kind": "function",
+			"details": "Gets whether relative mode is enabled for the mouse (<a href=\"https://love2d.org/wiki/love.mouse.getRelativeMode\">Manual</a>)"
 		},
 		{
 			"trigger": "love.mouse.getSystemCursor",
-			"annotation": "",
-			"contents": "${1:cursor} = love.mouse.getSystemCursor(${2:ctype})",
+			"annotation": "(cursorType)",
+			"contents": "${1:cursor} = love.mouse.getSystemCursor(${2:cursorType})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.mouse.getSystemCursor\">Manual</a>)"
+			"details": "Gets a Cursor object representing a system-native hardware cursor (<a href=\"https://love2d.org/wiki/love.mouse.getSystemCursor\">Manual</a>)"
 		},
 		{
 			"trigger": "love.mouse.getX",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:x} = love.mouse.getX()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.mouse.getX\">Manual</a>)"
+			"details": "Returns the current x-position of the mouse (<a href=\"https://love2d.org/wiki/love.mouse.getX\">Manual</a>)"
 		},
 		{
 			"trigger": "love.mouse.getY",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:y} = love.mouse.getY()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.mouse.getY\">Manual</a>)"
+			"details": "Returns the current y-position of the mouse (<a href=\"https://love2d.org/wiki/love.mouse.getY\">Manual</a>)"
+		},
+		{
+			"trigger": "love.mouse.isCursorSupported",
+			"annotation": "()",
+			"contents": "${1:supported} = love.mouse.isCursorSupported()",
+			"kind": "function",
+			"details": "Gets whether cursor functionality is supported (<a href=\"https://love2d.org/wiki/love.mouse.isCursorSupported\">Manual</a>)"
 		},
 		{
 			"trigger": "love.mouse.isDown",
-			"annotation": "",
-			"contents": "${1:down} = love.mouse.isDown(${2:button})",
+			"annotation": "(button [, ...])",
+			"contents": "${1:down} = love.mouse.isDown(${2:button}, ${3:...})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.mouse.isDown\">Manual</a>)"
+			"details": "Checks whether a certain button is down (<a href=\"https://love2d.org/wiki/love.mouse.isDown\">Manual</a>)"
 		},
 		{
 			"trigger": "love.mouse.isGrabbed",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:grabbed} = love.mouse.isGrabbed()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.mouse.isGrabbed\">Manual</a>)"
+			"details": "Checks if the mouse is grabbed (<a href=\"https://love2d.org/wiki/love.mouse.isGrabbed\">Manual</a>)"
 		},
 		{
 			"trigger": "love.mouse.isVisible",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:visible} = love.mouse.isVisible()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.mouse.isVisible\">Manual</a>)"
+			"details": "Checks if the cursor is visible (<a href=\"https://love2d.org/wiki/love.mouse.isVisible\">Manual</a>)"
 		},
 		{
 			"trigger": "love.mouse.newCursor",
-			"annotation": "",
+			"annotation": "(imageData, hotx, hoty)",
 			"contents": "${1:cursor} = love.mouse.newCursor(${2:imageData}, ${3:hotx}, ${4:hoty})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.mouse.newCursor\">Manual</a>)"
+			"details": "Creates a new hardware Cursor object from an image (<a href=\"https://love2d.org/wiki/love.mouse.newCursor\">Manual</a>)"
+		},
+		{
+			"trigger": "love.mouse.newCursor",
+			"annotation": "(filename, hotx, hoty)",
+			"contents": "${1:cursor} = love.mouse.newCursor(${2:filename}, ${3:hotx}, ${4:hoty})",
+			"kind": "function",
+			"details": "Creates a new hardware Cursor object from an image (<a href=\"https://love2d.org/wiki/love.mouse.newCursor\">Manual</a>)"
+		},
+		{
+			"trigger": "love.mouse.newCursor",
+			"annotation": "(fileData, hotx, hoty)",
+			"contents": "${1:cursor} = love.mouse.newCursor(${2:fileData}, ${3:hotx}, ${4:hoty})",
+			"kind": "function",
+			"details": "Creates a new hardware Cursor object from an image (<a href=\"https://love2d.org/wiki/love.mouse.newCursor\">Manual</a>)"
 		},
 		{
 			"trigger": "love.mouse.setCursor",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "love.mouse.setCursor()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.mouse.setCursor\">Manual</a>)"
+			"details": "Resets the current mouse cursor to the default (<a href=\"https://love2d.org/wiki/love.mouse.setCursor\">Manual</a>)"
+		},
+		{
+			"trigger": "love.mouse.setCursor",
+			"annotation": "(cursor)",
+			"contents": "love.mouse.setCursor(${1:cursor})",
+			"kind": "function",
+			"details": "Sets the current mouse cursor (<a href=\"https://love2d.org/wiki/love.mouse.setCursor\">Manual</a>)"
 		},
 		{
 			"trigger": "love.mouse.setGrabbed",
-			"annotation": "",
+			"annotation": "(grab)",
 			"contents": "love.mouse.setGrabbed(${1:grab})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.mouse.setGrabbed\">Manual</a>)"
+			"details": "Grabs the mouse and confines it to the window (<a href=\"https://love2d.org/wiki/love.mouse.setGrabbed\">Manual</a>)"
 		},
 		{
 			"trigger": "love.mouse.setPosition",
-			"annotation": "",
+			"annotation": "(x, y)",
 			"contents": "love.mouse.setPosition(${1:x}, ${2:y})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.mouse.setPosition\">Manual</a>)"
+			"details": "Sets the current position of the mouse (<a href=\"https://love2d.org/wiki/love.mouse.setPosition\">Manual</a>)"
+		},
+		{
+			"trigger": "love.mouse.setRelativeMode",
+			"annotation": "(enable)",
+			"contents": "love.mouse.setRelativeMode(${1:enable})",
+			"kind": "function",
+			"details": "Sets whether relative mode is enabled for the mouse (<a href=\"https://love2d.org/wiki/love.mouse.setRelativeMode\">Manual</a>)"
 		},
 		{
 			"trigger": "love.mouse.setVisible",
-			"annotation": "",
+			"annotation": "(visible)",
 			"contents": "love.mouse.setVisible(${1:visible})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.mouse.setVisible\">Manual</a>)"
+			"details": "Sets the current visibility of the cursor (<a href=\"https://love2d.org/wiki/love.mouse.setVisible\">Manual</a>)"
 		},
 		{
 			"trigger": "love.mouse.setX",
-			"annotation": "",
+			"annotation": "(x)",
 			"contents": "love.mouse.setX(${1:x})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.mouse.setX\">Manual</a>)"
+			"details": "Sets the current X position of the mouse (<a href=\"https://love2d.org/wiki/love.mouse.setX\">Manual</a>)"
 		},
 		{
 			"trigger": "love.mouse.setY",
-			"annotation": "",
+			"annotation": "(y)",
 			"contents": "love.mouse.setY(${1:y})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.mouse.setY\">Manual</a>)"
+			"details": "Sets the current Y position of the mouse (<a href=\"https://love2d.org/wiki/love.mouse.setY\">Manual</a>)"
 		},
 
 		// love.physics
