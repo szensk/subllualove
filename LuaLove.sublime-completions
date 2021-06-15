@@ -3802,24 +3802,59 @@
 
 		{
 			"trigger": "love.image.isCompressed",
-			"annotation": "",
+			"annotation": "(filename)",
 			"contents": "${1:compressed} = love.image.isCompressed(${2:filename})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.image.isCompressed\">Manual</a>)"
+			"details": "Determines whether a file can be loaded as CompressedImageData (<a href=\"https://love2d.org/wiki/love.image.isCompressed\">Manual</a>)"
+		},
+		{
+			"trigger": "love.image.isCompressed",
+			"annotation": "(filedata)",
+			"contents": "${1:compressed} = love.image.isCompressed(${2:filedata})",
+			"kind": "function",
+			"details": "Determines whether a file can be loaded as CompressedImageData (<a href=\"https://love2d.org/wiki/love.image.isCompressed\">Manual</a>)"
 		},
 		{
 			"trigger": "love.image.newCompressedData",
-			"annotation": "",
+			"annotation": "(filename)",
 			"contents": "${1:compressedData} = love.image.newCompressedData(${2:filename})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.image.newCompressedData\">Manual</a>)"
+			"details": "Create a new CompressedImageData object from a compressed image file (<a href=\"https://love2d.org/wiki/love.image.newCompressedData\">Manual</a>)"
+		},
+		{
+			"trigger": "love.image.newCompressedData",
+			"annotation": "(filedata)",
+			"contents": "${1:compressedData} = love.image.newCompressedData(${2:filedata})",
+			"kind": "function",
+			"details": "Create a new CompressedImageData object from a compressed image file (<a href=\"https://love2d.org/wiki/love.image.newCompressedData\">Manual</a>)"
 		},
 		{
 			"trigger": "love.image.newImageData",
-			"annotation": "",
-			"contents": "${1:imageData} = love.image.newImageData(${2:width}, ${3:height})",
+			"annotation": "(width, height [, format [, rawdata]])",
+			"contents": "${1:imageData} = love.image.newImageData(${2:width}, ${3:height}, ${4:format}, ${5:rawdata})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.image.newImageData\">Manual</a>)"
+			"details": "Creates a new ImageData object (<a href=\"https://love2d.org/wiki/love.image.newImageData\">Manual</a>)"
+		},
+		{
+			"trigger": "love.image.newImageData",
+			"annotation": "(filename)",
+			"contents": "${1:imageData} = love.image.newImageData(${2:filename})",
+			"kind": "function",
+			"details": "Creates a new ImageData object (<a href=\"https://love2d.org/wiki/love.image.newImageData\">Manual</a>)"
+		},
+		{
+			"trigger": "love.image.newImageData",
+			"annotation": "(filedata)",
+			"contents": "${1:imageData} = love.image.newImageData(${2:filedata})",
+			"kind": "function",
+			"details": "Creates a new ImageData object (<a href=\"https://love2d.org/wiki/love.image.newImageData\">Manual</a>)"
+		},
+		{
+			"trigger": "love.image.newImageData",
+			"annotation": "(encodedData)",
+			"contents": "${1:imageData} = love.image.newImageData(${2:encodedData})",
+			"kind": "function",
+			"details": "Creates a new ImageData object (<a href=\"https://love2d.org/wiki/love.image.newImageData\">Manual</a>)"
 		},
 
 		// love.joystick
