@@ -4708,7 +4708,20 @@
 
 		// love.video
 
-
+		{
+			"trigger": "love.video.newVideoStream",
+			"annotation": "(filename)",
+			"contents": "${1:videoStream} = love.video.newVideoStream(${1:filename})",
+			"kind": "function",
+			"details": "Creates a new VideoStream (<a href=\"https://love2d.org/wiki/love.video.newVideoStream\">Manual</a>)"
+		},
+		{
+			"trigger": "love.video.newVideoStream",
+			"annotation": "(file)",
+			"contents": "${1:videoStream} = love.video.newVideoStream(${1:file})",
+			"kind": "function",
+			"details": "Creates a new VideoStream (<a href=\"https://love2d.org/wiki/love.video.newVideoStream\">Manual</a>)"
+		},
 
 		// love.window
 
