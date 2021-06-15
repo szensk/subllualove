@@ -1893,13 +1893,6 @@
 			"details": "Gets a list of RecordingDevices on the system (<a href=\"https://love2d.org/wiki/love.audio.getRecordingDevices\">Manual</a>)"
 		},
 		{
-			"trigger": "love.audio.getSourceCount",
-			"annotation": "",
-			"contents": "${1:numSources} = love.audio.getSourceCount()",
-			"kind": "function",
-			"details": "<b>Deprecated</b> Use love.audio.getActiveSourceCount instead (<a href=\"https://love2d.org/wiki/love.audio.getSourceCount\">Manual</a>)"
-		},
-		{
 			"trigger": "love.audio.getVelocity",
 			"annotation": "()",
 			"contents": "${1:x}, ${2:y}, ${3:z} = love.audio.getVelocity()",
@@ -2280,13 +2273,6 @@
 			"details": "Creates a directory (<a href=\"https://love2d.org/wiki/love.filesystem.createDirectory\">Manual</a>)"
 		},
 		{
-			"trigger": "love.filesystem.exists",
-			"annotation": "(filename)",
-			"contents": "${1:e} = love.filesystem.exists(${2:filename})",
-			"kind": "function",
-			"details": "<b>Deprecated</b> Use love.filesystem.getInfo instead (<a href=\"https://love2d.org/wiki/love.filesystem.exists\">Manual</a>)"
-		},
-		{
 			"trigger": "love.filesystem.getAppdataDirectory",
 			"annotation": "()",
 			"contents": "${1:path} = love.filesystem.getAppdataDirectory()",
@@ -2322,13 +2308,6 @@
 			"details": "Gets information about the specified file or directory (<a href=\"https://love2d.org/wiki/love.filesystem.getInfo\">Manual</a>)"
 		},
 		{
-			"trigger": "love.filesystem.getLastModified",
-			"annotation": "(filename)",
-			"contents": "${1:modtime}, ${2:errormsg} = love.filesystem.getLastModified(${3:filename})",
-			"kind": "function",
-			"details": "<b>Deprecated</b> Use love.filesystem.getInfo instead (<a href=\"https://love2d.org/wiki/love.filesystem.getLastModified\">Manual</a>)"
-		},
-		{
 			"trigger": "love.filesystem.getRealDirectory",
 			"annotation": "(filepath)",
 			"contents": "${1:realdir} = love.filesystem.getRealDirectory(${2:filepath})",
@@ -2348,13 +2327,6 @@
 			"contents": "${1:path} = love.filesystem.getSaveDirectory()",
 			"kind": "function",
 			"details": "Gets the full path to the designated save directory (<a href=\"https://love2d.org/wiki/love.filesystem.getSaveDirectory\">Manual</a>)"
-		},
-		{
-			"trigger": "love.filesystem.getSize",
-			"annotation": "(filename)",
-			"contents": "${1:size}, ${2:errormsg} = love.filesystem.getSize(${3:filename})",
-			"kind": "function",
-			"details": "<b>Deprecated</b> Use love.filesystem.getInfo instead (<a href=\"https://love2d.org/wiki/love.filesystem.getSize\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.getSource",
@@ -2392,32 +2364,11 @@
 			"details": "Initializes love.filesystem, will be called internally, so should not be used explicitly (<a href=\"https://love2d.org/wiki/love.filesystem.init\">Manual</a>)"
 		},
 		{
-			"trigger": "love.filesystem.isDirectory",
-			"annotation": "(path)",
-			"contents": "${1:is_dir} = love.filesystem.isDirectory(${2:path})",
-			"kind": "function",
-			"details": "<b>Deprecated</b> Use love.filesystem.getInfo instead (<a href=\"https://love2d.org/wiki/love.filesystem.isDirectory\">Manual</a>)"
-		},
-		{
-			"trigger": "love.filesystem.isFile",
-			"annotation": "(path)",
-			"contents": "${1:is_file} = love.filesystem.isFile(${2:path})",
-			"kind": "function",
-			"details": "<b>Deprecated</b> Use love.filesystem.getInfo instead (<a href=\"https://love2d.org/wiki/love.filesystem.isFile\">Manual</a>)"
-		},
-		{
 			"trigger": "love.filesystem.isFused",
 			"annotation": "()",
 			"contents": "${1:fused} = love.filesystem.isFused()",
 			"kind": "function",
 			"details": "Gets whether the game is in fused mode or not (<a href=\"https://love2d.org/wiki/love.filesystem.isFused\">Manual</a>)"
-		},
-		{
-			"trigger": "love.filesystem.isSymlink",
-			"annotation": "(path)",
-			"contents": "${1:symlink} = love.filesystem.isSymlink(${2:path})",
-			"kind": "function",
-			"details": "<b>Deprecated</b> Use love.filesystem.getInfo instead (<a href=\"https://love2d.org/wiki/love.filesystem.isSymlink\">Manual</a>)"
 		},
 		{
 			"trigger": "love.filesystem.lines",
