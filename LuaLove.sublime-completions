@@ -3870,39 +3870,67 @@
 		// love.keyboard
 
 		{
+			"trigger": "love.keyboard.getKeyFromScancode",
+			"annotation": "(scancode)",
+			"contents": "${1:key} = love.keyboard.getKeyFromScancode(${2:scancode})",
+			"kind": "function",
+			"details": "Gets the key corresponding to the given hardware scancode (<a href=\"https://love2d.org/wiki/love.keyboard.getKeyFromScancode\">Manual</a>)"
+		},
+		{
+			"trigger": "love.keyboard.getScancodeFromKey",
+			"annotation": "(key)",
+			"contents": "${1:scancode} = love.keyboard.getScancodeFromKey(${2:key})",
+			"kind": "function",
+			"details": "Gets the hardware scancode corresponding to the given key (<a href=\"https://love2d.org/wiki/love.keyboard.getScancodeFromKey\">Manual</a>)"
+		},
+		{
 			"trigger": "love.keyboard.hasKeyRepeat",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:enabled} = love.keyboard.hasKeyRepeat()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.keyboard.hasKeyRepeat\">Manual</a>)"
+			"details": "Gets whether key repeat is enabled (<a href=\"https://love2d.org/wiki/love.keyboard.hasKeyRepeat\">Manual</a>)"
+		},
+		{
+			"trigger": "love.keyboard.hasScreenKeyboard",
+			"annotation": "()",
+			"contents": "${1:supported} = love.keyboard.hasScreenKeyboard()",
+			"kind": "function",
+			"details": "Gets whether screen keyboard is supported (<a href=\"https://love2d.org/wiki/love.keyboard.hasScreenKeyboard\">Manual</a>)"
 		},
 		{
 			"trigger": "love.keyboard.hasTextInput",
-			"annotation": "",
+			"annotation": "()",
 			"contents": "${1:enabled} = love.keyboard.hasTextInput()",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.keyboard.hasTextInput\">Manual</a>)"
+			"details": "Gets whether text input events are enabled (<a href=\"https://love2d.org/wiki/love.keyboard.hasTextInput\">Manual</a>)"
 		},
 		{
 			"trigger": "love.keyboard.isDown",
-			"annotation": "",
-			"contents": "${1:down} = love.keyboard.isDown(${2:key})",
+			"annotation": "(key [, ...])",
+			"contents": "${1:down} = love.keyboard.isDown(${2:key}, ${3:...})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.keyboard.isDown\">Manual</a>)"
+			"details": "Checks whether a certain key is down (<a href=\"https://love2d.org/wiki/love.keyboard.isDown\">Manual</a>)"
+		},
+		{
+			"trigger": "love.keyboard.isScancodeDown",
+			"annotation": "(scancode [, ...])",
+			"contents": "${1:down} = love.keyboard.isScancodeDown(${2:scancode}, ${3:...})",
+			"kind": "function",
+			"details": "Checks whether the specified Scancodes are pressed (<a href=\"https://love2d.org/wiki/love.keyboard.isScancodeDown\">Manual</a>)"
 		},
 		{
 			"trigger": "love.keyboard.setKeyRepeat",
-			"annotation": "",
+			"annotation": "(enable)",
 			"contents": "love.keyboard.setKeyRepeat(${1:enable})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.keyboard.setKeyRepeat\">Manual</a>)"
+			"details": "Enables or disables key repeat for love.keypressed (<a href=\"https://love2d.org/wiki/love.keyboard.setKeyRepeat\">Manual</a>)"
 		},
 		{
 			"trigger": "love.keyboard.setTextInput",
-			"annotation": "",
-			"contents": "love.keyboard.setTextInput(${1:enable})",
+			"annotation": "(enable [, x, y, w, h])",
+			"contents": "love.keyboard.setTextInput(${1:enable}, ${2:x}, ${3:y}, ${4:width}, ${5:height})",
 			"kind": "function",
-			"details": "(<a href=\"https://love2d.org/wiki/love.keyboard.setTextInput\">Manual</a>)"
+			"details": "Enables or disables text input events (<a href=\"https://love2d.org/wiki/love.keyboard.setTextInput\">Manual</a>)"
 		},
 
 		// love.math
