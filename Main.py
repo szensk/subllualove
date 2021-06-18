@@ -1,7 +1,9 @@
-import sublime
-import sublime_plugin
+import sublime, sublime_plugin
+import os
 import re
 import threading, subprocess
+
+PACKAGE_DIR = os.path.splitext(os.path.basename(os.path.dirname(__file__)))[0]
 
 # Command object with timeout
 class Command(object):
@@ -13,8 +15,7 @@ class Command(object):
 
 	def run(self, timeout):
 		def target():
-			self.process = subprocess.Popen(self.cmd, bufsize=-1, stdin=subprocess.PIPE,
-			                                stderr=subprocess.PIPE, shell=True)
+			self.process = subprocess.Popen(self.cmd, bufsize=-1, stdin=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 			self.result = self.process.communicate(self.text.encode('utf-8'))[1]
 
 		thread = threading.Thread(target=target)
@@ -115,3 +116,9 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 			elif style == "circle":
 				view.add_regions('lua', regions, 'invalid', 'circle', sublime.HIDDEN | persistent)
 
+class LualoveEditSettingsCommand(sublime_plugin.WindowCommand):
+	def run(self):
+		self.window.run_command('edit_settings', {
+			'base_file': '${packages}/' + PACKAGE_DIR + '/LuaLove.sublime-settings',
+			'default': '// Settings in here override those in "LuaLove.sublime-settings"\n{\n\t$0\n}\n',
+		})

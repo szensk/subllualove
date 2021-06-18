@@ -30,7 +30,7 @@ git clone git://github.com/szensk/subllualove.git
 
 ## Settings
 
-Settings are saved in [JSON](https://www.json.org/json-en.html) format. You can view default settings at `Preferences > Package Settings > Lua Love > Settings - Default` and you can customize your settings at `Preferences > Package Settings > Lua Love > Settings - User`.
+Settings are saved in [JSON](https://www.json.org/json-en.html) format. To change settings, go to `Preferences > Package Settings > Lua Love > Settings` or enter `LuaLove: Settings` in command Palette.
 
 ### Available settings
 
@@ -67,8 +67,6 @@ If you are using shaders and wants better GLSL syntax highlighting, install some
 There are auto completions for love functions (like `love.graphics.setColor`), all Lua functions and variables (ex: `coroutine.resume`) and LuaJIT function and variables (ex: `ffi.cdef`, `bit.bor`). Lua and LuaJIT functions and variables have metadata - kind and details with link to manual displayed since Sublime Text 4. Metadata for löve, socket and utf8 functions and variables is not yet done (support welcome).
 
 Pressing `Ctrl`+`Space` (`Cmd`+`Space` on Mac) in an open Lua file or file with LÖVE 11.3 set as syntax will show the auto completions for the Löve2D API as well as Lua function snippets.
-
-Those Löve2D functions which are not overloaded (only one possible argument combination), will fill in the argument names for you.
 
 To enable auto completions for LDoc without pressing `Ctrl`+`Space` (`Cmd`+`Space` on Mac), add `{"selector": "comment.block.documentation.lua"}` to `auto_complete_triggers` in settings.
 

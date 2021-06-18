@@ -1,0 +1,6 @@
+[
+	{
+		"caption": "LuaLove: Settings",
+		"command": "lualove_edit_settings"
+	}
+]

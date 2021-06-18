@@ -1,6 +1,6 @@
 {
     // Whatever to enable live parser
-    "live_parser" : true,
+    "live_parser": true,
 
     // Live parser style: outline, dot or circle
     "live_parser_style": "outline",
