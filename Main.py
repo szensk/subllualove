@@ -40,6 +40,22 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 	def __init__(self):
 		self.pending = 0
 
+		self.detected_parser = None
+
+		if self.settings.get('live_parser_type', 'auto') == 'auto':
+			try:
+				subprocess.Popen(self.settings.get('luajit_path', 'luajit'))
+			except:
+				try:
+					subprocess.Popen(self.settings.get('luac_path', 'luac'))
+				except:
+					print('Neither luajit nor luac found, no live parser will be available')
+				else:
+					self.detected_parser = 'luac'
+			else:
+				self.detected_parser = 'luajit'
+
+
 	def onchange(self, view):
 		if not self.settings.get("live_parser"):
 			return False
@@ -62,15 +78,23 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 
 	def parse(self, view):
 		# Don't bother parsing if there's another parse command pending
-		self.pending = self.pending - 1
-		if self.pending > 0:
+		if self.pending > 1:
+			self.pending -= 1
 			return
 
-		# Grab the path to luac from the settings
-		luac_path = self.settings.get("luac_path", "luac")
-		# Run luac with the parse immediate option
+		# Run parser with the parse immediate option
 		text = view.substr(sublime.Region(0, view.size()))
-		command = Command(luac_path + ' -p -', text)
+
+		parser_type = self.settings.get('live_parser_type', 'luac')
+
+		if parser_type == 'luajit' or (parser_type == 'auto' and self.detected_parser == 'luajit'):
+			command = Command(self.settings.get('luajit_path', 'luajit') + ' ' + os.path.dirname(__file__) + '/LuaJIT-parser.lua', text)
+		elif parser_type == 'luac' or (parser_type == 'auto' and self.detected_parser == 'luac'):
+			command = Command(self.settings.get('luac_path', 'luac') + ' -p -', text)
+		else:
+			self.pending -= 1
+			return False
+
 		# Attempt to parse and grab output, bail after one second
 		errors = command.run(timeout=1)
 
@@ -82,6 +106,7 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 			errors = errors.decode("utf-8")
 		else:
 			sublime.status_message('')
+			self.pending -= 1
 			return
 
 		# Add regions and place the error message in the status bar
@@ -115,6 +140,8 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 				view.add_regions('lua', regions, 'invalid', 'dot', sublime.HIDDEN | persistent)
 			elif style == "circle":
 				view.add_regions('lua', regions, 'invalid', 'circle', sublime.HIDDEN | persistent)
+
+		self.pending -= 1
 
 class LualoveEditSettingsCommand(sublime_plugin.WindowCommand):
 	def run(self):

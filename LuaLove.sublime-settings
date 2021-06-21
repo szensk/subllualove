@@ -15,6 +15,16 @@
     // Timeout for luac to execute (in ms)
     "live_parser_timeout": 200,
 
-    // Path to luac executable (keep unchanged if luac is in PATH)
-    "luac_path": "luac"
+    // Type of live parser
+    // auto   - uses luajit if available, else luac
+    // luajit - uses luajit executable to check errors in code (with loadfile())
+    //          useful if you use luajit features like imaginary numbers or long long
+    // luac   - uses luac executable to check errors in code
+    "live_parser_type": "auto",
+
+    // Path to luac executable (used if live_parser_type if luac)
+    "luac_path": "luac",
+
+    // Path to luajit executable (used if live_parser_type if luajit)
+    "luajit_path": "luajit"
 }
