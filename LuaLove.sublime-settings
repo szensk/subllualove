@@ -22,9 +22,18 @@
     // luac   - uses luac executable to check errors in code
     "live_parser_type": "auto",
 
-    // Path to luac executable (used if live_parser_type if luac)
+    // Path to luac executable
     "luac_path": "luac",
 
-    // Path to luajit executable (used if live_parser_type if luajit)
-    "luajit_path": "luajit"
+    // Path to luajit executable
+    "luajit_path": "luajit",
+
+    // Path to lua executable
+    "lua_path": "lua",
+
+    // Path to love executable
+    "love_path": "love",
+
+    // Path to ldoc executable
+    "ldoc_path": "ldoc"
 }

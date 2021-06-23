@@ -1,6 +1,7 @@
 {
 	"file_regex": "^(?:(?:\t)|(?:.+: ))(.+):([0-9]+): (.*)$",
 	"selector": "source.lua",
+	"target": "lualove_run",
 	"cmd": ["love", "${project_path:${folder:${file_path}}}"],
 
 	"variants": [

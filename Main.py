@@ -149,3 +149,28 @@ class LualoveEditSettingsCommand(sublime_plugin.WindowCommand):
 			'base_file': '${packages}/' + PACKAGE_DIR + '/LuaLove.sublime-settings',
 			'default': '// Settings in here override those in "LuaLove.sublime-settings"\n{\n\t$0\n}\n',
 		})
+
+# Provide custom build target, inherited from exec, to patch some settings
+from Default.exec import ExecCommand
+
+class LualoveRun(ExecCommand):
+	def run(self, *args, **kwargs):
+		settings = sublime.load_settings("LuaLove.sublime-settings")
+
+		# No idea why Windows needs this, but at least on Ubuntu, it is causing troubles
+		# (when cmd is array of multiple strings and shell = True, working with cmd being only
+		# array of one string, but then spaces or ' or " can cause troubles as they are not escaped...)
+		if sublime.platform() == 'windows':
+			kwargs['shell'] = True
+
+		if kwargs['cmd'][0] == 'love':
+			kwargs['cmd'][0] = settings.get('love_path', 'love')
+		elif kwargs['cmd'][0] == 'lua':
+			kwargs['cmd'][0] = settings.get('lua_path', 'lua')
+		elif kwargs['cmd'][0] == 'luajit':
+			kwargs['cmd'][0] = settings.get('luajit_path', 'luajit')
+		elif kwargs['cmd'][0] == 'ldoc':
+			kwargs['cmd'][0] = settings.get('ldoc_path', 'ldoc')
+
+		# Run original
+		super().run(*args, **kwargs)
