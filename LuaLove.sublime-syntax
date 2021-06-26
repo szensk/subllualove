@@ -56,7 +56,7 @@
 
 # io.write(")\\b\n")
 
-name: LÖVE 11.3
+name: LOVE
 file_extensions:
   - lua
 first_line_match: "#!(/usr(/local)?)?/bin/(env )?lua(jit)?"
@@ -256,8 +256,9 @@ contexts:
   lua-variable:
     - match: '\b([A-Za-z_][A-Za-z0-9_]*)(?=\s*(?:\(|"|''|\[=*\[|\{))'
       scope: variable.function.lua
-    - match: '\b([_\p{Lu}][_\p{Lu}0-9]*)\b'
-      scope: constant.language.lua
+    # All uppercase + _ + 0-9 variables
+    # - match: '\b([_\p{Lu}][_\p{Lu}0-9]*)\b'
+    #   scope: constant.language.lua
     - match: '\b([A-Za-z_][A-Za-z0-9_]*)'
       scope: variable.other.lua
   lua-punctuations:
