@@ -127,13 +127,11 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 		style = self.settings.get("live_parser_style")
 
 		if self.ST >= 4050 and self.settings.get("live_parser_annotations"):
-			pattern = re.compile(r'Line [0-9]+:\s?(.+)$')
+			pattern = re.compile(r'Line [0-9]+:\s?(.+)')
 
 			# Escape < and > as annotations are in HTML format
 			annotations = [match.replace('<', '&lt;').replace('>', '&gt;') for match in pattern.findall(errors)]
 
-			# Clear out any old region markers
-			view.erase_regions('lua')
 			if style == "outline":
 				view.add_regions('lua', regions, 'invalid', '', sublime.DRAW_OUTLINED | persistent, annotations)
 			elif style == "dot":
@@ -141,8 +139,6 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 			elif style == "circle":
 				view.add_regions('lua', regions, 'invalid', 'circle', sublime.HIDDEN | persistent, annotations)
 		else:
-			# Clear out any old region markers
-			view.erase_regions('lua')
 
 			if style == "outline":
 				view.add_regions('lua', regions, 'invalid', '', sublime.DRAW_OUTLINED | persistent)
