@@ -13,13 +13,7 @@
                 [
                     {
                         "caption": "Lua Love",
-                        "children":
-                        [
-                            {
-                                "caption": "Settings",
-                                "command": "lualove_edit_settings"
-                            }
-                        ]
+                        "command": "lualove_edit_settings"
                     }
                 ]
             }
