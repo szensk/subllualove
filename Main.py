@@ -91,6 +91,8 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 			command = Command(self.settings.get('luajit_path', 'luajit') + ' ' + os.path.dirname(__file__) + '/LuaJIT-parser.lua', text)
 		elif parser_type == 'luac' or (parser_type == 'auto' and self.detected_parser == 'luac'):
 			command = Command(self.settings.get('luac_path', 'luac') + ' -p -', text)
+		elif parser_type == 'custom' and self.settings.get('live_parser_custom_command'):
+			command = Command(self.settings.get('live_parser_custom_command'), text)
 		else:
 			self.pending -= 1
 			return False
@@ -98,24 +100,25 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 		# Attempt to parse and grab output, bail after one second
 		errors = command.run(timeout=1)
 
-		# Clear out any old region markers
-		view.erase_regions('lua')
-
 		# Nothing to do if it parsed successfully
 		if errors:
 			errors = errors.decode("utf-8")
 		else:
+			# Clear out any old region markers
+			view.erase_regions('lua')
+
 			sublime.status_message('')
 			self.pending -= 1
 			return
 
 		# Add regions and place the error message in the status bar
-		errors = errors.replace("luac: stdin:", "Line:")
-		sublime.status_message(errors)
+		errors = errors.replace("luac: stdin:", "Line ")
 
-		pattern = re.compile(r':([0-9]+):')
+		if self.settings.get('live_parser_status_bar', True):
+			sublime.status_message(errors)
+
+		pattern = re.compile(r'Line ([0-9]+):')
 		regions = [view.full_line(view.text_point(int(match) - 1, 0)) for match in pattern.findall(errors)]
-
 
 		# Persistence of error highlights
 		persistent = 0
@@ -124,9 +127,13 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 		style = self.settings.get("live_parser_style")
 
 		if self.ST >= 4050 and self.settings.get("live_parser_annotations"):
-			pattern = re.compile(r':[0-9]+:(.*)$')
+			pattern = re.compile(r'Line [0-9]+:\s?(.+)$')
+
+			# Escape < and > as annotations are in HTML format
 			annotations = [match.replace('<', '&lt;').replace('>', '&gt;') for match in pattern.findall(errors)]
 
+			# Clear out any old region markers
+			view.erase_regions('lua')
 			if style == "outline":
 				view.add_regions('lua', regions, 'invalid', '', sublime.DRAW_OUTLINED | persistent, annotations)
 			elif style == "dot":
@@ -134,6 +141,9 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 			elif style == "circle":
 				view.add_regions('lua', regions, 'invalid', 'circle', sublime.HIDDEN | persistent, annotations)
 		else:
+			# Clear out any old region markers
+			view.erase_regions('lua')
+
 			if style == "outline":
 				view.add_regions('lua', regions, 'invalid', '', sublime.DRAW_OUTLINED | persistent)
 			elif style == "dot":
@@ -143,6 +153,7 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 
 		self.pending -= 1
 
+# Settings command
 class LualoveEditSettingsCommand(sublime_plugin.WindowCommand):
 	def run(self):
 		self.window.run_command('edit_settings', {
@@ -154,6 +165,10 @@ class LualoveEditSettingsCommand(sublime_plugin.WindowCommand):
 from Default.exec import ExecCommand
 
 class LualoveRun(ExecCommand):
+	def __init__(self, window):
+		self.window = window
+		super().__init__(window)
+
 	def run(self, *args, **kwargs):
 		settings = sublime.load_settings("LuaLove.sublime-settings")
 
@@ -163,14 +178,17 @@ class LualoveRun(ExecCommand):
 		if sublime.platform() == 'windows':
 			kwargs['shell'] = True
 
-		if kwargs['cmd'][0] == 'love':
-			kwargs['cmd'][0] = settings.get('love_path', 'love')
-		elif kwargs['cmd'][0] == 'lua':
-			kwargs['cmd'][0] = settings.get('lua_path', 'lua')
-		elif kwargs['cmd'][0] == 'luajit':
-			kwargs['cmd'][0] = settings.get('luajit_path', 'luajit')
-		elif kwargs['cmd'][0] == 'ldoc':
-			kwargs['cmd'][0] = settings.get('ldoc_path', 'ldoc')
+		if 'type' in kwargs:
+			if settings.get('build_system.' + kwargs['type'] + '.cmd'):
+				# Get variable values
+				variables = self.window.extract_variables()
+				# Replace variables with their values and replace command
+				kwargs['cmd'] = [sublime.expand_variables(arg, variables) for arg in settings.get('build_system.' + kwargs['type'] + '.cmd')]
+			if settings.get('build_system.' + kwargs['type'] + '.env'):
+				kwargs['env'] = settings.get('build_system.' + kwargs['type'] + '.env')
+
+			# ExecCommand is not expecting type and would cause error
+			del kwargs['type']
 
 		# Run original
 		super().run(*args, **kwargs)
