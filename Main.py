@@ -34,7 +34,7 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 
 	scope_regex = re.compile('^([\S]+)')
 
-	TIMEOUT_MS = settings.get("live_parser_timeout", 200)
+	parser_window = settings.get("live_parser_window", 200)
 	ST = 3000 if sublime.version() == '' else int(sublime.version())
 
 	def __init__(self):
@@ -70,11 +70,11 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 
 	def on_modified(self, view):
 		if self.ST < 3000 and self.onchange(view):
-			sublime.set_timeout(lambda: self.parse(view), self.TIMEOUT_MS)
+			sublime.set_timeout(lambda: self.parse(view), self.parser_window)
 
 	def on_modified_async(self, view):
 		if self.ST >= 3000 and self.onchange(view):
-			sublime.set_timeout_async(lambda: self.parse(view), self.TIMEOUT_MS)
+			sublime.set_timeout_async(lambda: self.parse(view), self.parser_window)
 
 	def parse(self, view):
 		# Don't bother parsing if there's another parse command pending
@@ -97,8 +97,8 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 			self.pending -= 1
 			return False
 
-		# Attempt to parse and grab output, bail after one second
-		errors = command.run(timeout=1)
+		# Attempt to parse and grab output, fail after one second
+		errors = command.run(timeout=self.settings.get("live_parser_timeout", 1))
 
 		# Nothing to do if it parsed successfully
 		if errors:

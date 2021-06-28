@@ -19,8 +19,12 @@
     // Whatever make live parser persistent
     "live_parser_persistent": false,
 
-    // Timeout for luac to execute (in ms)
-    "live_parser_timeout": 200,
+    // Time after last change, after which is live parser run if no other change was made (in milliseconds)
+    // (Parser runs only if you are not typing more than this time)
+    "live_parser_window": 200,
+
+    // Timeout for live parser to execute (in seconds)
+    "live_parser_timeout": 1,
 
     // Type of live parser
     // auto   - uses luajit if available, else luac
