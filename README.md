@@ -1,16 +1,16 @@
 # LuaLove
 
-LuaLove is a package for [Sublime Text 2/3/4](http://www.sublimetext.com) which brings Löve2D API syntax highlighting and more. It is based on [SublimeLove](https://github.com/minism/SublimeLove), [LuaSublime](https://github.com/rorydriscoll/LuaSublime), and [lua_snippet](https://github.com/yinqiang/lua_snippet).
+LuaLove is a package for [Sublime Text](http://www.sublimetext.com) which brings LÖVE 2D API syntax highlighting and more. It is based on [SublimeLove](https://github.com/minism/SublimeLove), [LuaSublime](https://github.com/rorydriscoll/LuaSublime), and [lua_snippet](https://github.com/yinqiang/lua_snippet).
 
-![Syntax highlighting example](https://i.imgur.com/xT91wN3.png "Syntax highlighting, auto completions and error checking (on Ubuntu)")
+![Syntax highlighting example](https://i.imgur.com/m4nmthh.png "Syntax highlighting, auto completions and error checking (on Ubuntu)")
 
 ## Features
 
-* Löve 2D syntax highlighting (including GLSL shaders code and LDoc comments)
-* Auto completions (with description and link to manual, see [below](#auto-completions-and-snippets))
+* LÖVE 2D syntax highlighting (including GLSL shaders code, ffi.cdef and LDoc comments)
+* Auto completions with metadata (see [below](#auto-completions-and-snippets))
 * Some Lua snippets
-* Errors highlighting (requires luac in PATH)
-* Build systems
+* Errors highlighting (configurable)
+* Build systems (configurable)
 
 ## Installation
 
@@ -30,43 +30,23 @@ git clone git://github.com/szensk/subllualove.git
 
 ## Settings
 
-Settings are saved in [JSON](https://www.json.org/json-en.html) format. To change settings, go to `Preferences > Package Settings > Lua Love > Settings` or enter `LuaLove: Settings` in command Palette.
-
-### Available settings
-
-`"live_parser"` *boolean*  
-Whatever to enable live parser
-
-`"live_parser_style"` *string*  
-Style of live parser error highlighting. Available styles are `outline`, `dot` and `circle`
-
-`"live_parser_annotations"` *boolean*  
-Whatever to show errors messages on right hand edge of the view in addition to status bar. Available since Sublime Text 4 (ignored in older versions)
-
-`"live_parser_persistent"` *boolean*  
-Whatever make error highlighting persist across sessions
-
-`"live_parser_timeout"` *number*  
-Timeout for luac to execute (in ms)
-
-`"luac_path"` *string*  
-Path to luac executable. Change only if luac is not in your PATH
+Settings are saved in [JSON](https://www.json.org/json-en.html) format. You can change settings in `Preferences > Package Settings > Lua Love` or by running `LuaLove: Settings` in command Palette.
 
 ## Error checking
 
-By default any Lua file or file with LÖVE 11.3 syntax highlighting will be run through `luac -p` and the first encountered error (if any) is highlighted. The error is displayed in the status bar and from Sublime Text 4 also in right-hand edge of the view.
+By default any Lua file or file with LOVE syntax will be run through selected live parser and the first encountered error (if any) is highlighted. The error is displayed in the status bar and from Sublime Text 4 also in annotation.
 
 ## Syntax highlighting
 
-Set syntax using `View > Syntax > LÖVE 11.3` or in command palette `Set Syntax: LÖVE 11.3`.
+Set syntax using `View > Syntax > LOVE` or in command palette `Set Syntax: LOVE`.
 
 If you are using shaders and wants better GLSL syntax highlighting, install some GLSL syntax plugin, as if no GLSL syntax is found, it will fallback to C syntax. C code in `ffi.cdef` is highlighted as C.
 
 ## Auto completions and snippets
 
-There are auto completions for love functions (like `love.graphics.setColor`), all Lua functions and variables (ex: `coroutine.resume`) and LuaJIT function and variables (ex: `ffi.cdef`, `bit.bor`). Lua and LuaJIT functions and variables have metadata - kind and details with link to manual displayed since Sublime Text 4. Metadata for löve, socket and utf8 functions and variables is not yet done (support welcome).
+There are auto completions for LOVE functions and variables (like `love.graphics.setColor`), Lua and LuaJIT functions and variables (like `coroutine.resume`, `ffi.cdef`, `bit.bor`). Functions and variables have metadata - kind (function, variable, ...) and details with link to the manual displayed since Sublime Text 4.
 
-Pressing `Ctrl`+`Space` (`Cmd`+`Space` on Mac) in an open Lua file or file with LÖVE 11.3 set as syntax will show the auto completions for the Löve2D API as well as Lua function snippets.
+Pressing `Ctrl`+`Space` (`Cmd`+`Space` on Mac) in an open Lua file or file with LOVE set as syntax will show the auto completions for the Löve2D API as well as Lua function snippets.
 
 To enable auto completions for LDoc without pressing `Ctrl`+`Space` (`Cmd`+`Space` on Mac), add `{"selector": "comment.block.documentation.lua"}` to `auto_complete_triggers` in settings.
 
@@ -76,16 +56,16 @@ Build systems are available there to launch your project by just pressing `Ctrl`
 
 To set up build system, go to `Tools > Build System` and select `LuaLove`.
 
-### Build systems variants
+If you don't have `love` in your PATH or you would like to tweak some build system settings, see `build_system.(variant).*` options in [settings](#settings)
+
+### Variants
 
 First time you build your project, you will be asked to select one of the variants described below. You can change them anytime by pressing `Ctrl`+`Shift`+`B` (`Cmd`+`Shift`+`B` on Mac)
 
-* **LuaLove** - starts Löve2D in current opened folder
-
-* **LuaLove - LuaJIT Run File** - runs current file using LuaJIT (requires LuaJIT in your system PATH)
-
-* **LuaLove - Lua Run File** - runs current file using Lua (requires Lua in your system PATH)
-
-* **LuaLove - ldoc: File** - runs ldoc with current file and outputs markdown file in `doc` folder
-
-* **LuaLove - ldoc: Project** - runs ldoc with `src` folder in current opened folder and outputs markdown files in `doc` folder
+| Build system variant | Description |
+| --- | --- |
+| **LuaLove** | starts LÖVE 2D in current opened folder |
+| **LuaLove - LuaJIT Run File** | runs current file using LuaJIT |
+| **LuaLove - Lua Run File** | runs current file using Lua |
+| **LuaLove - ldoc: File** | runs ldoc with current file and outputs markdown file in `doc` folder |
+| **LuaLove - ldoc: Project** | runs ldoc with `src` folder in current opened folder and outputs markdown files in `doc` folder |
