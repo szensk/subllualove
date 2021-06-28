@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[package.config]]></content>
-    <tabTrigger>package.config</tabTrigger>
-    <scope>source.lua</scope>
-    <description>package.config</description>
-</snippet>

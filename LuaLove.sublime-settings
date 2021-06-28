@@ -1,6 +1,88 @@
 {
-    "live_parser" : true,
+    //
+    // Live parser options
+    //
+
+    // Whatever to enable live parser
+    "live_parser": true,
+
+    // Live parser style: outline, dot or circle
     "live_parser_style": "outline",
+
+    // Whatever to show errors messages in annotations (on right-hand edge of the view)
+    // Available from Sublime Text build 4050 (ignored in older versions)
+    "live_parser_annotations": true,
+
+    // Whatever to show errors messages in status bar
+    "live_parser_status_bar": true,
+
+    // Whatever make live parser persistent
     "live_parser_persistent": false,
-    "luac_path": "luac"
+
+    // Time after last change, after which is live parser run if no other change was made (in milliseconds)
+    // (Parser runs only if you are not typing more than this time)
+    "live_parser_window": 200,
+
+    // Timeout for live parser to execute (in seconds)
+    "live_parser_timeout": 1,
+
+    // Type of live parser
+    // auto   - uses luajit if available, else luac
+    // luajit - uses luajit executable to check errors in code (with loadfile())
+    //          useful if you use luajit features like imaginary numbers or long long
+    // luac   - uses luac executable to check errors in code
+    // custom - your own customizable parser, see bellow
+    "live_parser_type": "auto",
+
+    // Path to luac executable (used if live_parser_type is "luac")
+    "luac_path": "luac",
+
+    // Path to luajit executable (used if live_parser_type is "luajit")
+    "luajit_path": "luajit",
+
+    // Custom live parser command (used if live_parser_type is "custom")
+    // Code to parse is passed to stdin, error(s) should go to stderr in format:
+    // Line 123: Error message
+    "live_parser_custom_command": "",
+
+    //
+    // Build system options
+    //
+
+    // There you can tweak some build system settings: command and env (for now)
+    // (see https://www.sublimetext.com/docs/build_systems.html for details)
+
+    // Command for LOVE build
+    "build_system.love.cmd": ["love", "${project_path:${folder:${file_path}}}"],
+
+    // Environment variables for LOVE build
+    "build_system.love.env": {},
+
+
+    // Command for LuaJIT build
+    "build_system.luajit.cmd": ["luajit", "$file"],
+
+    // Environment variables for LuaJIT build
+    "build_system.luajit.env": {},
+
+
+    // Command for Lua build
+    "build_system.lua.cmd": ["lua", "$file"],
+
+    // Environment variables for Lua build
+    "build_system.lua.env": {},
+
+
+    // Command for ldoc file build
+    "build_system.ldoc_file.cmd": ["ldoc", "-d", "$project_path/doc/$file_base_name", "-f", "markdown", "-t", "$file_base_name", "$file"],
+
+    // Environment variables for ldoc file build
+    "build_system.ldoc_file.env": {},
+
+
+    // Command for ldoc project build
+    "build_system.ldoc_project.cmd": ["ldoc", "-d", "$project_path/doc/$file_base_name", "-f", "markdown", "-t", "$file_base_name", "$file"],
+
+    // Environment variables for ldoc project build
+    "build_system.ldoc_project.env": {},
 }

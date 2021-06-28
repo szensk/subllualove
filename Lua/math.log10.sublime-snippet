@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[math.log10(${1:x})]]></content>
-    <tabTrigger>math.log10</tabTrigger>
-    <scope>source.lua</scope>
-    <description>(x)</description>
-</snippet>

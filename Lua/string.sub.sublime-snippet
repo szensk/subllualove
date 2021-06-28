@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[string.sub(${1:s}, ${2:i}, ${3:j})]]></content>
-    <tabTrigger>string.sub</tabTrigger>
-    <scope>source.lua</scope>
-    <description>(s, i [, j])</description>
-</snippet>

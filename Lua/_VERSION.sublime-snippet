@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[_VERSION]]></content>
-    <tabTrigger>_VERSION</tabTrigger>
-    <scope>source.lua</scope>
-    <description>_VERSION</description>
-</snippet>

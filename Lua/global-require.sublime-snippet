@@ -1,6 +1,6 @@
 <snippet>
     <content><![CDATA[require("${1:name}")]]></content>
     <tabTrigger>req</tabTrigger>
-    <scope>source.lua</scope>
+    <scope>source.lua.love - comment.block.documentation.lua</scope>
     <description>require(module)</description>
 </snippet>

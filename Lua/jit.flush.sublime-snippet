@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[jit.flush(${1:[func]}, ${2:[recursive]})]]></content>
-    <tabTrigger>jit.flush</tabTrigger>
-    <scope>source.lua</scope>
-    <description>([func], [recursive])</description>
-</snippet>

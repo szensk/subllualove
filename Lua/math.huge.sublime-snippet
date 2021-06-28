@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[math.huge]]></content>
-    <tabTrigger>math.huge</tabTrigger>
-    <scope>source.lua</scope>
-    <description>math.huge</description>
-</snippet>

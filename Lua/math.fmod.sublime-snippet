@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[math.fmod(${1:x}, ${2:y})]]></content>
-    <tabTrigger>math.fmod</tabTrigger>
-    <scope>source.lua</scope>
-    <description>(x, y)</description>
-</snippet>

@@ -3,6 +3,6 @@
 	${0:--do}
 end]]></content>
     <tabTrigger>while</tabTrigger>
-    <scope>source.lua</scope>
+    <scope>source.lua.love - comment.block.documentation.lua</scope>
     <description>while cond</description>
 </snippet>

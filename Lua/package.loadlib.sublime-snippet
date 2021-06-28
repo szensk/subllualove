@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[package.loadlib(${1:libname}, ${2:funcname})]]></content>
-    <tabTrigger>package.loadlib</tabTrigger>
-    <scope>source.lua</scope>
-    <description>(libname, funcname)</description>
-</snippet>

@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[math.exp(${1:x})]]></content>
-    <tabTrigger>math.exp</tabTrigger>
-    <scope>source.lua</scope>
-    <description>(x)</description>
-</snippet>

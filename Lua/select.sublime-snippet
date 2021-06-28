@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[select(${1:index}, ${2:...})]]></content>
-    <tabTrigger>select</tabTrigger>
-    <scope>source.lua</scope>
-    <description>(index, ...)</description>
-</snippet>

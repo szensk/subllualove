@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[package.path]]></content>
-    <tabTrigger>package.path</tabTrigger>
-    <scope>source.lua</scope>
-    <description>package.path</description>
-</snippet>

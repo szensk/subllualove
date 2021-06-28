@@ -1,27 +1,25 @@
 {
 	"file_regex": "^(?:(?:\t)|(?:.+: ))(.+):([0-9]+): (.*)$",
 	"selector": "source.lua",
-	"cmd": ["lua", "$file"],
+	"target": "lualove_run",
+	"type": "love",
 
 	"variants": [
-		{	"name": "Run",
-			"cmd": ["luajit", "$file"]
+		{
+			"name": "LuaJIT Run File",
+			"type": "luajit",
 		},
-		{	"name": "Love2D",
-			"shell": true,
-			"cmd": ["love", "${project_path:${folder:${file_path}}}"],
-			"osx":
-			{
-				"cmd": ["love ${project_path:${folder:${file_path}}}"]
-			}
+		{
+			"name": "Lua Run File",
+			"type": "lua",
 		},
-		{   "name": "ldoc: File",
-			"shell": true,
-			"cmd": ["ldoc -d $project_path/doc/$file_base_name -f markdown -t $file_base_name $file"]
+		{
+			"name": "ldoc: File",
+			"type": "ldoc_file",
 		},
-		{   "name": "ldoc: Project",
-			"shell": true,
-			"cmd": ["ldoc -d $project_path/doc -f markdown -t $project_base_name $project_path/src/"]
+		{
+			"name": "ldoc: Project",
+			"type": "ldoc_project",
 		}
 	]
 }

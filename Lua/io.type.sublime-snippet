@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[io.type(${1:obj})]]></content>
-    <tabTrigger>io.type</tabTrigger>
-    <scope>source.lua</scope>
-    <description>(obj)</description>
-</snippet>

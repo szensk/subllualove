@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[debug.gethook(${1:thread})]]></content>
-    <tabTrigger>debug.gethook</tabTrigger>
-    <scope>source.lua</scope>
-    <description>([thread])</description>
-</snippet>
