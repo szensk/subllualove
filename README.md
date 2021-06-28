@@ -30,7 +30,7 @@ git clone git://github.com/szensk/subllualove.git
 
 ## Settings
 
-Settings are saved in [JSON](https://www.json.org/json-en.html) format. You can change settings in `Preferences > Package Settings > Lua Love` or by running `LuaLove: Settings` in command Palette.
+Settings are saved in [JSON](https://www.json.org/json-en.html) format. You can change settings in `Preferences > Package Settings > Lua Love` or by running `Preferences: LuaLove Settings` in command Palette.
 
 ## Error checking
 
