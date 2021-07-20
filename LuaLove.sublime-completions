@@ -4116,7 +4116,7 @@
 		{
 			"trigger": "love.math.newTransform",
 			"annotation": "(x, y [, angle [, sx [, sy [, ox [, oy [, kx [, ky]]]]]]])",
-			"contents": "${1:transform} = love.math.newTransform(${1:x}, ${2:y}, ${3:angle}, ${4:sx}, ${5:sy}, ${6:ox}, ${7:oy}, ${8:kx}, ${9:ky})",
+			"contents": "${1:transform} = love.math.newTransform(${2:x}, ${3:y}, ${4:angle}, ${5:sx}, ${6:sy}, ${7:ox}, ${8:oy}, ${9:kx}, ${10:ky})",
 			"kind": "function",
 			"details": "Creates a new Transform object (<a href=\"https://love2d.org/wiki/love.math.newTransform\">Manual</a>)"
 		},
@@ -4130,7 +4130,7 @@
 		{
 			"trigger": "love.math.random",
 			"annotation": "([[min], max])",
-			"contents": "${1:number} = love.math.random(${1:min}, ${2:max})",
+			"contents": "${1:number} = love.math.random(${2:min}, ${3:max})",
 			"kind": "function",
 			"details": "Get uniformly distributed pseudo-random number (<a href=\"https://love2d.org/wiki/love.math.random\">Manual</a>)"
 		},
