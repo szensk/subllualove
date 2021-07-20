@@ -45,6 +45,8 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 		if self.settings.get('live_parser_type', 'auto') == 'auto':
 			try:
 				subprocess.Popen(self.settings.get('luajit_path', 'luajit'))
+				if '.sublime-package' in PACKAGE_DIR:
+					raise Exception('Lua Love is packaged, unable to use luajit')
 			except:
 				try:
 					subprocess.Popen(self.settings.get('luac_path', 'luac'))
@@ -88,7 +90,8 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 		parser_type = self.settings.get('live_parser_type', 'luac')
 
 		if parser_type == 'luajit' or (parser_type == 'auto' and self.detected_parser == 'luajit'):
-			command = Command(self.settings.get('luajit_path', 'luajit') + ' ' + os.path.dirname(__file__) + '/LuaJIT-parser.lua', text)
+			# TODO: better escaping of filenames
+			command = Command(self.settings.get('luajit_path', 'luajit') + ' "' + os.path.dirname(__file__) + '/LuaJIT-parser.lua"', text)
 		elif parser_type == 'luac' or (parser_type == 'auto' and self.detected_parser == 'luac'):
 			command = Command(self.settings.get('luac_path', 'luac') + ' -p -', text)
 		elif parser_type == 'custom' and self.settings.get('live_parser_custom_command'):
