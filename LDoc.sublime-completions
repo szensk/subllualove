@@ -107,13 +107,6 @@
 			"details": "References other documented items"
 		},
 		{
-			"trigger": "@see",
-			"annotation": "@see <what>",
-			"contents": "see ${1:what}",
-			"kind": "keyword",
-			"details": "References other documented items"
-		},
-		{
 			"trigger": "@usage",
 			"annotation": "@usage <usage_example>",
 			"contents": "usage ${1:usage_example}",
