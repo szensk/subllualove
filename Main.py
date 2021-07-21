@@ -2,6 +2,7 @@ import sublime, sublime_plugin
 import os
 import re
 import threading, subprocess
+from shlex import quote
 
 PACKAGE_DIR = os.path.splitext(os.path.basename(os.path.dirname(__file__)))[0]
 
@@ -90,8 +91,7 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 		parser_type = self.settings.get('live_parser_type', 'luac')
 
 		if parser_type == 'luajit' or (parser_type == 'auto' and self.detected_parser == 'luajit'):
-			# TODO: better escaping of filenames
-			command = Command(self.settings.get('luajit_path', 'luajit') + ' "' + os.path.dirname(__file__) + '/LuaJIT-parser.lua"', text)
+			command = Command(self.settings.get('luajit_path', 'luajit') + ' ' + quote(os.path.dirname(__file__) + '/LuaJIT-parser.lua'), text)
 		elif parser_type == 'luac' or (parser_type == 'auto' and self.detected_parser == 'luac'):
 			command = Command(self.settings.get('luac_path', 'luac') + ' -p -', text)
 		elif parser_type == 'custom' and self.settings.get('live_parser_custom_command'):
