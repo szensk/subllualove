@@ -164,10 +164,6 @@ class LualoveEditSettingsCommand(sublime_plugin.WindowCommand):
 from Default.exec import ExecCommand
 
 class LualoveRun(ExecCommand):
-	def __init__(self, window):
-		self.window = window
-		super().__init__(window)
-
 	def run(self, *args, **kwargs):
 		settings = sublime.load_settings("LuaLove.sublime-settings")
 
@@ -178,13 +174,19 @@ class LualoveRun(ExecCommand):
 			kwargs['shell'] = True
 
 		if 'type' in kwargs:
-			if settings.get('build_system.' + kwargs['type'] + '.cmd'):
+			if settings.get('build_system.' + kwargs['type'] + '.cmd') != None:
 				# Get variable values
 				variables = self.window.extract_variables()
+
 				# Replace variables with their values and replace command
 				kwargs['cmd'] = [sublime.expand_variables(arg, variables) for arg in settings.get('build_system.' + kwargs['type'] + '.cmd')]
-			if settings.get('build_system.' + kwargs['type'] + '.env'):
-				kwargs['env'] = settings.get('build_system.' + kwargs['type'] + '.env')
+
+			env = settings.get('build_system.default.env', {})
+			env.update(settings.get('build_system.' + kwargs['type'] + '.env', {}))
+			kwargs['env'] = env
+
+			if settings.get('build_system.' + kwargs['type'] + '.kill_previous', settings.get('build_system.default.kill_previous')) and self.proc and self.proc.poll():
+				self.proc.kill()
 
 			# ExecCommand is not expecting type and would cause error
 			del kwargs['type']

@@ -1,8 +1,10 @@
 {
-	"file_regex": "^(?:(?:\t)|(?:.+: ))(.+):([0-9]+): (.*)$",
+	"file_regex": "^(?:Error:)?[\t ](...*?):([0-9]*):?([0-9]*)",
 	"selector": "source.lua",
 	"target": "lualove_run",
 	"type": "love",
+
+	"cancel": {"kill": true},
 
 	"variants": [
 		{
