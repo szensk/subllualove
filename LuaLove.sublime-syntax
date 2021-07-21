@@ -104,7 +104,7 @@ contexts:
         1: punctuation.definition.comment.lua
       push:
         - meta_scope: comment.block.documentation.lua
-        - match: '(--)'
+        - match: '^\s*(--)'
           scope: punctuation.definition.comment.lua
         - match: '^(?!(\s*(--|\n)))'
           pop: true
@@ -308,7 +308,7 @@ contexts:
   string-special:
     - match: '\\(a|b|f|n|r|t|v|"|''|[0-9]{3}|0)|\\\\'
       scope: constant.character.escape.lua
-    - match: '%[-+ #0]?[0-9*]?(\.[0-9*])?[hlL]?[cdEefgGiouXxqs%]'
+    - match: '%(?:[-+ #0]?(?:[0-9]*|\*)?(?:\.(?:[0-9]*|\*))?[hlL]?[cdEefgGiouXxqs]|%)'
       scope: constant.other.placeholder.lua
   string-multiline:
     - match: '(?<!--)\[(=*)\['
