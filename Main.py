@@ -6,6 +6,37 @@ from shlex import quote
 
 PACKAGE_DIR = os.path.splitext(os.path.basename(os.path.dirname(__file__)))[0]
 
+settings = sublime.load_settings('LuaLove.sublime-settings')
+
+detected_parser = None
+
+def detect_parser():
+	global settings
+	global detected_parser
+
+	try:
+		subprocess.Popen(settings.get('luajit_path', 'luajit'))
+		if '.sublime-package' in PACKAGE_DIR:
+			raise Exception('Lua Love is packaged, unable to use luajit')
+	except:
+		try:
+			subprocess.Popen(settings.get('luac_path', 'luac'))
+		except:
+			print('Neither luajit nor luac found, live parser won\'t be available')
+			sublime.status_message('Neither luajit nor luac found, live parser won\'t be available')
+		else:
+			detected_parser = 'luac'
+	else:
+		detected_parser = 'luajit'
+
+
+def plugin_loaded():
+	global settings
+	settings = sublime.load_settings('LuaLove.sublime-settings')
+
+	if settings.get('live_parser_type', 'auto') == 'auto' and not detected_parser:
+		detect_parser()
+
 # Command object with timeout
 class Command(object):
 	def __init__(self, cmd, text):
@@ -31,36 +62,16 @@ class Command(object):
 
 class ParseLuaCommand(sublime_plugin.EventListener):
 
-	settings = sublime.load_settings("LuaLove.sublime-settings")
-
 	scope_regex = re.compile('^([\S]+)')
 
-	parser_window = settings.get("live_parser_window", 200)
 	ST = 3000 if sublime.version() == '' else int(sublime.version())
 
-	def __init__(self):
-		self.pending = 0
+	detected_parser = None
 
-		self.detected_parser = None
-
-		if self.settings.get('live_parser_type', 'auto') == 'auto':
-			try:
-				subprocess.Popen(self.settings.get('luajit_path', 'luajit'))
-				if '.sublime-package' in PACKAGE_DIR:
-					raise Exception('Lua Love is packaged, unable to use luajit')
-			except:
-				try:
-					subprocess.Popen(self.settings.get('luac_path', 'luac'))
-				except:
-					print('Neither luajit nor luac found, no live parser will be available')
-				else:
-					self.detected_parser = 'luac'
-			else:
-				self.detected_parser = 'luajit'
-
+	pending = 0
 
 	def onchange(self, view):
-		if not self.settings.get("live_parser"):
+		if not settings.get('live_parser', True):
 			return False
 		filename = view.file_name()
 
@@ -73,11 +84,11 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 
 	def on_modified(self, view):
 		if self.ST < 3000 and self.onchange(view):
-			sublime.set_timeout(lambda: self.parse(view), self.parser_window)
+			sublime.set_timeout(lambda: self.parse(view), settings.get('live_parser_window', 200))
 
 	def on_modified_async(self, view):
 		if self.ST >= 3000 and self.onchange(view):
-			sublime.set_timeout_async(lambda: self.parse(view), self.parser_window)
+			sublime.set_timeout_async(lambda: self.parse(view), settings.get('live_parser_window', 200))
 
 	def parse(self, view):
 		# Don't bother parsing if there's another parse command pending
@@ -88,24 +99,29 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 		# Run parser with the parse immediate option
 		text = view.substr(sublime.Region(0, view.size()))
 
-		parser_type = self.settings.get('live_parser_type', 'luac')
+		parser_type = settings.get('live_parser_type', 'luac')
 
-		if parser_type == 'luajit' or (parser_type == 'auto' and self.detected_parser == 'luajit'):
-			command = Command(self.settings.get('luajit_path', 'luajit') + ' ' + quote(os.path.dirname(__file__) + '/LuaJIT-parser.lua'), text)
-		elif parser_type == 'luac' or (parser_type == 'auto' and self.detected_parser == 'luac'):
-			command = Command(self.settings.get('luac_path', 'luac') + ' -p -', text)
-		elif parser_type == 'custom' and self.settings.get('live_parser_custom_command'):
-			command = Command(self.settings.get('live_parser_custom_command'), text)
+		# In case that parser is not detected, try to detect it again
+		if settings.get('live_parser_type', 'auto') == 'auto' and not detected_parser:
+			detect_parser()
+
+		if parser_type == 'luajit' or (parser_type == 'auto' and detected_parser == 'luajit'):
+			command = Command(settings.get('luajit_path', 'luajit') + ' ' + quote(os.path.dirname(__file__) + '/LuaJIT-parser.lua'), text)
+		elif parser_type == 'luac' or (parser_type == 'auto' and detected_parser == 'luac'):
+			command = Command(settings.get('luac_path', 'luac') + ' -p -', text)
+		elif parser_type == 'custom' and settings.get('live_parser_custom_command'):
+			command = Command(settings.get('live_parser_custom_command'), text)
 		else:
+			sublime.status_message('No parser matching criteria found')
 			self.pending -= 1
 			return False
 
 		# Attempt to parse and grab output, fail after one second
-		errors = command.run(timeout=self.settings.get("live_parser_timeout", 1))
+		errors = command.run(timeout=settings.get('live_parser_timeout', 1))
 
 		# Nothing to do if it parsed successfully
 		if errors:
-			errors = errors.decode("utf-8")
+			errors = errors.decode('utf-8')
 		else:
 			# Clear out any old region markers
 			view.erase_regions('lua')
@@ -115,9 +131,9 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 			return
 
 		# Add regions and place the error message in the status bar
-		errors = errors.replace("luac: stdin:", "Line ")
+		errors = errors.replace('luac: stdin:', 'Line ')
 
-		if self.settings.get('live_parser_status_bar', True):
+		if settings.get('live_parser_status_bar', True):
 			sublime.status_message(errors)
 
 		pattern = re.compile(r'Line ([0-9]+):')
@@ -125,29 +141,29 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 
 		# Persistence of error highlights
 		persistent = 0
-		if self.settings.get("live_parser_persistent", False):
+		if settings.get('live_parser_persistent', False):
 			persistent = sublime.PERSISTENT
-		style = self.settings.get("live_parser_style")
+		style = settings.get('live_parser_style', 'outline')
 
-		if self.ST >= 4050 and self.settings.get("live_parser_annotations"):
+		if self.ST >= 4050 and settings.get('live_parser_annotations', True):
 			pattern = re.compile(r'Line [0-9]+:\s?(.+)')
 
 			# Escape < and > as annotations are in HTML format
 			annotations = [match.replace('<', '&lt;').replace('>', '&gt;') for match in pattern.findall(errors)]
 
-			if style == "outline":
+			if style == 'outline':
 				view.add_regions('lua', regions, 'invalid', '', sublime.DRAW_OUTLINED | persistent, annotations)
-			elif style == "dot":
+			elif style == 'dot':
 				view.add_regions('lua', regions, 'invalid', 'dot', sublime.HIDDEN | persistent, annotations)
-			elif style == "circle":
+			elif style == 'circle':
 				view.add_regions('lua', regions, 'invalid', 'circle', sublime.HIDDEN | persistent, annotations)
 		else:
 
-			if style == "outline":
+			if style == 'outline':
 				view.add_regions('lua', regions, 'invalid', '', sublime.DRAW_OUTLINED | persistent)
-			elif style == "dot":
+			elif style == 'dot':
 				view.add_regions('lua', regions, 'invalid', 'dot', sublime.HIDDEN | persistent)
-			elif style == "circle":
+			elif style == 'circle':
 				view.add_regions('lua', regions, 'invalid', 'circle', sublime.HIDDEN | persistent)
 
 		self.pending -= 1
@@ -165,8 +181,6 @@ from Default.exec import ExecCommand
 
 class LualoveRun(ExecCommand):
 	def run(self, *args, **kwargs):
-		settings = sublime.load_settings("LuaLove.sublime-settings")
-
 		# No idea why Windows needs this, but at least on Ubuntu, it is causing troubles
 		# (when cmd is array of multiple strings and shell = True, working with cmd being only
 		# array of one string, but then spaces or ' or " can cause troubles as they are not escaped...)
