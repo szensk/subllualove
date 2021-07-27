@@ -187,23 +187,23 @@ class LualoveRun(ExecCommand):
 		if sublime.platform() == 'windows':
 			kwargs['shell'] = True
 
-		if 'type' in kwargs:
-			if settings.get('build_system.' + kwargs['type'] + '.cmd') != None:
+		if 'variant_name' in kwargs:
+			if settings.get('build_system.' + kwargs['variant_name'] + '.cmd') != None:
 				# Get variable values
 				variables = self.window.extract_variables()
 
 				# Replace variables with their values and replace command
-				kwargs['cmd'] = [sublime.expand_variables(arg, variables) for arg in settings.get('build_system.' + kwargs['type'] + '.cmd')]
+				kwargs['cmd'] = [sublime.expand_variables(arg, variables) for arg in settings.get('build_system.' + kwargs['variant_name'] + '.cmd')]
 
 			env = settings.get('build_system.default.env', {})
-			env.update(settings.get('build_system.' + kwargs['type'] + '.env', {}))
+			env.update(settings.get('build_system.' + kwargs['variant_name'] + '.env', {}))
 			kwargs['env'] = env
 
-			if settings.get('build_system.' + kwargs['type'] + '.kill_previous', settings.get('build_system.default.kill_previous')) and self.proc and self.proc.poll():
+			if settings.get('build_system.' + kwargs['variant_name'] + '.kill_previous', settings.get('build_system.default.kill_previous')) and self.proc and self.proc.poll():
 				self.proc.kill()
 
-			# ExecCommand is not expecting type and would cause error
-			del kwargs['type']
+			# ExecCommand is not expecting variant_name and would cause error
+			del kwargs['variant_name']
 
 		# Run original
 		super().run(*args, **kwargs)
