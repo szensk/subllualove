@@ -153,10 +153,10 @@ contexts:
   control-flow:
     - match: \b(goto)\s*([A-Za-z_][A-Za-z0-9_]*)\b
       captures:
-        1: keyword.control.lua
+        1: keyword.control.goto.lua
         2: variable.label.lua
     - match: \b(break|do|else|for|if|elseif|return|then|repeat|while|until|end|function|goto|in)\b
-      scope: keyword.control.goto.lua
+      scope: keyword.control.lua
     - match: \b(local)\b
       scope: storage.modifier.lua
   functions:
