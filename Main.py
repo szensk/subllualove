@@ -188,18 +188,23 @@ class LualoveRun(ExecCommand):
 			kwargs['shell'] = True
 
 		if 'variant_name' in kwargs:
-			if settings.get('build_system.' + kwargs['variant_name'] + '.cmd') != None:
-				# Get variable values
-				variables = self.window.extract_variables()
+			get_setting = lambda setting: settings.get('build_system.' + kwargs['variant_name'] + '.' + setting, settings.get('build_system.default.' + setting))
 
+			# Get variable values
+			variables = self.window.extract_variables()
+
+			if get_setting('cmd') != None:
 				# Replace variables with their values and replace command
-				kwargs['cmd'] = [sublime.expand_variables(arg, variables) for arg in settings.get('build_system.' + kwargs['variant_name'] + '.cmd')]
+				kwargs['cmd'] = [sublime.expand_variables(arg, variables) for arg in get_setting('cmd')]
+
+			if get_setting('working_dir') != None:
+				kwargs['working_dir'] = sublime.expand_variables(get_setting('working_dir'), variables)
 
 			env = settings.get('build_system.default.env', {})
 			env.update(settings.get('build_system.' + kwargs['variant_name'] + '.env', {}))
 			kwargs['env'] = env
 
-			if settings.get('build_system.' + kwargs['variant_name'] + '.kill_previous', settings.get('build_system.default.kill_previous')) and self.proc and self.proc.poll():
+			if get_settings('kill_previous') and self.proc and self.proc.poll():
 				self.proc.kill()
 
 			# ExecCommand is not expecting variant_name and would cause error

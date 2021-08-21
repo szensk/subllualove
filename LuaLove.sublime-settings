@@ -50,71 +50,64 @@
     //
 
     // There you can tweak some build system settings:
-    // command, env and kill_previous (for now)
-    // (see https://www.sublimetext.com/docs/build_systems.html for details)
+    //
+    // cmd (array of string)
+    //     Command to execute, may include variables, see bellow
+    // working_dir (string)
+    //     Working directory where command will be executed, may include variables, see bellow
+    // env (table of "key": "value" pairs)
+    //     Environment variables to use while building ("build_system.default.env" and "build_system.variant.env" will be merged)
+    // kill_previous (boolean)
+    //     Whatever to kill previous build before new is started
+    //
+    // See https://www.sublimetext.com/docs/build_systems.html for details and variables
 
     // Default settings for all build variants
-    // (you can override them in individual variants settings)
+    // (you can override them in individual variants settings with exception of env, which will be merged)
 
-    // Environment variables
-    // "build_system.default.env" and "build_system.variant.env" will be merged
     "build_system.default.env": {},
 
-    // Whatever to kill previous build before new is started
     "build_system.default.kill_previous": true,
 
 
     // LOVE variant
-    // Command for LOVE build
     "build_system.love.cmd": ["love", "${project_path:${folder:${file_path}}}"],
 
-    // Environment variables for LOVE build
+    "build_system.love.working_dir": "${project_path:${folder:${file_path}}}",
+
     "build_system.love.env": {},
 
-    // Whatever to kill previous build before new is started
     "build_system.love.kill_previous": true,
 
 
     // LuaJIT variant
-    // Command for LuaJIT build
     "build_system.luajit.cmd": ["luajit", "$file"],
 
-    // Environment variables for LuaJIT build
     "build_system.luajit.env": {},
 
-    // Whatever to kill previous build before new is started
     "build_system.luajit.kill_previous": true,
 
 
     // Lua variant
-    // Command for Lua build
     "build_system.lua.cmd": ["lua", "$file"],
 
-    // Environment variables for Lua build
     "build_system.lua.env": {},
 
-    // Whatever to kill previous build before new is started
     "build_system.lua.kill_previous": true,
 
 
     // ldoc - file variant
-    // Command for ldoc file build
     "build_system.ldoc_file.cmd": ["ldoc", "-d", "$project_path/doc/$file_base_name", "-f", "markdown", "-t", "$file_base_name", "$file"],
 
-    // Environment variables for ldoc file build
     "build_system.ldoc_file.env": {},
 
-    // Whatever to kill previous build before new is started
     "build_system.ldoc_file.kill_previous": true,
 
 
     // ldoc - project
-    // Command for ldoc project build
     "build_system.ldoc_project.cmd": ["ldoc", "-d", "$project_path/doc/$file_base_name", "-f", "markdown", "-t", "$file_base_name", "$file"],
 
-    // Environment variables for ldoc project build
     "build_system.ldoc_project.env": {},
 
-    // Whatever to kill previous build before new is started
     "build_system.ldoc_project.kill_previous": true,
 }
