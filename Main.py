@@ -204,7 +204,7 @@ class LualoveRun(ExecCommand):
 			env.update(settings.get('build_system.' + kwargs['variant_name'] + '.env', {}))
 			kwargs['env'] = env
 
-			if get_settings('kill_previous') and self.proc and self.proc.poll():
+			if get_setting('kill_previous') and self.proc and self.proc.poll():
 				self.proc.kill()
 
 			# ExecCommand is not expecting variant_name and would cause error
