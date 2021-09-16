@@ -70,12 +70,18 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 
 	pending = 0
 
+	def get_scope(self, view):
+		if self.ST >= 4081:
+			return view.syntax() and view.syntax().scope or ''
+		else:
+			return view.scope_name(len(view.sel()) > 0 and view.sel()[-1].b or 1)
+
 	def onchange(self, view):
 		if not settings.get('live_parser', True):
 			return False
 		filename = view.file_name()
 
-		if 'source.lua.love' not in self.scope_regex.findall(view.scope_name(view.sel()[-1].b)) and (not filename or not filename.endswith('.lua')):
+		if 'source.lua.love' not in self.scope_regex.findall(self.get_scope(view)) and (not filename or not filename.endswith('.lua')):
 			view.erase_regions('lua')
 			return False
 
