@@ -2675,7 +2675,7 @@
 		},
 		{
 			"trigger": "love.graphics.circle",
-			"annotation": "(mode, x, y, radius [, segments)",
+			"annotation": "(mode, x, y, radius [, segments])",
 			"contents": "love.graphics.circle(${1:mode}, ${2:x}, ${3:y}, ${4:radius}, ${5:segments})",
 			"kind": "function",
 			"details": "Draws a circle (<a href=\"https://love2d.org/wiki/love.graphics.circle\">Manual</a>)"
@@ -3480,14 +3480,7 @@
 		},
 		{
 			"trigger": "love.graphics.rectangle",
-			"annotation": "(mode, x, y, width, height)",
-			"contents": "love.graphics.rectangle(${1:mode}, ${2:x}, ${3:y}, ${4:width}, ${5:height})",
-			"kind": "function",
-			"details": "Draws a rectangle (<a href=\"https://love2d.org/wiki/love.graphics.rectangle\">Manual</a>)"
-		},
-		{
-			"trigger": "love.graphics.rectangle",
-			"annotation": "(mode, x, y, width, height, rx [, ry [, segments]])",
+			"annotation": "(mode, x, y, width, height [, rx [, ry [, segments]]])",
 			"contents": "love.graphics.rectangle(${1:mode}, ${2:x}, ${3:y}, ${4:width}, ${5:height}, ${6:rx}, ${7:ry}, ${8:segments})",
 			"kind": "function",
 			"details": "Draws a rectangle (<a href=\"https://love2d.org/wiki/love.graphics.rectangle\">Manual</a>)"
