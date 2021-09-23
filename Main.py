@@ -137,7 +137,8 @@ class ParseLuaCommand(sublime_plugin.EventListener):
 			return
 
 		# Add regions and place the error message in the status bar
-		errors = errors.replace('luac: stdin:', 'Line ')
+		line_header = settings.get('luac_path', 'luac') + ': stdin:'
+		errors = errors.replace(line_header, 'Line ')
 
 		if settings.get('live_parser_status_bar', True):
 			sublime.status_message(errors)
