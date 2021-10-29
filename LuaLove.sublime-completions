@@ -1649,8 +1649,8 @@
 		},
 		{
 			"trigger": "love.load",
-			"annotation": "(arg, unfilteredArg)",
-			"contents": "love.load(${1:msg}, ${2:unfilteredArg})",
+			"annotation": "(args, unfilteredArgs)",
+			"contents": "love.load(${1:args}, ${2:unfilteredArgs})",
 			"kind": ["function", "c", "Callback"],
 			"details": "This function is called exactly once at the beginning of the game (<a href=\"https://love2d.org/wiki/love.load\">Manual</a>)"
 		},
