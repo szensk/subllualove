@@ -2473,6 +2473,13 @@
 		},
 		{
 			"trigger": "love.filesystem.newFileData",
+			"annotation": "(originaldata, name)",
+			"contents": "${1:data} = love.filesystem.newFileData(${2:originaldata}, ${3:name})",
+			"kind": "function",
+			"details": "Creates a new FileData object from a Data object in memory (<a href=\"https://love2d.org/wiki/love.filesystem.newFileData\">Manual</a>)"
+		},
+		{
+			"trigger": "love.filesystem.newFileData",
 			"annotation": "(filepath)",
 			"contents": "${1:data}, ${2:err} = love.filesystem.newFileData(${3:filepath})",
 			"kind": "function",
