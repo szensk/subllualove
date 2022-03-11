@@ -4710,7 +4710,7 @@
 			"annotation": "()",
 			"contents": "${1:time} = love.timer.getTime()",
 			"kind": "function",
-			"details": "Returns the amount of time since some time in the past (<a href=\"https://love2d.org/wiki/love.timer.getTime\">Manual</a>)"
+			"details": "Returns the amount of time in seconds, accurate to the microsecond, since love.timer module was first loaded (<a href=\"https://love2d.org/wiki/love.timer.getTime\">Manual</a>)"
 		},
 		{
 			"trigger": "love.timer.sleep",
