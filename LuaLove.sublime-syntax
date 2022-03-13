@@ -182,6 +182,9 @@ contexts:
       scope: punctuation.section.group.begin.lua
       set:
         - meta_scope: meta.group.lua
+        - include: comment-documentation
+        - include: comment-block
+        - include: comment-line
         - match: '\)'
           scope: punctuation.section.group.end.lua
           pop: true
