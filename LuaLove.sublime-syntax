@@ -305,7 +305,8 @@ contexts:
           captures:
             0: punctuation.definition.string.end.lua
           pop: true
-        - include: string-special
+        - include: string-escapes
+        - include: string-patterns
   string-double:
     - match: '"'
       captures:
@@ -316,10 +317,12 @@ contexts:
           captures:
             0: punctuation.definition.string.end.lua
           pop: true
-        - include: string-special
-  string-special:
+        - include: string-escapes
+        - include: string-patterns
+  string-escapes:
     - match: '\\(a|b|f|n|r|t|v|"|''|[0-9]{3}|0)|\\\\'
       scope: constant.character.escape.lua
+  string-patterns:
     - match: '%(?:[-+ #0]?[0-9]*(?:\.[0-9]*)?[cdEefgGiouXxqs]|%)'
       scope: constant.other.placeholder.lua
   string-multiline:
@@ -332,3 +335,4 @@ contexts:
           captures:
             0: punctuation.definition.string.end.lua
           pop: true
+        - include: string-patterns
