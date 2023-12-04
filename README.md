@@ -1,6 +1,6 @@
 # Lua Love
 
-[![LOVE](https://img.shields.io/badge/L%C3%96VE-11.4-EA316E.svg)](https://love2d.org/)
+[![LOVE](https://img.shields.io/badge/L%C3%96VE-11.5-EA316E.svg)](https://love2d.org/)
 [![Downloads](https://img.shields.io/packagecontrol/dt/Lua%20Love.svg)](https://packagecontrol.io/packages/Lua%20Love)
 
 LuaLove is a package for [Sublime Text](http://www.sublimetext.com) which brings LÖVE 2D API syntax highlighting and more. It is based on [SublimeLove](https://github.com/minism/SublimeLove), [LuaSublime](https://github.com/rorydriscoll/LuaSublime), and [lua_snippet](https://github.com/yinqiang/lua_snippet).
